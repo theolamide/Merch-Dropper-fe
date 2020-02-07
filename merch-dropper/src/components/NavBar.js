@@ -11,6 +11,7 @@ import {
   Input,
   Button
 } from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,8 +38,12 @@ const NavBar = (props) => {
             </NavItem>
 
           </Nav>
-            <Button color="primary" href="/" className="designBtn">Design Merch</Button>{' '}
-            <Button className="ml-5" outline color="primary" href="/">Buy Merch</Button>{' '}
+            <Link to="/registration">
+              <Button color="primary" className="designBtn">Design Merch</Button>{' '}
+            </Link>
+            <Link to="/productDisplay">
+              <Button className="ml-5" outline color="primary" href="/">Buy Merch</Button>{' '}
+            </Link>
         </Collapse>
       </Navbar>
     </div>
