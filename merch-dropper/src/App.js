@@ -12,6 +12,7 @@ import initialState from "./reducers/initialState";
 import ImageUpload from "./components/CloudinaryWidget";
 import Homepage from "./components/Homepage";
 
+
 function App() {
   const [products] = useState(initialState.products);
   return (
