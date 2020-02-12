@@ -20,6 +20,7 @@ function App() {
       <Route exact path="/" component={HomePage} exact />
       <Route exact path="/callback" component={Callback} exact />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Route path="/cart" component={ShoppingCart} />
       <NavBar />
       {/* <ProductDisplay products={products} /> */}
@@ -37,6 +38,11 @@ function App() {
       <SizeSlider />
       <ImageUpload />
 >>>>>>> rebase
+>>>>>>> rebase
+=======
+      <Route path='/cart' component={ShoppingCart} />
+      <NavBar />
+      <ProductDisplay products={products} />
 >>>>>>> rebase
       <Footer />
     </div>
