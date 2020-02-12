@@ -1,12 +1,11 @@
 import { ADD_CART_PRODUCT, REMOVE_CART_PRODUCT } from '../actions';
 import initialState from './initialState';
 
-console.log (initialState, " I N I TI I AL  S T T  AA ATTT  EEE")
 
 
 const CartReducer = (state = initialState, action) => {
     let cart = state.cart;
-    // console.log('current cart state', cart)
+    console.log('current cart state', cart)
 
     switch (action.type) {
         case ADD_CART_PRODUCT:

@@ -1,22 +1,21 @@
 import React from 'react';
 import ShoppingCartItem from './ShoppingCartItem';
 import { connect } from 'react-redux';
-import { removeFromCart } from '../actions'; 
-import styled from 'styled-components';
+import { removeFromCart } from '../actions';
 
 const ShoppingCart = (props) => {
-    console.log('cart props', props)
+    // console.log('cart props', props)
     return (
-        <Div>
+        <div>
             {props.cart.cart.map(product => (
                 <ShoppingCartItem key={product.id} product={product}removeFromCart={props.removeFromCart} />
             ))}
-        </Div>
+        </div>
     )
 };
 
 const mapStateToProps = (state, props) => {
-    console.log('state from shoppingcart', state.CartReducer.cart)
+    // console.log('state from shoppingcart', state.CartReducer.cart)
     return {
         cart: state.CartReducer
     }
@@ -26,6 +25,4 @@ const mapStateToProps = (state, props) => {
 export default connect(mapStateToProps, { removeFromCart })(ShoppingCart);
 
 
-const Div = styled.div`
-    background: plum;
-`;
+

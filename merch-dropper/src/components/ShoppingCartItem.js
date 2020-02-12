@@ -11,7 +11,6 @@ const ShoppingCartItem = (props) => {
                 <h3>${props.product.price}</h3>
                 <button onClick={() => props.removeFromCart(props.product)}>Remove Item</button>
             </div>
-            <h1>shopping cart item</h1>
         </div>
     )
 }

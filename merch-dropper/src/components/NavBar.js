@@ -77,8 +77,8 @@ const NavBar = (props) => {
             <Button color="primary" href="/" className="designBtn">
               Design Merch
             </Button>{" "}
-            <Button className="ml-5" outline color="primary" href="/">
-              Buy Merch
+            <Button className="ml-5" outline color="primary" href="/cart">
+              ShoppingCart
             </Button>{" "}
           </Collapse>
         </Navbar>

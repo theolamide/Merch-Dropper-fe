@@ -1,29 +1,26 @@
-import React,{ useState } from 'react';
-import { Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
-import './App.css';
-import Products from './components/Products';
-import ShoppingCart from './components/ShoppingCart';
-import data from './dummyData';
-import Callback from './components/Callback';
-import Home from './components/Home';
-import Homepage from "./components/Homepage";
+import React, { useState } from "react";
+import { Route } from "react-router-dom";
+import "./App.css";
+import ShoppingCart from "./components/ShoppingCart";
+import NavBar from "./components/NavBar";
+import Callback from "./components/Callback";
+import HomePage from "./components/Home";
 import Footer from "./components/Footer";
-import productArray from "./components/ProductDisplay";
 import ProductDisplay from "./components/ProductDisplay";
 
-function App() {
-  const [products] = useState(productArray);
+import initialState from "./reducers/initialState";
+import ImageUpload from "./components/CloudinaryWidget";
 
+function App() {
+  const [products] = useState(initialState.products);
   return (
     <div className="App">
-      <Route exact path="/" component={Home} exact />
+      <Route exact path="/" component={HomePage} exact />
       <Route exact path="/callback" component={Callback} exact />
-      {/* <NavBar /> */}
-      {/* <Homepage /> */}
-      <ShoppingCart />
-      {/* // <Products product={products}/> */}
-      <ProductDisplay product={products} />
+      <Route path="/cart" component={ShoppingCart} />
+      <NavBar />
+      <ProductDisplay products={products} />
+      <ImageUpload />
       <Footer />
     </div>
   );

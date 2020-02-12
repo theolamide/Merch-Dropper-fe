@@ -2,14 +2,13 @@ import auth0 from "auth0-js";
 
 class Auth {
   constructor() {
-
-    
     this.auth0 = new auth0.WebAuth({
       // the following three lines MUST be updated
       domain: "merch-dropper.auth0.com",
       audience: "https://merch-dropper.auth0.com/userinfo",
       clientID: "Pb3Cp5ptYghmNVDjusjPmsHPRkJq6RAP",
-      redirectUri: "http://localhost:3000/callback",
+      // redirectUri: "http://localhost:3000/callback",
+      redirectUri: "https://flamboyant-minsky-4b61e4.netlify.com/callback",
       responseType: "id_token",
       scope: "openid profile"
     });
@@ -22,22 +21,22 @@ class Auth {
   }
 
   getProfile() {
-      localStorage.setItem("Id_token", this.idToken);
-      console.log("Profile", this.profile);
-      return this.profile;
-    }
-    
-    getIdToken() {
-        return this.idToken;
-    }
-    
-    isAuthenticated() {
-        return new Date().getTime() < this.expiresAt;
-    }
-    
-    signIn() {
-        // localStorage.setItem("Id_token", this.idToken);
-        this.auth0.authorize();
+    localStorage.setItem("Id_token", this.idToken);
+    console.log("Profile", this.profile);
+    return this.profile;
+  }
+
+  getIdToken() {
+    return this.idToken;
+  }
+
+  isAuthenticated() {
+    return new Date().getTime() < this.expiresAt;
+  }
+
+  signIn() {
+    // localStorage.setItem("Id_token", this.idToken);
+    this.auth0.authorize();
   }
 
   handleAuthentication() {
@@ -63,7 +62,8 @@ class Auth {
     this.expiresAt = null;
     localStorage.removeItem("Id_token");
     this.auth0.logout({
-      returnTo: "http://localhost:3000",
+      // returnTo: "http://localhost:3000",
+      returnTo: "https://flamboyant-minsky-4b61e4.netlify.com",
       clientID: "Pb3Cp5ptYghmNVDjusjPmsHPRkJq6RAP"
     });
   }
