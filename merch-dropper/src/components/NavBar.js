@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import auth0Client from "./Auth";
 import '../App.css';
+import "./NavBar.css";
 import {
   Collapse,
   Navbar,
@@ -16,38 +18,115 @@ import {Link} from 'react-router-dom';
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [token, setToken] = useState(localStorage.getItem("Id_token"))
+
   const toggle = () => setIsOpen(!isOpen);
 
-  return (
-    <div class="divNav">
-      <Navbar color="white" light expand="md" className="navStyle">
-        <img className="mr-5" src="https://uxmasters.org/images/merch_logo_50.svg" />
-        <NavbarBrand id="navTitle" href="/">Merch Dropper</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-            <FormGroup className="searchStyle pt-3">
-              <Input className="rounded-pill"
-                  type="search"
-                  name="search"
-                  id="exampleSearch"
-                  placeholder="Search... "
-              />
-            </FormGroup>
-            </NavItem>
+  useEffect(() => {
+    console.log(auth0Client.getProfile());
+    setToken(localStorage.getItem("Id_token"));
+  }, [localStorage.getItem("Id_token")]);
 
-          </Nav>
-            <Link to="/registration">
-              <Button color="primary" className="designBtn">Design Merch</Button>{' '}
-            </Link>
-            <Link to="/productDisplay">
-              <Button className="ml-5" outline color="primary" href="/">Buy Merch</Button>{' '}
-            </Link>
-        </Collapse>
-      </Navbar>
-    </div>
-  );
-}
+    async function profileSignIn() {
+      auth0Client.signIn();
+      await auth0Client.getProfile();
+    }
+  
 
-export default NavBar;
+  const signOut = () => {
+    auth0Client.signOut();
+    this.props.history.replace("/");
+  };
+  
+
+
+
+  if (!localStorage.getItem("Id_token") || localStorage.getItem("Id_token") == "undefined") {
+    return (
+      <div className="divNav">
+        <Navbar color="white" light expand="md" className="navStyle">
+          <img
+            className="mr-5"
+            src="https://uxmasters.org/images/merch_logo_50.svg"
+          />
+          <NavbarBrand id="navTitle" href="/">
+            Merch Dropper
+          </NavbarBrand>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+            <Nav className="mr-auto" navbar>
+              <NavItem>
+                <FormGroup className="searchStyle pt-3">
+                  <Input
+                    className="rounded-pill"
+                    type="search"
+                    name="search"
+                    id="exampleSearch"
+                    placeholder="Search... "
+                  />
+                </FormGroup>
+              </NavItem>
+            </Nav>
+            {!token ||
+              token == "undefined" ? <Button className="ml-5 mr-5" onClick={profileSignIn}>
+              Sign In
+            </Button> : null}
+            {/* <Button className="ml-5 mr-5" onClick={profileSignIn}>
+              Sign In
+            </Button> */}
+            <Button color="primary" href="/" className="designBtn">
+              Design Merch
+            </Button>{" "}
+            <Button className="ml-5" outline color="primary" href="/">
+              Buy Merch
+            </Button>{" "}
+          </Collapse>
+        </Navbar>
+      </div>
+    );
+  }
+  else {
+    return (
+      <div class="divNav">
+        <Navbar color="white" light expand="md" className="navStyle">
+          <img
+            className="mr-5"
+            src="https://uxmasters.org/images/merch_logo_50.svg"
+          />
+          <NavbarBrand id="navTitle" href="/">
+            Merch Dropper
+          </NavbarBrand>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+            <Nav className="mr-auto" navbar>
+              <NavItem>
+                <FormGroup className="searchStyle pt-3">
+                  <Input
+                    className="rounded-pill"
+                    type="search"
+                    name="search"
+                    id="exampleSearch"
+                    placeholder="Search... "
+                  />
+                </FormGroup>
+              </NavItem>
+            </Nav>
+            <Button color="primary" href="/" className="designBtn">
+              Design Merch
+            </Button>{" "}
+            <Button className="ml-5" outline color="primary" href="/">
+              Buy Merch
+            </Button>{" "}
+            <img src={auth0Client.getProfile().picture} className="img-rounded img-fluid avatar" />
+            <p><b>Hello {auth0Client.getProfile().name}</b></p>
+            <Button className="ml-5" onClick={signOut}>
+              Sign Out
+            </Button>
+          </Collapse>
+        </Navbar>
+      </div>
+    );
+  }
+    }
+    
+    export default NavBar;
