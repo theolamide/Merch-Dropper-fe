@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-
-
+import "../App.css";
+import addToCart  from "../actions/index";
 import {
   Card,
   CardBody,
@@ -39,9 +39,5 @@ const ProductCard = ({product, addToCart}) => {
     </Fragment>
   );
 };
-
-
-
-
 
 export default ProductCard;
