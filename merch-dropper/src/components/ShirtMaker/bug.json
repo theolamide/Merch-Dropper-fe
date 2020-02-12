@@ -1,0 +1,22 @@
+{
+  "id": "uw-file3",
+  "batchId": "uw-batch2",
+  "public_id": "eiz7lg8c8mtosndddelk",
+  "version": 1581454280,
+  "signature": "ae0721a2bc19c40f56b57f6cccf1bd64752f7141",
+  "width": 620,
+  "height": 489,
+  "format": "jpg",
+  "resource_type": "image",
+  "created_at": "2020-02-11T20:51:20Z",
+  "length": 0,
+  "bytes": 35392,
+  "type": "upload",
+  "etag": "87209781328fed49411886b81974d399",
+  "placeholder": false,
+  "url": "http://res.cloudinary.com/dze74ofbf/image/upload/v1581454280/eiz7lg8c8mtosndddelk.jpg",
+  "secure_url": "https://res.cloudinary.com/dze74ofbf/image/upload/v1581454280/eiz7lg8c8mtosndddelk.jpg",
+  "original_filename": "70125032_1139490262908659_1376314010781089792_n",
+  "path": "v1581454280/eiz7lg8c8mtosndddelk.jpg",
+  "thumbnail_url": "https://res.cloudinary.com/dze74ofbf/image/upload/c_limit,h_60,w_90/v1581454280/eiz7lg8c8mtosndddelk.jpg"
+}
