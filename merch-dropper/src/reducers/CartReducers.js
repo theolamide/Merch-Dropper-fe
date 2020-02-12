@@ -5,7 +5,7 @@ import initialState from './initialState';
 
 const CartReducer = (state = initialState, action) => {
     let cart = state.cart;
-    // console.log('current cart state', cart)
+    console.log('current cart state', cart)
 
     switch (action.type) {
         case ADD_CART_PRODUCT:

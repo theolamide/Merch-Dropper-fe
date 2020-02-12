@@ -17,6 +17,7 @@ const ProductWindow = styled.div`
 `;
 
 const ProductDisplay = ({ products, addToCart }) => {
+  console.log('productdisplay/products', products)
   return (
     <Container fluid="true" className="container-margin">
       <Row>
@@ -46,7 +47,7 @@ const ProductDisplay = ({ products, addToCart }) => {
 };
 
 const mapStateToProps = (state) => {
-  // console.log("state in products", state.CartReducer.cart);
+  // console.log("state in products", state);
   return {
     cart: state.CartReducer.cart,
     products: state.ProductReducer.products

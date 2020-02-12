@@ -20,7 +20,7 @@ import "../App.css";
 
 const ProductCard = ({product, addToCart}) => {
 
-  // console.log(product)
+  console.log('product', product)
   return (
     <Fragment>
       <Col  xs="6" lg="4" >
