@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import ProductDisplay from "./components/ProductDisplay";
 import initialState from "./reducers/initialState";
 import ImageUpload from "./components/CloudinaryWidget";
+import CheckoutPage from './components/Checkout';
 
 function App() {
   const [products] = useState(initialState.products);
@@ -19,6 +20,7 @@ function App() {
       <Route exact path="/" component={HomePage} />
       <Route exact path="/callback" component={Callback} />
       <Route exact path='/cart' component={ShoppingCart} />
+      <Route exact path='/checkout' component={CheckoutPage} />
 
       {/* </Switch> */}
       <ProductDisplay products={products} />

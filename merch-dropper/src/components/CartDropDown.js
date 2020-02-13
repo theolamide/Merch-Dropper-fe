@@ -1,11 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from 'reactstrap';
-
-import { selectCartItems } from '../Selectors/cart.selectors';
 
 
 const CartDropdownDiv = styled.div`
@@ -98,7 +95,9 @@ const CartDropdown = ({ cartItems, histoy, dispatch }) => (
             }
 
         </CartItemsDiv>
-        <CustomButton>
+        <CustomButton onClick={() => {
+            window.location = '/checkout';
+        }} >
             GO TO CHECKOUT
         </CustomButton>
     </CartDropdownDiv>
