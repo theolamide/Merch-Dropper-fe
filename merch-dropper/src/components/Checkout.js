@@ -34,7 +34,48 @@ const Total = styled.div`
     margin-left: auto;
     font-size: 36px;
 `
+const CheckoutItemWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    min-height: 100px;
+    border-bottom: 1px solid darkgrey;
+    padding: 15px 0;
+    font-size: 20px;
+    align-items: center;
+`
+const ImageWrapper = styled.div`
+    width: 23%;
+    padding-right: 15px;
+`
 
+const ImageContainer = styled.img`
+    width: 100%;
+    height: 100%;
+`
+
+const DescriptionWrapper = styled.span`
+    width: 23%;
+    display: flex;
+    font-size: 1rem;
+`
+const QuantityWrapper = styled.span`
+    display: flex;
+    width: 23%;
+`
+const PriceWrapper = styled.span`
+    width: 23%;
+`
+const Arrow = styled.div`
+    cursor:pointer;
+`
+
+const ValueDiv = styled.span`
+    margin: 0 10px;
+`
+const RemoveButton = styled.div`
+    padding-left: 12px;
+    cursor: pointer;
+`
 
 
 const CheckoutPage = ({ cartItems, total }) => (
@@ -60,19 +101,22 @@ const CheckoutPage = ({ cartItems, total }) => (
         {
             cartItems.map(cartItem =>
                 // <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-                <div className='checkout-item'>
-                    <div className='image-container'>
-                        <img src={cartItem.url} alt='item' />
-                    </div>
-                    <span className='name'>{cartItem.name}</span>
-                    <span className='quantity'>
+                <CheckoutItemWrapper className='checkout-item'>
+                    <ImageWrapper className='image-container'>
+                        <ImageContainer src={cartItem.url} alt='item' />
+                    </ImageWrapper>
+                    <DescriptionWrapper className='description'>{cartItem.design} in {cartItem.color}</DescriptionWrapper>
+                    <QuantityWrapper className='quantity'>
+                        <Arrow className='arrow'>&#10094;</Arrow>
                         {/* <div className='arrow' onClick={() => removeItem(cartItem)} >&#10094;</div> */}
-                        <span className='value'>{cartItem.quantity}</span>
+                        <ValueDiv className='value'>{cartItem.quantity}</ValueDiv>
+                        <Arrow className='arrow'>&#10095;</Arrow>
                         {/* <div className='arrow' onClick={() => addItem(cartItem)}>&#10095;</div> */}
-                    </span>
-                    <span className='price'>{cartItem.price}</span>
+                    </QuantityWrapper>
+                    <PriceWrapper className='price'>{cartItem.price}</PriceWrapper>
+                    <RemoveButton className='remove-button' >&#10005;</RemoveButton>
                     {/* <div className='remove-button' onClick={() => clearItem(cartItem)}>&#10005;</div> */}
-                </div>
+                </CheckoutItemWrapper>
             )
         }
         {/* <div className='total'>
