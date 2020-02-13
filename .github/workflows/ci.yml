@@ -7,6 +7,8 @@ jobs:
     name: Test and publish test coverage
     runs-on: ubuntu-latest
     steps:
+
+			# A GitHub action for checking out the current branch
       - uses: actions/checkout@master
 
       - uses: actions/setup-node@master
