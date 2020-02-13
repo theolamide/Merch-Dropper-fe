@@ -21,11 +21,12 @@ function App() {
       <Route exact path="/" component={HomePage} exact />
       <Route exact path="/callback" component={Callback} exact />
       <Route path="/cart" component={ShoppingCart} />
-      <NavBar />
+      {/* <NavBar /> */}
       {/* <ProductDisplay products={products} /> */}
-      <Homepage />
-      {/* <ImageUpload /> */}
-      <Footer />
+      {/* <Homepage /> */}
+      <ImageUpload />
+      <SubmitShirt url={"http://oo-prod.s3.amazonaws.com/public/images/mockups/ALPHA-3001C-pebble_brown-front_ffffff_5e450468d20c42282f44cfab/regular.jpg"} />
+      {/* <Footer /> */}
     </div>
   );
 }

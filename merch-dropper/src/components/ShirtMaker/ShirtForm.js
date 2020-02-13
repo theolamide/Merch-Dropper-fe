@@ -15,6 +15,7 @@ const ShirtForm = ({ garment, setGarment }) => {
     ShirtMaker(garment, setGarment);
   };
 
+
   return (
     <Fragment>
       <form onSubmit={handleSubmit}>
