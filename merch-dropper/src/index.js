@@ -4,6 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,15 +18,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
+const middlewares = [thunk, logger]
+
 const store = createStore(
     rootReducer,
-    composeEnhancers(applyMiddleware(thunk))
+    composeEnhancers(applyMiddleware(...middlewares))
 );
+
+const persistor = persistStore(store);
 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
+            {/* <PersistGate persistor={persistor}> */}
             <App />
+            {/* </PersistGate> */}
         </BrowserRouter>
     </Provider>, document.getElementById('root'));
 

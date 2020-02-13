@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import ShoppingCart from "./components/ShoppingCart";
 import NavBar from "./components/NavBar";
@@ -14,10 +14,13 @@ function App() {
   const [products] = useState(initialState.products);
   return (
     <div className="App">
-      <Route exact path="/" component={HomePage} exact />
-      <Route exact path="/callback" component={Callback} exact />
-      <Route path='/cart' component={ShoppingCart} />
       <NavBar />
+      {/* <Switch> */}
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/callback" component={Callback} />
+      <Route exact path='/cart' component={ShoppingCart} />
+
+      {/* </Switch> */}
       <ProductDisplay products={products} />
       <ImageUpload />
       <Footer />

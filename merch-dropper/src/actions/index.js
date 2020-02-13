@@ -33,7 +33,7 @@ export const userLogin = (loginInfo) => dispatch => {
             localStorage.setItem('token', res.data.token)
             dispatch({ type: LOGIN_SUCCESS, payload: res.data })
         })
-        .catch(err=> {
+        .catch(err => {
             console.log(err)
             dispatch({ type: LOGIN_FAILURE, payload: err })
         })
@@ -58,7 +58,7 @@ export const getProducts = (productId) => dispatch => {
 
 //post request to add a new product to store
 export const ADD_PRODUCT_START = 'ADD_PRODUCT_START';
-export const ADD_PRODUCT_SUCCESS ='ADD_PRODUCT_SUCCESS';
+export const ADD_PRODUCT_SUCCESS = 'ADD_PRODUCT_SUCCESS';
 export const ADD_PRODUCT_FAIL = 'ADD_PRODUCT_FAIL';
 
 export const addProduct = newProduct => dispatch => {
@@ -76,7 +76,7 @@ export const addProduct = newProduct => dispatch => {
 // delete request to remove product from store
 export const REMOVE_PRODUCT_START = 'REMOVE_PRODUCT_START';
 export const REMOVE_PRODUCT_SUCCESS = 'REMOVE_PRODUCT_SUCCESS';
-export  const REMOVE_PRODUCT_FAIL =  'REMOVE_PRODUCT_FAIL';
+export const REMOVE_PRODUCT_FAIL = 'REMOVE_PRODUCT_FAIL';
 
 export const removeProduct = productId => dispatch => {
     dispatch({ type: REMOVE_PRODUCT_START })
@@ -95,8 +95,8 @@ export const removeProduct = productId => dispatch => {
 export const ADD_CART_PRODUCT = 'ADD_CART_PRODUCT';
 export const addToCart = product => {
     console.log('action called', product)
-    return { 
-        type: ADD_CART_PRODUCT, 
+    return {
+        type: ADD_CART_PRODUCT,
         payload: product
     }
 };
@@ -110,3 +110,12 @@ export const removeFromCart = product => {
         payload: product.id
     }
 };
+
+//toggle chopping cart
+export const TOGGLE_CART_HIDDEN = 'TOGGLE_CART_HIDDEN';
+export const toggleCartHidden = (cart) => {
+    console.log('hide cart toggle triggered', cart)
+    return {
+        type: TOGGLE_CART_HIDDEN
+    }
+}
