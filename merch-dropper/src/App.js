@@ -8,6 +8,7 @@ import HomePage from "./components/Home";
 import Footer from "./components/Footer";
 import ProductDisplay from "./components/ProductDisplay";
 import Swatch from "./components/ShirtMaker/Swatch";
+import SubmitShirt from "./components/ShirtMaker/SubmitShirt";
 import initialState from "./reducers/initialState";
 import ImageUpload from "./components/CloudinaryWidget";
 import Homepage from "./components/Homepage";
@@ -19,31 +20,11 @@ function App() {
     <div className="App">
       <Route exact path="/" component={HomePage} exact />
       <Route exact path="/callback" component={Callback} exact />
-<<<<<<< HEAD
-<<<<<<< HEAD
       <Route path="/cart" component={ShoppingCart} />
       <NavBar />
       {/* <ProductDisplay products={products} /> */}
       <Homepage />
       {/* <ImageUpload /> */}
-=======
-<<<<<<< HEAD
-      <Route path='/cart' component={ShoppingCart} />
-      <NavBar />
-      <ProductDisplay products={products} />
-=======
-      {/* <ShoppingCart /> */}
-      {/* <ProductDisplay products={products} /> */}
-      <Swatch />
-      <SizeSlider />
-      <ImageUpload />
->>>>>>> rebase
->>>>>>> rebase
-=======
-      <Route path='/cart' component={ShoppingCart} />
-      <NavBar />
-      <ProductDisplay products={products} />
->>>>>>> rebase
       <Footer />
     </div>
   );
