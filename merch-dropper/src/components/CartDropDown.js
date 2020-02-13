@@ -1,7 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
-
 import { Button } from 'reactstrap';
+
+import { selectCartItems } from '../Selectors/cart.selectors';
 
 
 const CartDropdownDiv = styled.div`
@@ -19,11 +23,31 @@ const CartDropdownDiv = styled.div`
     z-index: 5;
 `
 
+const CartItemDiv = styled.div`
+    width: 100%;
+    display: flex;
+    height: 80px;
+    margin-bottom: 15px;
+`
+
+const CartItemImage = styled.img`
+    width: 30%;
+`
+
+const CartItemDetails = styled.div`
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px 20px;
+`
+
 const CartItemsDiv = styled.div`
     height: 240px;
     display: flex;
     flex-direction: column;
-    // overflow: scroll;
+    overflow: scroll;
 `
 
 const CustomButton = styled(Button)`
@@ -51,10 +75,27 @@ const CustomButton = styled(Button)`
         }
 `
 
+const SingleCartItem = ({ item: { url, price, name, quantity } }) => (
+    <CartItemDiv className='cart-item'>
+        <CartItemImage src={url} alt='item' />
+        <CartItemDetails className='item-details'>
+            <span className='name'>{name}</span>
+            <span className='price'> {quantity} x ${price}</span>
+        </CartItemDetails>
+    </CartItemDiv>
+)
 
-const CartDropdown = () => (
+const CartDropdown = ({ cartItems, histoy, dispatch }) => (
     <CartDropdownDiv className='cart-dropdown'>
         <CartItemsDiv className='cart-items'>
+            {
+                cartItems.length ?
+                    cartItems.map(cartItem => (
+                        <SingleCartItem key={cartItem.id} item={cartItem} />
+                    ))
+                    :
+                    <span className='empty-message'>Your Cart is Empty</span>
+            }
 
         </CartItemsDiv>
         <CustomButton>
@@ -64,4 +105,12 @@ const CartDropdown = () => (
 )
 
 
-export default CartDropdown;
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        cartItems: state.CartReducer.cart
+    }
+}
+
+
+export default connect(mapStateToProps)(CartDropdown);

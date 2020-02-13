@@ -17,7 +17,7 @@ const ProductWindow = styled.div`
 `;
 
 const ProductDisplay = ({ products, addToCart }) => {
-  console.log('productdisplay/products', products)
+  // console.log('productdisplay/products', products)
   return (
     <Container fluid="true" className="container-margin">
       <Row>
