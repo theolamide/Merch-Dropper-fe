@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import ColorPicker from "./ColorPicker";
-import ShirtMaker from "./ShirtMaker";
+// import ShirtMaker from "./ShirtMaker";
 
-const ShirtForm = ({ garment, setGarment }) => {
+const ShirtForm = ({ garment, setGarment, handleScale }) => {
   // console.log(garment);
   const { designWidth, designPlacement, offSetFromTop } = garment;
   // console.log(setGarment)
@@ -10,14 +10,10 @@ const ShirtForm = ({ garment, setGarment }) => {
     setGarment({ ...garment, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    ShirtMaker(garment, setGarment);
-  };
 
   return (
     <Fragment>
-      <form onSubmit={handleSubmit}>
+
         <ColorPicker
           garment={garment}
           setGarment={setGarment}
@@ -48,10 +44,10 @@ const ShirtForm = ({ garment, setGarment }) => {
           value={offSetFromTop}
           onChange={handleChange}
         />
-        <button color="success" type="submit">
-          Submit
+        <button color="success" onClick={handleScale}>
+          Scalablize
         </button>
-      </form>
+
     </Fragment>
   );
 };

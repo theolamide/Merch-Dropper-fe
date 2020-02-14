@@ -17,7 +17,7 @@ const ShoppingCart = (props) => {
 const mapStateToProps = (state, props) => {
     // console.log('state from shoppingcart', state.CartReducer.cart)
     return {
-        cart: state.CartReducer
+        cart: state.CartReducer.cart
     }
 }
 

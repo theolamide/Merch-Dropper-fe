@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const ShirtMaker = async (garment, setGarment) => {
-  console.log(garment);
-
-  let data = await {
+const ScalableApiHandler = async (garment, setGarment) => {
+  let data = {
     template: { name: "front" },
     product: { id: "canvas-unisex-t-shirt", color: garment.color },
     design: {
@@ -19,13 +17,10 @@ const ShirtMaker = async (garment, setGarment) => {
           }
         }
       }
-    },
-    output: garment.fileOutput
+    }
   };
 
-console.log(data, "DDD AAAA TTTTT  AAAA")
-
-  let config = await {
+  let config = {
     headers: {
       "Content-Type": "application/json",
       "Authorization": "Basic OnRlc3RfZUIza2JJTThFRG5OdHEwenBSSU5fZw=="
@@ -45,7 +40,8 @@ console.log(data, "DDD AAAA TTTTT  AAAA")
     }
   }
   makeShirt();
-  return <p>{data}</p>
+
+  return <div></div>;
 };
 
-export default ShirtMaker;
+export default ScalableApiHandler;
