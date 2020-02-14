@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+
 let widget = window.cloudinary.createUploadWidget(
   {
     cloudName: "dze74ofbf",
