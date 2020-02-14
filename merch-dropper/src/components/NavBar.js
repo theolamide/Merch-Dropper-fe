@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import auth0Client from "./Auth";
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 
 import CartIcon from './CartIcon.js';
@@ -25,7 +26,7 @@ import {
 
 
 
-const NavBar = ({ hidden }) => {
+const NavBar = ({ hidden, history }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [token, setToken] = useState(localStorage.getItem("Id_token"))
@@ -51,7 +52,8 @@ const NavBar = ({ hidden }) => {
 
 
 
-  if (!localStorage.getItem("Id_token") || localStorage.getItem("Id_token") == "undefined") {
+  if (!token || token == "undefined") {
+
     return (
       <div className="divNav">
         <Navbar color="white" light expand="md" className="navStyle">
@@ -87,22 +89,29 @@ const NavBar = ({ hidden }) => {
               </Button> : null
             }
 
-            <Button color="primary" href="/" className="designBtn">
+            <Button color="primary" className="designBtn">
               Design Merch
+            </Button>
+
+            <Button color="primary" className="designBtn"
+              onClick={() => {
+                history.push('/products');
+              }}
+            >
+              Buy Merch
             </Button>
 
             <CartIcon />
 
-            {/* <Button className="ml-5" outline color="primary" href="/cart">
-              ShoppingCart
-            </Button> */}
           </Collapse>
-          {hidden ? null : <CartDropDown />}
+          {hidden ? null :
+            <CartDropDown />
+          }
         </Navbar>
       </div>
     );
-  }
-  else {
+
+  } else {
     return (
       <div class="divNav">
         <Navbar color="white" light expand="md" className="navStyle">
@@ -146,8 +155,8 @@ const NavBar = ({ hidden }) => {
   }
 }
 
-const mapStateToProps = ({ CartReducer: { hidden } }) => ({
-  hidden
+const mapStateToProps = (state) => ({
+  hidden: state.CartReducer.hidden
 })
 
-export default connect(mapStateToProps)(NavBar);
+export default withRouter(connect(mapStateToProps)(NavBar));

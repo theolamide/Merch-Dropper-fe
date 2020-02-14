@@ -90,6 +90,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-family: 'Roboto', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -140,6 +141,8 @@ table {
 
 #navTitle {
   color: #007bff;
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
 .searchStyle {
@@ -198,3 +201,10 @@ table {
 		0 3px 8px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 5px;
 	}
+
+.line2 {
+	margin: 5% auto;
+	width: 35%;
+	border: 3px solid #FFFFFF;
+	border-radius: 10px;
+}

@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 import { Button } from 'reactstrap';
+
+import { toggleCartHidden } from '../actions/index';
 
 
 const CartDropdownDiv = styled.div`
@@ -82,7 +85,7 @@ const SingleCartItem = ({ item: { url, price, name, quantity } }) => (
     </CartItemDiv>
 )
 
-const CartDropdown = ({ cartItems, histoy, dispatch }) => (
+const CartDropdown = ({ cartItems, history, dispatch }) => (
     <CartDropdownDiv className='cart-dropdown'>
         <CartItemsDiv className='cart-items'>
             {
@@ -96,7 +99,8 @@ const CartDropdown = ({ cartItems, histoy, dispatch }) => (
 
         </CartItemsDiv>
         <CustomButton onClick={() => {
-            window.location = '/checkout';
+            history.push('/checkout');
+            dispatch(toggleCartHidden());
         }} >
             GO TO CHECKOUT
         </CustomButton>
@@ -112,4 +116,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(CartDropdown);
+export default withRouter(connect(mapStateToProps)(CartDropdown));

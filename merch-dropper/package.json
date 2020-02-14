@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "auth0-lock": "^11.20.3",
+    "auth0-lock": "^11.21.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "cloudinary": "^1.19.0",
@@ -28,7 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "coverage": "CI=true yarn test --coverage || true"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,5 +48,13 @@
   },
   "devDependencies": {
     "cypress": "^3.8.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/__tests__/**"
+    ]
   }
 }

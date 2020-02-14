@@ -57,6 +57,7 @@ const DescriptionWrapper = styled.span`
     width: 23%;
     display: flex;
     font-size: 1rem;
+    padding-right: 1rem;
 `
 const QuantityWrapper = styled.span`
     display: flex;
@@ -92,7 +93,7 @@ const CheckoutPage = ({ cartItems, total }) => (
                 <span>Quantity</span>
             </HeaderBlock>
             <HeaderBlock className='header-block'>
-                <span>Price</span>
+                <span>Unit Price</span>
             </HeaderBlock>
             <HeaderBlock className='header-block'>
                 <span>Remove</span>
@@ -113,7 +114,7 @@ const CheckoutPage = ({ cartItems, total }) => (
                         <Arrow className='arrow'>&#10095;</Arrow>
                         {/* <div className='arrow' onClick={() => addItem(cartItem)}>&#10095;</div> */}
                     </QuantityWrapper>
-                    <PriceWrapper className='price'>{cartItem.price}</PriceWrapper>
+                    <PriceWrapper className='price'>${cartItem.price}</PriceWrapper>
                     <RemoveButton className='remove-button' >&#10005;</RemoveButton>
                     {/* <div className='remove-button' onClick={() => clearItem(cartItem)}>&#10005;</div> */}
                 </CheckoutItemWrapper>
