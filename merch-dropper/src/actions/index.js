@@ -101,12 +101,21 @@ export const addToCart = product => {
     }
 };
 
-// remove item from shopping cart
+// remove one single item from shopping cart. e.g if 10 yellow shirts, remove 1 of the 10 yellow shirts.
 export const REMOVE_CART_PRODUCT = 'REMOVE_CART_PRODUCT';
 export const removeFromCart = product => {
     // console.log('removeaction called', product)
     return {
         type: REMOVE_CART_PRODUCT,
+        payload: product
+    }
+};
+
+//Clear whole item from cart. e.g if 10 yellow shirts, remove all 10 at once.
+export const CLEAR_CART_PRODUCT = 'CLEAR_CART_PRODUCT';
+export const clearItemFromCart = product => {
+    return {
+        type: CLEAR_CART_PRODUCT,
         payload: product
     }
 };
@@ -118,4 +127,6 @@ export const toggleCartHidden = (cart) => {
     return {
         type: TOGGLE_CART_HIDDEN
     }
-}
+};
+
+

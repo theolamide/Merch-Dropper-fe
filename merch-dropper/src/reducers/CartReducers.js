@@ -1,4 +1,4 @@
-import { ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, TOGGLE_CART_HIDDEN } from '../actions';
+import { ADD_CART_PRODUCT, REMOVE_CART_PRODUCT, CLEAR_CART_PRODUCT, TOGGLE_CART_HIDDEN } from '../actions';
 import initialState from './initialState';
 
 const addProductToCart = (cartItems, cartItemToAdd) => {
@@ -52,6 +52,14 @@ const CartReducer = (state = initialState, action) => {
                 // cart: cart.filter(item => item.id !== action.payload)
                 cart: removeProductFromCart(state.cart, action.payload)
             };
+
+        case CLEAR_CART_PRODUCT:
+            return {
+                ...state,
+                cart: state.cart.filter(
+                    cartItem => cartItem.id !== action.payload.id
+                )
+            }
 
         case TOGGLE_CART_HIDDEN:
             return {

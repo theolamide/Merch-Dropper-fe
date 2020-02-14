@@ -6,12 +6,12 @@ import styled from 'styled-components';
 import StripeCheckoutButton from './StripeButton';
 
 import { selectCartItems, selectCartTotal } from '../Selectors/cart.selectors';
-import { addToCart, removeFromCart } from '../actions/index';
+import { addToCart, removeFromCart, clearItemFromCart } from '../actions/index';
 
 
 
 
-const CheckoutPage = ({ cartItems, total, addItem, removeItem }) => (
+const CheckoutPage = ({ cartItems, total, addItem, removeItem, clearItem }) => (
 
     <CheckoutPageWrapper className='checkout-page'>
         <CheckoutHeader className='checkout-header'>
@@ -46,8 +46,8 @@ const CheckoutPage = ({ cartItems, total, addItem, removeItem }) => (
                         {/* <div className='arrow' >&#10095;</div> */}
                     </QuantityWrapper>
                     <PriceWrapper className='price'>${cartItem.price}</PriceWrapper>
-                    <RemoveButton className='remove-button' >&#10005;</RemoveButton>
-                    {/* <div className='remove-button' onClick={() => clearItem(cartItem)}>&#10005;</div> */}
+                    <RemoveButton className='remove-button' onClick={() => clearItem(cartItem)} >&#10005;</RemoveButton>
+                    {/* <div className='remove-button' >&#10005;</div> */}
                 </CheckoutItemWrapper>
             )
         }
@@ -60,7 +60,8 @@ const CheckoutPage = ({ cartItems, total, addItem, removeItem }) => (
 
 const mapDispatchToProps = dispatch => ({
     addItem: item => dispatch(addToCart(item)),
-    removeItem: item => dispatch(removeFromCart(item))
+    removeItem: item => dispatch(removeFromCart(item)),
+    clearItem: item => dispatch(clearItemFromCart(item))
 })
 
 const mapStateToprops = createStructuredSelector({
