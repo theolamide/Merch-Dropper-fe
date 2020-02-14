@@ -7,12 +7,12 @@ import Callback from "./components/Callback";
 import HomePage from "./components/Home";
 import Footer from "./components/Footer";
 import ProductDisplay from "./components/ProductDisplay";
-import Swatch from "./components/ShirtMaker/Swatch";
-import SubmitShirt from "./components/ShirtMaker/SubmitShirt";
+
 import initialState from "./reducers/initialState";
 import ImageUpload from "./components/CloudinaryWidget";
 import Homepage from "./components/Homepage";
 
+import DesignShirt from "./components/Shirt/DesignShirt";
 
 function App() {
   const [products] = useState(initialState.products);
@@ -24,9 +24,9 @@ function App() {
       {/* <NavBar /> */}
       {/* <ProductDisplay products={products} /> */}
       {/* <Homepage /> */}
-      <ImageUpload />
-      <SubmitShirt url={"http://oo-prod.s3.amazonaws.com/public/images/mockups/ALPHA-3001C-pebble_brown-front_ffffff_5e450468d20c42282f44cfab/regular.jpg"} />
       {/* <Footer /> */}
+
+      <DesignShirt />
     </div>
   );
 }
