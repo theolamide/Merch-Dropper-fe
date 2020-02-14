@@ -4,13 +4,23 @@ name: build
 on: [push, pull_request]
 
 jobs:
+<<<<<<< HEAD
   coverage:
+=======
+
+  coverage:
+
+>>>>>>> 9e05c0dcb7b83df4e66a77dab0c00ad164a11d8a
     name: Test and publish test coverage
 
     runs-on: ubuntu-latest
 
     steps:
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> 9e05c0dcb7b83df4e66a77dab0c00ad164a11d8a
       - uses: actions/checkout@master
 
       - uses: actions/setup-node@master
@@ -24,4 +34,8 @@ jobs:
 
           CC_TEST_REPORTER_ID: 63c283be2deae2d3458346818c6bde5fcb19a7afc872d8cc18d0f886ef068239
         with:
+<<<<<<< HEAD
           coverageCommand: npm run coverage
+=======
+          coverageCommand: npm run coverage
+>>>>>>> 9e05c0dcb7b83df4e66a77dab0c00ad164a11d8a

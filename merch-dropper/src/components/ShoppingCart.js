@@ -8,7 +8,7 @@ const ShoppingCart = (props) => {
     return (
         <div>
             {props.cart.cart.map(product => (
-                <ShoppingCartItem key={product.id} product={product}removeFromCart={props.removeFromCart} />
+                <ShoppingCartItem key={product.id} product={product} removeFromCart={props.removeFromCart} />
             ))}
         </div>
     )
@@ -17,7 +17,7 @@ const ShoppingCart = (props) => {
 const mapStateToProps = (state, props) => {
     // console.log('state from shoppingcart', state.CartReducer.cart)
     return {
-        cart: state.CartReducer
+        cart: state.CartReducer.cart
     }
 }
 

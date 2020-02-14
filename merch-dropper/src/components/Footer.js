@@ -15,7 +15,7 @@ import {
 
 const Footer = (props) => {
     return (
-        <div className="mt-5 fixed-bottom ">
+        <div className="mt-5 footer">
             <Navbar color="white" light expand="md" className="navStyle">
                 <Form inline className="ml-5">
                     <FormGroup>
