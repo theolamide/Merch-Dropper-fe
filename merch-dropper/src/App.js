@@ -25,8 +25,8 @@ function App() {
         <Route exact path='/products'
           render={(props) => <ProductDisplay {...props} products={products} />}
         />
+        <Route exact path='/designshirt' component={DesignShirt} />
         <Route exact path="/" component={HomePage} />
-        <DesignShirt />
       </Switch>
       {/* <ImageUpload /> */}
       <Footer />
