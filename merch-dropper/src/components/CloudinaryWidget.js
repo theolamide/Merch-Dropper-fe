@@ -12,11 +12,11 @@ let widget = window.cloudinary.createUploadWidget(
   },
   (error, result) => {
     if (result.event == "success") {
-      console.log(result.info.url, "THIS ONE IS THE RESULT OK");
+      console.log(result.info, "THIS ONE IS THE RESULT OK");
     }
   }
 );
-const showWidget = function() {
+const showWidget = function () {
   widget.open();
 };
 const ImageUpload = () => {

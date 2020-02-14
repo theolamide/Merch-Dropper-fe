@@ -1,40 +1,41 @@
-# The name of the workflow
+
 name: build
 
-# What conditions trigger the workflow
-#  In this case, all pushes and pull requests
 on: [push, pull_request]
 
-# The jobs that will be run, usually in parallel
 jobs:
-  # A job to generate and publish code coverage
+<<<<<<< HEAD
   coverage:
-		# A more descriptive name of the job
+=======
+
+  coverage:
+
+>>>>>>> 9e05c0dcb7b83df4e66a77dab0c00ad164a11d8a
     name: Test and publish test coverage
 
-		# The OS on which the job will run
     runs-on: ubuntu-latest
 
-		# The steps for the job, executed in sequence
     steps:
+<<<<<<< HEAD
 			
-			# A GitHub action for checking out the current branch
+=======
+
+>>>>>>> 9e05c0dcb7b83df4e66a77dab0c00ad164a11d8a
       - uses: actions/checkout@master
 
-			# A GitHub action to setup Node.js
       - uses: actions/setup-node@master
         with:
           node-version: "12"
 
-			# Run the NPM install command before proceeding
       - run: npm install
 
-			# A GitHub action for running tests and publishing coverage
       - uses: paambaati/codeclimate-action@v2.4.0
         env:
 
-					# An environment variable, the value is a GitHub repo secret
           CC_TEST_REPORTER_ID: 63c283be2deae2d3458346818c6bde5fcb19a7afc872d8cc18d0f886ef068239
         with:
-					# Run our `coverage` command from our `package.json`
+<<<<<<< HEAD
           coverageCommand: npm run coverage
+=======
+          coverageCommand: npm run coverage
+>>>>>>> 9e05c0dcb7b83df4e66a77dab0c00ad164a11d8a
