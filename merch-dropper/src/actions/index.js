@@ -120,7 +120,7 @@ export const clearItemFromCart = product => {
     }
 };
 
-//toggle chopping cart
+//toggle shopping cart
 export const TOGGLE_CART_HIDDEN = 'TOGGLE_CART_HIDDEN';
 export const toggleCartHidden = (cart) => {
     // console.log('hide cart toggle triggered', cart)

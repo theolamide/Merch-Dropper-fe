@@ -89,7 +89,12 @@ const NavBar = ({ hidden, history }) => {
               </Button> : null
             }
 
-            <Button color="primary" className="designBtn">
+            <Button color="primary" className="designBtn"
+              color="primary" className="designBtn"
+              onClick={() => {
+                history.push('/designshirt');
+              }}
+            >
               Design Merch
             </Button>
 
