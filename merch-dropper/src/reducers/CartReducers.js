@@ -20,8 +20,6 @@ const removeProductFromCart = (cartItems, cartItemToRemove) => {
     const existingCartItem = cartItems.find(
         cartItem => cartItem.id === cartItemToRemove.id
     )
-    console.log('From cart reducer', cartItems)
-    console.log('From cart reducer', existingCartItem, cartItemToRemove)
 
     if (existingCartItem.quantity === 1) {
         return cartItems.filter(cartItem => cartItem.id !== cartItemToRemove.id)

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 
+import StripeCheckoutButton from './StripeButton';
+
 import { selectCartItems, selectCartTotal } from '../Selectors/cart.selectors';
 import { addToCart, removeFromCart } from '../actions/index';
 
@@ -52,7 +54,7 @@ const CheckoutPage = ({ cartItems, total, addItem, removeItem }) => (
         <Total className='total'>
             <span>Total: ${total}</span>
         </Total>
-        {/* <StripeCheckoutButton price={total} /> */}
+        <StripeCheckoutButton price={total} />
     </CheckoutPageWrapper>
 );
 
@@ -95,9 +97,9 @@ const HeaderBlock = styled.div`
 `
 
 const Total = styled.div`
-    gin-top: 30px;
+    margin-top: 30px;
     margin-left: auto;
-    font-size: 36px;
+    font-size: 25px;
 `
 const CheckoutItemWrapper = styled.div`
     width: 100%;
