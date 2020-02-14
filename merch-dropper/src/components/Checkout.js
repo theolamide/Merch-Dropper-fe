@@ -4,11 +4,12 @@ import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 
 import { selectCartItems, selectCartTotal } from '../Selectors/cart.selectors';
+import { addToCart, removeFromCart } from '../actions/index';
 
 
 
 
-const CheckoutPage = ({ cartItems, total }) => (
+const CheckoutPage = ({ cartItems, total, addItem, removeItem }) => (
 
     <CheckoutPageWrapper className='checkout-page'>
         <CheckoutHeader className='checkout-header'>
@@ -31,17 +32,16 @@ const CheckoutPage = ({ cartItems, total }) => (
         {
             cartItems.map(cartItem =>
                 // <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-                <CheckoutItemWrapper className='checkout-item'>
+                <CheckoutItemWrapper key={cartItem.id} className='checkout-item'>
                     <ImageWrapper className='image-container'>
                         <ImageContainer src={cartItem.url} alt='item' />
                     </ImageWrapper>
                     <DescriptionWrapper className='description'>{cartItem.design} in {cartItem.color}</DescriptionWrapper>
                     <QuantityWrapper className='quantity'>
-                        <Arrow className='arrow'>&#10094;</Arrow>
-                        {/* <div className='arrow' onClick={() => removeItem(cartItem)} >&#10094;</div> */}
+                        <Arrow className='arrow' onClick={() => removeItem(cartItem)} >&#10094;</Arrow>
                         <ValueDiv className='value'>{cartItem.quantity}</ValueDiv>
-                        <Arrow className='arrow'>&#10095;</Arrow>
-                        {/* <div className='arrow' onClick={() => addItem(cartItem)}>&#10095;</div> */}
+                        <Arrow className='arrow' onClick={() => addItem(cartItem)} >&#10095;</Arrow>
+                        {/* <div className='arrow' >&#10095;</div> */}
                     </QuantityWrapper>
                     <PriceWrapper className='price'>${cartItem.price}</PriceWrapper>
                     <RemoveButton className='remove-button' >&#10005;</RemoveButton>
@@ -56,20 +56,17 @@ const CheckoutPage = ({ cartItems, total }) => (
     </CheckoutPageWrapper>
 );
 
-// const mapStateToprops = (state) => {
-//     console.log(state)
-//     return {
-//         cartItems: state.CartReducer.cart,
-//         // total: selectCartTotal
-//     }
-// }
+const mapDispatchToProps = dispatch => ({
+    addItem: item => dispatch(addToCart(item)),
+    removeItem: item => dispatch(removeFromCart(item))
+})
 
 const mapStateToprops = createStructuredSelector({
     cartItems: selectCartItems,
     total: selectCartTotal
 })
 
-export default connect(mapStateToprops)(CheckoutPage);
+export default connect(mapStateToprops, mapDispatchToProps)(CheckoutPage);
 
 const CheckoutPageWrapper = styled.div`
     width: 55%;
