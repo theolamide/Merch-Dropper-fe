@@ -6,7 +6,7 @@ import { Container, Row, Col } from "reactstrap";
 import "../App.css";
 
 const ProductDisplay = ({ products, addToCart }) => {
-  console.log("productdisplay/products", products);
+  // console.log('productdisplay/products', products)
   return (
     <Container fluid="true" className="container-margin">
       <Row>

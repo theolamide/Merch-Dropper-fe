@@ -1,7 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import auth0Client from "./Auth";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+
+import CartIcon from './CartIcon.js';
+import CartDropDown from './CartDropDown';
+
+
 import '../App.css';
 import "./NavBar.css";
+
 import {
   Collapse,
   Navbar,
@@ -14,7 +23,10 @@ import {
   Button
 } from 'reactstrap';
 
-const NavBar = (props) => {
+
+
+
+const NavBar = ({ hidden, history }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [token, setToken] = useState(localStorage.getItem("Id_token"))
@@ -26,32 +38,35 @@ const NavBar = (props) => {
     setToken(localStorage.getItem("Id_token"));
   }, [localStorage.getItem("Id_token")]);
 
-    async function profileSignIn() {
-      auth0Client.signIn();
-      await auth0Client.getProfile();
-    }
-  
+  async function profileSignIn() {
+    auth0Client.signIn();
+    await auth0Client.getProfile();
+  }
+
 
   const signOut = () => {
     auth0Client.signOut();
     this.props.history.replace("/");
   };
-  
 
 
 
-  if (!localStorage.getItem("Id_token") || localStorage.getItem("Id_token") == "undefined") {
+
+  if (!token || token == "undefined") {
+
     return (
       <div className="divNav">
         <Navbar color="white" light expand="md" className="navStyle">
           <img
             className="mr-5"
             src="https://uxmasters.org/images/merch_logo_50.svg"
+            style={{ width: '2rem' }}
           />
           <NavbarBrand id="navTitle" href="/">
             Merch Dropper
           </NavbarBrand>
           <NavbarToggler onClick={toggle} />
+
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
@@ -66,25 +81,37 @@ const NavBar = (props) => {
                 </FormGroup>
               </NavItem>
             </Nav>
+
             {!token ||
-              token == "undefined" ? <Button className="ml-5 mr-5" onClick={profileSignIn}>
-              Sign In
-            </Button> : null}
-            {/* <Button className="ml-5 mr-5" onClick={profileSignIn}>
-              Sign In
-            </Button> */}
-            <Button color="primary" href="/" className="designBtn">
+              token == "undefined" ?
+              <Button className="ml-5 mr-5" onClick={profileSignIn}>
+                Sign In
+              </Button> : null
+            }
+
+            <Button color="primary" className="designBtn">
               Design Merch
-            </Button>{" "}
-            <Button className="ml-5" outline color="primary" href="/cart">
-              ShoppingCart
-            </Button>{" "}
+            </Button>
+
+            <Button color="primary" className="designBtn"
+              onClick={() => {
+                history.push('/products');
+              }}
+            >
+              Buy Merch
+            </Button>
+
+            <CartIcon />
+
           </Collapse>
+          {hidden ? null :
+            <CartDropDown />
+          }
         </Navbar>
       </div>
     );
-  }
-  else {
+
+  } else {
     return (
       <div class="divNav">
         <Navbar color="white" light expand="md" className="navStyle">
@@ -112,10 +139,10 @@ const NavBar = (props) => {
             </Nav>
             <Button color="primary" href="/" className="designBtn">
               Design Merch
-            </Button>{" "}
+            </Button>
             <Button className="ml-5" outline color="primary" href="/">
               Buy Merch
-            </Button>{" "}
+            </Button>
             <img src={auth0Client.getProfile().picture} className="img-rounded img-fluid avatar" />
             <p><b>Hello {auth0Client.getProfile().name}</b></p>
             <Button className="ml-5" onClick={signOut}>
@@ -126,6 +153,10 @@ const NavBar = (props) => {
       </div>
     );
   }
-    }
-    
-    export default NavBar;
+}
+
+const mapStateToProps = (state) => ({
+  hidden: state.CartReducer.hidden
+})
+
+export default withRouter(connect(mapStateToProps)(NavBar));
