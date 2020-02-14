@@ -11,13 +11,14 @@ import ImageUpload from "./components/CloudinaryWidget";
 import CheckoutPage from './components/Checkout';
 import HomePage from "./components/HomePage";
 
+import DesignShirt from "./components/Shirt/DesignShirt";
+
 function App() {
   const [products] = useState(initialState.products);
   return (
     <div className="App">
       <NavBar />
       <Switch>
-
         <Route exact path="/callback" component={Callback} />
         <Route exact path='/cart' component={ShoppingCart} />
         <Route exact path='/checkout' component={CheckoutPage} />
@@ -25,7 +26,7 @@ function App() {
           render={(props) => <ProductDisplay {...props} products={products} />}
         />
         <Route exact path="/" component={HomePage} />
-
+        <DesignShirt />
       </Switch>
       {/* <ImageUpload /> */}
       <Footer />
