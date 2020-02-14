@@ -3,22 +3,26 @@ name: build
 on: [push, pull_request]
 
 jobs:
+
   coverage:
+
     name: Test and publish test coverage
+
     runs-on: ubuntu-latest
+
     steps:
 
-			# A GitHub action for checking out the current branch
       - uses: actions/checkout@master
 
       - uses: actions/setup-node@master
         with:
           node-version: "12"
 
-      - run: yarn install
+      - run: npm install
 
       - uses: paambaati/codeclimate-action@v2.4.0
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
+
+          CC_TEST_REPORTER_ID: 63c283be2deae2d3458346818c6bde5fcb19a7afc872d8cc18d0f886ef068239
         with:
-          coverageCommand: yarn run coverage
+          coverageCommand: npm run coverage
