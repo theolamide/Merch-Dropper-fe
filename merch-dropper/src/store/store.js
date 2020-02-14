@@ -5,13 +5,13 @@ import logger from 'redux-logger';
 
 import rootReducer from '../reducers/index';
 
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const middlewares = [thunk, logger]
 
 export const store = createStore(
     rootReducer,
-    applyMiddleware(...middlewares)
+    composeEnhancers(applyMiddleware(...middlewares))
 );
 
 export const persistor = persistStore(store);
