@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const ScalableApiHandler = async (garment, setGarment) => {
+console.log(garment, setGarment, "Garment and setGarment received by ScalableApiHandler")
   let data = {
     template: { name: "front" },
     product: { id: "canvas-unisex-t-shirt", color: garment.color },
@@ -9,7 +10,7 @@ const ScalableApiHandler = async (garment, setGarment) => {
       type: garment.printStyle,
       sides: {
         front: {
-          artwork: `${garment.artwork}`,
+          artwork: garment.artwork,
           dimensions: { width: garment.designWidth },
           position: {
             horizontal: garment.designPlacement,
@@ -23,18 +24,21 @@ const ScalableApiHandler = async (garment, setGarment) => {
   let config = {
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Basic OnRlc3RfZUIza2JJTThFRG5OdHEwenBSSU5fZw=="
+      // "Authorization": "Basic OnRlc3RfZUIza2JJTThFRG5OdHEwenBSSU5fZw=="
     }
   };
 
   async function makeShirt() {
     try {
       const shirtImage = await axios.post(
-        "https://cors.x7.workers.dev/https://api.scalablepress.com/v3/mockup",
+        "https://merchdropper-production.herokuapp.com/api/products/mockup",
         data,
         config
       );
-      await setGarment({ ...garment, mockUrl: shirtImage.data.url });
+
+      const response = await shirtImage;
+
+      setGarment({ ...garment, mockUrl: response.data.URL });
     } catch (err) {
       console.log("ERROR:", err);
     }

@@ -8,6 +8,7 @@ import ThumbDisplay from "./ThumbDisplay";
 const DesignShirt = () => {
   const [garment, setGarment] = useState({
     color: "Silver",
+    colorHex: "",
     printStyle: "dtg",
     artwork:
       "http://oo-prod.s3.amazonaws.com/public/artworks/2020/02/02/378ce90384ce1/original.png",
@@ -46,7 +47,7 @@ const DesignShirt = () => {
         setGarment={setGarment}
         handleCloud={handleCloud}
       />
-      {/* <button onClick={handleScale}>Send to SP</button> */}
+      <button onClick={handleScale}>Send to SP</button>
     </Fragment>
   );
 };

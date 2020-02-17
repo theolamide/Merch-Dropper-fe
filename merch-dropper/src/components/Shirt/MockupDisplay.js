@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-// import CloudinaryHandler from "./CloudinaryHandler";
+import CloudinaryHandler from "./CloudinaryHandler";
 
 const MockupDisplay = (props) => {
   console.log(props)
