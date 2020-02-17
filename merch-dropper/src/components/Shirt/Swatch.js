@@ -228,7 +228,6 @@ const Swatch = ({ garment, setGarment }) => {
       {color.map((color, index) => (
         <SwatchSquare
           name="color"
-
           value={color}
           id={color}
           key={color}
