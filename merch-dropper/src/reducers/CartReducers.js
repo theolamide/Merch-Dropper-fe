@@ -42,8 +42,7 @@ const CartReducer = (state = initialState, action) => {
         case ADD_CART_PRODUCT:
             return {
                 ...state,
-                cart: addProductToCart(state.cart, action.payload),
-                error: '' //What is this for, Jennie?
+                cart: addProductToCart(state.cart, action.payload)
             };
 
         case REMOVE_CART_PRODUCT:
