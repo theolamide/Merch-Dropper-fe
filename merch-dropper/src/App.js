@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import "./App.css";
 import ShoppingCart from "./components/ShoppingCart";
 import NavBar from "./components/NavBar";
