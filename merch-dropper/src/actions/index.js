@@ -33,7 +33,7 @@ export const userLogin = (loginInfo) => dispatch => {
             localStorage.setItem('token', res.data.token)
             dispatch({ type: LOGIN_SUCCESS, payload: res.data })
         })
-        .catch(err=> {
+        .catch(err => {
             console.log(err)
             dispatch({ type: LOGIN_FAILURE, payload: err })
         })
@@ -58,7 +58,7 @@ export const getProducts = (productId) => dispatch => {
 
 //post request to add a new product to store
 export const ADD_PRODUCT_START = 'ADD_PRODUCT_START';
-export const ADD_PRODUCT_SUCCESS ='ADD_PRODUCT_SUCCESS';
+export const ADD_PRODUCT_SUCCESS = 'ADD_PRODUCT_SUCCESS';
 export const ADD_PRODUCT_FAIL = 'ADD_PRODUCT_FAIL';
 
 export const addProduct = newProduct => dispatch => {
@@ -76,7 +76,7 @@ export const addProduct = newProduct => dispatch => {
 // delete request to remove product from store
 export const REMOVE_PRODUCT_START = 'REMOVE_PRODUCT_START';
 export const REMOVE_PRODUCT_SUCCESS = 'REMOVE_PRODUCT_SUCCESS';
-export  const REMOVE_PRODUCT_FAIL =  'REMOVE_PRODUCT_FAIL';
+export const REMOVE_PRODUCT_FAIL = 'REMOVE_PRODUCT_FAIL';
 
 export const removeProduct = productId => dispatch => {
     dispatch({ type: REMOVE_PRODUCT_START })
@@ -94,19 +94,39 @@ export const removeProduct = productId => dispatch => {
 // Shopping Cart Actions - add item to shopping cart
 export const ADD_CART_PRODUCT = 'ADD_CART_PRODUCT';
 export const addToCart = product => {
-    console.log('action called', product)
-    return { 
-        type: ADD_CART_PRODUCT, 
+    // console.log('action called', product)
+    return {
+        type: ADD_CART_PRODUCT,
         payload: product
     }
 };
 
-// remove item from shopping cart
+// remove one single item from shopping cart. e.g if 10 yellow shirts, remove 1 of the 10 yellow shirts.
 export const REMOVE_CART_PRODUCT = 'REMOVE_CART_PRODUCT';
 export const removeFromCart = product => {
-    console.log('removeaction called', product)
+    // console.log('removeaction called', product)
     return {
         type: REMOVE_CART_PRODUCT,
-        payload: product.id
+        payload: product
     }
 };
+
+//Clear whole item from cart. e.g if 10 yellow shirts, remove all 10 at once.
+export const CLEAR_CART_PRODUCT = 'CLEAR_CART_PRODUCT';
+export const clearItemFromCart = product => {
+    return {
+        type: CLEAR_CART_PRODUCT,
+        payload: product
+    }
+};
+
+//toggle shopping cart
+export const TOGGLE_CART_HIDDEN = 'TOGGLE_CART_HIDDEN';
+export const toggleCartHidden = (cart) => {
+    // console.log('hide cart toggle triggered', cart)
+    return {
+        type: TOGGLE_CART_HIDDEN
+    }
+};
+
+

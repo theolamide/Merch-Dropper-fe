@@ -8,7 +8,7 @@ const ShoppingCart = (props) => {
     return (
         <div>
             {props.cart.cart.map(product => (
-                <ShoppingCartItem key={product.id} product={product}removeFromCart={props.removeFromCart} />
+                <ShoppingCartItem key={product.id} product={product} removeFromCart={props.removeFromCart} />
             ))}
         </div>
     )

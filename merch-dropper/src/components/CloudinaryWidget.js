@@ -1,4 +1,3 @@
-
 import React, { Fragment } from "react";
 let widget = window.cloudinary.createUploadWidget(
   {
@@ -27,3 +26,4 @@ const ImageUpload = () => {
   );
 };
 export default ImageUpload;
+

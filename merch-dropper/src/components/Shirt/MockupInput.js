@@ -16,3 +16,4 @@ const MockupInput = ({ garment, setGarment }) => {
 };
 
 export default MockupInput;
+
