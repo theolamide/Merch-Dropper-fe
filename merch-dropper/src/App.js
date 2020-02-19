@@ -10,9 +10,6 @@ import initialState from "./reducers/initialState";
 import ImageUpload from "./components/CloudinaryWidget";
 import CheckoutPage from "./components/Checkout";
 import HomePage from "./components/HomePage";
-
-import DesignShirt from "./components/Shirt/DesignShirt";
-
 import DesignShirt from "./components/Shirt/DesignShirt";
 
 function App() {
