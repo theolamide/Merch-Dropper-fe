@@ -10,16 +10,14 @@ import initialState from "./reducers/initialState";
 import ImageUpload from "./components/CloudinaryWidget";
 import CheckoutPage from "./components/Checkout";
 import HomePage from "./components/HomePage";
-
 import DesignShirt from "./components/Shirt/DesignShirt";
 
-import DesignShirt from "./components/Shirt/DesignShirt";
 
 function App() {
   const [products] = useState(initialState.products);
   return (
     <div className="App">
-      <NavBar />
+      <Route path="/" component={NavBar} />
       <Route exact path="/" component={HomePage} />
       <Route exact path="/callback" component={Callback} />
       <Route exact path="/cart" component={ShoppingCart} />

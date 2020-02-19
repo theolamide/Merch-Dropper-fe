@@ -2,12 +2,8 @@ import React, { useState, useEffect } from 'react';
 import auth0Client from "./Auth";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
-
 import CartIcon from './CartIcon.js';
 import CartDropDown from './CartDropDown';
-
-
 import '../App.css';
 import "./NavBar.css";
 
@@ -25,7 +21,6 @@ import {
 
 
 
-
 const NavBar = ({ hidden, history }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,7 +29,7 @@ const NavBar = ({ hidden, history }) => {
   const toggle = () => setIsOpen(!isOpen);
 
   useEffect(() => {
-    console.log(auth0Client.getProfile());
+    console.log('auth0 profile', auth0Client.getProfile());
     setToken(localStorage.getItem("Id_token"));
   }, [localStorage.getItem("Id_token")]);
 
@@ -48,8 +43,6 @@ const NavBar = ({ hidden, history }) => {
     auth0Client.signOut();
     this.props.history.replace("/");
   };
-
-
 
 
   if (!token || token == "undefined") {
@@ -106,6 +99,10 @@ const NavBar = ({ hidden, history }) => {
               Buy Merch
             </Button>
 
+            <Button className="ml-5 mr-5" onClick={signOut}>
+               Sign Out
+            </Button>
+
             <CartIcon />
 
           </Collapse>
@@ -148,8 +145,8 @@ const NavBar = ({ hidden, history }) => {
             <Button className="ml-5" outline color="primary" href="/">
               Buy Merch
             </Button>
-            <img src={auth0Client.getProfile().picture} className="img-rounded img-fluid avatar" />
-            <p><b>Hello {auth0Client.getProfile().name}</b></p>
+            {/* <img src={auth0Client.getProfile().picture} className="img-rounded img-fluid avatar" /> 
+            <p><b>Hello {auth0Client.getProfile().name}</b></p> */}
             <Button className="ml-5" onClick={signOut}>
               Sign Out
             </Button>
