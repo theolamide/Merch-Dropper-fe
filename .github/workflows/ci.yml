@@ -17,8 +17,7 @@ jobs:
           node-version: ${{ matrix.node }}    
       - run: cd merch-dropper
       - run: yarn install
-      - run: yarn run build --if-present
-      - run: yarn test
+      - run: yarn run test
         env:
           CI: true
   coverage:
