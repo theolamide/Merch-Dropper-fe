@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const SliderBox = styled.div`
+  margin: 20px;
 
-margin: 20px;
-
-label {
+  label {
     margin-left: 5px;
   }
 
@@ -100,48 +99,37 @@ label {
   }
 `;
 
-const SizeSlider = ({garment, setGarment}) => {
-  // const [slider, setSlider] = useState(14);
-
-  // const handleChange = (e) => {
-  //   setSlider({ [e.target.name]: e.target.value });
-  // };
-
+const SizeSlider = ({ garment, setGarment }) => {
   return (
     <SliderBox>
-      <h2>Width</h2>
+      <h2>Design Width - {garment.designWidth} in.</h2>
       <input
         type="range"
-        // id="width"
         name="designWidth"
         min="1.5"
         max="14"
         step=".25"
-        // value={slider}
         value={garment.designWidth}
         onChange={(e) => {
-          setGarment({...garment, [e.target.name]: e.target.value });
+          setGarment({ ...garment, [e.target.name]: e.target.value });
         }}
       />
 
-      <h3>{garment.designWidth} Inches</h3>
 
-      <h2>Offset</h2>
+
+      <h2>Vertical Offset - {garment.offSetFromTop} in.</h2>
       <input
         type="range"
-        // id="width"
         name="offSetFromTop"
         min="0"
         max="12"
         step=".25"
-        // value={slider}
         value={garment.offSetFromTop}
         onChange={(e) => {
-          setGarment({...garment, [e.target.name]: e.target.value });
+          setGarment({ ...garment, [e.target.name]: e.target.value });
         }}
       />
 
-      <h3>{garment.offSetFromTop} Inches</h3>
 
     </SliderBox>
   );

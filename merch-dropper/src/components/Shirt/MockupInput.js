@@ -1,15 +1,16 @@
 import React from "react";
-import ShirtForm from "./ShirtForm";
 import SizeSlider from "./SizeSlider";
 import Swatch from "./Swatch";
+import HorizontalAlign from "./HorizontalAlign";
 
-const MockupInput = (props) => {
-  console.log(props, "Props received by mockupinput");
+const MockupInput = ({ garment, setGarment }) => {
+  let horizontal = garment.designPlacement;
+
   return (
     <div>
-      <Swatch garment={props.garment} setGarment={props.setGarment} />
-      <ShirtForm garment={props.garment} setGarment={props.setGarment} />
-      <SizeSlider garment={props.garment} setGarment={props.setGarment} />
+      <Swatch garment={garment} setGarment={setGarment} />
+      <SizeSlider garment={garment} setGarment={setGarment} />
+      <HorizontalAlign garment={garment} setGarment={setGarment} />
     </div>
   );
 };

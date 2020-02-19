@@ -6,7 +6,7 @@ const MockupDisplay = (props) => {
   return (
     <Fragment>
       <img src={props.garment.mockUrl} alt="" />
-      <button onClick={props.handleCloud}>Cloud it.</button>
+      {/* <button onClick={props.handleCloud}>Cloud it.</button> */}
     </Fragment>
   )
 }

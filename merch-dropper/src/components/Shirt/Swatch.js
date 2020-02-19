@@ -1,5 +1,28 @@
-import React, { Fragment, useState } from "react";
+import React from "react";
 import styled from "styled-components";
+
+
+
+const Swatch = ({ garment, setGarment }) => {
+
+  return (
+    <SwatchBox>
+      {color.map((color, index) => (
+        <SwatchSquare
+          name="color"
+          value={color}
+          id={color}
+          key={color}
+          title={color}
+          className="swatchSquare"
+          onClick={()=> setGarment({...garment, color: color, colorHex: hex[index]})}
+          style={{ backgroundColor: hex[index] }}></SwatchSquare>
+      ))}
+    </SwatchBox>
+  );
+};
+
+export default Swatch;
 
 const SwatchBox = styled.div`
   margin: 20px;
@@ -212,35 +235,3 @@ const color = [
   "Heather Peach"
 ];
 
-const Swatch = ({ garment, setGarment }) => {
-  const [shirtColor, setShirtColor] = useState();
-
-  const handleClick = (e) => {
-    setGarment({ ...garment, [e.target.name]: e.target.value });
-  };
-
-  const handleChange = (e) => {
-    setGarment({ ...garment, [e.target.name]: e.target.value });
-  };
-
-  return (
-    <SwatchBox>
-      {color.map((color, index) => (
-        <SwatchSquare
-          name="color"
-          value={color}
-          id={color}
-          key={color}
-          title={color}
-          className="swatchSquare"
-          onClick={()=> setGarment({...garment, color: color, colorHex: hex[index]})}
-          style={{ backgroundColor: hex[index] }}></SwatchSquare>
-      ))}
-    </SwatchBox>
-  );
-};
-
-export default Swatch;
-
-
-// #d1feff
