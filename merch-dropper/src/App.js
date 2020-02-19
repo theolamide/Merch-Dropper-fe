@@ -13,6 +13,8 @@ import HomePage from "./components/HomePage";
 
 import DesignShirt from "./components/Shirt/DesignShirt";
 
+import DesignShirt from "./components/Shirt/DesignShirt";
+
 function App() {
   const [products] = useState(initialState.products);
   return (
