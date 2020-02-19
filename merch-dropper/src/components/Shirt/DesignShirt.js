@@ -1,17 +1,27 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
 import MockupDisplay from "./MockupDisplay";
 import MockupInput from "./MockupInput";
 import ScalableApiHandler from "./ScalableApiHandler";
 import CloudinaryHandler from "./CloudinaryHandler";
 import ThumbDisplay from "./ThumbDisplay";
+import CloudinaryWidget from "../CloudinaryWidget";
+import TemplateShirt from "./TemplateShirt";
+
+const DesignShirtContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 const DesignShirt = () => {
   const [garment, setGarment] = useState({
     color: "Silver",
+    colorHex: "",
     printStyle: "dtg",
     artwork:
       "http://oo-prod.s3.amazonaws.com/public/artworks/2020/02/02/378ce90384ce1/original.png",
     designWidth: "6",
+    horizontalPlacement: ".5",
     designPlacement: "C",
     offSetFromTop: "2",
     mockUrl: ""
@@ -37,17 +47,27 @@ const DesignShirt = () => {
   };
 
   return (
-    <Fragment>
+    <DesignShirtContainer>
+      <div>
+        <TemplateShirt garment={garment} />
+        <button onClick={handleScale}>Send to SP</button>
+      </div>
+      <div>
+        <ThumbDisplay garment={garment} setGarment={setGarment} />
 
-      <ThumbDisplay garment={garment} setGarment={setGarment} />
-      <MockupInput garment={garment} setGarment={setGarment} handleScale={handleScale} />
-      <MockupDisplay
-        garment={garment}
-        setGarment={setGarment}
-        handleCloud={handleCloud}
-      />
-      {/* <button onClick={handleScale}>Send to SP</button> */}
-    </Fragment>
+        <MockupInput
+          garment={garment}
+          setGarment={setGarment}
+          handleScale={handleScale}
+        />
+
+        <MockupDisplay
+          garment={garment}
+          setGarment={setGarment}
+          handleCloud={handleCloud}
+        />
+      </div>
+    </DesignShirtContainer>
   );
 };
 
