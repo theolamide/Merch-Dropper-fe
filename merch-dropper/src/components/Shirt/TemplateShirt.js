@@ -58,7 +58,7 @@ const LogoPosition = styled.div.attrs((props) => ({
 }))`
   width: ${(props) => props.logosize};
   height: ${(props) => props.logosize};
-  position: absolute;
+  position: relative;
   left: ${(props) => props.horizontal};
   background-color: black;
   top: ${(props) => props.offset};
