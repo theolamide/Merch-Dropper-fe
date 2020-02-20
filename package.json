@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "auth0-js": "^9.12.2"
+    "react-stripe-checkout": "^2.6.3"
   }
 }

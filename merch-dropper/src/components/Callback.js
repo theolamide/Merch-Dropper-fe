@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import NavBar from "./NavBar";
 import { withRouter } from "react-router-dom";
 import auth0Client from "./Auth";
 
@@ -9,8 +10,12 @@ class Callback extends Component {
   }
 
   render() {
-    return <p>Loading profile...</p>;
-  }
+    return (
+    <div>
+      {/* <NavBar /> */}
+      <p>Loading profile...</p>
+    </div>
+    )}
 }
 
 export default withRouter(Callback);
