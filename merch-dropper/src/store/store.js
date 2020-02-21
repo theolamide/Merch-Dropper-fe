@@ -3,7 +3,7 @@ import { persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
-import rootReducer from '../reducers/index';
+import rootReducer from './reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 

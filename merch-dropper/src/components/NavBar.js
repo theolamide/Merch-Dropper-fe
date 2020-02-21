@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import auth0Client from "./Auth";
+import auth0Client from "./Auth/Auth";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import CartIcon from './CartIcon.js';
-import CartDropDown from './CartDropDown';
+import CartIcon from './Cart/CartIcon.js';
+import CartDropDown from './Cart/CartDropDown';
 import '../App.css';
 import "./NavBar.css";
 

@@ -1,6 +1,6 @@
  import React, { useState } from 'react';
  import { connect } from 'react-redux';
- import { postUser } from '../../actions';
+ import { postUser } from '../../store/actions';
  
  const initialCredentials = {
      first_name: '',
