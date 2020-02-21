@@ -1,6 +1,7 @@
  import React, { useState } from 'react';
  import { connect } from 'react-redux';
  import { postUser } from '../../store/actions';
+ import { StyledHeader, SignUpBox, StyledForm, StyledInput, StyledButton } from './Styled.js';
  
  const initialCredentials = {
      first_name: '',
@@ -35,89 +36,89 @@
     };
 
     return (
-        <div className='signup-container'>
-            <h2>Create an Account to Sell Merchandise</h2>
-            <form onSubmit={callSignUp}>
-                <input 
+        <SignUpBox>
+            <StyledHeader>Create an Account to Sell Merchandise</StyledHeader>
+            <StyledForm onSubmit={callSignUp}>
+                <StyledInput 
                     name='first_name'
                     type='text'
                     value={credentials.first_name}
                     placeholder='First Name'
                     onChange={handleChange}
                 />
-                <input 
+                <StyledInput 
                     name='last_name'
                     type='text'
                     value={credentials.last_name}
                     placeholder='Last Name'
                     onChange={handleChange}
                 />
-                <input 
+                <StyledInput 
                     name='username'
                     type='text'
                     value={credentials.username}
                     placeholder='Username'
                     onChange={handleChange}
                 />
-                <input 
+                <StyledInput 
                     name='password'
                     type='password'
                     value={credentials.password}
                     placeholder='password'
                     onChange={handleChange}
                 />
-                <input 
+                <StyledInput 
                     name='stripe_account'
                     type='text'
                     value={credentials.stripe_account}
                     placeholder='Stripe Account #'
                     onChange={handleChange}
                 />
-                <input 
+                <StyledInput 
                     name='address1'
                     type='text'
                     value={credentials.address1}
                     placeholder='Mailing Address'
                     onChange={handleChange}
                 />
-                <input 
+                <StyledInput 
                     name='city'
                     type='text'
                     value={credentials.city}
                     placeholder='City'
                     onChange={handleChange}
                 />
-                <input 
+                <StyledInput 
                     name='state'
                     type='text'
                     value={credentials.state}
                     placeholder='State'
                     onChange={handleChange}
                 />
-                <input 
+                <StyledInput 
                     name='zipcode'
                     type='number'
                     value={credentials.zip_code}
                     placeholder='Zipcode'
                     onChange={handleChange}
                 />
-                <input 
+                <StyledInput 
                     name='country'
                     type='text'
                     value={credentials.country}
                     placeholder='Country'
                     onChange={handleChange}
                 />
-                <input 
+                <StyledInput 
                     name='email'
                     type='email'
                     value={credentials.email}
                     placeholder='email'
                     onChange={handleChange}
                 />
-                <button>Sign Up</button>
-            </form>
-        </div>
+                <StyledButton>Sign Up</StyledButton>
+            </StyledForm>
+        </SignUpBox>
     )
 
 };
