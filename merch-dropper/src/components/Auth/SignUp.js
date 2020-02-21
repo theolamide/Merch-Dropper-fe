@@ -96,8 +96,8 @@
                     onChange={handleChange}
                 />
                 <StyledInput 
-                    name='zipcode'
-                    type='number'
+                    name='zip_code'
+                    type='text'
                     value={credentials.zip_code}
                     placeholder='Zipcode'
                     onChange={handleChange}
