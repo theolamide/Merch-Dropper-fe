@@ -1,6 +1,5 @@
-import * as reducer from '../reducers';
-import CartReducer from '../reducers/CartReducers';
-import initialState from '../reducers/initialState';
+import CartReducer from '../store/reducers/CartReducer.js';
+import initialState from '../store/reducers/initialState.js';
 
 
 

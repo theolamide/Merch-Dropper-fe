@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 import { Button } from 'reactstrap';
 
-import { toggleCartHidden } from '../actions/index';
+import { toggleCartHidden } from '../../actions/index';
 
 
 const CartDropdownDiv = styled.div`

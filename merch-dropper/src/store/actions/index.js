@@ -1,4 +1,4 @@
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import axios from 'axios';
 
 // Registration Actions
@@ -6,15 +6,16 @@ export const REGISTER_START = 'REGISTER_START';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 
-export const postUser = (registerInfo) => dispatch => {
+export const postUser = (credentials) => dispatch => {
+    console.log('credentials', credentials)
     dispatch({ type: REGISTER_START })
-    axios.post('/api/auth/register', registerInfo)
+    axios.post('https://merchdropper-production.herokuapp.com/api/auth/register', credentials)
         .then(res => {
-            console.log(res);
+            console.log('postUser res', res);
             dispatch({ type: REGISTER_SUCCESS, payload: res.data })
         })
-        .cactch(err => {
-            console.log(err)
+        .catch(err => {
+            console.log('postUser err', err)
             dispatch({ type: REGISTER_FAILURE, payload: err })
         })
 };

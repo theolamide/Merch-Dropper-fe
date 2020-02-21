@@ -1,7 +1,7 @@
 import React from 'react';
 import ShoppingCartItem from './ShoppingCartItem';
 import { connect } from 'react-redux';
-import { removeFromCart } from '../actions';
+import { removeFromCart } from '../../actions';
 
 const ShoppingCart = (props) => {
     // console.log('cart props', props)

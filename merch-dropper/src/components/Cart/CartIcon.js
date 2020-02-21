@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { toggleCartHidden } from '../actions/index';
+import { toggleCartHidden } from '../../actions/index';
 // import { selectCartItemsCount } from '../Selectors/cart.selectors';
 
 import { ReactComponent as ShoppingIcon } from '../assets/ShoppingIcon.svg';
