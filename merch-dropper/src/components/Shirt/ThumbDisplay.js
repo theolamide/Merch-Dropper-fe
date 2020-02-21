@@ -5,7 +5,13 @@ import designUrls from "./designUrls";
 const designs = designUrls;
 
 const PicDisplay = styled.div`
-  height: 100px;
+  height: auto;
+  margin-left: 20px;
+
+img {
+  height: 60px;
+  width: 60px;
+}
 `;
 
 const ThumbDisplay = ({ garment, setGarment }) => {
