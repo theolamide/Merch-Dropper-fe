@@ -16,7 +16,7 @@ function App() {
   const [products] = useState(initialState.products);
   return (
     <div className="App">
-      <NavBar />
+      {/* <NavBar />
       <Route exact path="/" component={HomePage} />
       <Route exact path="/callback" component={Callback} />
       <Route exact path="/cart" component={ShoppingCart} />
@@ -26,9 +26,11 @@ function App() {
         path="/products"
         render={props => <ProductDisplay {...props} products={products} />}
       />
-      <Route exact path="/designshirt" component={DesignShirt} />
+      <Route exact path="/designshirt" component={DesignShirt} /> */}
       {/* <ImageUpload /> */}
-      <Footer />
+      {/* <Footer /> */}
+
+      <DesignShirt />
     </div>
   );
 }

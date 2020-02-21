@@ -3,7 +3,7 @@ import styled from "styled-components";
 import bgShirt from "./templateShirt.png";
 
 const TemplateShirt = ({ garment }) => {
-  const { designWidth, designPlacement, offSetFromTop } = garment;
+  const { designWidth, designPlacement, offSetFromTop, artwork } = garment;
 
   let horizontalMod;
   switch (designPlacement) {
@@ -25,14 +25,16 @@ const TemplateShirt = ({ garment }) => {
   }
   const horizontal =
     (horizontalMod * (224 - designWidth * 16) + 90).toString() + "px";
-  const logosize = (designWidth * 16).toString() + "px";
+  const designSize = (designWidth * 16).toString() + "px";
   const offset = (offSetFromTop * 16 + 60).toString() + "px";
+
+// background={artwork}
 
   return (
     <ShirtBox>
-      <LogoPosition offset={offset} logosize={logosize} horizontal={horizontal}>
-        LOGO
-      </LogoPosition>
+      <Design offset={offset} designSize={designSize} horizontal={horizontal}>
+        <img src={artwork} alt=""/>
+      </Design>
     </ShirtBox>
   );
 };
@@ -50,21 +52,34 @@ const ShirtBox = styled.div`
     border: 1px black solid;
   }
 `;
-const LogoPosition = styled.div.attrs((props) => ({
+const Design = styled.div.attrs((props) => ({
   top: props.offset || "90px",
-  width: props.logosize || "32px",
-  height: props.logosize || "32px",
-  left: props.horizontal || "184px"
+  width: props.designSize || "32px",
+  // height: props.designSize || "32px",
+  left: props.horizontal || "184px",
+  // backgroundImage: props.background || "none"
 }))`
-  width: ${(props) => props.logosize};
-  height: ${(props) => props.logosize};
+  width: ${(props) => props.designSize};
+  // height: ${(props) => props.designSize};
+  height: auto;
   position: relative;
   left: ${(props) => props.horizontal};
-  background-color: black;
+  // background-image: ${(props) => props.background};
+  // background-color:black;
   top: ${(props) => props.offset};
   font-size: 16px;
   font-weight: 700;
   padding: 10px 0;
   color: white;
   text-align: center;
+  // border: 2px green solid;
+  display: flex;
+  justify-content: center;
+
+
+  img {
+    // margin:0;
+    max-width: 100%;
+    max-height: 100%;
+  }
 `;
