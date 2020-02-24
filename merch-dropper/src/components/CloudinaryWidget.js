@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import "../App.css";
+
 let widget = window.cloudinary.createUploadWidget(
   {
     cloudName: "dze74ofbf",
@@ -21,9 +23,10 @@ const showWidget = function() {
 const ImageUpload = () => {
   return (
     <Fragment>
-      <div onClick={showWidget}>Click Here to Upload Image</div>
+      <button className="designBtn btn btn-primary" onClick={showWidget}>
+        Upload New Design
+      </button>
     </Fragment>
   );
 };
 export default ImageUpload;
-
