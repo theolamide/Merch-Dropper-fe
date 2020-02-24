@@ -37,7 +37,7 @@
 
     return (
         <SignUpBox>
-            <StyledHeader>Create an Account to Sell Merchandise</StyledHeader>
+            <StyledHeader>Create Account to Sell Merchandise</StyledHeader>
             <StyledForm onSubmit={callSignUp}>
                 <StyledInput 
                     name='first_name'

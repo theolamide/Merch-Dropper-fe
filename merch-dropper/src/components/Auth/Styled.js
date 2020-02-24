@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const StyledHeader = styled.h2`
     font-weight: bold;
-    color: #fff;
 `;
 
 export const SignUpBox = styled.div`
@@ -13,7 +12,7 @@ export const SignUpBox = styled.div`
   height: 70vh;
   width: 30vw;
   border-radius: 3px;
-  background: #fd7e14;
+  /* background: #fd7e14; */
   margin: 2% auto;
   border: 2px solid rgb(33,64,73);
   box-shadow: 3px 4px 3px 0px rgba(0,0,0,0.59);
