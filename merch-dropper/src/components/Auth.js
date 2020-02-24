@@ -7,8 +7,9 @@ class Auth {
       domain: "merch-dropper.auth0.com",
       audience: "https://merch-dropper.auth0.com/userinfo",
       clientID: "Pb3Cp5ptYghmNVDjusjPmsHPRkJq6RAP",
-      redirectUri: "http://localhost:3000/callback",
+      redirectUri: "http://localhost:3000/",
       // redirectUri: "https://flamboyant-minsky-4b61e4.netlify.com/callback",
+      // redirectUri: "https://www.merch-dropper.com/callback",
       responseType: "id_token",
       scope: "openid profile"
     });
@@ -21,7 +22,7 @@ class Auth {
   }
 
   getProfile() {
-    localStorage.setItem("Id_token", this.idToken);
+    // localStorage.setItem("Id_token", this.idToken);
     console.log("Profile", this.profile);
     return this.profile;
   }
@@ -48,6 +49,8 @@ class Auth {
         }
         this.idToken = authResult.idToken;
         this.profile = authResult.idTokenPayload;
+          localStorage.setItem("Id_token", this.idToken);
+          // localStorage.setItem("Basic_Profile", this.profile)
         // set the time that the id token will expire at
         this.expiresAt = authResult.idTokenPayload.exp * 1000;
         resolve();
@@ -64,6 +67,7 @@ class Auth {
     this.auth0.logout({
       returnTo: "http://localhost:3000",
       // returnTo: "https://flamboyant-minsky-4b61e4.netlify.com",
+      // returnTo: "https://www.merch-dropper.com/callback",
       clientID: "Pb3Cp5ptYghmNVDjusjPmsHPRkJq6RAP"
     });
   }

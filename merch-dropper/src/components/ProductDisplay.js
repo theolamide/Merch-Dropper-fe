@@ -10,7 +10,7 @@ const ProductDisplay = ({ products, addToCart }) => {
   // console.log('productdisplay/products', products)
   return (
     <Container fluid="true" className="container-margin">
-      {/* <NavBar /> */}
+       {/*<NavBar />*/}
       <Row>
         <Col sm="7" className="flex ">
           {products.map((product) => (

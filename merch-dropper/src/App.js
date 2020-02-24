@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import ShoppingCart from "./components/ShoppingCart";
 import NavBar from "./components/NavBar";
-import Callback from "./components/Callback";
+// import Callback from "./components/Callback";
 import Footer from "./components/Footer";
 import ProductDisplay from "./components/ProductDisplay";
 import initialState from "./reducers/initialState";
@@ -18,9 +18,9 @@ function App() {
     <div className="App">
       {/* <ProductDisplay products={products} /> */}
       {/* <ImageUpload /> */}
-      <Route path="/" render={NavBar} />
+      <NavBar />
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/callback" component={Callback} />
+      {/*<Route exact path="/callback" component={Callback} />*/}
       <Route exact path="/cart" component={ShoppingCart} />
       <Route exact path="/checkout" component={CheckoutPage} />
       <Route

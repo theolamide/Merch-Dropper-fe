@@ -28,20 +28,23 @@ import {
 
 const NavBar = ({ hidden, history }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const [token, setToken] = useState(localStorage.getItem("Id_token"))
+  const [token, setToken] = useState(localStorage.getItem("Id_token"));
 
   const toggle = () => setIsOpen(!isOpen);
 
   useEffect(() => {
-    console.log(auth0Client.getProfile());
-    setToken(localStorage.getItem("Id_token"));
+    console.log(auth0Client.getProfile(localStorage.getItem("Id_token")));
+    // setToken(localStorage.getItem("Id_token"));
   }, [localStorage.getItem("Id_token")]);
+
+  useEffect(() => {
+    auth0Client.handleAuthentication();
+  }, []);
 
   async function profileSignIn() {
     auth0Client.signIn();
-    await auth0Client.getProfile();
-  }
+    await auth0Client.getProfile(token);
+  };
 
 
   const signOut = () => {
@@ -82,8 +85,8 @@ const NavBar = ({ hidden, history }) => {
               </NavItem>
             </Nav>
 
-            {!token ||
-              token == "undefined" ?
+            {!localStorage.getItem("Id_token") ||
+            localStorage.getItem("Id_token") == "undefined" ?
               <Button className="ml-5 mr-5" onClick={profileSignIn}>
                 Sign In
               </Button> : null
@@ -148,8 +151,8 @@ const NavBar = ({ hidden, history }) => {
             <Button className="ml-5" outline color="primary" href="/">
               Buy Merch
             </Button>
-            <img src={auth0Client.getProfile().picture} className="img-rounded img-fluid avatar" />
-            <p><b>Hello {auth0Client.getProfile().name}</b></p>
+            <img src={auth0Client.getProfile(localStorage.getItem("Id_token")).picture} className="img-rounded img-fluid avatar" />
+            <p><b>Hello {auth0Client.getProfile(localStorage.getItem("Id_token")).name}</b></p>
             <Button className="ml-5" onClick={signOut}>
               Sign Out
             </Button>

@@ -19,8 +19,8 @@ import {
 const HomePage = () => {
     return (
         <div className="homepage" style={{ backgroundColor: '#F3F3F3' }}>
-            {/* <NavBar /> */}
             {/* Begin hero image */}
+            {/*<NavBar />*/}
             <Jumbotron style={{ backgroundImage: `url('https://i.ibb.co/SKTW5GZ/Adobe-Stock-316954524-Preview1-1.png')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', width: '100vw', height: '100vh' }}>
                 <Container>
                     <Row>
