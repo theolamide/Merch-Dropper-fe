@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import { connect } from "react-redux";
-import { addToCart } from "../actions";
+import { addToCart } from "../store/actions";
 import { Container, Row, Col } from "reactstrap";
 import "../App.css";
 

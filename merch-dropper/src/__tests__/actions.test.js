@@ -1,5 +1,4 @@
-
-import * as action from '../actions';
+import * as action from '../store/actions';
 
 describe('Cart Actions', () => {
 
