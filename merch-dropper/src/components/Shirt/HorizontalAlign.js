@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 
 const HorizontalSelect = styled.select`
-margin: -20px 0 0 20px;
+margin: -20px 0 0 0;
 `;
 
 const HorizontalAlign = ({ garment, setGarment }) => {

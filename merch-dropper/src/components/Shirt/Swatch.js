@@ -8,7 +8,7 @@ const Swatch = ({ garment, setGarment }) => {
   return (
     <SwatchBox>
       {color.map((color, index) => (
-        <SwatchSquare
+        <a href="#" key={index}><SwatchSquare
           name="color"
           value={color}
           id={color}
@@ -16,7 +16,7 @@ const Swatch = ({ garment, setGarment }) => {
           title={color}
           className="swatchSquare"
           onClick={()=> setGarment({...garment, color: color, colorHex: hex[index]})}
-          style={{ backgroundColor: hex[index] }}></SwatchSquare>
+          style={{ backgroundColor: hex[index] }}></SwatchSquare></a>
       ))}
     </SwatchBox>
   );
@@ -25,11 +25,16 @@ const Swatch = ({ garment, setGarment }) => {
 export default Swatch;
 
 const SwatchBox = styled.div`
-  margin: 20px;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 280px;
+
+  a:focus {
+    outline: solid 1px black;
+
+  }
 `;
 
 const SwatchSquare = styled.div`
@@ -37,6 +42,7 @@ const SwatchSquare = styled.div`
   height: 20px;
   margin: 1px;
   border: solid 1px #ccc;
+  border-radius: 3px;
 `;
 
 const hex = [
