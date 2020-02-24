@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
-import ShoppingCart from "./components/Cart/ShoppingCart";
 import NavBar from "./components/NavBar";
 import Callback from "./components/Auth/Callback";
 import Footer from "./components/Footer";
@@ -16,10 +15,9 @@ function App() {
   const [products] = useState(initialState.products);
   return (
     <div className="App">
-      {/* <NavBar /> */}
+      <NavBar />
       <Route exact path="/" component={HomePage} />
       <Route exact path="/callback" component={Callback} />
-      <Route exact path="/cart" component={ShoppingCart} />
       <Route exact path="/checkout" component={CheckoutPage} />
       <Route
         exact
@@ -28,9 +26,7 @@ function App() {
       />
       <Route exact path="/designshirt" component={DesignShirt} /> 
       {/* <ImageUpload /> */}
-      {/* <Footer /> */}
-
-      <DesignShirt />
+      <Footer />
     </div>
   );
 }
