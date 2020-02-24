@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import auth0Client from "./Auth";
+import auth0Client from "./Auth/Auth";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
-
-import CartIcon from './CartIcon.js';
-import CartDropDown from './CartDropDown';
-
-
+import CartIcon from './Cart/CartIcon.js';
+import CartDropDown from './Cart/CartDropDown';
 import '../App.css';
 import "./NavBar.css";
 
@@ -25,7 +21,6 @@ import {
 
 
 
-
 const NavBar = ({ hidden, history }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [token, setToken] = useState(localStorage.getItem("Id_token"));
@@ -33,8 +28,13 @@ const NavBar = ({ hidden, history }) => {
   const toggle = () => setIsOpen(!isOpen);
 
   useEffect(() => {
+<<<<<<< HEAD
     console.log(auth0Client.getProfile(localStorage.getItem("Id_token")));
     // setToken(localStorage.getItem("Id_token"));
+=======
+    console.log('auth0 profile', auth0Client.getProfile());
+    setToken(localStorage.getItem("Id_token"));
+>>>>>>> 8d457b25d6628707454d1c2ee6b6dd53cb901400
   }, [localStorage.getItem("Id_token")]);
 
   useEffect(() => {
@@ -51,8 +51,6 @@ const NavBar = ({ hidden, history }) => {
     auth0Client.signOut();
     this.props.history.replace("/");
   };
-
-
 
 
   if (!token || token == "undefined") {
@@ -109,6 +107,10 @@ const NavBar = ({ hidden, history }) => {
               Buy Merch
             </Button>
 
+            <Button className="ml-5 mr-5" onClick={signOut}>
+               Sign Out
+            </Button>
+
             <CartIcon />
 
           </Collapse>
@@ -151,8 +153,13 @@ const NavBar = ({ hidden, history }) => {
             <Button className="ml-5" outline color="primary" href="/">
               Buy Merch
             </Button>
+<<<<<<< HEAD
             <img src={auth0Client.getProfile(localStorage.getItem("Id_token")).picture} className="img-rounded img-fluid avatar" />
             <p><b>Hello {auth0Client.getProfile(localStorage.getItem("Id_token")).name}</b></p>
+=======
+            {/* <img src={auth0Client.getProfile().picture} className="img-rounded img-fluid avatar" /> 
+            <p><b>Hello {auth0Client.getProfile().name}</b></p> */}
+>>>>>>> 8d457b25d6628707454d1c2ee6b6dd53cb901400
             <Button className="ml-5" onClick={signOut}>
               Sign Out
             </Button>

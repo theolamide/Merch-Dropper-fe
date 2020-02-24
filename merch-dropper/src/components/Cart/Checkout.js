@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 
-import StripeCheckoutButton from './StripeButton';
+import StripeCheckoutButton from '../StripeButton';
 
-import { selectCartItems, selectCartTotal } from '../Selectors/cart.selectors';
-import { addToCart, removeFromCart, clearItemFromCart } from '../actions/index';
+import { selectCartItems, selectCartTotal } from '../../store/Selectors/cart.selectors';
+import { addToCart, removeFromCart, clearItemFromCart } from '../../store/actions/index';
 
 
 

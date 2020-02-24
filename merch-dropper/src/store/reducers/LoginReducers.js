@@ -1,39 +1,40 @@
 import {
-    REGISTER_START,
-    REGISTER_SUCCESS,
-    REGISTER_FAILURE
+    LOGIN_START,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE
 } from '../actions';
 
 const initialState = {
-    username: null,
+    username: '',
     isFetching: false,
     error: ''
 };
 
-export const RegisterReducer = (state = initialState, action) => {
+export const LoginReducer = (state = initialState, action) => {
     switch (action.type) {
-        case REGISTER_START: 
+        case LOGIN_START: 
             return {
                 ...state,
                 isFetching: true,
                 error: ''
             }
-        case REGISTER_SUCCESS: 
+        case LOGIN_SUCCESS: 
             return {
                 ...state,
                 isFetching: false, 
                 username: action.payload,
                 error: ''
             }
-        case REGISTER_FAILURE: 
+        case LOGIN_FAILURE: 
             return {
                 ...state,
                 isFetching: false,
                 error: action.payload
             }
-        default:
+        default: 
             return state;
+
     }
 };
 
-export default RegisterReducer;
+export default LoginReducer;

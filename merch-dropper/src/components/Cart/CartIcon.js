@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { toggleCartHidden } from '../actions/index';
+import { toggleCartHidden } from '../../store/actions';
 // import { selectCartItemsCount } from '../Selectors/cart.selectors';
 
-import { ReactComponent as ShoppingIcon } from '../assets/ShoppingIcon.svg';
+import { ReactComponent as ShoppingIcon } from '../../assets/ShoppingIcon.svg';
 
 const IconWrapper = styled.div`
     width: 45px;

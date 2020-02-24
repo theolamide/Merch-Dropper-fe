@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+// import garment from "./DesignShirt";
 
-const CloudinaryHandler = (garment, imageUrls, setImageUrls) => {
+const CloudinaryHandler = async (garment, images, setImages) => {
   const mockup = garment.mockUrl;
   // console.log(garment, "GARMENT URL")
 
@@ -17,7 +18,7 @@ const CloudinaryHandler = (garment, imageUrls, setImageUrls) => {
     "file": mockup
   };
 
-  (async () => {
+  await (async () => {
     const res = await axios
       .post("https://api.cloudinary.com/v1_1/dze74ofbf/upload", data, options)
       .catch(() => {
@@ -26,7 +27,7 @@ const CloudinaryHandler = (garment, imageUrls, setImageUrls) => {
 
     const response = await res;
 
-    setImageUrls({
+    setImages({
       publicId: response.data.public_id,
       version: response.data.version,
       signature: response.data.signature,
@@ -38,7 +39,7 @@ const CloudinaryHandler = (garment, imageUrls, setImageUrls) => {
     });
   })();
 
-  return <div></div>;
+  return null;
 };
 
 export default CloudinaryHandler;

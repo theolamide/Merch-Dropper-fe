@@ -8,7 +8,7 @@ const initialState = {
       design: "Static Ant",
       url:
         "https://raw.githubusercontent.com/Jeris-Manning/FILES/master/shirtsSmall/burnt.png",
-      price: 29.99
+      price: 1.99
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ const initialState = {
       design: "Merch Dropper",
       url:
         "https://raw.githubusercontent.com/Jeris-Manning/FILES/master/shirtsSmall/gold.png",
-      price: 29.99
+      price: 1.99
     },
     {
       id: 4,

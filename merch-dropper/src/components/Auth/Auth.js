@@ -41,6 +41,7 @@ class Auth {
   }
 
   handleAuthentication() {
+    console.log('handleAuthentication called')
     return new Promise((resolve, reject) => {
       this.auth0.parseHash((err, authResult) => {
         if (err) return reject(err);
