@@ -15,7 +15,7 @@ import {
     Media
   } from 'reactstrap';
 
-  const Homepage = () => {
+  const HomePage = () => {
       return (
         <div className="homepage" style={{backgroundColor: '#F3F3F3'}}>
             {/* Begin hero image */}
@@ -106,4 +106,4 @@ import {
       )
   }
 
-  export default Homepage;
+  export default HomePage;
