@@ -8,7 +8,7 @@ import ProductDisplay from "./components/ProductDisplay";
 import initialState from "./store/reducers/initialState";
 import ImageUpload from "./components/CloudinaryWidget";
 import CheckoutPage from "./components/Cart/Checkout";
-import HomePage from "./components/HomePage";
+import HomePage from "./components/homepage";
 import DesignShirt from "./components/Shirt/DesignShirt";
 
 function App() {
