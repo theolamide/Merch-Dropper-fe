@@ -95,11 +95,6 @@ Stripe is a service that allows merchants to accept payments online especially d
 
 Cloudinary is an end-to-end image- and video-management solution for websites and mobile apps, covering everything from image and video uploads, storage, manipulations, optimizations to delivery. The Cloudinary API utilizes REST API methods that can be called directly from within your client application or by using one of Cloudinary's SDKs that wrap the REST API and greatly simplify using its methods. Authenticated uploading is done over HTTPS using a secure protocol based on your account's cloud_name, api_key and api_secret parameters.
 
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
 
 # 3️⃣ Environment Variables
 
