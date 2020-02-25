@@ -10,6 +10,7 @@ import ImageUpload from "./components/CloudinaryWidget";
 import CheckoutPage from "./components/Cart/Checkout";
 import HomePage from "./components/HomePage";
 import DesignShirt from "./components/Shirt/DesignShirt";
+import Search from "./components/Search";
 
 function App() {
   const [products] = useState(initialState.products);
@@ -26,6 +27,7 @@ function App() {
       />
       <Route exact path="/designshirt" component={DesignShirt} /> 
       {/* <ImageUpload /> */}
+      <Route exact path='/search' component={Search} />
       <Footer />
     </div>
   );

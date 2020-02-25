@@ -6,6 +6,8 @@ import RegisterReducer from './RegisterReducers';
 import LoginReducer from './LoginReducers';
 import CartReducer from './CartReducer';
 import ProductReducer from './ProductReducers';
+import SearchReducer from './SearchReducers';
+
 
 const persistConfig = {
     key: 'root',
@@ -17,7 +19,8 @@ const rootReducer = combineReducers({
     RegisterReducer,
     LoginReducer,
     CartReducer,
-    ProductReducer
+    ProductReducer,
+    SearchReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
