@@ -87,16 +87,13 @@ We chose this framework because:
 Auth0 authentication API allows users to manage all aspects if user identity. It offeres endpoints so your users can log in, sign up, log out , access other API's, and more. The API is designed for people comfortable with integrating RESTful API's.
 
 <!-- Stripe  -->
-## Stripe 
-<img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" width="50">
+## Stripe <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" width="50">
 
 Stripe is a service that allows merchants to accept payments online especially developers. The Stripe API alloes developers to access fucntionality of Stripe. The API is organized around REST; it has predictable resource-oriented URL's, accepts form-encoded requesdt bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs. The Stripe API has test mode available for ease of development and does not affect live data or interact with any banking networks.
 
-## 3️⃣ Misc API here
+## Cloudinary <img src="https://d7umqicpi7263.cloudfront.net/img/product/e0cd61a7-1c65-45a0-97ee-7763ddc5153a/25b21b50-a15d-44b2-a781-b68b9de3d17b.png" width="50">
 
-🚫Replace text below with a description of the API
-
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
+Cloudinary is an end-to-end image- and video-management solution for websites and mobile apps, covering everything from image and video uploads, storage, manipulations, optimizations to delivery. The Cloudinary API utilizes REST API methods that can be called directly from within your client application or by using one of Cloudinary's SDKs that wrap the REST API and greatly simplify using its methods. Authenticated uploading is done over HTTPS using a secure protocol based on your account's cloud_name, api_key and api_secret parameters.
 
 ## 3️⃣ Misc API here
 
