@@ -89,9 +89,7 @@ Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do
 
 ## 2️⃣ Payment API here (Stripe and PayPal)
 
-🚫Replace text below with a description of the API
-
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
+Stripe is a service that allows merchants to accept payments online especially developers. The Stripe API alloes developers to access fucntionality of Stripe. The API is organized around REST; it has predictable resource-oriented URL's, accepts form-encoded requesdt bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs. The Stripe API has test mode available for ease of development and does not affect live data or interact with any banking networks.
 
 ## 3️⃣ Misc API here
 
