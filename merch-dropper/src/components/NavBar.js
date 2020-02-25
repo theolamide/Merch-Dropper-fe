@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import CartIcon from './Cart/CartIcon.js';
 import CartDropDown from './Cart/CartDropDown';
+import Search from './Search';
 import '../App.css';
 import "./NavBar.css";
 
@@ -63,15 +64,7 @@ const NavBar = ({ hidden, history }) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <FormGroup className="searchStyle pt-3">
-                  <Input
-                    className="rounded-pill"
-                    type="search"
-                    name="search"
-                    id="exampleSearch"
-                    placeholder="Search... "
-                  />
-                </FormGroup>
+                <Search />
               </NavItem>
             </Nav>
 
@@ -128,15 +121,7 @@ const NavBar = ({ hidden, history }) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <FormGroup className="searchStyle pt-3">
-                  <Input
-                    className="rounded-pill"
-                    type="search"
-                    name="search"
-                    id="exampleSearch"
-                    placeholder="Search... "
-                  />
-                </FormGroup>
+                <Search />
               </NavItem>
             </Nav>
             <Button color="primary" href="/" className="designBtn">

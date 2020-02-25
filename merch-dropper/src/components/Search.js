@@ -12,7 +12,7 @@ const Search = (props) => {
     };
 
     const resetInputField = e => {
-        setSearchValue("");
+        setSearchValue('');
     };
 
     const callSearchFunction = e => {
