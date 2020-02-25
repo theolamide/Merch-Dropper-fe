@@ -81,14 +81,13 @@ We chose this framework because:
 
 # APIs
 
-## 2️⃣ Authentication API here (auth0)
+<!-- auth0 -->
+Auth0 <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Cib-auth0_%28CoreUI_Icons_v1.0.0%29.svg" width="50">
 
-🚫Replace text below with a description of the API
+Auth0 authentication API allows users to manage all aspects if user identity. It offeres endpoints so your users can log in, sign up, log out , access other API's, and more. The API is designed for people comfortable with integrating RESTful API's.
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
-
-## Stripe 
-<img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" width="50">
+<!-- Stripe  -->
+Stripe <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" width="50">
 
 Stripe is a service that allows merchants to accept payments online especially developers. The Stripe API alloes developers to access fucntionality of Stripe. The API is organized around REST; it has predictable resource-oriented URL's, accepts form-encoded requesdt bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs. The Stripe API has test mode available for ease of development and does not affect live data or interact with any banking networks.
 
