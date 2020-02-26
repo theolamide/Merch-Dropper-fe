@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import "../../App.css";
 import styled from "styled-components";
 
 const SliderBox = styled.div`
-  margin: 20px;
+  margin: 20px 0;
+
+  h2 {
+    font-weight: 700;
+  }
 
   label {
     margin-left: 5px;
@@ -11,7 +16,7 @@ const SliderBox = styled.div`
   input[type="range"] {
     height: 29px;
     -webkit-appearance: none;
-    margin: 10px 0;
+    margin-top: 10px;
     width: 250px;
   }
   input[type="range"]:focus {
@@ -115,8 +120,6 @@ const SizeSlider = ({ garment, setGarment }) => {
         }}
       />
 
-
-
       <h2>Vertical Offset - {garment.offSetFromTop} in.</h2>
       <input
         type="range"
@@ -129,8 +132,6 @@ const SizeSlider = ({ garment, setGarment }) => {
           setGarment({ ...garment, [e.target.name]: e.target.value });
         }}
       />
-
-
     </SliderBox>
   );
 };

@@ -6,12 +6,15 @@ const designs = designUrls;
 
 const PicDisplay = styled.div`
   height: auto;
-  margin-left: 20px;
-
-img {
-  height: 60px;
-  width: 60px;
-}
+  margin-bottom: 15px;
+  a:focus {
+    outline: solid black 1px;
+  }
+  img {
+    height: 40px;
+    width: 40px;
+    margin: 3px;
+  }
 `;
 
 const ThumbDisplay = ({ garment, setGarment }) => {
@@ -20,12 +23,12 @@ const ThumbDisplay = ({ garment, setGarment }) => {
   return (
     <PicDisplay>
       {designs.map((design) => (
-        <img
+        <a href="#" key={design.name}><img
           src={design.thumb}
           alt={design.name}
           key={design.name}
           onClick={() => setGarment({ ...garment, artwork: design.hiRes })}
-        />
+        /></a>
       ))}
     </PicDisplay>
   );

@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react";
+import "../../App.css";
 import styled from "styled-components";
 import MockupDisplay from "./MockupDisplay";
 import MockupInput from "./MockupInput";
@@ -31,14 +32,25 @@ const DesignShirt = () => {
     <Fragment>
       <DesignShirtContainer>
         <div>
-          <TemplateShirt garment={garment} />
-          <div>
-            <button onClick={handleScale}>Send to SP</button>
-            <button onClick={handleCloud}>Cloudinary</button>
-            <button onClick={handleProduct}>Add To Store</button>
-          </div>
+          <MockupDisplay
+            garment={garment}
+            setGarment={setGarment}
+            handleCloud={handleCloud}
+            images={images}
+            setImages={setImages}
+            handleProduct={handleProduct}
+          />
         </div>
         <div>
+          <TemplateShirt garment={garment} />
+          <ButtonContainer>
+            <button className="designBtn btn btn-primary" onClick={handleScale}>Send to SP</button>
+            <button className="designBtn btn btn-primary" onClick={handleCloud}>Cloudinary</button>
+            <button className="designBtn btn btn-primary" onClick={handleProduct}>Add To Store</button>
+          </ButtonContainer>
+        </div>
+        <DesignInterface>
+          <CloudinaryWidget />
           <ThumbDisplay garment={garment} setGarment={setGarment} />
 
           <MockupInput
@@ -46,16 +58,8 @@ const DesignShirt = () => {
             setGarment={setGarment}
             handleScale={handleScale}
           />
-        </div>
+        </DesignInterface>
       </DesignShirtContainer>
-      <MockupDisplay
-        garment={garment}
-        setGarment={setGarment}
-        handleCloud={handleCloud}
-        images={images}
-        setImages={setImages}
-        handleProduct={handleProduct}
-      />
     </Fragment>
   );
 };
@@ -65,5 +69,26 @@ export default DesignShirt;
 const DesignShirtContainer = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin-top: 15px;
 `;
+
+const ButtonContainer = styled.div`
+padding: 10px 0;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+
+`
+
+const DesignInterface = styled.div`
+margin-left: 20px;
+
+button {
+  margin-bottom: 15px;
+
+}
+
+`

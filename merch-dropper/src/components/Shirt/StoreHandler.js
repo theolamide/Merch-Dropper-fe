@@ -12,7 +12,7 @@ const StoreHandler = (merchProduct, setMerchProduct, images) => {
   async function addProduct() {
     const res = await axios
       .post(
-        "https://merchdropper-staging.herokuapp.com/api/products",
+        "https://merchdropper-production.herokuapp.com/api/products",
         merchProduct
       )
       .catch(() => {

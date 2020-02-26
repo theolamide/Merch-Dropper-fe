@@ -19,13 +19,15 @@ function App() {
       <Route exact path="/" component={HomePage} />
       <Route exact path="/callback" component={Callback} />
       <Route exact path="/checkout" component={CheckoutPage} />
+
       <Route
         exact
         path="/products"
-        render={props => <ProductDisplay {...props} products={products} />}
+        render={(props) => <ProductDisplay {...props} products={products} />}
       />
-      <Route exact path="/designshirt" component={DesignShirt} /> 
-      {/* <ImageUpload /> */}
+      <Route exact path="/designshirt" component={DesignShirt} />
+
+
       <Footer />
     </div>
   );
