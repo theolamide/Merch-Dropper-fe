@@ -118,7 +118,7 @@ The Scalable Press API is a comprehensive REST service for viewing the product c
 
 # Testing
 
-## Jest
+## Jest <img src="https://camo.githubusercontent.com/b5639de5cfa97c51598b60b13a1061498afe2acb/68747470733a2f2f64337676366c703535716a6171632e636c6f756466726f6e742e6e65742f6974656d732f3244324b343533313278304d31713243306133502f6a6573742d6c6f676f2e737667" width="50">
 
 Jest is a JavaScript Testing Framework maintained by Facebook, Inc. with a focus on simplicity.
 
