@@ -30,7 +30,7 @@ const NavBar = ({ hidden, history }) => {
   useEffect(() => {
     console.log(user);
     console.log(loading);
-  }, []);
+  }, [user]);
 
   const { loading } = useAuth0();
 
