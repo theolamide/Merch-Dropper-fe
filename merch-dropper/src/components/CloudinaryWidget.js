@@ -22,9 +22,10 @@ const showWidget = function() {
 const ImageUpload = () => {
   return (
     <Fragment>
-      <div onClick={showWidget}>Click Here to Upload Image</div>
+      <button className="designBtn btn btn-primary" onClick={showWidget}>
+        Upload New Design
+      </button>
     </Fragment>
   );
 };
 export default ImageUpload;
-

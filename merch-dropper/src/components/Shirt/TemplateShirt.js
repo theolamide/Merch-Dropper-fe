@@ -50,6 +50,8 @@ const ShirtBox = styled.div`
     background-repeat: no-repeat;
     background-position: bottom;
     border: 1px black solid;
+    border-radius: 5px;
+    overflow: hidden;
   }
 `;
 const Design = styled.div.attrs((props) => ({
