@@ -57,9 +57,18 @@ We chose this framework because:
 -    Single Page Application
 -    It is very responsive
 
-#### Reactsrtap
-#### Styled Components
-#### Redux 
+#### axios
+#### enzyme
+#### bootstrap
+#### reactstrap
+#### styled-components
+#### redux 
+#### redux-persist
+#### redux-logger
+#### redux-thunk
+#### cloudinary
+#### react-stripe-checkout
+#### react-stripe-elements
 
 #
 #### [Back end](https://github.com/Lambda-School-Labs/Merch-Dropper-be) built using:
