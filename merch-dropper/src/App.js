@@ -7,7 +7,7 @@ import ProductDisplay from "./components/ProductDisplay";
 import initialState from "./store/reducers/initialState";
 import ImageUpload from "./components/CloudinaryWidget";
 import CheckoutPage from "./components/Cart/Checkout";
-import HomePage from "./components/HomePage.js";
+import Home from "./components/Home.js";
 import ShoppingCart from "./components/Cart/ShoppingCart";
 import DesignShirt from "./components/Shirt/DesignShirt";
 
@@ -19,7 +19,7 @@ function App() {
       {/* <ProductDisplay products={products} /> */}
       {/* <ImageUpload /> */}
       <NavBar />
-      <Route exact path="/" component={HomePage} />
+      <Route exact path="/" component={Home} />
       <Route exact path="/cart" component={ShoppingCart} />
       {/*<Route exact path="/callback" component={Callback} />*/}
       <Route exact path="/checkout" component={CheckoutPage} />
