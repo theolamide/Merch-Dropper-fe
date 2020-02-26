@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { searchStoreName } from '../store/actions';
+import { Input, Button } from 'reactstrap';
+import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 const Search = (props) => {
-    console.log(props.storeName)
+
+    const history = useHistory();
 
     const [searchValue, setSearchValue] = useState("");
 
@@ -19,24 +23,31 @@ const Search = (props) => {
         e.preventDefault();
         props.searchStoreName(searchValue);
         resetInputField();
+        history.push('/products')
     };
 
     return (
-        <form className='search'>
-            <input 
+        <Form className='search'>
+            <Input 
                 value={searchValue}
                 onChange={handleSearchInput}
                 type='text'
                 placeholder='Store Name'
             />
-            <input onClick={callSearchFunction} type='submit' value='SEARCH' />
-        </form>
+            <Button onClick={callSearchFunction}>
+                Search
+            </Button>
+        </Form>
     )
 };
 
+const Form = styled.form`
+    display: flex;
+`;
+
 const mapStateToProps = (state) => {
     let search = state.SearchReducer
-    console.log(search)
+    // console.log(search)
     return {
         storeName: search.storeName,
         isFetching: search.isFetching,
