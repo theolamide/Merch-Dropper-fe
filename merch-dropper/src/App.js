@@ -8,7 +8,7 @@ import ProductDisplay from "./components/ProductDisplay";
 import initialState from "./store/reducers/initialState";
 import ImageUpload from "./components/CloudinaryWidget";
 import CheckoutPage from "./components/Cart/Checkout";
-import HomePage from "./components/HomePage";
+import Home from "./components/Homepage";
 import DesignShirt from "./components/Shirt/DesignShirt";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Route exact path="/" component={HomePage} />
+      <Route exact path="/" component={Home} />
       <Route exact path="/callback" component={Callback} />
       <Route exact path="/checkout" component={CheckoutPage} />
 

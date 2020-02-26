@@ -155,10 +155,12 @@ table {
 }
 
 .footer {
-  position: fixed;
+  position: relative;
   right: 0;
   bottom: 0;
   left: 0;
+  height: 50px;
+  margin-top: 5vh;
 }
 
 .homepage {
@@ -380,6 +382,10 @@ table {
     .featuredText {
       font-size: 0.65rem;
     }
+
+    .footer {
+      display: none;
+    }
   }
 
   /* iPhone portrait only */
@@ -389,7 +395,7 @@ table {
     }
 
     .cards {
-      height: 20vh;
+      height: 25vh;
     }
 
   }
