@@ -70,7 +70,7 @@ We chose this framework because:
 #### react-stripe-checkout
 #### react-stripe-elements
 
-#
+
 #### [Back end](https://github.com/Lambda-School-Labs/Merch-Dropper-be) built using:
 
 #### NodeJS
@@ -122,19 +122,6 @@ The Scalable Press API is a comprehensive REST service for viewing the product c
 
 Jest is a JavaScript Testing Framework maintained by Facebook, Inc. with a focus on simplicity.
 
-<!-- 
-# 4️⃣ Installation Instructions
-
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
-
-## Other Scripts
-
-🚫replace these examples with your own
-
-    * typecheck - runs the TypeScript compiler
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
 
 # Contributing
 
@@ -170,7 +157,7 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 ### Attribution
 
-These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426). -->
+These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426). 
 
 ## Documentation
 
