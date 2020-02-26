@@ -7,6 +7,8 @@ const ShoppingCart = (props) => {
      console.log('cart props', props)
     return (
         <div>
+            {/* <NavBar /> */}
+            {/*{props.cart.cart.map(product => (*/}
             {props.cart.map(product => (
                 <ShoppingCartItem key={product.id} product={product} removeFromCart={props.removeFromCart} />
             ))}

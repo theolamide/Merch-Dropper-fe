@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "./NavBar";
 import ProductCard from "./ProductCard";
 import { connect } from "react-redux";
 import { addToCart } from "../store/actions";
@@ -9,6 +10,7 @@ const ProductDisplay = ({ products, addToCart }) => {
   // console.log('productdisplay/products', products)
   return (
     <Container fluid="true" className="container-margin">
+       {/*<NavBar />*/}
       <Row>
         <Col sm="7" className="flex ">
           {products.map((product) => (
