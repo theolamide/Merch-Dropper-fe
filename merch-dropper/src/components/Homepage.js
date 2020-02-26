@@ -15,7 +15,7 @@ import {
     Media
   } from 'reactstrap';
 
-  const Homepage = () => {
+  const HomePage = () => {
       return (
         <div className="homepage" style={{backgroundColor: '#F3F3F3'}}>
             {/* Begin hero image */}
@@ -24,7 +24,7 @@ import {
             // style={{ backgroundImage: `url('https://i.ibb.co/SKTW5GZ/Adobe-Stock-316954524-Preview1-1.png')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', width: '100vw', height: '100vh' }}
             >
                 <Container>
-                    <Row>
+                    <Row style={{wrap: 'no-wrap'}}>
                         <Col className="column" sm={{size: 'auto'}} >
                             <h1 className="display-3 customh1" style={{textAlign:'center', color: 'white', fontWeight: 'bold'}}>CUSTOM</h1>
                             <h2 className="display-4 tshirth1" style={{textAlign:'center', color: 'white', fontWeight: 'bold'}}>T-SHIRTS</h2>
@@ -106,4 +106,4 @@ import {
       )
   }
 
-  export default Homepage;
+  export default HomePage;
