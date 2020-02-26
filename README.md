@@ -29,13 +29,12 @@ Deployed URL: https://www.merch-dropper.com/
 
 Merch Dropper aims to solve, for creators and enterpreneurs, the hassle that comes with creating customized merchindize at a small scale. We aim to take the work away from you so you focus on what you do best, to create. We focus on recieveing the orders, shipping, payments collection, and all the nitty gritty for a fee. We are a plug and play one stop shop.
 
-### 4️⃣ Key Features
+### Key Features
 
--    feature one
--    feature two
--    feature three
--    feature four
--    feature five
+-    Design Upload
+-    Instant Product Mockup
+-    Cloudinary image/product mockup storage functionality
+-    Easy and secure checkout
 
 ## Tech Stack
 
@@ -99,14 +98,14 @@ Cloudinary is an end-to-end image- and video-management solution for websites an
 The Scalable Press API is a comprehensive REST service for viewing the product catalog, making quotes, and completing orders for the Scalable Press printing and fulfillment services. Requests are made using standard GET, POST, and DELETE requests. All responses are JSON. Once signed up, an API key and a test API key will be provided to the customer to use in their client App. When using the test API key, it works just like the Stripe test API key where no charges are made against the user.
 
 
-# 5️⃣ Content Licenses
+<!-- # 5️⃣ Content Licenses
 
 🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
 
 | Image Filename | Source / Creator | License                                                                      |
 | -------------- | ---------------- | ---------------------------------------------------------------------------- |
 | doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
+| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             | -->
 
 # Testing
 
@@ -114,7 +113,7 @@ The Scalable Press API is a comprehensive REST service for viewing the product c
 
 Jest is a JavaScript Testing Framework maintained by Facebook, Inc. with a focus on simplicity.
 
-
+<!-- 
 # 4️⃣ Installation Instructions
 
 🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
@@ -162,7 +161,7 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 ### Attribution
 
-These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
+These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426). -->
 
 ## Documentation
 
