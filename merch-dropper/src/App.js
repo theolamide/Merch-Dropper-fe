@@ -10,6 +10,7 @@ import ImageUpload from "./components/CloudinaryWidget";
 import CheckoutPage from "./components/Cart/Checkout";
 import HomePage from "./components/HomePage";
 import DesignShirt from "./components/Shirt/DesignShirt";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const [products] = useState(initialState.products);
@@ -24,6 +25,7 @@ function App() {
         path="/products"
         render={props => <ProductDisplay {...props} products={products} />}
       />
+      <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/designshirt" component={DesignShirt} /> 
       {/* <ImageUpload /> */}
       <Footer />
