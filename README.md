@@ -1,3 +1,9 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/5d2ef315d90fe5b4a344/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/Merch-Dropper-fe/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/5d2ef315d90fe5b4a344/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/Merch-Dropper-fe/test_coverage)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/43f81f48-6f72-4820-9349-51d988b5b63e/deploy-status)](https://app.netlify.com/sites/flamboyant-minsky-4b61e4/deploys)
+
 <!-- 🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline, feel free to add your own flare to it.
 
 🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be comepleted by.  Make sure to delete the numbers by the end of Labs.
@@ -10,10 +16,12 @@ Deployed URL: https://www.merch-dropper.com/
 
 ## Contributors
 
+
 |                                       [Jennie Van](https://github.com/yennilee)                                      |                                       [Daniel Ajadi](https://github.com/theolamide)                                        |                                       [Jerris Manning](https://github.com/jeris-manning)                                        |                                       [Marcos Lira](https://github.com/Mlira02)                                        |                                       [Tristan Boudreau](https://github.com/tboudreau614)                                        |                                       [Wes Jonke](https://github.com/Wjonke)                                        |
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | 
 |                      [<img src="https://avatars3.githubusercontent.com/u/51731995?s=400&v=4" width = "200" />](https://github.com/yennilee)                       |                      [<img src="https://avatars3.githubusercontent.com/u/54829403?s=400&v=4" width = "200" />](https://github.com/theolamide)                       |                      [<img src="https://avatars2.githubusercontent.com/u/49968389?s=400&v=4" width = "200" />](https://github.com/jeris-manning)                       |                      [<img src="https://avatars2.githubusercontent.com/u/46974548?s=400&v=4" width = "200" />](https://github.com/Mlira02)                       |                      [<img src="https://avatars0.githubusercontent.com/u/54781883?s=400&v=4" width = "200" />](https://github.com/tboudreau614)                       |                      [<img src="https://avatars3.githubusercontent.com/u/48270435?s=400&v=4" width = "200" />](https://github.com/Wjonke)                       |
 |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
+
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jennievan/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/daniel-ajadi-95b207197/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jerismanning/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/marcos-lira-837490186/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/tristan-boudreau-644b16168) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/wes-jonke/) |
 
 <br>
@@ -38,8 +46,6 @@ Merch Dropper aims to solve, for creators and enterpreneurs, the hassle that com
 
 ## Tech Stack
 
-<!-- 🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
-
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
 ![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
@@ -53,9 +59,11 @@ Merch Dropper aims to solve, for creators and enterpreneurs, the hassle that com
 #### ReactJS
 
 We chose this framework because:
--    Most familiarity with React as a FE framework
--    Single Page Application
--    It is very responsive
+
+- Most familiarity with React as a FE framework
+- Single Page Application
+- It is very responsive
+
 
 #### axios
 #### enzyme
@@ -75,15 +83,21 @@ We chose this framework because:
 
 #### NodeJS
 
--    Having a true relational database will work very well with the data we expect to be using. 
--    Everyone on the team has a working knowledge of NodeJS and that'll make it easier to debug if we ever run into any issues.
+- Having a true relational database will work very well with the data we expect to be using.
+- Everyone on the team has a working knowledge of NodeJS and that'll make it easier to debug if we ever run into any issues.
 
 #### knex
+
 #### knex-cleaner
+
 #### postgreSQL
+
 #### express
+
 #### helmet
+
 #### jsonwebtoken
+
 #### bycryptJS
 
 # APIs
@@ -130,12 +144,13 @@ When contributing to this repository, please first discuss the change you wish t
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
 ## Issue/Bug Request
-   
- **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
- - Check first to see if your issue has already been reported.
- - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
- - Create a live example of the problem.
- - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes,  where you believe the issue is originating from, and any potential solutions you have considered.
+
+**If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
+
+- Check first to see if your issue has already been reported.
+- Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+- Create a live example of the problem.
+- Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
 
 ### Feature Requests
 
