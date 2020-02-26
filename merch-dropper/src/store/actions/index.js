@@ -130,4 +130,21 @@ export const toggleCartHidden = (cart) => {
     }
 };
 
+//search for stores
+export const SEARCH_STORE_START = 'SEARCH_STORE_START';
+export const SEARCH_STORE_SUCCESS = 'SEARCH_STORE_SUCCESS';
+export const SEARCH_STORE_FAIL = 'SEARCH_STORE_FAIL';
+
+export const searchStoreName = (storeName) => dispatch => {
+    let encodedURI = encodeURI(storeName)
+    // console.log('search action called', encodedURI)
+    dispatch({ type: SEARCH_STORE_START })
+    axios.get(`https://merchdropper-production.herokuapp.com/api/stores/storename/${encodedURI}`)
+        .then(res => {
+            dispatch({ type: SEARCH_STORE_SUCCESS, payload: res.data })
+        })
+        .catch(err => {
+            dispatch({ type: SEARCH_STORE_FAIL, payload: err })
+        })
+};
 

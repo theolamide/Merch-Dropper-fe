@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import "../App.css";
 
 let widget = window.cloudinary.createUploadWidget(
   {
