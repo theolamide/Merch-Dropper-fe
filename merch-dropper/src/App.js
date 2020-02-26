@@ -16,16 +16,11 @@ import { useAuth0 } from "./components/Auth/Auth.js";
 
 function App() {
   const [products] = useState(initialState.products);
-  const { loading } = useAuth0();
-
-  if(loading) {
-    return <div>Loading...</div>
-  }
-
-    // useEffect(() => {
-    //     console.log(loading);
-    // }, [])
-
+  // const { loading } = useAuth0();
+  //
+  // if(loading) {
+  //   return <div>Loading...</div>
+  // }
 
   return (
     <div className="App">

@@ -29,14 +29,21 @@ const NavBar = ({ hidden, history }) => {
 
   useEffect(() => {
     console.log(user);
+    console.log(loading);
   }, []);
 
+  const { loading } = useAuth0();
+
+  // if(loading) {
+  //   return <div>Loading...</div>
+  // }
 
   const logoutWithRedirect = () => {
   logout({
   returnTo: window.location.origin
   });
   };
+
 
 
   if (!user || user == "undefined") {
@@ -101,7 +108,7 @@ const NavBar = ({ hidden, history }) => {
 
   } else {
     return (
-      <div class="divNav">
+      <div className="divNav">
         <Navbar color="white" light expand="md" className="navStyle">
           <img
             className="mr-5"
