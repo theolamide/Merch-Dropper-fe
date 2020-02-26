@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import auth0Client from "./Auth/Auth";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import CartIcon from './Cart/CartIcon.js';
 import CartDropDown from './Cart/CartDropDown';
+import { useAuth0 } from "./Auth/Auth";
 import '../App.css';
 import "./NavBar.css";
 
@@ -22,39 +22,24 @@ import {
 
 
 const NavBar = ({ hidden, history }) => {
+  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [isOpen, setIsOpen] = useState(false);
-  const [token, setToken] = useState(localStorage.getItem("Id_token"));
 
   const toggle = () => setIsOpen(!isOpen);
 
   useEffect(() => {
-<<<<<<< HEAD
-    console.log(auth0Client.getProfile(localStorage.getItem("Id_token")));
-    // setToken(localStorage.getItem("Id_token"));
-=======
-    console.log('auth0 profile', auth0Client.getProfile());
-    setToken(localStorage.getItem("Id_token"));
->>>>>>> 8d457b25d6628707454d1c2ee6b6dd53cb901400
-  }, [localStorage.getItem("Id_token")]);
-
-  useEffect(() => {
-    auth0Client.handleAuthentication();
+    console.log(user);
   }, []);
 
-  async function profileSignIn() {
-    auth0Client.signIn();
-    await auth0Client.getProfile(token);
+
+  const logoutWithRedirect = () => {
+  logout({
+  returnTo: window.location.origin
+  });
   };
 
 
-  const signOut = () => {
-    auth0Client.signOut();
-    this.props.history.replace("/");
-  };
-
-
-  if (!token || token == "undefined") {
-
+  if (!user || user == "undefined") {
     return (
       <div className="divNav">
         <Navbar color="white" light expand="md" className="navStyle">
@@ -83,12 +68,9 @@ const NavBar = ({ hidden, history }) => {
               </NavItem>
             </Nav>
 
-            {!localStorage.getItem("Id_token") ||
-            localStorage.getItem("Id_token") == "undefined" ?
-              <Button className="ml-5 mr-5" onClick={profileSignIn}>
-                Sign In
-              </Button> : null
-            }
+            {!isAuthenticated && (
+                <button onClick={() => loginWithRedirect({})}>Log in</button>
+            )}
 
             <Button color="primary" className="designBtn"
               color="primary" className="designBtn"
@@ -105,10 +87,6 @@ const NavBar = ({ hidden, history }) => {
               }}
             >
               Buy Merch
-            </Button>
-
-            <Button className="ml-5 mr-5" onClick={signOut}>
-               Sign Out
             </Button>
 
             <CartIcon />
@@ -153,16 +131,9 @@ const NavBar = ({ hidden, history }) => {
             <Button className="ml-5" outline color="primary" href="/">
               Buy Merch
             </Button>
-<<<<<<< HEAD
-            <img src={auth0Client.getProfile(localStorage.getItem("Id_token")).picture} className="img-rounded img-fluid avatar" />
-            <p><b>Hello {auth0Client.getProfile(localStorage.getItem("Id_token")).name}</b></p>
-=======
-            {/* <img src={auth0Client.getProfile().picture} className="img-rounded img-fluid avatar" /> 
-            <p><b>Hello {auth0Client.getProfile().name}</b></p> */}
->>>>>>> 8d457b25d6628707454d1c2ee6b6dd53cb901400
-            <Button className="ml-5" onClick={signOut}>
-              Sign Out
-            </Button>
+            <img src={user.picture} />
+            <h4>{user.name}</h4>
+            {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
           </Collapse>
         </Navbar>
       </div>
