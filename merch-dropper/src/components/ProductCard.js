@@ -12,13 +12,13 @@ const ProductCard = ({ product, addToCart }) => {
             top
             width="100%"
             height="auto"
-            src={product.url}
+            src={product.thumbnailURL}
             alt="T-shirt"
           />
           <CardBody className="product-card-padding">
             <CardTitle className="h5 text-center">{product.design}</CardTitle>
             <CardText>
-              <small className="text-muted">In {product.color}</small>
+              <small className="text-muted">{product.name}</small>
             </CardText>
             <CardText>${product.price}</CardText>
             <button
