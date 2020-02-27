@@ -20,7 +20,7 @@ it('expect to verify class for corresponding html tags', () => {
     expect(wrapper.find('button').hasClass('btn-primary cardBtn')).toBe(true);
     expect(wrapper.find('CardBody').hasClass('product-card-padding')).toBe(true);
     expect(wrapper.find('CardTitle').hasClass('h5 text-center')).toBe(true);
-})
+});
 
 it('expect to verify number of specific html tags rendered', () => {
     expect(wrapper.find('CardImg').length).toEqual(1);
