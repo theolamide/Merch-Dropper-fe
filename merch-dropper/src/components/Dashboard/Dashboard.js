@@ -1,16 +1,19 @@
 import React from 'react';
 import SideBar from './SideBar';
 import Chart from './Chart';
+import { StyledDiv, BigContainer } from './Styled';
 
 const Dashboard = (props) => {
     return (
-        <div className="dashboard-container">
+        <BigContainer className="dashboard-container">
             <div className="user-info">
                 <h2 align="right">Welcome, username </h2>
+            </div>
+            <StyledDiv className='dashboard-components'>
                 <SideBar />
                 <Chart />
-            </div>
-        </div>
+            </StyledDiv>
+        </BigContainer>
     )
 };
 

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import NavBar from "./NavBar";
 import ProductCard from "./ProductCard";
 import { connect } from "react-redux";
@@ -6,16 +7,27 @@ import { addToCart } from "../store/actions";
 import { Container, Row, Col } from "reactstrap";
 import "../App.css";
 
+
 const ProductDisplay = ({ products, addToCart }) => {
   // console.log('productdisplay/products', products)
+  const [shirts, setShirts] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://merchdropper-production.herokuapp.com/api/products')
+      .then(res => {
+        // console.log('res', res.data)
+        setShirts(res.data);
+      })
+  }, []);
+
   return (
     <Container fluid="true" className="container-margin">
        {/*<NavBar />*/}
       <Row>
         <Col sm="7" className="flex ">
-          {products.map((product) => (
+          {shirts.map((product, id) => (
             <ProductCard
-              url={product.url}
+              url={product.thumbnailURL}
               color={product.color}
               design={product.design}
               price={product.price}
