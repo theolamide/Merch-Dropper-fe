@@ -34,5 +34,5 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
           CI: true
         with:
-          coverageCommand: yarn coverage
+          coverageCommand: cd merch-dropper && yarn coverage
           debug: true
