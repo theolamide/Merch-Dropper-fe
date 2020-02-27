@@ -7,7 +7,7 @@ it('renders without crashing', () => {
   render(<Home />);
 });
 
-it('renders HomePage correctly', () => {
+it('renders Home correctly', () => {
   const tree = renderer.create(<Home />).toJSON();
   expect(tree).toMatchSnapshot();
 });

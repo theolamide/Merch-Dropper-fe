@@ -24,7 +24,6 @@ function App() {
       <Route exact path="/cart" component={ShoppingCart} />
       {/*<Route exact path="/callback" component={Callback} />*/}
       <Route exact path="/checkout" component={CheckoutPage} />
-
       <Route
         exact
         path="/products"
