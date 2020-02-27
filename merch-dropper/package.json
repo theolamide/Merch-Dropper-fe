@@ -32,9 +32,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --watchAll",
     "eject": "react-scripts eject",
-    "coverage": "CI=true yarn test --coverage || true"
+    "coverage": "jest --coverage --detectOpenHandles --forceExit || true"
   },
   "eslintConfig": {
     "extends": "react-app"
