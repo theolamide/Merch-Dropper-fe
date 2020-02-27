@@ -15,7 +15,7 @@ import {
 
 const Footer = (props) => {
     return (
-        <div className="mt-5 fixed-bottom ">
+        <div className="mt-5 footer">
             <Navbar color="white" light expand="md" className="navStyle">
                 <Form inline className="ml-5">
                     <FormGroup>
@@ -28,11 +28,7 @@ const Footer = (props) => {
                 </p>
                 <Nav className="ml-auto">
                     <NavLink href="/">Home</NavLink>
-                    <NavLink href="/">About</NavLink>
                     <NavLink href="/">Store</NavLink>
-                    <NavLink href="/">FAQ</NavLink>
-                    <NavLink href="/">Jobs</NavLink>
-                    <NavLink href="/">Create</NavLink>
                 </Nav>
             </Navbar>
         </div>

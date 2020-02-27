@@ -1,31 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
+import NavBar from "./NavBar";
 import ProductCard from "./ProductCard";
 import { connect } from "react-redux";
-import { addToCart } from "../actions";
-
-import styled from "styled-components";
+import { addToCart } from "../store/actions";
 import { Container, Row, Col } from "reactstrap";
 import "../App.css";
-const ProductWindow = styled.div`
-  border: blue solid 3px;
-  max-width: 40%;
 
-  img: {
-    max-width: 90%;
-    height: auto;
-  }
-`;
 
 const ProductDisplay = ({ products, addToCart }) => {
-  console.log('productdisplay/products', products)
+  // console.log('productdisplay/products', products)
+  const [shirts, setShirts] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://merchdropper-production.herokuapp.com/api/products')
+      .then(res => {
+        // console.log('res', res.data)
+        setShirts(res.data);
+      })
+  }, []);
+
   return (
     <Container fluid="true" className="container-margin">
+       {/*<NavBar />*/}
       <Row>
         <Col sm="7" className="flex ">
-          {products.map((product) => (
+          {shirts.map((product, id) => (
             <ProductCard
-              url={product.url}
-              color={product.color}
+              url={product.thumbnailURL}
+              name={product.productName}
               design={product.design}
               price={product.price}
               product={product}
@@ -33,14 +36,6 @@ const ProductDisplay = ({ products, addToCart }) => {
             />
           ))}
         </Col>
-        {/* <div className="tester">Hello
-        <ProductWindow>
-          <img
-            className="flex"
-            src="https://raw.githubusercontent.com/Jeris-Manning/FILES/master/shirtsSmall/black.png"
-            alt=""
-          />
-        </ProductWindow></div> */}
       </Row>
     </Container>
   );
