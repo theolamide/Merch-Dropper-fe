@@ -10,8 +10,10 @@ import CloudinaryWidget from "../CloudinaryWidget";
 import TemplateShirt from "./TemplateShirt";
 import initialShirtState from "./initialShirtState";
 import StoreHandler from "./StoreHandler";
+import DesignHandler from "./DesignHandler";
 
 const DesignShirt = () => {
+
   const [garment, setGarment] = useState(initialShirtState.garment);
   const [images, setImages] = useState(initialShirtState.cloudinaryInfo);
   const [merchProduct, setMerchProduct] = useState(
@@ -50,7 +52,8 @@ const DesignShirt = () => {
           </ButtonContainer>
         </div>
         <DesignInterface>
-          <CloudinaryWidget />
+          {/* <CloudinaryWidget /> */}
+          <DesignHandler />
           <ThumbDisplay garment={garment} setGarment={setGarment} />
 
           <MockupInput

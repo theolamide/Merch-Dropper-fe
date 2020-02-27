@@ -1,27 +1,34 @@
 import React, { Fragment } from "react";
 
-let widget = window.cloudinary.createUploadWidget(
-  {
-    cloudName: "dze74ofbf",
-    uploadPreset: "logoFromWidget",
-    sources: ["local", "url"],
-    showAdvancedOptions: false,
-    cropping: false,
-    multiple: false,
-    defaultSource: "local"
-  },
-  (error, result) => {
-    if (result.event == "success") {
-      console.log(result.info, "THIS ONE IS THE RESULT OK");
+const ImageUpload = ({ design, setDesign }) => {
+  let widget = window.cloudinary.createUploadWidget(
+    {
+      cloudName: "dze74ofbf",
+      uploadPreset: "logoFromWidget",
+      sources: ["local", "url"],
+      showAdvancedOptions: false,
+      cropping: false,
+      multiple: false,
+      defaultSource: "local"
+    },
+    (error, result) => {
+      if (result.event == "success") {
+        const data = result.info;
+        console.log("HERE THAT PIXURE DATA", data);
+        setDesign({
+          ...design,
+          design_name: data.original_filename,
+          design_url: data.url,
+          thumbnail_url: data.thumbnail_url
+        });
+      }
     }
-  }
-);
+  );
 
-const showWidget = function () {
-  widget.open();
-};
+  const showWidget = function() {
+    widget.open();
+  };
 
-const ImageUpload = () => {
   return (
     <Fragment>
       <button className="designBtn btn btn-primary" onClick={showWidget}>

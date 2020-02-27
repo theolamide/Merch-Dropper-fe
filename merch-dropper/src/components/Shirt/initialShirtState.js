@@ -1,3 +1,11 @@
+let user;
+if (localStorage.id) {
+  user = localStorage.id;
+} else {
+  user = 1;
+}
+
+console.log(user, "THIS IS USER NUMBER");
 const initialShirtState = {
   garment: {
     color: "White",
@@ -27,9 +35,16 @@ const initialShirtState = {
     fullSizeURL: "",
     thumbnailURL: "",
     description: "A pretty sweet shirt",
-    price: 49.99
+    price: 49.99,
+    storeID: 1
+  },
+  designInfo: {
+    design_name: "Shirt Design",
+    design_url: "",
+    thumbnail_url: "",
+    storeID: 1,
+    userID: user
   }
-}
+};
 
-export default initialShirtState
-
+export default initialShirtState;
