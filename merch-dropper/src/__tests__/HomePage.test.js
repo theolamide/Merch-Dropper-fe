@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Home from '../components/Homepage';
+import Home from '../components/Home';
 
 it('renders without crashing', () => {
-  render(<HomePage />);
+  render(<Home />);
 });
 
 it('renders Home correctly', () => {

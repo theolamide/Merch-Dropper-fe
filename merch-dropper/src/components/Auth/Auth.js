@@ -1,75 +1,87 @@
-import auth0 from "auth0-js";
+import React, { useState, useEffect, useContext } from "react";
+import createAuth0Client from "@auth0/auth0-spa-js";
 
-class Auth {
-  constructor() {
-    this.auth0 = new auth0.WebAuth({
-      // the following three lines MUST be updated
-      domain: "merch-dropper.auth0.com",
-      audience: "https://merch-dropper.auth0.com/userinfo",
-      clientID: "Pb3Cp5ptYghmNVDjusjPmsHPRkJq6RAP",
-      // redirectUri: "http://localhost:3000/callback",
-      redirectUri: "https://www.merch-dropper.com/callback",
-      responseType: "id_token",
-      scope: "openid profile"
-    });
+const DEFAULT_REDIRECT_CALLBACK = () =>
+    window.history.replaceState({}, document.title, window.location.pathname);
 
-    this.getProfile = this.getProfile.bind(this);
-    this.handleAuthentication = this.handleAuthentication.bind(this);
-    this.isAuthenticated = this.isAuthenticated.bind(this);
-    this.signIn = this.signIn.bind(this);
-    this.signOut = this.signOut.bind(this);
-  }
+export const Auth0Context = React.createContext();
+export const useAuth0 = () => useContext(Auth0Context);
+export const Auth0Provider = ({
+                                children,
+                                onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
+                                ...initOptions
+                              }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState();
+  const [user, setUser] = useState();
+  const [auth0Client, setAuth0] = useState();
+  const [loading, setLoading] = useState(true);
+  const [popupOpen, setPopupOpen] = useState(false);
 
-  getProfile() {
-    localStorage.setItem("Id_token", this.idToken);
-    console.log("Profile", this.profile);
-    return this.profile;
-  }
+  useEffect(() => {
+    const initAuth0 = async () => {
+      const auth0FromHook = await createAuth0Client(initOptions);
+      setAuth0(auth0FromHook);
 
-  getIdToken() {
-    return this.idToken;
-  }
+      if (window.location.search.includes("code=") &&
+          window.location.search.includes("state=")) {
+        const { appState } = await auth0FromHook.handleRedirectCallback();
+        onRedirectCallback(appState);
+      }
 
-  isAuthenticated() {
-    return new Date().getTime() < this.expiresAt;
-  }
+      const isAuthenticated = await auth0FromHook.isAuthenticated();
 
-  signIn() {
-    // localStorage.setItem("Id_token", this.idToken);
-    this.auth0.authorize();
-  }
+      setIsAuthenticated(isAuthenticated);
 
-  handleAuthentication() {
-    console.log('handleAuthentication called')
-    return new Promise((resolve, reject) => {
-      this.auth0.parseHash((err, authResult) => {
-        if (err) return reject(err);
-        if (!authResult || !authResult.idToken) {
-          return reject(err);
-        }
-        this.idToken = authResult.idToken;
-        this.profile = authResult.idTokenPayload;
-        // set the time that the id token will expire at
-        this.expiresAt = authResult.idTokenPayload.exp * 1000;
-        resolve();
-      });
-    });
-  }
+      if (isAuthenticated) {
+        const user = await auth0FromHook.getUser();
+        setUser(user);
+      }
 
-  signOut() {
-    // clear id token, profile, and expiration
-    this.idToken = null;
-    this.profile = null;
-    this.expiresAt = null;
-    localStorage.removeItem("Id_token");
-    this.auth0.logout({
-      // returnTo: "http://localhost:3000",
-      returnTo: "https://www.merch-dropper.com/callback",
-      clientID: "Pb3Cp5ptYghmNVDjusjPmsHPRkJq6RAP"
-    });
-  }
-}
+      setLoading(false);
+    };
+    initAuth0();
+    // eslint-disable-next-line
+  }, []);
 
-const auth0Client = new Auth();
+  const loginWithPopup = async (params = {}) => {
+    setPopupOpen(true);
+    try {
+      await auth0Client.loginWithPopup(params);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setPopupOpen(false);
+    }
+    const user = await auth0Client.getUser();
+    setUser(user);
+    setIsAuthenticated(true);
+  };
 
-export default auth0Client;
+  const handleRedirectCallback = async () => {
+    setLoading(true);
+    await auth0Client.handleRedirectCallback();
+    const user = await auth0Client.getUser();
+    setLoading(false);
+    setIsAuthenticated(true);
+    setUser(user);
+  };
+  return (
+      <Auth0Context.Provider
+          value={{
+            isAuthenticated,
+            user,
+            loading,
+            popupOpen,
+            loginWithPopup,
+            handleRedirectCallback,
+            getIdTokenClaims: (...p) => auth0Client.getIdTokenClaims(...p),
+            loginWithRedirect: (...p) => auth0Client.loginWithRedirect(...p),
+            getTokenSilently: (...p) => auth0Client.getTokenSilently(...p),
+            getTokenWithPopup: (...p) => auth0Client.getTokenWithPopup(...p),
+            logout: (...p) => auth0Client.logout(...p)
+          }}
+      >
+        {children}
+      </Auth0Context.Provider>
+  );
+};
