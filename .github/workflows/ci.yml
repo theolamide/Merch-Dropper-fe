@@ -11,7 +11,6 @@ jobs:
     name: Test ${{ matrix.os }}/${{ matrix.node }}
     runs-on: ${{ matrix.os }}
     steps:
-      - run: cd merch-dropper
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
