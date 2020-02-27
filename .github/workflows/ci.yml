@@ -11,11 +11,11 @@ jobs:
     name: Test ${{ matrix.os }}/${{ matrix.node }}
     runs-on: ${{ matrix.os }}
     steps:
+      - run: cd merch-dropper
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node }}
-      - run: cd merch-dropper
       - run: yarn install
       - run: yarn build --if-present
       - run: yarn test
@@ -25,11 +25,12 @@ jobs:
     name: Test and publish test coverage
     runs-on: ubuntu-latest
     steps:
+      - run: cd merch-dropper
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
           node-version: "12"
-      - run: cd merch-dropper
+
       - run: yarn install
       - uses: paambaati/codeclimate-action@v2.4.0
         env:
