@@ -76,9 +76,9 @@ const CustomButton = styled(Button)`
         }
 `
 
-const SingleCartItem = ({ item: { url, price, name, quantity } }) => (
+const SingleCartItem = ({ item: { thumbnailURL, price, name, quantity } }) => (
     <CartItemDiv className='cart-item'>
-        <CartItemImage src={url} alt='item' />
+        <CartItemImage src={thumbnailURL} alt='item' />
         <CartItemDetails className='item-details'>
             <span className='name'>{name}</span>
             <span className='price'> {quantity} x ${price}</span>

@@ -36,9 +36,9 @@ const CheckoutPage = ({ cartItems, total, addItem, removeItem, clearItem }) => (
                 // <CheckoutItem key={cartItem.id} cartItem={cartItem} />
                 <CheckoutItemWrapper key={cartItem.id} className='checkout-item'>
                     <ImageWrapper className='image-container'>
-                        <ImageContainer src={cartItem.url} alt='item' />
+                        <ImageContainer src={cartItem.thumbnailURL} alt='item' />
                     </ImageWrapper>
-                    <DescriptionWrapper className='description'>{cartItem.design} in {cartItem.color}</DescriptionWrapper>
+                    <DescriptionWrapper className='description'>{cartItem.description}</DescriptionWrapper>
                     <QuantityWrapper className='quantity'>
                         <Arrow className='arrow' onClick={() => removeItem(cartItem)} >&#10094;</Arrow>
                         <ValueDiv className='value'>{cartItem.quantity}</ValueDiv>

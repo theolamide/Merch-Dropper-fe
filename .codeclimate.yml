@@ -1,5 +1,3 @@
+version: "2"
 exclude_patterns:
-  - "tests/"
-  - "spec/"
-  - "**/vendor/"
-  - "**/node_modules/"
+  - "**/__tests__/"
