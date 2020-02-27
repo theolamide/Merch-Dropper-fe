@@ -10,9 +10,10 @@ import CheckoutPage from "./components/Cart/Checkout";
 import Home from "./components/Home.js";
 import ShoppingCart from "./components/Cart/ShoppingCart";
 import DesignShirt from "./components/Shirt/DesignShirt";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
-  const [products] = useState(initialState.products);
+  // const [products] = useState(initialState.products);
 
   return (
     <div className="App">
@@ -27,10 +28,11 @@ function App() {
       <Route
         exact
         path="/products"
-        render={props => <ProductDisplay {...props} products={products} />}
+        render={props => <ProductDisplay {...props} />}
       />
-      <Route exact path="/designshirt" component={DesignShirt} />
-
+      <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/designshirt" component={DesignShirt} /> 
+      {/* <ImageUpload /> */}
       <Footer />
     </div>
   );

@@ -4,23 +4,23 @@ import {
     Button,
     Row,
     Col,
-    Card,
-    CardImg,
-    CardText,
+    Card, 
+    CardImg, 
+    CardText, 
     CardBody,
-    CardTitle,
+    CardTitle, 
     CardSubtitle,
     Jumbotron,
     Container,
     Media
   } from 'reactstrap';
 
-  const HomePage = () => {
+  const Home = () => {
       return (
         <div className="homepage" style={{backgroundColor: '#F3F3F3'}}>
             {/* Begin hero image */}
             <div className="jumboParent">
-            <Jumbotron className="jumboCont"
+            <Jumbotron className="jumboCont" 
             // style={{ backgroundImage: `url('https://i.ibb.co/SKTW5GZ/Adobe-Stock-316954524-Preview1-1.png')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', width: '100vw', height: '100vh' }}
             >
                 <Container>
