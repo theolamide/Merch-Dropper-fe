@@ -28,7 +28,7 @@ const ProductDisplay = ({ products, addToCart }) => {
           {shirts.map((product, id) => (
             <ProductCard
               url={product.thumbnailURL}
-              color={product.color}
+              name={product.productName}
               design={product.design}
               price={product.price}
               product={product}

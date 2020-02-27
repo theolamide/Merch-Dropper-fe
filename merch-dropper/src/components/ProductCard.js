@@ -18,7 +18,7 @@ const ProductCard = ({ product, addToCart }) => {
           <CardBody className="product-card-padding">
             <CardTitle className="h5 text-center">{product.design}</CardTitle>
             <CardText>
-              <small className="text-muted">In {product.color}</small>
+              <small className="text-muted">{product.name}</small>
             </CardText>
             <CardText>${product.price}</CardText>
             <button
