@@ -110,7 +110,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
 
 
 const mapStateToProps = (state) => {
-    console.log(state)
+    // console.log(state)
     return {
         cartItems: state.CartReducer.cart
     }

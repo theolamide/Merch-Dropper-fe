@@ -28,7 +28,7 @@ const imgStyle = {
   borderRadius: 10
 }
 
-const NavBar = ({ hidden, history }) => {
+const NavBar = ({ hidden, history, username }) => {
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [isOpen, setIsOpen] = useState(false);
 

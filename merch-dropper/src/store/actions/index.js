@@ -7,7 +7,7 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 
 export const postUser = (credentials) => dispatch => {
-    console.log('credentials', credentials)
+    // console.log('credentials', credentials)
     dispatch({ type: REGISTER_START })
     axios.post('https://merchdropper-production.herokuapp.com/api/auth/register', credentials)
         .then(res => {
@@ -26,6 +26,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
 export const userLogin = (loginInfo) => dispatch => {
+    console.log('loginInfo', loginInfo)
     dispatch({ type: LOGIN_START })
     axiosWithAuth()
         .post('/api/auth/login', loginInfo)
