@@ -34,7 +34,7 @@
     const callSignUp = e => {
         e.preventDefault();
         postUser(credentials, history);
-        
+        history.push("/")
     };
 
     return (
