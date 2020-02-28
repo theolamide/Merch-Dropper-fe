@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: "12"
-      - run: cd ../../merch-dropper && yarn install
+      - run: cd ../merch-dropper && yarn install
       - uses: paambaati/codeclimate-action@v2.4.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
