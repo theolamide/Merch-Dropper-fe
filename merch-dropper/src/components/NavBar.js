@@ -54,7 +54,7 @@ const NavBar = ({ hidden, history }) => {
       <div className="divNav">
         <Navbar color="white" light expand="md" className="navStyle">
           <img
-            className="mr-5"
+            className="mr-5 navLogo"
             src="https://uxmasters.org/images/merch_logo_50.svg"
             style={{ width: "2rem" }}
           />
@@ -62,7 +62,7 @@ const NavBar = ({ hidden, history }) => {
             Merch Dropper
           </NavbarBrand>
 
-            <Nav className="mr-auto" navbar>
+            <Nav className="mr-auto navSearch" navbar>
               <NavItem>
                 <Search />
               </NavItem>
@@ -88,7 +88,7 @@ const NavBar = ({ hidden, history }) => {
               Buy Merch
             </Button>
 
-            {!isAuthenticated && <Button onClick={() => loginWithRedirect({})}>Log in</Button>}
+            {!isAuthenticated && <Button onClick={() => loginWithRedirect({})} className="designBtn">Log in</Button>}
 
             <CartIcon />
           {hidden ? null : <CartDropDown />}
