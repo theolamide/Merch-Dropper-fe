@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import BoardRoom from '../images/BoardRoom.jpg';
+import OurTeam from '../images/OurTeam.jpg';
 
 const PageWrapper = styled.div`
     width:100%
@@ -13,6 +14,30 @@ const TopImage = styled.div`
     background-position: center;
     background-repeat: no-repeat;
     background-image: url(${BoardRoom});
+    background-size: cover;
+    position: relative;
+    display:-webkit-box;
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    align-items: center;
+    justify-content: flex-start;
+
+        @media (max-width: 768px) {
+            justify-content: space-between;
+            height: 96vh;
+        }
+`
+const TeamHeaderImage = styled.div`
+    margin: 0 auto;
+    width: 80%;
+    height: 70vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(${OurTeam});
     background-size: cover;
     position: relative;
     display:-webkit-box;
@@ -68,6 +93,7 @@ const TopParaText = styled.p`
 const ObjectiveWrapper = styled.div`
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     margin: 3rem auto;
 `
@@ -76,6 +102,10 @@ const ObjectiveDiv = styled.div`
         border-radius: 1rem;
         height: 50rem;
         background: #FF8A00;
+            @media (max-width: 768px) {
+                width: 80%;
+                margin-top: 1rem;
+            }
 `
 const ObjectiveHeaderText = styled.h2`
     color: #217fff;
@@ -88,8 +118,8 @@ const ObjectiveHeaderText = styled.h2`
 `
 const ObjectiveText = styled.p`
     margin: 0 auto;
-    width: 70%;
-    text-align: center;
+    width: 90%;
+    text-align: left;
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
@@ -108,6 +138,7 @@ const KeyDiv = styled.div`
 `
 const CardsWrapper = styled.div`
     width:100%;
+    padding-top: 3rem;
     display:flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -168,7 +199,20 @@ const LearnMore = () => {
 
             <ObjectiveWrapper>
                 <ObjectiveDiv>
-                    <p style={{ margin: '1rem 0', textAlign: 'center' }}>It's the fastest way to set up a hassle free merch shop. Platform to upload designs and create products that plug into scalablepress.com to create a drop-shipping online shop.</p>
+                    <ObjectiveHeaderText style={{ margin: '1rem 0', textAlign: 'center' }}>THE PROBLEM</ObjectiveHeaderText>
+                    <ObjectiveText>
+                        <li>Expensive upfront costs for small entities</li>
+                        <li>Information overload when reseraching where to source merchandise</li>
+                        <li>Non user friendly merchandising websites</li>
+                        <li>Difficulties of managing inventory systems</li>
+                    </ObjectiveText>
+
+                    <ObjectiveHeaderText style={{ margin: '1rem 0', textAlign: 'center' }}>OUR SOLUTION</ObjectiveHeaderText>
+                    <ObjectiveText>
+                        <li>You don't carry any inventory. That's on us and our partners.</li>
+                        <li>One stop shop on all things you need for creating merch for your store.</li>
+                        <li>User friendly and intuitive UI.</li>
+                    </ObjectiveText>
                 </ObjectiveDiv>
 
                 <ObjectiveDiv>
@@ -176,6 +220,10 @@ const LearnMore = () => {
                     <ObjectiveText>Enable anyone to set up a custom swag shop effortlessly on their own domain. To save early entrepreneurs the headache, time and money sinkhole that early days swag can be. And to quench the desire to have swag of every early company starter without actually requiring more than a small monthly expense.</ObjectiveText>
                 </ObjectiveDiv>
             </ObjectiveWrapper>
+
+            <TeamHeaderImage>
+                <TopHeaderText style={{ margin: 'auto', color: '#FF8A00' }}>MEET OUR TEAM</TopHeaderText>
+            </TeamHeaderImage>
 
             <CardsWrapper>
                 <IndividualCard>
