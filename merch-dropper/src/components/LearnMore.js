@@ -28,7 +28,7 @@ const TopImage = styled.div`
 
         @media (max-width: 768px) {
             justify-content: space-between;
-            height: 96vh;
+            height: 70vh;
         }
 `
 const TeamHeaderImage = styled.div`
@@ -52,7 +52,7 @@ const TeamHeaderImage = styled.div`
 
         @media (max-width: 768px) {
             justify-content: space-between;
-            height: 96vh;
+            height: 50vh;
         }
 `
 const TextWrapper = styled.div`
@@ -62,8 +62,7 @@ const TextWrapper = styled.div`
     height: 100%;
     // border: 1px solid white;
         @media (max-width: 768px) {
-            height: 50%;
-            margin-bottom: 5rem;
+            margin-bottom: 1rem;
         }
 `
 const TopHeaderText = styled.h2`
@@ -71,7 +70,7 @@ const TopHeaderText = styled.h2`
     font-size: 5rem;
     text-align:center;
         @media (max-width: 768px) {
-            font-size: 2rem
+            font-size: 4rem;
             margin: 0.5rem;
         }
 `
@@ -87,7 +86,8 @@ const TopParaText = styled.p`
     background-color:rgb(18,19,18);opacity:0.7;
     //border: 1px solid white;
         @media (max-width: 768px) {
-            font-size: 1rem
+            font-size: 1.5rem;
+            font-weight: normal;
         }
 `
 const ObjectiveWrapper = styled.div`
@@ -100,7 +100,7 @@ const ObjectiveWrapper = styled.div`
 const ObjectiveDiv = styled.div`
         width: 40%;
         border-radius: 1rem;
-        height: 50rem;
+        height: 30rem;
         background: #FF8A00;
             @media (max-width: 768px) {
                 width: 80%;
@@ -129,13 +129,6 @@ const ObjectiveText = styled.p`
             font-size: 1rem
         }
 `
-const KeyDiv = styled.div`
-    // margin: 4rem 0;
-    // border: 0.15rem solid #d8aa35;
-        @media (max-width: 768px) {
-            margin: 1rem auto;
-        }
-`
 const CardsWrapper = styled.div`
     width:100%;
     padding-top: 3rem;
@@ -150,6 +143,12 @@ const IndividualCard = styled.div`
     background-color: #EAD0C5;
     border-top-left-radius: 0.8rem;
     border-top-right-radius: 0.8rem;
+
+        @media (max-width: 768px) {
+            width: 20rem;
+            height: 30rem;
+            margin: 1rem auto;
+        }
         @media (max-width: 320px) {
             width: 17rem;
             height: 38rem;
@@ -215,7 +214,7 @@ const LearnMore = () => {
                     </ObjectiveText>
                 </ObjectiveDiv>
 
-                <ObjectiveDiv>
+                <ObjectiveDiv style={{ height: '18rem' }} >
                     <ObjectiveHeaderText style={{ margin: '1rem 0', textAlign: 'center' }}>OUR MISSION</ObjectiveHeaderText>
                     <ObjectiveText>Enable anyone to set up a custom swag shop effortlessly on their own domain. To save early entrepreneurs the headache, time and money sinkhole that early days swag can be. And to quench the desire to have swag of every early company starter without actually requiring more than a small monthly expense.</ObjectiveText>
                 </ObjectiveDiv>
