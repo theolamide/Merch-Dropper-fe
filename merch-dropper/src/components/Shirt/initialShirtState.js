@@ -2,8 +2,8 @@
 
 const initialShirtState = {
   garment: {
-    color: "White",
-    colorHex: "#FFFFFF",
+    color: "Team Purple",
+    colorHex: "#824393",
     printStyle: "dtg",
     artwork:
       "http://oo-prod.s3.amazonaws.com/public/artworks/2020/02/02/378ce90384ce1/original.png",
@@ -25,15 +25,15 @@ const initialShirtState = {
   },
 
   productInfo: {
-    productName: "Cool Shirt",
+    productName: "Hive Collection",
     fullSizeURL: "",
     thumbnailURL: "",
-    description: "A pretty sweet shirt",
-    price: 49.99,
+    description: "Limited Edition",
+    price: 62.99,
     storeID: 1
   },
   designInfo: {
-    design_name: "Shirt Design",
+    design_name: "Future Sloth",
     design_url: "",
     thumbnail_url: "",
     storeID: 1,

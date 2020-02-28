@@ -23,7 +23,7 @@ const ThumbDisplay = ({ garment, setGarment, design, thumbRender}) => {
   const [designArray, setDesignArray] = useState();
   useEffect(() => {
     async function fetchDesigns() {
-      let fetchedDesigns = await axios.get("http://localhost:5032/api/designs");
+      let fetchedDesigns = await axios.get("https://merchdropper-production.herokuapp.com/api/designs");
       setDesignArray(fetchedDesigns.data);
     }
     fetchDesigns();
