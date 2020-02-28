@@ -58,6 +58,13 @@ const NavBar = ({ hidden, history }) => {
     logout({
       returnTo: window.location.origin
     });
+    localStorage.removeItem('profile');
+  };
+
+  const customLogin = () => {
+    loginWithRedirect({
+      redirect_uri: "https://merch-dropper.com/signup"
+    });
   };
 
 
@@ -137,25 +144,25 @@ const NavBar = ({ hidden, history }) => {
                 <Search />
               </NavItem>
             </Nav>
-            <Button color="primary" href="/" className="designBtn">
+            <Button color="primary" href="/designshirt" className="designBtn">
               Design Merch
             </Button>
             <Button className="ml-5" outline color="primary" href="/">
               Buy Merch
             </Button>
-            {isAuthenticated && <Button onClick={() => logout()}>Log out</Button>}
+            {localStorage.getItem('profile') && <Button onClick={() => logoutWithRedirect()}>Log out</Button>}
+            {!isAuthenticated && <Button onClick={customLogin}>Log In</Button>}
             <CartIcon />
             <Media>
-              <Media object src={user.picture} style={imgStyle} alt="Generic placeholder image" />
+              {localStorage.getItem("profile") ? <div><Media object src={JSON.parse(localStorage.profile).picture} style={imgStyle} alt="Generic placeholder image" /></div> : <div></div>}
             </Media>
-            <NavbarText>{user.name}</NavbarText>
+            {localStorage.getItem("profile") ? <div><NavbarText>{JSON.parse(localStorage.profile).name}</NavbarText></div> : <div></div>}
           </Collapse>
           {hidden ? null : <CartDropDown />}
         </Navbar>
       </div>
     );
   }
-};
 
 const mapStateToProps = state => ({
   hidden: state.CartReducer.hidden
