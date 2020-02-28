@@ -63,7 +63,7 @@ const NavBar = ({ hidden, history }) => {
 
   const customLogin = () => {
     loginWithRedirect({
-      redirect_uri: "https://merch-dropper.com/signup"
+      // redirect_uri: "https://merch-dropper.com/signup"
     });
   };
 
@@ -150,8 +150,7 @@ const NavBar = ({ hidden, history }) => {
             <Button className="ml-5" outline color="primary" href="/">
               Buy Merch
             </Button>
-            {localStorage.getItem('profile') && <Button onClick={() => logoutWithRedirect()}>Log out</Button>}
-            {!isAuthenticated && <Button onClick={customLogin}>Log In</Button>}
+            {localStorage.getItem('profile') ? <Button onClick={() => logoutWithRedirect()}>Log out</Button> : <Button onClick={customLogin}>Log In</Button>}
             <CartIcon />
             <Media>
               {localStorage.getItem("profile") ? <div><Media object src={JSON.parse(localStorage.profile).picture} style={imgStyle} alt="Generic placeholder image" /></div> : <div></div>}
