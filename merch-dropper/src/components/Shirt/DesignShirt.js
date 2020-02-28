@@ -25,6 +25,7 @@ const DesignShirt = () => {
     CloudinaryHandler(garment, images, setImages);
   };
   const handleProduct = function() {
+    console.log(setMerchProduct)
     StoreHandler(merchProduct, setMerchProduct, images);
   };
 

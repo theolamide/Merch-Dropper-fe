@@ -4,7 +4,9 @@ import axios from "axios";
 
 const CloudinaryHandler = async (garment, images, setImages) => {
   const mockup = garment.mockUrl;
-  // console.log(garment, "GARMENT URL")
+  console.log(garment, "GARMENT URL")
+  console.log(images)
+
 
   const urlPrepend = "https://res.cloudinary.com/dze74ofbf/image/upload/";
 
@@ -21,8 +23,8 @@ const CloudinaryHandler = async (garment, images, setImages) => {
   await (async () => {
     const res = await axios
       .post("https://api.cloudinary.com/v1_1/dze74ofbf/upload", data, options)
-      .catch(() => {
-        console.log("error uploading image");
+      .catch((err) => {
+        console.log("error uploading image", err);
       });
 
     const response = await res;
