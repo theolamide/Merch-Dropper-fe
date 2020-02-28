@@ -32,4 +32,6 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
           CI: true
-      - run: cd merch-dropper && yarn run coverage
+        with: 
+          coverageCommand: yarn --cwd "merch-dropper" coverage 
+          coverageLocations: "merch-dropper/coverage/lcov.info:lcov"
