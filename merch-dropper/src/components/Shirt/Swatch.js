@@ -1,22 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-
-
 const Swatch = ({ garment, setGarment }) => {
-
   return (
     <SwatchBox>
       {color.map((color, index) => (
-        <a href="#" key={index}><SwatchSquare
-          name="color"
-          value={color}
-          id={color}
-          key={color}
-          title={color}
-          className="swatchSquare"
-          onClick={()=> setGarment({...garment, color: color, colorHex: hex[index]})}
-          style={{ backgroundColor: hex[index] }}></SwatchSquare></a>
+        <a href="#" key={index}>
+          <SwatchSquare
+            name="color"
+            value={color}
+            id={color}
+            key={color}
+            title={color}
+            className="swatchSquare"
+            onClick={() =>
+              setGarment({ ...garment, color: color, colorHex: hex[index] })
+            }
+            style={{ backgroundColor: hex[index] }}></SwatchSquare>
+        </a>
       ))}
     </SwatchBox>
   );
@@ -25,15 +26,14 @@ const Swatch = ({ garment, setGarment }) => {
 export default Swatch;
 
 const SwatchBox = styled.div`
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 280px;
+  width: 300px;
+  margin-bottom: 15px;
 
   a:focus {
     outline: solid 1px black;
-
   }
 `;
 
@@ -240,4 +240,3 @@ const color = [
   "Rust",
   "Heather Peach"
 ];
-

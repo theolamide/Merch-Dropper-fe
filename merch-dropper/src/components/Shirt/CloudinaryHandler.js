@@ -1,16 +1,11 @@
-import React, { useEffect } from "react";
 import axios from "axios";
-// import garment from "./DesignShirt";
 
 const CloudinaryHandler = async (garment, images, setImages) => {
   const mockup = garment.mockUrl;
-  console.log(garment, "GARMENT URL")
-  console.log(images)
-
 
   const urlPrepend = "https://res.cloudinary.com/dze74ofbf/image/upload/";
 
-  const preset = "cropbasic";
+  const preset = "shirtMockUps";
 
   const options = { "X-Requested-With": "XMLHttpRequest" };
 

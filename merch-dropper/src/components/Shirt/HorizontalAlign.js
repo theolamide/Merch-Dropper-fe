@@ -2,7 +2,8 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 
 const HorizontalSelect = styled.select`
-margin: -20px 0 0 0;
+  margin: 10px 0 0 138px;
+  border-radius: 4px;
 `;
 
 const HorizontalAlign = ({ garment, setGarment }) => {
@@ -11,6 +12,7 @@ const HorizontalAlign = ({ garment, setGarment }) => {
   return (
     <Fragment>
       <HorizontalSelect
+        className="designBtn btn-primary"
         name="designPlacement"
         value={designPlacement}
         onChange={(e) =>
