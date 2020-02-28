@@ -5,13 +5,9 @@ import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
 import Search from "./Search";
 import { useAuth0 } from "./Auth/Auth";
-// import "../App.css";
-// import "./NavBar.css";
 
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
@@ -66,8 +62,6 @@ const NavBar = ({ hidden, history }) => {
       redirect_uri: "https://merch-dropper.com/signup"
     });
   };
-
-
 
   // if (localStorage .getItem("profile") == "undefined") {
   //   return (
@@ -137,8 +131,7 @@ const NavBar = ({ hidden, history }) => {
           <NavbarBrand id="navTitle" href="/">
             Merch Dropper
           </NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
+
             <Nav className="mr-auto" navbar>
               <NavItem>
                 <Search />
