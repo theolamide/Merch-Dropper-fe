@@ -9,9 +9,7 @@ import { useAuth0 } from "./Auth/Auth";
 // import "./NavBar.css";
 
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
@@ -63,9 +61,7 @@ const NavBar = ({ hidden, history }) => {
           <NavbarBrand id="navTitle" href="/">
             Merch Dropper
           </NavbarBrand>
-          <NavbarToggler onClick={toggle} />
 
-          <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
                 <Search />
@@ -95,7 +91,6 @@ const NavBar = ({ hidden, history }) => {
             {!isAuthenticated && <Button onClick={() => loginWithRedirect({})}>Log in</Button>}
 
             <CartIcon />
-          </Collapse>
           {hidden ? null : <CartDropDown />}
         </Navbar>
       </div>
@@ -108,8 +103,7 @@ const NavBar = ({ hidden, history }) => {
           <NavbarBrand id="navTitle" href="/">
             Merch Dropper
           </NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
+
             <Nav className="mr-auto" navbar>
               <NavItem>
                 <Search />
@@ -127,7 +121,7 @@ const NavBar = ({ hidden, history }) => {
               <Media object src={user.picture} style={imgStyle} alt="Generic placeholder image" />
             </Media>
             <NavbarText>{user.name}</NavbarText>
-          </Collapse>
+
           {hidden ? null : <CartDropDown />}
         </Navbar>
       </div>
