@@ -41,7 +41,6 @@ strong,
 sub,
 sup,
 tt,
-var,
 b,
 u,
 i,
@@ -90,7 +89,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -130,12 +129,11 @@ table {
 }
 
 .App {
-	background-color: #F3F3F3;
+  background-color: #f3f3f3;
 }
 
 .navStyle {
-  box-shadow: 0 3px 0 0 rgba(236, 236, 236, 0.2),
-    0 3px 8px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 3px 0 0 rgba(236, 236, 236, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.19);
 }
 
 #navTitle {
@@ -150,8 +148,8 @@ table {
 }
 
 .designBtn {
-    text-align: center;
-    margin: 0 5% 0 0;
+  text-align: center;
+  margin: 0 5% 0 0;
 }
 
 .footer {
@@ -210,29 +208,27 @@ table {
 }
 
 .cardBodyPadding {
-	padding: 5;
+  padding: 5;
 }
 
 .container-margin {
   margin: 5px 15px;
 }
 
-
 .product-card-padding {
   padding: 5px;
 }
 
 .cardBtn {
-  box-shadow: 0 10px 10px 0 rgba(167, 167, 167, 0.336),
-		0 3px 8px 0 rgba(0, 0, 0, 0.19);
-	border-radius: 5px;
-	}
+  box-shadow: 0 10px 10px 0 rgba(167, 167, 167, 0.336), 0 3px 8px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
 
 .line2 {
-	margin: 5% auto;
-	width: 35%;
-	border: 3px solid #FFFFFF;
-	border-radius: 10px;
+  margin: 5% auto;
+  width: 35%;
+  border: 3px solid #ffffff;
+  border-radius: 10px;
 }
 
 .jumboParent {
@@ -241,11 +237,11 @@ table {
 }
 
 .jumboCont {
-  background-image: url('https://i.ibb.co/M59tvN4/yellowgirl2.png');
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	max-width: 100vw;
+  background-image: url("https://i.ibb.co/M59tvN4/yellowgirl2.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100vw;
   height: auto;
 }
 
@@ -259,7 +255,7 @@ table {
 }
 
 .cardTitle {
-  color: #026FC2;
+  color: #026fc2;
 }
 
 .featuredText {
@@ -267,163 +263,160 @@ table {
 }
 
 /* iPad portrait and landscape */
-@media only screen and (min-width : 768px) and (max-width : 1400px) {
-
+@media only screen and (min-width: 768px) and (max-width: 1400px) {
   .designBtn {
     margin: 0 2.5% 0 0;
     height: 3.5vh;
     width: 15vw;
   }
 
-    .jumboParent {
-      height: 80vh;
-      margin: 0 0 5% 0;
-    }
+  .jumboParent {
+    height: 80vh;
+    margin: 0 0 5% 0;
+  }
 
-		.jumboCont {
-			background-image: url('https://i.ibb.co/C0Tg72y/yellowgirl6.png');
-			height: 100%;
-			background-size: cover;
-    }
-    
-    .cardCont {
-      height: 400px;
-      width: 20%;
-    }
+  .jumboCont {
+    background-image: url("https://i.ibb.co/C0Tg72y/yellowgirl6.png");
+    height: 100%;
+    background-size: cover;
+  }
 
-    .customImg {
-      display: none;
-    }
+  .cardCont {
+    height: 400px;
+    width: 20%;
+  }
 
-    /* .column {
+  .customImg {
+    display: none;
+  }
+
+  /* .column {
       width: 100%;
       margin-top: 10%;
     } */
 
-    .andMore {
-      font-size: 1.75rem;
-    }
-
-    .p2 {
-      display: none;
-    }
-
-    .letsGo {
-      width: 20vw;
-    }
-
-    .learnMore {
-      width: 20vw;
-    }
-
-    .cards {
-      height: 40vh;
-    }
-  }
-  
-  /* iPhone portrait and landscape */
-  @media only screen and (min-width : 320px) and (max-width : 750px) {
-
-    .navStyle {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .navLogo {
-      display: none;
-      visibility: none;
-    }
-
-    #navTitle {
-      margin: 0 auto;
-    }
-
-    .navSearch {
-      margin: 5% auto 0 auto;
-    }
-
-    .designBtn {
-      margin: 5% 0 0 0;
-    }
-
-    .jumboParent {
-      height: 80vh;
-      margin: 0 0 5% 0;
-    }
-
-		.jumboCont {
-			background-image: url('https://i.ibb.co/C0Tg72y/yellowgirl6.png');
-			height: 100%;
-			background-size: cover;
-    }
-
-    .customh1 {
-      font-size: 2.5rem;
-    }
-
-    .tshirth1 {
-      font-size: 1.75rem;
-    }
-
-    .andMore {
-      font-size: 1rem;
-    }
-
-    .line2 {
-      display: none;
-    }
-
-    .cardCont {
-      height: 150px;
-      width: 20%;
-    }
-
-    .cardTitle {
-      font-size: 1.8vw;
-    }
-
-    .cardText {
-      display: none;
-    }
-
-    .customImg {
-      display: none;
-    }
-
-    .column {
-      width: 100%;
-    }
-
-    .p2 {
-      display: none;
-    }
-
-    .letsGo {
-      width: 30vw;
-      margin: 5% 0 0 0;
-    }
-
-    .learnMore {
-      width: 30vw;
-    }
-
-    .featuredText {
-      font-size: 0.65rem;
-    }
-
-    .footer {
-      display: none;
-    }
+  .andMore {
+    font-size: 1.75rem;
   }
 
-  /* iPhone portrait only */
-  @media only screen and (min-width : 320px) and (max-width : 650px) {
-    .column {
-      margin: 35% 0 0 0;
-    }
-
-    .cards {
-      height: 25vh;
-    }
-
+  .p2 {
+    display: none;
   }
+
+  .letsGo {
+    width: 20vw;
+  }
+
+  .learnMore {
+    width: 20vw;
+  }
+
+  .cards {
+    height: 40vh;
+  }
+}
+
+/* iPhone portrait and landscape */
+@media only screen and (min-width: 320px) and (max-width: 750px) {
+  .navStyle {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navLogo {
+    display: none;
+    visibility: none;
+  }
+
+  #navTitle {
+    margin: 0 auto;
+  }
+
+  .navSearch {
+    margin: 5% auto 0 auto;
+  }
+
+  .designBtn {
+    margin: 5% 0 0 0;
+  }
+
+  .jumboParent {
+    height: 80vh;
+    margin: 0 0 5% 0;
+  }
+
+  .jumboCont {
+    background-image: url("https://i.ibb.co/C0Tg72y/yellowgirl6.png");
+    height: 100%;
+    background-size: cover;
+  }
+
+  .customh1 {
+    font-size: 2.5rem;
+  }
+
+  .tshirth1 {
+    font-size: 1.75rem;
+  }
+
+  .andMore {
+    font-size: 1rem;
+  }
+
+  .line2 {
+    display: none;
+  }
+
+  .cardCont {
+    height: 150px;
+    width: 20%;
+  }
+
+  .cardTitle {
+    font-size: 1.8vw;
+  }
+
+  .cardText {
+    display: none;
+  }
+
+  .customImg {
+    display: none;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .p2 {
+    display: none;
+  }
+
+  .letsGo {
+    width: 30vw;
+    margin: 5% 0 0 0;
+  }
+
+  .learnMore {
+    width: 30vw;
+  }
+
+  .featuredText {
+    font-size: 0.65rem;
+  }
+
+  .footer {
+    display: none;
+  }
+}
+
+/* iPhone portrait only */
+@media only screen and (min-width: 320px) and (max-width: 650px) {
+  .column {
+    margin: 35% 0 0 0;
+  }
+
+  .cards {
+    height: 25vh;
+  }
+}

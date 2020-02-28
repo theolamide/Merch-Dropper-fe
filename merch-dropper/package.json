@@ -57,6 +57,9 @@
     "enzyme-adapter-react-16": "^1.15.2"
   },
   "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "identity-obj-proxy"
+    },
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
       "!**/node_modules/**",

@@ -149,6 +149,7 @@ const NavBar = ({ hidden, history }) => {
         ) : (
           <div></div>
         )}
+        {hidden ? null : <CartDropDown />}
       </Navbar>
     </div>
   );
