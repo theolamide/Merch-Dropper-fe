@@ -70,7 +70,7 @@ const Home = ({ history }) => {
                   </Button>
                 </p>
               </Col>
-              {/* <Col
+              <Col
                 className="customImg"
                 sm={{ size: "auto" }}
                 style={{ width: "25vw", height: "60vh", margin: "0 5vw" }}
@@ -85,7 +85,7 @@ const Home = ({ history }) => {
                   src="https://i.ibb.co/7XQ70x1/Group-5.png"
                   style={{ width: "15vw" }}
                 />
-              </Col> */}
+              </Col>
             </Row>
           </Container>
         </Jumbotron>
