@@ -30,6 +30,8 @@ jobs:
       - run: cd merch-dropper && yarn install
       - uses: paambaati/codeclimate-action@v2.4.0
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           CI: true
-      - run: cd merch-dropper && yarn run coverage
+        with: 
+          coverageCommand: yarn --cwd "merch-dropper" coverage 
+          coverageLocations: "merch-dropper/coverage/lcov.info:lcov"
