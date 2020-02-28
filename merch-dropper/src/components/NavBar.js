@@ -14,14 +14,16 @@ import {
   Input,
   Button,
   Media,
-  NavbarText
+  NavbarText,
+  Collapse,
+  NavbarToggler
 } from "reactstrap";
 
 const imgStyle = {
   maxHeight: 45,
   maxWidth: 45,
   borderRadius: 10
-}
+};
 
 const NavBar = ({ hidden, history }) => {
   const { user, isAuthenticated, loginWithRedirect, logout, getTokenSilently } = useAuth0();
@@ -29,31 +31,17 @@ const NavBar = ({ hidden, history }) => {
   const { loading } = useAuth0();
 
   const toggle = () => setIsOpen(!isOpen);
-  
+
   useEffect(() => {
     console.log(user);
     console.log(loading);
   }, [user]);
 
-  // useEffect(() => {
-  // if( user == undefined || localStorage.getItem('profile') == "undefined")
-  // {
-  //   return;
-  // }
-  // else
-  // {
-  //  const profileName = JSON.parse(localStorage.profile).name;
-  //  let profilePicture = JSON.parse(localStorage.profile).picture;
-  //  console.log(profileName);
-  //  console.log(profilePicture);
-  // }
-  // }, [localStorage.getItem('profile')]);
-
   const logoutWithRedirect = () => {
     logout({
       returnTo: window.location.origin
     });
-    localStorage.removeItem('profile');
+    localStorage.removeItem("profile");
   };
 
   const customLogin = () => {
@@ -62,146 +50,111 @@ const NavBar = ({ hidden, history }) => {
     });
   };
 
-  // if (localStorage .getItem("profile") == "undefined") {
   //   return (
   //     <div className="divNav">
   //       <Navbar color="white" light expand="md" className="navStyle">
-  //         <img
-  //           className="mr-5"
-  //           src="https://uxmasters.org/images/merch_logo_50.svg"
-  //           style={{ width: '2rem' }}
-  //         />
+  //         <img className="mr-5" src="https://uxmasters.org/images/merch_logo_50.svg" />
   //         <NavbarBrand id="navTitle" href="/">
   //           Merch Dropper
   //         </NavbarBrand>
-  //         <NavbarToggler onClick={toggle} />
-  //
-  //         <Collapse isOpen={isOpen} navbar>
+
   //           <Nav className="mr-auto" navbar>
   //             <NavItem>
-  //               <FormGroup className="searchStyle pt-3">
-  //                 <Input
-  //                   className="rounded-pill"
-  //                   type="search"
-  //                   name="search"
-  //                   id="exampleSearch"
-  //                   placeholder="Search... "
-  //                 />
-  //               </FormGroup>
+  //               <Search />
   //             </NavItem>
   //           </Nav>
-  //
-  //           {!isAuthenticated && (
-  //               <button onClick={() => loginWithRedirect({})}>Log in</button>
-  //           )}
-  //
-  //           <Button color="primary" className="designBtn"
-  //             color="primary" className="designBtn"
+  //           <Button
+  //             color="primary"
+  //             className="designBtn"
   //             onClick={() => {
-  //               history.push('/designshirt');
+  //               history.push("/designshirt");
   //             }}
   //           >
   //             Design Merch
   //           </Button>
-  //
-  //           <Button color="primary" className="designBtn"
+  //           <Button
+  //             color="primary"
+  //             className="designBtn"
   //             onClick={() => {
-  //               history.push('/products');
+  //               history.push("/products");
   //             }}
   //           >
   //             Buy Merch
   //           </Button>
-  //
+  //           {localStorage.getItem('profile') ? <Button onClick={() => logoutWithRedirect()}>Log out</Button> : <Button onClick={customLogin}>Log In</Button>}
   //           <CartIcon />
-  //
-  //         </Collapse>
-  //         {hidden ? null :
-  //           <CartDropDown />
-  //         }
+  //           <Media>
+  //             {localStorage.getItem("profile") ? <div><Media object src={JSON.parse(localStorage.profile).picture} style={imgStyle} alt="Generic placeholder image" /></div> : <div></div>}
+  //           </Media>
+  //           {localStorage.getItem("profile") ? <div><NavbarText>{JSON.parse(localStorage.profile).name}</NavbarText></div> : <div></div>}
+  //         {hidden ? null : <CartDropDown />}
   //       </Navbar>
   //     </div>
-  //   );
-  //
+  //   )
   // } else {
-    return (
-      <div className="divNav">
-        <Navbar color="white" light expand="md" className="navStyle">
-          <img className="mr-5" src="https://uxmasters.org/images/merch_logo_50.svg" />
-          <NavbarBrand id="navTitle" href="/">
-            Merch Dropper
-          </NavbarBrand>
-
-            <Nav className="mr-auto" navbar>
-              <NavItem>
-                <Search />
-              </NavItem>
-            </Nav>
-            <Button
-              color="primary"
-              className="designBtn"
-              onClick={() => {
-                history.push("/designshirt");
-              }}
-            >
-              Design Merch
-            </Button>
-            <Button
-              color="primary"
-              className="designBtn"
-              onClick={() => {
-                history.push("/products");
-              }}
-            >
-              Buy Merch
-            </Button>
-            {localStorage.getItem('profile') ? <Button onClick={() => logoutWithRedirect()}>Log out</Button> : <Button onClick={customLogin}>Log In</Button>}
-            <CartIcon />
-            <Media>
-              {localStorage.getItem("profile") ? <div><Media object src={JSON.parse(localStorage.profile).picture} style={imgStyle} alt="Generic placeholder image" /></div> : <div></div>}
-            </Media>
-            {localStorage.getItem("profile") ? <div><NavbarText>{JSON.parse(localStorage.profile).name}</NavbarText></div> : <div></div>}
-          </Collapse>
-          {hidden ? null : <CartDropDown />}
-        </Navbar>
-      </div>
-    );
-  } else {
-    return (
-      <div className="divNav">
-        <Navbar color="white" light expand="md" className="navStyle">
-          <img className="mr-5" src="https://uxmasters.org/images/merch_logo_50.svg" />
-          <NavbarBrand id="navTitle" href="/">
-            Merch Dropper
-          </NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="mr-auto" navbar>
-              <NavItem>
-                <Search />
-              </NavItem>
-            </Nav>
-            <Button color="primary" href="/" className="designBtn">
-              Design Merch
-            </Button>
-            <Button className="ml-5" outline color="primary" href="/">
-              Buy Merch
-            </Button>
-            {isAuthenticated && <Button onClick={() => logout()}>Log out</Button>}
-            <CartIcon />
-            <Media>
-              <Media object src={user.picture} style={imgStyle} alt="Generic placeholder image" />
-            </Media>
-            <NavbarText>{user.name}</NavbarText>
-          </Collapse>
-          {hidden ? null : <CartDropDown />}
-        </Navbar>
-      </div>
-    );
-  }
-
+  return (
+    <div className="divNav">
+      <Navbar color="white" light expand="md" className="navStyle">
+        <img className="mr-5" src="https://uxmasters.org/images/merch_logo_50.svg" />
+        <NavbarBrand id="navTitle" href="/">
+          Merch Dropper
+        </NavbarBrand>
+        <Nav className="mr-auto" navbar>
+          <NavItem>
+            <Search />
+          </NavItem>
+        </Nav>
+        <Button
+          color="primary"
+          className="designBtn"
+          onClick={() => {
+            history.push("/designshirt");
+          }}
+        >
+          Design Merch
+        </Button>
+        <Button
+          color="primary"
+          className="designBtn"
+          onClick={() => {
+            history.push("/products");
+          }}
+        >
+          Buy Merch
+        </Button>
+        {localStorage.getItem("profile") ? (
+          <Button onClick={() => logoutWithRedirect()}>Log out</Button>
+        ) : (
+          <Button onClick={customLogin}>Log In</Button>
+        )}
+        <CartIcon />
+        <Media>
+          {localStorage.getItem("profile") ? (
+            <div>
+              <Media
+                object
+                src={JSON.parse(localStorage.profile).picture}
+                style={imgStyle}
+                alt="Generic placeholder image"
+              />
+            </div>
+          ) : (
+            <div></div>
+          )}
+        </Media>
+        {localStorage.getItem("profile") ? (
+          <div>
+            <NavbarText>{JSON.parse(localStorage.profile).name}</NavbarText>
+          </div>
+        ) : (
+          <div></div>
+        )}
+      </Navbar>
+    </div>
+  );
+};
 const mapStateToProps = state => ({
   hidden: state.CartReducer.hidden
 });
-
 
 export default withRouter(connect(mapStateToProps)(NavBar));
