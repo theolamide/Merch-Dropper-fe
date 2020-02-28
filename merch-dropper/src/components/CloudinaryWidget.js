@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import "../App.css";
 
 let widget = window.cloudinary.createUploadWidget(
   {
@@ -17,9 +16,11 @@ let widget = window.cloudinary.createUploadWidget(
     }
   }
 );
-const showWidget = function() {
+
+const showWidget = function () {
   widget.open();
 };
+
 const ImageUpload = () => {
   return (
     <Fragment>

@@ -12,28 +12,19 @@
 
 # Merch Dropper
 
-Deployed URL comming soon.
+Deployed URL: https://www.merch-dropper.com/
 
 ## Contributors
 
-|                                         [Jennie Van](https://github.com/yennilee)                                          |                                              [Daniel Ajadi](https://github.com/theolamide)                                              |                                      [Jeris Manning](https://github.com/jeris-manning)                                       |                                               [Marcos Lira](https://github.com/Mlira02)                                                |                                            [Tristan Boudreau](https://github.com/tboudreau614)                                             |                                           [Wes Jonke](https://github.com/Wjonke)                                           |
-| :------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
-|   [<img src="https://avatars3.githubusercontent.com/u/51731995?s=400&v=4" width = "200" />](https://github.com/yennilee)   |        [<img src="https://avatars3.githubusercontent.com/u/54829403?s=400&v=4" width = "200" />](https://github.com/theolamide)         |  [<img src="https://avatars2.githubusercontent.com/u/49968389?s=400&v=4" width = "200" />](https://github.com/jeris-manning)  |         [<img src="https://avatars2.githubusercontent.com/u/46974548?s=400&v=4" width = "200" />](https://github.com/Mlira02)          |         [<img src="https://avatars0.githubusercontent.com/u/54781883?s=400&v=4" width = "200" />](https://github.com/tboudreau614)         |    [<img src="https://avatars3.githubusercontent.com/u/48270435?s=400&v=4" width = "200" />](https://github.com/Wjonke)    |
-|                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                        |                         [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)                          |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                    |                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                       |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)                           |                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)                   |
+
+|                                       [Jennie Van](https://github.com/yennilee)                                      |                                       [Daniel Ajadi](https://github.com/theolamide)                                        |                                       [Jerris Manning](https://github.com/jeris-manning)                                        |                                       [Marcos Lira](https://github.com/Mlira02)                                        |                                       [Tristan Boudreau](https://github.com/tboudreau614)                                        |                                       [Wes Jonke](https://github.com/Wjonke)                                        |
+| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | 
+|                      [<img src="https://avatars3.githubusercontent.com/u/51731995?s=400&v=4" width = "200" />](https://github.com/yennilee)                       |                      [<img src="https://avatars3.githubusercontent.com/u/54829403?s=400&v=4" width = "200" />](https://github.com/theolamide)                       |                      [<img src="https://avatars2.githubusercontent.com/u/49968389?s=400&v=4" width = "200" />](https://github.com/jeris-manning)                       |                      [<img src="https://avatars2.githubusercontent.com/u/46974548?s=400&v=4" width = "200" />](https://github.com/Mlira02)                       |                      [<img src="https://avatars0.githubusercontent.com/u/54781883?s=400&v=4" width = "200" />](https://github.com/tboudreau614)                       |                      [<img src="https://avatars3.githubusercontent.com/u/48270435?s=400&v=4" width = "200" />](https://github.com/Wjonke)                       |
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jennievan/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/daniel-ajadi-95b207197/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jerismanning/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/marcos-lira-837490186/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/tristan-boudreau-644b16168) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/wes-jonke/) |
 
 <br>
 <br>
-
-<!-- 🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
-
-![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
-![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-
-🚫 more info on using badges [here](https://github.com/badges/shields) -->
 
 ## Project Overview
 
@@ -45,17 +36,24 @@ Deployed URL comming soon.
 
 Merch Dropper aims to solve, for creators and enterpreneurs, the hassle that comes with creating customized merchindize at a small scale. We aim to take the work away from you so you focus on what you do best, to create. We focus on recieveing the orders, shipping, payments collection, and all the nitty gritty for a fee. We are a plug and play one stop shop.
 
-### 4️⃣ Key Features
+### Key Features
 
-- feature one
-- feature two
-- feature three
-- feature four
-- feature five
+-    Design Upload
+-    Instant Product Mockup
+-    Cloudinary image/product mockup storage functionality
+-    Easy and secure checkout
 
-## 1️⃣ Tech Stack
+## Tech Stack
 
-### Front end built using:
+![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
+![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
+![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+🚫 more info on using badges [here](https://github.com/badges/shields) -->
+
+### [Front end](https://www.merch-dropper.com/) built using:
 
 #### ReactJS
 
@@ -65,13 +63,20 @@ We chose this framework because:
 - Single Page Application
 - It is very responsive
 
-#### Reactsrtap
 
-#### Styled Components
+#### axios
+#### enzyme
+#### bootstrap
+#### reactstrap
+#### styled-components
+#### redux 
+#### redux-persist
+#### redux-logger
+#### redux-thunk
+#### cloudinary
+#### react-stripe-checkout
+#### react-stripe-elements
 
-#### Redux
-
-#### Front end deployed to `Coming Soon`
 
 #### [Back end](https://github.com/Lambda-School-Labs/Merch-Dropper-be) built using:
 
@@ -96,78 +101,40 @@ We chose this framework because:
 
 # APIs
 
-## 2️⃣ Authentication API here (auth0)
+<!-- auth0 -->
+## Auth0 <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Cib-auth0_%28CoreUI_Icons_v1.0.0%29.svg" width="50">
 
-🚫Replace text below with a description of the API
+Auth0 authentication API allows users to manage all aspects if user identity. It offeres endpoints so your users can log in, sign up, log out , access other API's, and more. The API is designed for people comfortable with integrating RESTful API's.
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+<!-- Stripe  -->
+## Stripe <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" width="50">
 
-## 2️⃣ Payment API here (Stripe and PayPal)
+Stripe is a service that allows merchants to accept payments online especially developers. The Stripe API alloes developers to access fucntionality of Stripe. The API is organized around REST; it has predictable resource-oriented URL's, accepts form-encoded requesdt bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs. The Stripe API has test mode available for ease of development and does not affect live data or interact with any banking networks.
 
-🚫Replace text below with a description of the API
+## Cloudinary <img src="https://d7umqicpi7263.cloudfront.net/img/product/e0cd61a7-1c65-45a0-97ee-7763ddc5153a/25b21b50-a15d-44b2-a781-b68b9de3d17b.png" width="120">
 
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
+Cloudinary is an end-to-end image- and video-management solution for websites and mobile apps, covering everything from image and video uploads, storage, manipulations, optimizations to delivery. The Cloudinary API utilizes REST API methods that can be called directly from within your client application or by using one of Cloudinary's SDKs that wrap the REST API and greatly simplify using its methods. Authenticated uploading is done over HTTPS using a secure protocol based on your account's cloud_name, api_key and api_secret parameters.
 
-## 3️⃣ Misc API here
+## Scalable Press <img src="https://scalablepress.com/images/scalablepress_logo.png" width="50">
 
-🚫Replace text below with a description of the API
+The Scalable Press API is a comprehensive REST service for viewing the product catalog, making quotes, and completing orders for the Scalable Press printing and fulfillment services. Requests are made using standard GET, POST, and DELETE requests. All responses are JSON. Once signed up, an API key and a test API key will be provided to the customer to use in their client App. When using the test API key, it works just like the Stripe test API key where no charges are made against the user.
 
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
 
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
-
-# 3️⃣ Environment Variables
-
-In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
-
-🚫These are just examples, replace them with the specifics for your app
-
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
-
-# 5️⃣ Content Licenses
+<!-- # 5️⃣ Content Licenses
 
 🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
 
 | Image Filename | Source / Creator | License                                                                      |
 | -------------- | ---------------- | ---------------------------------------------------------------------------- |
 | doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
+| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             | -->
 
-# 4️⃣ Testing
+# Testing
 
-🚫Document what you used for testing and why
+## Jest <img src="https://camo.githubusercontent.com/b5639de5cfa97c51598b60b13a1061498afe2acb/68747470733a2f2f64337676366c703535716a6171632e636c6f756466726f6e742e6e65742f6974656d732f3244324b343533313278304d31713243306133502f6a6573742d6c6f676f2e737667" width="50">
 
-# 4️⃣ Installation Instructions
+Jest is a JavaScript Testing Framework maintained by Facebook, Inc. with a focus on simplicity.
 
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
-
-## Other Scripts
-
-🚫replace these examples with your own
-
-    * typecheck - runs the TypeScript compiler
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
 
 # Contributing
 
@@ -204,7 +171,7 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 ### Attribution
 
-These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426).
+These contribution guidelines have been adapted from [this good-Contributing.md-template](https://gist.github.com/PurpleBooth/b24679402957c63ec426). 
 
 ## Documentation
 

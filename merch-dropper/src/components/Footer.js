@@ -28,11 +28,7 @@ const Footer = (props) => {
                 </p>
                 <Nav className="ml-auto">
                     <NavLink href="/">Home</NavLink>
-                    <NavLink href="/">About</NavLink>
                     <NavLink href="/">Store</NavLink>
-                    <NavLink href="/">FAQ</NavLink>
-                    <NavLink href="/">Jobs</NavLink>
-                    <NavLink href="/">Create</NavLink>
                 </Nav>
             </Navbar>
         </div>

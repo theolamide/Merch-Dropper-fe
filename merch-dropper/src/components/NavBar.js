@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import CartIcon from './Cart/CartIcon.js';
-import CartDropDown from './Cart/CartDropDown';
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import CartIcon from "./Cart/CartIcon.js";
+import CartDropDown from "./Cart/CartDropDown";
+import Search from "./Search";
 import { useAuth0 } from "./Auth/Auth";
-import '../App.css';
-import "./NavBar.css";
+// import "../App.css";
+// import "./NavBar.css";
 
 import {
   Collapse,
@@ -16,10 +17,16 @@ import {
   NavItem,
   FormGroup,
   Input,
-  Button
-} from 'reactstrap';
+  Button,
+  Media,
+  NavbarText
+} from "reactstrap";
 
-
+const imgStyle = {
+  maxHeight: 45,
+  maxWidth: 45,
+  borderRadius: 10
+}
 
 const NavBar = ({ hidden, history }) => {
   const { user, isAuthenticated, loginWithRedirect, logout, getTokenSilently } = useAuth0();
@@ -48,9 +55,9 @@ const NavBar = ({ hidden, history }) => {
   // }, [localStorage.getItem('profile')]);
 
   const logoutWithRedirect = () => {
-  logout({
-  returnTo: window.location.origin
-  });
+    logout({
+      returnTo: window.location.origin
+    });
   };
 
 
@@ -119,10 +126,7 @@ const NavBar = ({ hidden, history }) => {
     return (
       <div className="divNav">
         <Navbar color="white" light expand="md" className="navStyle">
-          <img
-            className="mr-5"
-            src="https://uxmasters.org/images/merch_logo_50.svg"
-          />
+          <img className="mr-5" src="https://uxmasters.org/images/merch_logo_50.svg" />
           <NavbarBrand id="navTitle" href="/">
             Merch Dropper
           </NavbarBrand>
@@ -130,15 +134,7 @@ const NavBar = ({ hidden, history }) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <FormGroup className="searchStyle pt-3">
-                  <Input
-                    className="rounded-pill"
-                    type="search"
-                    name="search"
-                    id="exampleSearch"
-                    placeholder="Search... "
-                  />
-                </FormGroup>
+                <Search />
               </NavItem>
             </Nav>
             <Button color="primary" href="/" className="designBtn">
@@ -147,18 +143,22 @@ const NavBar = ({ hidden, history }) => {
             <Button className="ml-5" outline color="primary" href="/">
               Buy Merch
             </Button>
-            {/*<img src={JSON.parse(localStorage.profile).picture} />*/}
-            {/*<h4>{JSON.parse(localStorage.profile).name}</h4>*/}
-            {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
+            {isAuthenticated && <Button onClick={() => logout()}>Log out</Button>}
+            <CartIcon />
+            <Media>
+              <Media object src={user.picture} style={imgStyle} alt="Generic placeholder image" />
+            </Media>
+            <NavbarText>{user.name}</NavbarText>
           </Collapse>
+          {hidden ? null : <CartDropDown />}
         </Navbar>
       </div>
     );
-  // }
-}
+  }
+};
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   hidden: state.CartReducer.hidden
-})
+});
 
 export default withRouter(connect(mapStateToProps)(NavBar));
