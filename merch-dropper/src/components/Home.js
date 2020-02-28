@@ -20,10 +20,7 @@ const Home = ({ history }) => {
     <div className="homepage" style={{ backgroundColor: "#F3F3F3" }}>
       {/* Begin hero image */}
       <div className="jumboParent">
-        <Jumbotron
-          className="jumboCont"
-          // style={{ backgroundImage: `url('https://i.ibb.co/SKTW5GZ/Adobe-Stock-316954524-Preview1-1.png')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center center', width: '100vw', height: '100vh' }}
-        >
+        <Jumbotron className="jumboCont">
           <Container>
             <Row>
               <Col className="column" sm={{ size: "auto" }}>
@@ -73,7 +70,7 @@ const Home = ({ history }) => {
                   </Button>
                 </p>
               </Col>
-              <Col
+              {/* <Col
                 className="customImg"
                 sm={{ size: "auto" }}
                 style={{ width: "25vw", height: "60vh", margin: "0 5vw" }}
@@ -88,7 +85,7 @@ const Home = ({ history }) => {
                   src="https://i.ibb.co/7XQ70x1/Group-5.png"
                   style={{ width: "15vw" }}
                 />
-              </Col>
+              </Col> */}
             </Row>
           </Container>
         </Jumbotron>
