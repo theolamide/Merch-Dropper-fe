@@ -63,7 +63,7 @@ const NavBar = ({ hidden, history }) => {
 
   const customLogin = () => {
     loginWithRedirect({
-      // redirect_uri: "https://merch-dropper.com/signup"
+      redirect_uri: "https://merch-dropper.com/signup"
     });
   };
 
