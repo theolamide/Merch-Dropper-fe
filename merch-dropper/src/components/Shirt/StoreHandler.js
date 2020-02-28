@@ -14,8 +14,8 @@ const StoreHandler = (merchProduct, setMerchProduct, images) => {
         "https://merchdropper-production.herokuapp.com/api/products",
         merchProduct
       )
-      .catch(() => {
-        console.log("error uploading image");
+      .catch((err) => {
+        console.log("error uploading image", err);
       });
   }
   addProduct();

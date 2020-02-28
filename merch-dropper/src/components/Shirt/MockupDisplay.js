@@ -9,6 +9,7 @@ const MockImage = styled.img`
 `;
 
 const MockupDisplay = (props) => {
+  console.log(props)
   return (
     <Fragment>
       <MockImage src={props.garment.mockUrl} alt="" />

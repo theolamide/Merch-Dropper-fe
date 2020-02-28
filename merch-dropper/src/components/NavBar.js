@@ -5,7 +5,6 @@ import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
 import Search from "./Search";
 import { useAuth0 } from "./Auth/Auth";
-
 import {
   Navbar,
   NavbarBrand,
@@ -30,7 +29,7 @@ const NavBar = ({ hidden, history }) => {
   const { loading } = useAuth0();
 
   const toggle = () => setIsOpen(!isOpen);
-
+  
   useEffect(() => {
     console.log(user);
     console.log(loading);
@@ -166,10 +165,43 @@ const NavBar = ({ hidden, history }) => {
         </Navbar>
       </div>
     );
+  } else {
+    return (
+      <div className="divNav">
+        <Navbar color="white" light expand="md" className="navStyle">
+          <img className="mr-5" src="https://uxmasters.org/images/merch_logo_50.svg" />
+          <NavbarBrand id="navTitle" href="/">
+            Merch Dropper
+          </NavbarBrand>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+            <Nav className="mr-auto" navbar>
+              <NavItem>
+                <Search />
+              </NavItem>
+            </Nav>
+            <Button color="primary" href="/" className="designBtn">
+              Design Merch
+            </Button>
+            <Button className="ml-5" outline color="primary" href="/">
+              Buy Merch
+            </Button>
+            {isAuthenticated && <Button onClick={() => logout()}>Log out</Button>}
+            <CartIcon />
+            <Media>
+              <Media object src={user.picture} style={imgStyle} alt="Generic placeholder image" />
+            </Media>
+            <NavbarText>{user.name}</NavbarText>
+          </Collapse>
+          {hidden ? null : <CartDropDown />}
+        </Navbar>
+      </div>
+    );
   }
 
 const mapStateToProps = state => ({
   hidden: state.CartReducer.hidden
 });
+
 
 export default withRouter(connect(mapStateToProps)(NavBar));

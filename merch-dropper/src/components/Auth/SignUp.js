@@ -1,6 +1,7 @@
  import React, { useState } from 'react';
  import { connect } from 'react-redux';
  import { postUser } from '../../store/actions';
+ import { useAuth0 } from "./Auth";
  import { StyledHeader, SignUpBox, StyledForm, StyledInput, StyledButton } from './Styled.js';
  
  const initialCredentials = {
@@ -19,7 +20,8 @@
  };
 
  function SignUp({ postUser, history }) {
-
+    const { user } = useAuth0();
+    const [userData, setUserData] = useState({});
     const [credentials, setCredentials] = useState(initialCredentials);
 
     const handleChange = e => {
@@ -32,7 +34,7 @@
     const callSignUp = e => {
         e.preventDefault();
         postUser(credentials, history);
-        
+        history.push("/")
     };
 
     return (
