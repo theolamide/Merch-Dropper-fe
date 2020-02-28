@@ -28,11 +28,13 @@ const imgStyle = {
   borderRadius: 10
 }
 
-const NavBar = ({ hidden, history, username }) => {
+const NavBar = ({ hidden, history }) => {
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  console.log(user)
+  console.log(logout)
 
   useEffect(() => {
     console.log(user);
@@ -138,5 +140,6 @@ const NavBar = ({ hidden, history, username }) => {
 const mapStateToProps = state => ({
   hidden: state.CartReducer.hidden
 });
+
 
 export default withRouter(connect(mapStateToProps)(NavBar));
