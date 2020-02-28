@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
 import axios from "axios";
-// import garment from "./DesignShirt";
 
 const CloudinaryHandler = async (garment, images, setImages) => {
   const mockup = garment.mockUrl;
-  // console.log(garment, "GARMENT URL")
 
   const urlPrepend = "https://res.cloudinary.com/dze74ofbf/image/upload/";
 
-  const preset = "cropbasic";
+  const preset = "shirtMockUps";
 
   const options = { "X-Requested-With": "XMLHttpRequest" };
 
@@ -21,8 +18,8 @@ const CloudinaryHandler = async (garment, images, setImages) => {
   await (async () => {
     const res = await axios
       .post("https://api.cloudinary.com/v1_1/dze74ofbf/upload", data, options)
-      .catch(() => {
-        console.log("error uploading image");
+      .catch((err) => {
+        console.log("error uploading image", err);
       });
 
     const response = await res;

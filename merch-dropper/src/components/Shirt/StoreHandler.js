@@ -1,4 +1,3 @@
-import React from "react";
 import axios from "axios";
 
 const StoreHandler = (merchProduct, setMerchProduct, images) => {
@@ -15,11 +14,9 @@ const StoreHandler = (merchProduct, setMerchProduct, images) => {
         "https://merchdropper-production.herokuapp.com/api/products",
         merchProduct
       )
-      .catch(() => {
-        console.log("error uploading image");
+      .catch((err) => {
+        console.log("error uploading image", err);
       });
-
-    console.log(res, "This means it went to the DB");
   }
   addProduct();
 

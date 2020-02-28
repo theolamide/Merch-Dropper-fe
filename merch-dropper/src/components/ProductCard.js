@@ -12,7 +12,7 @@ const ProductCard = ({ product, addToCart }) => {
             top
             width="100%"
             height="auto"
-            src={product.thumbnailURL}
+            src={product.fullSizeURL}
             alt="T-shirt"
           />
           <CardBody className="product-card-padding">

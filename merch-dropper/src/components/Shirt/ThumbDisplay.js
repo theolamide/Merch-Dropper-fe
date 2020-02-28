@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import styled from "styled-components";
-import designUrls from "./designUrls";
-
-const designs = designUrls;
+import axios from "axios";
 
 const PicDisplay = styled.div`
+  width: 320px;
+  display: flex;
+  flex-wrap: wrap;
   height: auto;
-  margin-bottom: 15px;
+  margin: 5px 0 12px 0;
+  justify-content: flex-start;
   a:focus {
     outline: solid black 1px;
   }
@@ -17,20 +19,38 @@ const PicDisplay = styled.div`
   }
 `;
 
-const ThumbDisplay = ({ garment, setGarment }) => {
-  // console.log(garment, setGarment);
+const ThumbDisplay = ({ garment, setGarment, design, thumbRender }) => {
+  const [designArray, setDesignArray] = useState();
+  useEffect(() => {
+    async function fetchDesigns() {
+      let fetchedDesigns = await axios.get(
+        "https://merchdropper-production.herokuapp.com/api/designs"
+      );
+      setDesignArray(fetchedDesigns.data);
+    }
+    fetchDesigns();
+  }, [thumbRender]);
 
+  if (!designArray) {
+    return <h1>loading</h1>;
+  }
   return (
-    <PicDisplay>
-      {designs.map((design) => (
-        <a href="#" key={design.name}><img
-          src={design.thumb}
-          alt={design.name}
-          key={design.name}
-          onClick={() => setGarment({ ...garment, artwork: design.hiRes })}
-        /></a>
-      ))}
-    </PicDisplay>
+    <Fragment>
+      <PicDisplay>
+        {designArray.map((image) => (
+          <a href="#" key={image.id}>
+            <img
+              src={image.thumbnail_url}
+              alt={image.design_name}
+              key={image.id}
+              onClick={() =>
+                setGarment({ ...garment, artwork: image.design_url })
+              }
+            />
+          </a>
+        ))}
+      </PicDisplay>
+    </Fragment>
   );
 };
 

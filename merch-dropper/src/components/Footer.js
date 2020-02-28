@@ -17,12 +17,12 @@ const Footer = (props) => {
     return (
         <div className="mt-5 footer">
             <Navbar color="white" light expand="md" className="navStyle">
-                <Form inline className="ml-5">
+                {/* <Form inline className="ml-5">
                     <FormGroup>
                         <Input type="email" name="email" id="exampleEmail" placeholder="Your email address" />
                         <Button color="primary" className="ml-3">Subscribe</Button>
                     </FormGroup>
-                </Form>
+                </Form> */}
                 <p className="pt-3 pl-5 ml-auto">
                     © Merch Dropper 2020
                 </p>
