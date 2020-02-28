@@ -1,5 +1,3 @@
-
-
 const initialShirtState = {
   garment: {
     color: "Team Purple",

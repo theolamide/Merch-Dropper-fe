@@ -1,29 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../App.css";
 import styled from "styled-components";
 
 const SliderBox = styled.div`
-  margin: 20px 0;
+margin-bottom: 5px;
+margin-left: 25px;
 
   h2 {
+    // margin-top: 10px;
+    margin-left: 10px;
     font-weight: 700;
   }
 
-  label {
-    margin-left: 5px;
-  }
+
 
   input[type="range"] {
     height: 29px;
     -webkit-appearance: none;
     margin-top: 10px;
-    width: 250px;
+    padding: 0 10px;
+    width: 350px;
+    border-radius: 7px;
+    background: none;
   }
   input[type="range"]:focus {
     outline: none;
   }
   input[type="range"]::-webkit-slider-runnable-track {
-    width: 250px;
+    width: 350px;
     height: 8px;
     cursor: pointer;
     animate: 0.2s;
@@ -47,7 +51,7 @@ const SliderBox = styled.div`
     background: #026fc2;
   }
   input[type="range"]::-moz-range-track {
-    width: 250px;
+    width: 350px;
     height: 8px;
     cursor: pointer;
     animate: 0.2s;
@@ -66,7 +70,7 @@ const SliderBox = styled.div`
     cursor: pointer;
   }
   input[type="range"]::-ms-track {
-    width: 250px;
+    width: 350px;
     height: 8px;
     cursor: pointer;
     animate: 0.2s;
@@ -104,10 +108,10 @@ const SliderBox = styled.div`
   }
 `;
 
-const SizeSlider = ({ garment, setGarment }) => {
+const BottomSlider = ({ garment, setGarment }) => {
   return (
     <SliderBox>
-      <h2>Design Width - {garment.designWidth} in.</h2>
+
       <input
         type="range"
         name="designWidth"
@@ -119,24 +123,14 @@ const SizeSlider = ({ garment, setGarment }) => {
           setGarment({ ...garment, [e.target.name]: e.target.value });
         }}
       />
+      <h2>Design Width - {garment.designWidth} in.</h2>
 
-      <h2>Vertical Offset - {garment.offSetFromTop} in.</h2>
-      <input
-        type="range"
-        name="offSetFromTop"
-        min="0"
-        max="12"
-        step=".25"
-        value={garment.offSetFromTop}
-        onChange={(e) => {
-          setGarment({ ...garment, [e.target.name]: e.target.value });
-        }}
-      />
+
     </SliderBox>
   );
 };
 
-export default SizeSlider;
+export default BottomSlider;
 
 // Category	Size	Description
 // standard	14' x 16'	Adult sized garments

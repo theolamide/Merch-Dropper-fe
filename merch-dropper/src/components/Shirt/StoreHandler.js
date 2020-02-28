@@ -1,4 +1,3 @@
-import React from "react";
 import axios from "axios";
 
 const StoreHandler = (merchProduct, setMerchProduct, images) => {
@@ -18,8 +17,6 @@ const StoreHandler = (merchProduct, setMerchProduct, images) => {
       .catch(() => {
         console.log("error uploading image");
       });
-
-    console.log(res, "This means it went to the DB");
   }
   addProduct();
 

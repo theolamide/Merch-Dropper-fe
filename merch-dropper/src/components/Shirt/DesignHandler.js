@@ -1,6 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
 import axios from "axios";
-import initialShirtState from "./initialShirtState";
 import CloudinaryWidget from "../CloudinaryWidget";
 
 const DesignHandler = ({ design, setDesign, setThumbRender }) => {

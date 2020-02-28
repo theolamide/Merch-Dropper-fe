@@ -1,13 +1,14 @@
 import React, { useEffect, useState, Fragment } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import designUrls from "./designUrls";
-
-// const designs = designUrls;
 
 const PicDisplay = styled.div`
+  width: 320px;
+  display: flex;
+  flex-wrap: wrap;
   height: auto;
-  margin-bottom: 15px;
+  margin: 5px 0 12px 0;
+  justify-content: flex-start;
   a:focus {
     outline: solid black 1px;
   }
@@ -18,17 +19,17 @@ const PicDisplay = styled.div`
   }
 `;
 
-const ThumbDisplay = ({ garment, setGarment, design, thumbRender}) => {
-
+const ThumbDisplay = ({ garment, setGarment, design, thumbRender }) => {
   const [designArray, setDesignArray] = useState();
   useEffect(() => {
     async function fetchDesigns() {
-      let fetchedDesigns = await axios.get("https://merchdropper-production.herokuapp.com/api/designs");
+      let fetchedDesigns = await axios.get(
+        "https://merchdropper-production.herokuapp.com/api/designs"
+      );
       setDesignArray(fetchedDesigns.data);
     }
     fetchDesigns();
   }, [thumbRender]);
-  // console.log("HOPEFULLY COOL DUDE DESIGNS", designs);
 
   if (!designArray) {
     return <h1>loading</h1>;
@@ -54,5 +55,3 @@ const ThumbDisplay = ({ garment, setGarment, design, thumbRender}) => {
 };
 
 export default ThumbDisplay;
-
-// onClick={() => setGarment({ ...garment, artwork: design.hiRes
