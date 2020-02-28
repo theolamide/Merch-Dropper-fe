@@ -18,32 +18,32 @@ const PicDisplay = styled.div`
   }
 `;
 
-const ThumbDisplay = ({ garment, setGarment}) => {
+const ThumbDisplay = ({ garment, setGarment, design, thumbRender}) => {
 
-  const [designs, setDesigns] = useState();
+  const [designArray, setDesignArray] = useState();
   useEffect(() => {
     async function fetchDesigns() {
-      let designArray = await axios.get("http://localhost:5032/api/designs");
-      setDesigns(designArray.data);
+      let fetchedDesigns = await axios.get("http://localhost:5032/api/designs");
+      setDesignArray(fetchedDesigns.data);
     }
     fetchDesigns();
-  }, []);
+  }, [thumbRender]);
   // console.log("HOPEFULLY COOL DUDE DESIGNS", designs);
 
-  if (!designs) {
+  if (!designArray) {
     return <h1>loading</h1>;
   }
   return (
     <Fragment>
       <PicDisplay>
-        {designs.map((design) => (
-          <a href="#" key={design.id}>
+        {designArray.map((image) => (
+          <a href="#" key={image.id}>
             <img
-              src={design.thumbnail_url}
-              alt={design.design_name}
-              key={design.id}
+              src={image.thumbnail_url}
+              alt={image.design_name}
+              key={image.id}
               onClick={() =>
-                setGarment({ ...garment, artwork: design.design_url })
+                setGarment({ ...garment, artwork: image.design_url })
               }
             />
           </a>

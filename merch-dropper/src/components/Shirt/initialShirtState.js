@@ -1,11 +1,5 @@
-let user;
-if (localStorage.id) {
-  user = localStorage.id;
-} else {
-  user = 1;
-}
 
-console.log(user, "THIS IS USER NUMBER");
+
 const initialShirtState = {
   garment: {
     color: "White",
@@ -43,7 +37,7 @@ const initialShirtState = {
     design_url: "",
     thumbnail_url: "",
     storeID: 1,
-    userID: user
+    userID: 1
   }
 };
 

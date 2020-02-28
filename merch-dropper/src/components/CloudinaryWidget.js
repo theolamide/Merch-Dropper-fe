@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const ImageUpload = ({ design, setDesign }) => {
+const ImageUpload = ({ design, setDesign,  designAdded, setDesignAdded }) => {
   let widget = window.cloudinary.createUploadWidget(
     {
       cloudName: "dze74ofbf",
@@ -14,19 +14,24 @@ const ImageUpload = ({ design, setDesign }) => {
     (error, result) => {
       if (result.event == "success") {
         const data = result.info;
-        console.log("HERE THAT PIXURE DATA", data);
+
         setDesign({
           ...design,
           design_name: data.original_filename,
           design_url: data.url,
           thumbnail_url: data.thumbnail_url
         });
+        setDesignAdded(designAdded+1);
+
       }
+
     }
   );
 
   const showWidget = function() {
+
     widget.open();
+    console.log(designAdded, "LKSDJFLKSDJFSDLFJDSLKJFLDSKFJ")
   };
 
   return (

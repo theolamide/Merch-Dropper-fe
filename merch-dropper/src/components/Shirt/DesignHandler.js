@@ -3,17 +3,28 @@ import axios from "axios";
 import initialShirtState from "./initialShirtState";
 import CloudinaryWidget from "../CloudinaryWidget";
 
-const DesignHandler = () => {
-  const [design, setDesign] = useState(initialShirtState.designInfo);
+const DesignHandler = ({ design, setDesign, setThumbRender }) => {
+  const [designAdded, setDesignAdded] = useState(0);
+
   useEffect(() => {
-    if (design.design_url != "") {
-      const res = axios.post("http://localhost:5032/api/designs", design);
-      console.log("RESPONDING", res)
-    }
-  }, []);
+    (async () => {
+      if (designAdded > 0) {
+        const res = await axios.post(
+          "http://localhost:5032/api/designs",
+          design
+        );
+        setThumbRender(res);
+      }
+    })();
+  }, [designAdded]);
   return (
     <Fragment>
-      <CloudinaryWidget design={design} setDesign={setDesign} />
+      <CloudinaryWidget
+        design={design}
+        setDesign={setDesign}
+        designAdded={designAdded}
+        setDesignAdded={setDesignAdded}
+      />
     </Fragment>
   );
 };
