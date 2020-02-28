@@ -16,7 +16,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: yarn install
-      - run: yarn build --if-present
       - run: yarn test
         env:
           CI: true
@@ -33,6 +32,4 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
           CI: true
-        with:
-          coverageCommand: cd merch-dropper && yarn coverage
-          debug: true
+      - run: cd merch-dropper && yarn run coverage
