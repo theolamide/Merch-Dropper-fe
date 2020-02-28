@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import BoardRoom from '../images/BoardRoom.jpg';
 
+const PageWrapper = styled.div`
+    width:100%
+`
 const TopImage = styled.div`
     margin: 0 auto;
     width: 100%;
@@ -47,7 +50,6 @@ const TopHeaderText = styled.h2`
             margin: 0.5rem;
         }
 `
-
 const TopParaText = styled.p`
     margin: 0 auto;
     width: 70%;
@@ -63,34 +65,38 @@ const TopParaText = styled.p`
             font-size: 1rem
         }
 `
-
 const ObjectiveWrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-around;
     margin: 3rem auto;
 `
-
 const ObjectiveDiv = styled.div`
         width: 40%;
         border-radius: 1rem;
         height: 50rem;
         background: #FF8A00;
 `
-
 const KeyDiv = styled.div`
     margin: 4rem 0;
+    // border: 0.15rem solid #d8aa35;
         @media (max-width: 768px) {
             margin: 1rem auto;
         }
 `
+const CardsWrapper = styled.div`
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+`
 const IndividualCard = styled.div`
     margin: auto;
     width: 19rem;
-    height: 35rem;
+    height: 30rem;
     background-color:white;
     // padding: 1rem;
-    border: 0.15rem solid #d8aa35;
+    // border: 0.15rem solid #d8aa35;
     border-radius: 1rem;
         @media (max-width: 320px) {
             width: 17rem;
@@ -100,7 +106,8 @@ const IndividualCard = styled.div`
 `
 const PersonImage = styled.img`
     margin: auto;
-    border-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
     width: 100%;
     // height: 14rem;
     @media(max - width: 320px) {
@@ -109,27 +116,27 @@ const PersonImage = styled.img`
         margin: 1rem auto;
     }
 `
-
 const TextBodyWrapper = styled.div`
     display:flex;
     flex-direction: column;
     // justify-content: space-between;
 `
-const SocialLink = styled(Link)`
-    text-decoration: none; 
-    color:white;
-    &:hover {
-        color:#d8aa35;
-    }
+const SocialWrapper = styled.div`
+    display:flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+`
+const SocialLink = styled.div`
+    cursor: pointer;
+    width: 2rem;
 `
 
 
 
 const LearnMore = () => {
 
-
     return (
-        <div>
+        <PageWrapper>
             <TopImage>
                 <TextWrapper>
                     <TopHeaderText>ABOUT MERCH DROPPER</TopHeaderText>
@@ -148,34 +155,31 @@ const LearnMore = () => {
                 </ObjectiveDiv>
             </ObjectiveWrapper>
 
-            <div>
+            <CardsWrapper>
                 {TeamMemberData.map(person => (
                     <KeyDiv key={person.index}>
                         <IndividualCard>
                             <PersonImage src={person.imageSrc}></PersonImage>
                             <TextBodyWrapper>
+                                <h4 style={{ margin: '1rem 0', textAlign: 'center' }}>{person.name}</h4>
 
-                                <h4 style={{ margin: '1rem 0', height: '3rem' }}>{person.name}</h4>
-
-                                <p style={{ margin: '1rem 0' }}>
+                                <p style={{ margin: '1rem 0', textAlign: 'center' }}>
                                     {person.Role}
                                 </p>
-                                <SocialLink to={`${person.LinkedIn}`}>
-                                    <img src={'https://camo.githubusercontent.com/29d14f310b62515d0c7bc80067d02e5a801bc2b5/68747470733a2f2f7374617469632e6c6963646e2e636f6d2f73632f682f616c326f397a727672753761716a3865317832727a73726361'} alt="LinkedIn Icon" />
-                                </SocialLink>
-                                <SocialLink to={`${person.Github}`}>
-                                    <img src={'https://github.com/favicon.ico'} alt="Github Icon" />
-                                </SocialLink>
-
+                                <SocialWrapper>
+                                    <SocialLink to={`${person.LinkedIn}`}>
+                                        <img style={{ width: '2rem' }} src={'https://camo.githubusercontent.com/29d14f310b62515d0c7bc80067d02e5a801bc2b5/68747470733a2f2f7374617469632e6c6963646e2e636f6d2f73632f682f616c326f397a727672753761716a3865317832727a73726361'} alt="LinkedIn Icon" />
+                                    </SocialLink>
+                                    <SocialLink to={`${person.Github}`}>
+                                        <img src={'https://github.com/favicon.ico'} alt="Github Icon" />
+                                    </SocialLink>
+                                </SocialWrapper>
                             </TextBodyWrapper>
                         </IndividualCard>
                     </KeyDiv>
                 ))}
-            </div>
-
-
-
-        </div>
+            </CardsWrapper>
+        </PageWrapper>
     )
 }
 
