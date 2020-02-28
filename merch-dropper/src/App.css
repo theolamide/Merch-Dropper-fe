@@ -266,8 +266,6 @@ table {
 @media only screen and (min-width: 768px) and (max-width: 1400px) {
   .designBtn {
     margin: 0 2.5% 0 0;
-    height: 3.5vh;
-    width: 15vw;
   }
 
   .jumboParent {
