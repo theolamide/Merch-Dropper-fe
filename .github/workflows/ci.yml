@@ -28,11 +28,11 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: "12"
-      - run: yarn install
+      - run: cd merch-dropper && yarn install
       - uses: paambaati/codeclimate-action@v2.4.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
           CI: true
         with:
-          coverageCommand: yarn coverage
+          coverageCommand: cd merch-dropper && yarn coverage
           debug: true

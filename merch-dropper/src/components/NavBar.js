@@ -9,9 +9,7 @@ import { useAuth0 } from "./Auth/Auth";
 // import "./NavBar.css";
 
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
   Nav,
   NavItem,
@@ -56,17 +54,15 @@ const NavBar = ({ hidden, history }) => {
       <div className="divNav">
         <Navbar color="white" light expand="md" className="navStyle">
           <img
-            className="mr-5"
+            className="mr-5 navLogo"
             src="https://uxmasters.org/images/merch_logo_50.svg"
             style={{ width: "2rem" }}
           />
           <NavbarBrand id="navTitle" href="/">
             Merch Dropper
           </NavbarBrand>
-          <NavbarToggler onClick={toggle} />
 
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="mr-auto" navbar>
+            <Nav className="mr-auto navSearch" navbar>
               <NavItem>
                 <Search />
               </NavItem>
@@ -92,10 +88,9 @@ const NavBar = ({ hidden, history }) => {
               Buy Merch
             </Button>
 
-            {!isAuthenticated && <Button onClick={() => loginWithRedirect({})}>Log in</Button>}
+            {!isAuthenticated && <Button onClick={() => loginWithRedirect({})} className="designBtn">Log in</Button>}
 
             <CartIcon />
-          </Collapse>
           {hidden ? null : <CartDropDown />}
         </Navbar>
       </div>
@@ -108,8 +103,7 @@ const NavBar = ({ hidden, history }) => {
           <NavbarBrand id="navTitle" href="/">
             Merch Dropper
           </NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
+
             <Nav className="mr-auto" navbar>
               <NavItem>
                 <Search />
@@ -127,7 +121,7 @@ const NavBar = ({ hidden, history }) => {
               <Media object src={user.picture} style={imgStyle} alt="Generic placeholder image" />
             </Media>
             <NavbarText>{user.name}</NavbarText>
-          </Collapse>
+
           {hidden ? null : <CartDropDown />}
         </Navbar>
       </div>
