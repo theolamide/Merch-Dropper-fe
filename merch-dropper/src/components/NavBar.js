@@ -33,9 +33,7 @@ const NavBar = ({ hidden, history }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-  console.log(user)
-  console.log(logout)
-
+  
   useEffect(() => {
     console.log(user);
     console.log(loading);
