@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import ProductDisplay from "./components/ProductDisplay";
@@ -30,7 +30,7 @@ function App() {
         render={props => <ProductDisplay {...props} />}
       />
       <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/designshirt" component={DesignShirt} /> 
+      <Route exact path="/designshirt" component={DesignShirt} />
       {/* <ImageUpload /> */}
       <Footer />
     </div>

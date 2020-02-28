@@ -5,8 +5,8 @@ import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
 import Search from "./Search";
 import { useAuth0 } from "./Auth/Auth";
-import "../App.css";
-import "./NavBar.css";
+// import "../App.css";
+// import "./NavBar.css";
 
 import {
   Collapse,
@@ -17,8 +17,16 @@ import {
   NavItem,
   FormGroup,
   Input,
-  Button
+  Button,
+  Media,
+  NavbarText
 } from "reactstrap";
+
+const imgStyle = {
+  maxHeight: 45,
+  maxWidth: 45,
+  borderRadius: 10
+}
 
 const NavBar = ({ hidden, history }) => {
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -64,11 +72,7 @@ const NavBar = ({ hidden, history }) => {
               </NavItem>
             </Nav>
 
-            {!isAuthenticated && <button onClick={() => loginWithRedirect({})}>Log in</button>}
-
             <Button
-              color="primary"
-              className="designBtn"
               color="primary"
               className="designBtn"
               onClick={() => {
@@ -87,6 +91,8 @@ const NavBar = ({ hidden, history }) => {
             >
               Buy Merch
             </Button>
+
+            {!isAuthenticated && <Button onClick={() => loginWithRedirect({})}>Log in</Button>}
 
             <CartIcon />
           </Collapse>
@@ -115,10 +121,14 @@ const NavBar = ({ hidden, history }) => {
             <Button className="ml-5" outline color="primary" href="/">
               Buy Merch
             </Button>
-            <img src={user.picture} />
-            <h4>{user.name}</h4>
-            {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
+            {isAuthenticated && <Button onClick={() => logout()}>Log out</Button>}
+            <CartIcon />
+            <Media>
+              <Media object src={user.picture} style={imgStyle} alt="Generic placeholder image" />
+            </Media>
+            <NavbarText>{user.name}</NavbarText>
           </Collapse>
+          {hidden ? null : <CartDropDown />}
         </Navbar>
       </div>
     );
