@@ -77,8 +77,30 @@ const ObjectiveDiv = styled.div`
         height: 50rem;
         background: #FF8A00;
 `
+const ObjectiveHeaderText = styled.h2`
+    color: #217fff;
+    font-size: 2rem;
+    text-align:center;
+        @media (max-width: 768px) {
+            font-size: 2rem
+            margin: 0.5rem;
+        }
+`
+const ObjectiveText = styled.p`
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem;
+    //border: 1px solid white;
+        @media (max-width: 768px) {
+            font-size: 1rem
+        }
+`
 const KeyDiv = styled.div`
-    margin: 4rem 0;
+    // margin: 4rem 0;
     // border: 0.15rem solid #d8aa35;
         @media (max-width: 768px) {
             margin: 1rem auto;
@@ -91,13 +113,12 @@ const CardsWrapper = styled.div`
     justify-content: space-around;
 `
 const IndividualCard = styled.div`
-    margin: auto;
-    width: 19rem;
-    height: 30rem;
-    background-color:white;
-    // padding: 1rem;
-    // border: 0.15rem solid #d8aa35;
-    border-radius: 1rem;
+    margin: 2rem auto;
+    width: 15rem;
+    height: 25rem;
+    background-color: #EAD0C5;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
         @media (max-width: 320px) {
             width: 17rem;
             height: 38rem;
@@ -126,7 +147,7 @@ const SocialWrapper = styled.div`
     justify-content: space-around;
     margin: 1rem 0;
 `
-const SocialLink = styled.div`
+const SocialLink = styled.a`
     cursor: pointer;
     width: 2rem;
 `
@@ -147,36 +168,52 @@ const LearnMore = () => {
 
             <ObjectiveWrapper>
                 <ObjectiveDiv>
-                    <p>It's the fastest way to set up a hassle free merch shop. Platform to upload designs and create products that plug into scalablepress.com to create a drop-shipping online shop.</p>
+                    <p style={{ margin: '1rem 0', textAlign: 'center' }}>It's the fastest way to set up a hassle free merch shop. Platform to upload designs and create products that plug into scalablepress.com to create a drop-shipping online shop.</p>
                 </ObjectiveDiv>
 
                 <ObjectiveDiv>
-                    <p>It's the fastest way to set up a hassle free merch shop. Platform to upload designs and create products that plug into scalablepress.com to create a drop-shipping online shop.</p>
+                    <ObjectiveHeaderText style={{ margin: '1rem 0', textAlign: 'center' }}>OUR MISSION</ObjectiveHeaderText>
+                    <ObjectiveText>Enable anyone to set up a custom swag shop effortlessly on their own domain. To save early entrepreneurs the headache, time and money sinkhole that early days swag can be. And to quench the desire to have swag of every early company starter without actually requiring more than a small monthly expense.</ObjectiveText>
                 </ObjectiveDiv>
             </ObjectiveWrapper>
 
             <CardsWrapper>
-                {TeamMemberData.map(person => (
-                    <KeyDiv key={person.index}>
-                        <IndividualCard>
-                            <PersonImage src={person.imageSrc}></PersonImage>
-                            <TextBodyWrapper>
-                                <h4 style={{ margin: '1rem 0', textAlign: 'center' }}>{person.name}</h4>
+                <IndividualCard>
+                    <PersonImage src={'https://media-exp1.licdn.com/dms/image/C5603AQEMam4iJFvQfw/profile-displayphoto-shrink_200_200/0?e=1588204800&v=beta&t=3Eib0IgBj9fK5A20aLJw06XGNTFex6zJD36e-mcMhWM'}></PersonImage>
+                    <TextBodyWrapper>
+                        <h3 style={{ margin: '1rem 0', textAlign: 'center' }}>Alan Fischbach</h3>
 
-                                <p style={{ margin: '1rem 0', textAlign: 'center' }}>
-                                    {person.Role}
-                                </p>
-                                <SocialWrapper>
-                                    <SocialLink to={`${person.LinkedIn}`}>
-                                        <img style={{ width: '2rem' }} src={'https://camo.githubusercontent.com/29d14f310b62515d0c7bc80067d02e5a801bc2b5/68747470733a2f2f7374617469632e6c6963646e2e636f6d2f73632f682f616c326f397a727672753761716a3865317832727a73726361'} alt="LinkedIn Icon" />
-                                    </SocialLink>
-                                    <SocialLink to={`${person.Github}`}>
-                                        <img src={'https://github.com/favicon.ico'} alt="Github Icon" />
-                                    </SocialLink>
-                                </SocialWrapper>
-                            </TextBodyWrapper>
-                        </IndividualCard>
-                    </KeyDiv>
+                        <h4 style={{ margin: '1rem 0', textAlign: 'center' }}>
+                            UI/UX Designer
+                        </h4>
+                        <SocialWrapper>
+                            <SocialLink href={'https://www.linkedin.com/in/buzrocks/'} target="_blank">
+                                <img style={{ width: '2rem' }} src={'https://camo.githubusercontent.com/29d14f310b62515d0c7bc80067d02e5a801bc2b5/68747470733a2f2f7374617469632e6c6963646e2e636f6d2f73632f682f616c326f397a727672753761716a3865317832727a73726361'} alt="LinkedIn Icon" />
+                            </SocialLink>
+                        </SocialWrapper>
+                    </TextBodyWrapper>
+                </IndividualCard>
+                {TeamMemberData.map(person => (
+                    // <KeyDiv key={person.index}>
+                    <IndividualCard>
+                        <PersonImage src={person.imageSrc}></PersonImage>
+                        <TextBodyWrapper>
+                            <h3 style={{ margin: '1rem 0', textAlign: 'center' }}>{person.name}</h3>
+
+                            <h4 style={{ margin: '1rem 0', textAlign: 'center' }}>
+                                {person.Role}
+                            </h4>
+                            <SocialWrapper>
+                                <SocialLink href={`${person.LinkedIn}`} target="_blank">
+                                    <img style={{ width: '2rem' }} src={'https://camo.githubusercontent.com/29d14f310b62515d0c7bc80067d02e5a801bc2b5/68747470733a2f2f7374617469632e6c6963646e2e636f6d2f73632f682f616c326f397a727672753761716a3865317832727a73726361'} alt="LinkedIn Icon" />
+                                </SocialLink>
+                                <SocialLink href={`${person.Github}`} target="_blank">
+                                    <img src={'https://github.com/favicon.ico'} alt="Github Icon" />
+                                </SocialLink>
+                            </SocialWrapper>
+                        </TextBodyWrapper>
+                    </IndividualCard>
+                    // </KeyDiv>
                 ))}
             </CardsWrapper>
         </PageWrapper>
@@ -196,49 +233,58 @@ const TeamMemberData = [
     },
     {
         index: 2,    //These should be incremental from the last interger
-        name: "Jennie Van",
-        imageSrc: "https://avatars3.githubusercontent.com/u/51731995?s=400&v=4",
+        name: "Daniel Ajadi",
+        imageSrc: "https://avatars3.githubusercontent.com/u/54829403?s=400&v=4",
         Role: "Full-Stack Developer",
-        LinkedIn: "https://www.linkedin.com/in/jennievan/",
-        Github: "https://github.com/yennilee"
+        LinkedIn: "https://www.linkedin.com/in/daniel-ajadi-95b207197/",
+        Github: "https://github.com/theolamide"
     },
     {
         index: 3,    //These should be incremental from the last interger
-        name: "Jennie Van",
-        imageSrc: "https://avatars3.githubusercontent.com/u/51731995?s=400&v=4",
+        name: "Jerris Manning",
+        imageSrc: "https://avatars2.githubusercontent.com/u/49968389?s=400&v=4",
         Role: "Full-Stack Developer",
-        LinkedIn: "https://www.linkedin.com/in/jennievan/",
-        Github: "https://github.com/yennilee"
+        LinkedIn: "https://www.linkedin.com/in/jerismanning/",
+        Github: "https://github.com/jeris-manning"
     },
     {
         index: 4,    //These should be incremental from the last interger
-        name: "Jennie Van",
-        imageSrc: "https://avatars3.githubusercontent.com/u/51731995?s=400&v=4",
+        name: "Marcos Lira",
+        imageSrc: "https://avatars2.githubusercontent.com/u/46974548?s=400&v=4",
         Role: "Full-Stack Developer",
-        LinkedIn: "https://www.linkedin.com/in/jennievan/",
-        Github: "https://github.com/yennilee"
+        LinkedIn: "https://www.linkedin.com/in/marcos-lira-837490186/",
+        Github: "https://github.com/Mlira02"
     },
     {
         index: 5,    //These should be incremental from the last interger
-        name: "Jennie Van",
-        imageSrc: "https://avatars3.githubusercontent.com/u/51731995?s=400&v=4",
+        name: "Tristan Boudreau",
+        imageSrc: "https://avatars0.githubusercontent.com/u/54781883?s=400&v=4",
         Role: "Full-Stack Developer",
-        LinkedIn: "https://www.linkedin.com/in/jennievan/",
-        Github: "https://github.com/yennilee"
+        LinkedIn: "https://www.linkedin.com/in/tristan-boudreau-644b16168",
+        Github: "https://github.com/tboudreau614"
     },
     {
         index: 6,    //These should be incremental from the last interger
-        name: "Jennie Van",
-        imageSrc: "https://avatars3.githubusercontent.com/u/51731995?s=400&v=4",
+        name: "Wes Jonke",
+        imageSrc: "https://avatars3.githubusercontent.com/u/48270435?s=400&v=4",
         Role: "Full-Stack Developer",
-        LinkedIn: "https://www.linkedin.com/in/jennievan/",
-        Github: "https://github.com/yennilee"
-    }, {
+        LinkedIn: "https://www.linkedin.com/in/wes-jonke/",
+        Github: "https://github.com/Wjonke"
+    },
+    {
         index: 7,    //These should be incremental from the last interger
-        name: "Jennie Van",
-        imageSrc: "https://avatars3.githubusercontent.com/u/51731995?s=400&v=4",
-        Role: "Full-Stack Developer",
-        LinkedIn: "https://www.linkedin.com/in/jennievan/",
-        Github: "https://github.com/yennilee"
+        name: "Preston Burton",
+        imageSrc: "https://avatars1.githubusercontent.com/u/38443310?s=460&v=4",
+        Role: "Team Lead",
+        LinkedIn: "https://www.linkedin.com/in/prestonburton/",
+        Github: "https://github.com/Oliver-Strange"
     }
+    // , {
+    //     index: 7,    //These should be incremental from the last interger
+    //     name: "Alan Fischbach",
+    //     imageSrc: "https://media-exp1.licdn.com/dms/image/C5603AQEMam4iJFvQfw/profile-displayphoto-shrink_200_200/0?e=1588204800&v=beta&t=3Eib0IgBj9fK5A20aLJw06XGNTFex6zJD36e-mcMhWM",
+    //     Role: "UI/UX Designer",
+    //     LinkedIn: "https://www.linkedin.com/in/jennievan/",
+    //     Github: "https://github.com/yennilee"
+    // }
 ]
