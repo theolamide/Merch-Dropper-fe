@@ -11,6 +11,7 @@ import Home from "./components/Home.js";
 import ShoppingCart from "./components/Cart/ShoppingCart";
 import DesignShirt from "./components/Shirt/DesignShirt";
 import Dashboard from "./components/Dashboard/Dashboard";
+import LearnMore from "./components/LearnMore";
 
 function App() {
   // const [products] = useState(initialState.products);
@@ -31,6 +32,7 @@ function App() {
       />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/designshirt" component={DesignShirt} />
+      <Route exact path="/learnmore" component={LearnMore} />
       {/* <ImageUpload /> */}
       <Footer />
     </div>

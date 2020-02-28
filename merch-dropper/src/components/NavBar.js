@@ -115,10 +115,22 @@ const NavBar = ({ hidden, history }) => {
                 <Search />
               </NavItem>
             </Nav>
-            <Button color="primary" href="/" className="designBtn">
+            <Button
+              color="primary"
+              className="designBtn"
+              onClick={() => {
+                history.push("/designshirt");
+              }}
+            >
               Design Merch
             </Button>
-            <Button className="ml-5" outline color="primary" href="/">
+            <Button
+              color="primary"
+              className="designBtn"
+              onClick={() => {
+                history.push("/products");
+              }}
+            >
               Buy Merch
             </Button>
             {isAuthenticated && <Button onClick={() => logout()}>Log out</Button>}
