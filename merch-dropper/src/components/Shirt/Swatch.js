@@ -5,7 +5,7 @@ const Swatch = ({ garment, setGarment }) => {
   return (
     <SwatchBox>
       {color.map((color, index) => (
-        <a href="#" key={index}>
+        <a href="#section" key={index}>
           <SwatchSquare
             name="color"
             value={color}

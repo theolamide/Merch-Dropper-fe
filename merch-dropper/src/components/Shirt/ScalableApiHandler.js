@@ -1,12 +1,6 @@
-import React from "react";
 import axios from "axios";
 
 const ScalableApiHandler = async (garment, setGarment) => {
-  console.log(
-    garment,
-    setGarment,
-    "Garment and setGarment received by ScalableApiHandler"
-  );
   let data = {
     template: { name: "front" },
     product: { id: "canvas-unisex-t-shirt", color: garment.color },
