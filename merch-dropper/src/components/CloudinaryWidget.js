@@ -12,7 +12,7 @@ const ImageUpload = ({ design, setDesign, designAdded, setDesignAdded }) => {
       defaultSource: "local"
     },
     (error, result) => {
-      if (result.event == "success") {
+      if (result.event === "success") {
         const data = result.info;
 
         setDesign({

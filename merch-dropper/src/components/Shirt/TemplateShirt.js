@@ -22,6 +22,8 @@ const TemplateShirt = ({ garment }) => {
     case "R":
       horizontalMod = 0.05;
       break;
+    default:
+      horizontalMod = 0.5;
   }
   const horizontal =
     (horizontalMod * (224 - designWidth * 16) + 90).toString() + "px";

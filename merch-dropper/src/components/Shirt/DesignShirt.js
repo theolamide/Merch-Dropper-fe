@@ -4,12 +4,11 @@ import styled from "styled-components";
 import MockupDisplay from "./MockupDisplay";
 import Swatch from "./Swatch";
 import ScalableApiHandler from "./ScalableApiHandler";
-import CloudinaryHandler from "./CloudinaryHandler";
 import ThumbDisplay from "./ThumbDisplay";
 import TemplateShirt from "./TemplateShirt";
 import initialShirtState from "./initialShirtState";
-import StoreHandler from "./StoreHandler";
 import DesignHandler from "./DesignHandler";
+import FullHandle from "./FullHandle";
 import TopSlider from "./TopSlider";
 import BottomSlider from "./BottomSlider";
 import HorizontalAlign from "./HorizontalAlign";
@@ -17,35 +16,21 @@ import HorizontalAlign from "./HorizontalAlign";
 const DesignShirt = () => {
   const [design, setDesign] = useState(initialShirtState.designInfo);
   const [garment, setGarment] = useState(initialShirtState.garment);
-  const [images, setImages] = useState(initialShirtState.cloudinaryInfo);
   const [thumbRender, setThumbRender] = useState();
-  const [merchProduct, setMerchProduct] = useState(
-    initialShirtState.productInfo
-  );
 
   const handleScale = function() {
     ScalableApiHandler(garment, setGarment);
   };
-  const handleCloud = function() {
-    CloudinaryHandler(garment, images, setImages);
-  };
-  const handleProduct = function() {
-    console.log(setMerchProduct)
-    StoreHandler(merchProduct, setMerchProduct, images);
+
+  const addProduct = function() {
+    FullHandle(garment);
   };
 
   return (
     <Fragment>
       <DesignShirtContainer>
         <div>
-          <MockupDisplay
-            garment={garment}
-            setGarment={setGarment}
-            handleCloud={handleCloud}
-            images={images}
-            setImages={setImages}
-            handleProduct={handleProduct}
-          />
+          <MockupDisplay garment={garment} />
         </div>
         <div>
           <TopSlider garment={garment} setGarment={setGarment} />
@@ -62,7 +47,6 @@ const DesignShirt = () => {
           <ThumbDisplay
             garment={garment}
             setGarment={setGarment}
-            design={design}
             thumbRender={thumbRender}
           />
 
@@ -72,13 +56,8 @@ const DesignShirt = () => {
             <button className="designBtn btn btn-primary" onClick={handleScale}>
               Preview Design
             </button>
-            <button className="designBtn btn btn-primary" onClick={handleCloud}>
-              Save Preview
-            </button>
-            <button
-              className="designBtn btn btn-primary"
-              onClick={handleProduct}>
-              Add Saved To Store
+            <button className="designBtn btn btn-primary" onClick={addProduct}>
+              Add To Store
             </button>
           </ButtonContainer>
         </DesignInterface>
@@ -101,8 +80,8 @@ const DesignShirtContainer = styled.div`
 const ButtonContainer = styled.div`
   // padding: 10px;
   display: flex;
-  max-width: 180px;
-  flex-direction: column;
+  max-width: 300px;
+  flex-direction: row;
   justify-content: space-around;
 `;
 
