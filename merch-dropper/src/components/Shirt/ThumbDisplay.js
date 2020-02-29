@@ -19,7 +19,7 @@ const PicDisplay = styled.div`
   }
 `;
 
-const ThumbDisplay = ({ garment, setGarment, design, thumbRender }) => {
+const ThumbDisplay = ({ garment, setGarment, thumbRender }) => {
   const [designArray, setDesignArray] = useState();
   useEffect(() => {
     async function fetchDesigns() {
@@ -38,7 +38,7 @@ const ThumbDisplay = ({ garment, setGarment, design, thumbRender }) => {
     <Fragment>
       <PicDisplay>
         {designArray.map((image) => (
-          <a href="#" key={image.id}>
+          <a href="#section" key={image.id}>
             <img
               src={image.thumbnail_url}
               alt={image.design_name}

@@ -8,11 +8,10 @@ const MockImage = styled.img`
   margin: 63px 20px 0 0;
 `;
 
-const MockupDisplay = (props) => {
-  console.log(props)
+const MockupDisplay = ({ garment }) => {
   return (
     <Fragment>
-      <MockImage src={props.garment.mockUrl} alt="" />
+      <MockImage src={garment.mockUrl} />
     </Fragment>
   );
 };
