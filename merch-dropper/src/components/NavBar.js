@@ -20,18 +20,41 @@ const imgStyle = {
 const RootWrapper = styled.div`
   box-shadow: 0 3px 0 0 rgba(236, 236, 236, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.19);
   display: flex;
-  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background: white;
+  width: 100%;
+  // border: 1px solid black;
 
       @media (max-width: 768px) {
         display: flex;
         flex-direction: column;
       }
 `
+const BrandWrapper = styled.div`
+  width: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  // border: 1px solid black;
+`
+const BrandLogo = styled.img`
+  cursor: pointer;
+  width: 3rem;
+`
 const BrandTitle = styled.div`
   color: #007bff;
   font-weight: 700;
   font-size: 1.5rem;
   cursor: pointer;
+`
+const ButtonWrapper = styled.div`
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  // border: 1px solid black;
 `
 const Button = styled.button`
   text-align: center;
@@ -48,7 +71,7 @@ const Button = styled.button`
 `
 
 const NavBar = ({ hidden, history }) => {
-  const { user, isAuthenticated, loginWithRedirect, logout, getTokenSilently } = useAuth0();
+  const { user, loginWithRedirect, logout } = useAuth0();
   const [isOpen, setIsOpen] = useState(false);
   const { loading } = useAuth0();
 
@@ -73,9 +96,9 @@ const NavBar = ({ hidden, history }) => {
   };
 
   return (
-    <div className="divNav">
-      <RootWrapper>
-        <img className="mr-5" src="https://uxmasters.org/images/merch_logo_50.svg"
+    <RootWrapper>
+      <BrandWrapper>
+        <BrandLogo src="https://uxmasters.org/images/merch_logo_50.svg"
           onClick={() => {
             history.push("/");
           }}
@@ -83,12 +106,14 @@ const NavBar = ({ hidden, history }) => {
 
         <BrandTitle onClick={() => {
           history.push("/");
-        }} >
+        }}>
           Merch Dropper
         </BrandTitle>
+      </BrandWrapper>
 
-        <Search />
+      <Search />
 
+      <ButtonWrapper>
         <Button
           onClick={() => {
             history.push("/designshirt");
@@ -109,7 +134,7 @@ const NavBar = ({ hidden, history }) => {
         ) : (
             <Button onClick={customLogin}>Log In</Button>
           )}
-        <CartIcon />
+
         <Media>
           {localStorage.getItem("profile") ? (
             <div>
@@ -133,9 +158,10 @@ const NavBar = ({ hidden, history }) => {
         ) : (
             <div></div>
           )}
-        {hidden ? null : <CartDropDown />}
-      </RootWrapper>
-    </div>
+        <CartIcon />
+      </ButtonWrapper>
+      {hidden ? null : <CartDropDown />}
+    </RootWrapper>
   );
 };
 
