@@ -138,11 +138,10 @@ export const MediaWrapper = styled.div`
 
 const NavBar = ({ hidden, history }) => {
   const { user, loginWithRedirect, logout } = useAuth0();
-  // const [isOpen, setIsOpen] = useState(false);
   const { loading } = useAuth0();
   const [state, setState] = useState({ sideDrawerOpen: false })
 
-  // const toggle = () => setIsOpen(!isOpen);
+
 
   useEffect(() => {
     console.log(user);

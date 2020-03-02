@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from "react-router-dom";
 import styled from 'styled-components';
-import { ButtonWrapper, Button, MediaWrapper } from './NavBar';
+import { MediaWrapper } from './NavBar';
 import {
     Media,
     NavbarText
@@ -9,9 +9,9 @@ import {
 
 
 const RootWrapper = styled.div`
-    height: 100%;
+    height: 70%;
     width: 60%;
-    background: white;
+    background: #FEAD1C;
     position: fixed;
     top:0;
     right:0;
@@ -19,7 +19,7 @@ const RootWrapper = styled.div`
     display:flex;
     flex-direction: column;
     align-items: flex-end;
-    border: 1px solid black;
+    //border: 1px solid black;
 `
 
 const CloseHamburger = styled.button`
@@ -50,16 +50,11 @@ const LinkDiv = styled.div`
 
 const SideDrawer = ({ closeDrawer, imgStyle, logoutWithRedirect, customLogin, history }) => {
 
-    const Reroute = (route) => {
-        history.push("/route");
-    }
-
 
     return (
         <RootWrapper>
             <CloseHamburger onClick={closeDrawer} >
                 X
-                {/* <img src="https://img.icons8.com/ultraviolet/40/000000/multiply.png"></img> */}
             </CloseHamburger>
 
             <LinkDiv
@@ -97,7 +92,7 @@ const SideDrawer = ({ closeDrawer, imgStyle, logoutWithRedirect, customLogin, hi
                             object
                             src='https://cdn4.iconfinder.com/data/icons/messenger-1-0-line/106/Profile_Line-512.png'
                             style={imgStyle}
-                            alt="Profile Photo"
+                            alt="Guest Profile Photo"
                         />
                     )}
                 {localStorage.getItem("profile") ? (
