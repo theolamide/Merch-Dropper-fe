@@ -20,13 +20,29 @@ const RootWrapper = styled.div`
     flex-direction: column;
 `
 
+const CloseHamburger = styled.button`
+    width: 3rem;
+    height: 3rem;
+    background: transparent;
+    border: none;
+    cursor:pointer;
+    padding: 0;
+    font-size: 3rem;
+    color: #007bff;
+    box-sizing: border-box;
+    &:focus{
+        outline:none;
+    }
+`
+
 const SideDrawer = ({ closeDrawer, imgStyle, logoutWithRedirect, customLogin, history }) => {
+
 
     return (
         <RootWrapper>
-            <button onClick={closeDrawer} >
+            <CloseHamburger onClick={closeDrawer} >
                 X
-            </button>
+            </CloseHamburger>
 
             <Button
                 onClick={() => {
@@ -38,7 +54,7 @@ const SideDrawer = ({ closeDrawer, imgStyle, logoutWithRedirect, customLogin, hi
 
             <Button
                 onClick={() => {
-                    history.push("/products");
+                    history.push("/products")
                 }}
             >
                 Buy Merch

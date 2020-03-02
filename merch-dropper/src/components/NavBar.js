@@ -41,7 +41,7 @@ export const MobileWrapper = styled.div`
         justify-content: space-between;
         padding: 0.75rem;
         background: white;
-        border: 1px solid black;
+        // border: 1px solid black;
       }
 `
 export const BrandWrapper = styled.div`
@@ -51,7 +51,7 @@ export const BrandWrapper = styled.div`
   align-items: center;
   //border: 1px solid black;
     @media (min-width: 768px) {
-          width: 20%;
+          width: 30%;
         }
 `
 export const BrandLogo = styled.img`
@@ -76,6 +76,12 @@ export const ButtonWrapper = styled.div`
     @media (max-width: 768px) {
             width: 80%;
           }
+`
+const CartAndHamWrapper = styled.div`
+  width: 8rem;
+  // border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
 `
 export const Hamburger = styled.button`
   width: 3rem;
@@ -161,7 +167,7 @@ const NavBar = ({ hidden, history }) => {
     sideDrawer = <SideDrawer
       closeDrawer={closeBackDropClickHandler}
       imgStyle={imgStyle}
-      logoutWithRedirect={loginWithRedirect}
+      logoutWithRedirect={logoutWithRedirect}
       customLogin={customLogin}
     />
   }
@@ -184,11 +190,15 @@ const NavBar = ({ hidden, history }) => {
         </BrandTitle>
         </BrandWrapper>
 
-        <Hamburger onClick={drawerToggleClickHandler}>
-          <HamburgerLines ></HamburgerLines>
-          <HamburgerLines ></HamburgerLines>
-          <HamburgerLines ></HamburgerLines>
-        </Hamburger>
+        <CartAndHamWrapper>
+          <CartIcon />
+          <Hamburger onClick={drawerToggleClickHandler}>
+            <HamburgerLines ></HamburgerLines>
+            <HamburgerLines ></HamburgerLines>
+            <HamburgerLines ></HamburgerLines>
+          </Hamburger>
+        </CartAndHamWrapper>
+        {hidden ? null : <CartDropDown />}
       </MobileWrapper>
 
       <DesktopWrapper>
