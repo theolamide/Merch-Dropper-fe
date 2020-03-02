@@ -1,8 +1,6 @@
-import React from "react";
 import axios from "axios";
 
 const ScalableApiHandler = async (garment, setGarment) => {
-console.log(garment, setGarment, "Garment and setGarment received by ScalableApiHandler")
   let data = {
     template: { name: "front" },
     product: { id: "canvas-unisex-t-shirt", color: garment.color },
@@ -23,8 +21,7 @@ console.log(garment, setGarment, "Garment and setGarment received by ScalableApi
 
   let config = {
     headers: {
-      "Content-Type": "application/json",
-      // "Authorization": "Basic OnRlc3RfZUIza2JJTThFRG5OdHEwenBSSU5fZw=="
+      "Content-Type": "application/json"
     }
   };
 
@@ -36,7 +33,7 @@ console.log(garment, setGarment, "Garment and setGarment received by ScalableApi
         config
       );
 
-      const response = await shirtImage;
+      const response = shirtImage;
 
       setGarment({ ...garment, mockUrl: response.data.URL });
     } catch (err) {
@@ -45,7 +42,7 @@ console.log(garment, setGarment, "Garment and setGarment received by ScalableApi
   }
   makeShirt();
 
-  return <div></div>;
+  return null;
 };
 
 export default ScalableApiHandler;
