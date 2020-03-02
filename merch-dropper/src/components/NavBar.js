@@ -50,8 +50,12 @@ export const BrandWrapper = styled.div`
   justify-content: space-around;
   align-items: center;
   //border: 1px solid black;
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
           width: 30%;
+        }
+    @media (max-width: 411px) {
+          width: 49%;
+          justify-content: space-between;
         }
 `
 export const BrandLogo = styled.img`
@@ -63,13 +67,16 @@ export const BrandTitle = styled.div`
   font-weight: 700;
   font-size: 1.5rem;
   cursor: pointer;
+  @media (max-width: 411px) {
+          font-size: 1.25rem;
+        }
 `
 export const ButtonWrapper = styled.div`
   width: 33%;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  // border: 1px solid black;
+  //border: 1px solid black;
     @media (min-width: 1280px) {
             width: 45%;
           }
@@ -122,6 +129,11 @@ export const Button = styled.button`
 export const MediaWrapper = styled.div`
   display: flex;
   align-items: center;
+  // border: 1px solid black;
+  @media (max-width: 768px) {
+            padding: 0.1rem 1rem;
+            border-bottom: 1px solid black;
+          }
 `
 
 const NavBar = ({ hidden, history }) => {
@@ -146,8 +158,8 @@ const NavBar = ({ hidden, history }) => {
 
   const customLogin = () => {
     loginWithRedirect({
-      // redirect_uri: "https://merch-dropper.com/signup"
-      redirect_uri: "http://localhost:3000/"
+      redirect_uri: "https://merch-dropper.com/signup"
+      //redirect_uri: "http://localhost:3000/"
     });
   };
 

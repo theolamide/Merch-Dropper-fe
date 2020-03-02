@@ -18,55 +18,73 @@ const RootWrapper = styled.div`
     z-index: 200;
     display:flex;
     flex-direction: column;
+    align-items: flex-end;
+    border: 1px solid black;
 `
 
 const CloseHamburger = styled.button`
     width: 3rem;
     height: 3rem;
     background: transparent;
+    margin-top: 0.75rem;
+    margin-right: 0.75rem;
     border: none;
     cursor:pointer;
     padding: 0;
     font-size: 3rem;
     color: #007bff;
     box-sizing: border-box;
+    //border: 1px solid black;
     &:focus{
         outline:none;
     }
 `
+const LinkDiv = styled.div`
+    text-align: right;
+    margin: 0.5rem 0;    
+    padding:0.15rem;
+    padding-right: 1rem;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+`
 
 const SideDrawer = ({ closeDrawer, imgStyle, logoutWithRedirect, customLogin, history }) => {
+
+    const Reroute = (route) => {
+        history.push("/route");
+    }
 
 
     return (
         <RootWrapper>
             <CloseHamburger onClick={closeDrawer} >
                 X
+                {/* <img src="https://img.icons8.com/ultraviolet/40/000000/multiply.png"></img> */}
             </CloseHamburger>
 
-            <Button
+            <LinkDiv
                 onClick={() => {
                     history.push("/designshirt");
                 }}
             >
                 Design Merch
-                </Button>
+            </LinkDiv>
 
-            <Button
+            <LinkDiv
                 onClick={() => {
                     history.push("/products")
                 }}
             >
                 Buy Merch
-                </Button>
+                </LinkDiv>
 
             {localStorage.getItem("profile") ? (
-                <Button onClick={() => logoutWithRedirect()}>Log out</Button>
+                <LinkDiv onClick={() => logoutWithRedirect()}>Log out</LinkDiv>
             ) : (
-                    <Button onClick={customLogin}>Log In</Button>
+                    <LinkDiv onClick={customLogin}>Log In</LinkDiv>
                 )}
 
-            <MediaWrapper>
+            <MediaWrapper >
                 {localStorage.getItem("profile") ? (
                     <Media
                         object
