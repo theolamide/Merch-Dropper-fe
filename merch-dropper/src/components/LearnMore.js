@@ -145,11 +145,15 @@ const ObjectiveText = styled.p`
         }
 `
 const CardsWrapper = styled.div`
-    width:100%;
+    margin: 0 auto;
+    width: 80%;
     padding-top: 3rem;
     display:flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    @media (max-width: 768px) {
+            width: 100%;
+        }
 `
 const IndividualCard = styled.div`
     margin: 2rem auto;
