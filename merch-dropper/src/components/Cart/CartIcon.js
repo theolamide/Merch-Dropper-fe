@@ -21,6 +21,11 @@ const IconWrapper = styled.div`
 const Icon = styled(ShoppingIcon)`
     width: 30px;
     height: 30px;
+    @media (max-width: 768px) {
+        margin-top: 0.5rem;        
+        width: 40px;
+        height: 40px;
+    }
 `
 
 const ItemCount = styled.span`
@@ -46,7 +51,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = createStructuredSelector({
-    // itemCount: selectCartItemsCount
+    //itemCount: selectCartItemsCount
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);

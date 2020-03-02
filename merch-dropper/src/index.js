@@ -35,7 +35,7 @@ ReactDOM.render(
                     onRedirectCallback={onRedirectCallback}
                 >
                     <App />
-                </Auth0Provider>,
+                </Auth0Provider>
             </PersistGate>
         </BrowserRouter>
     </Provider>, document.getElementById('root'));
