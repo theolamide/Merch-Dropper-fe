@@ -137,6 +137,9 @@ const ObjectiveText = styled.p`
     font-weight: bold;
     padding: 1rem;
     //border: 1px solid white;
+        @media (max-width: 1429px) {
+            font-size: 0.95rem
+        }
         @media (max-width: 768px) {
             font-size: 1rem
         }
