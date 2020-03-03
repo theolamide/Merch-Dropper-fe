@@ -78,6 +78,10 @@ const CheckoutPageWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     margin: 50px auto 0;
+    @media (max-width: 600px) {
+            font-size: 0.75rem;
+            width: 80%;
+        }
 `
 
 const CheckoutHeader = styled.div`
