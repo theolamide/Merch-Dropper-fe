@@ -3,8 +3,7 @@ const initialShirtState = {
     color: "Team Purple",
     colorHex: "#824393",
     printStyle: "dtg",
-    artwork:
-      "http://oo-prod.s3.amazonaws.com/public/artworks/2020/02/02/378ce90384ce1/original.png",
+    artwork: "",
     designWidth: "6",
     horizontalPlacement: ".5",
     designPlacement: "C",

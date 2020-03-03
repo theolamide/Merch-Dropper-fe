@@ -2,65 +2,39 @@ import React, { useState, Fragment } from "react";
 import "../../App.css";
 import styled from "styled-components";
 import MockupDisplay from "./MockupDisplay";
-import Swatch from "./Swatch";
-import ScalableApiHandler from "./ScalableApiHandler";
-import ThumbDisplay from "./ThumbDisplay";
-import TemplateShirt from "./TemplateShirt";
+import DesignPositionPanel from "./DesignPositionPanel";
+import DesignInputPanel from "./DesignInputPanel";
+import HandleScalableMockup from "./HandleScalableMockup";
 import initialShirtState from "./initialShirtState";
-import DesignHandler from "./DesignHandler";
-import FullHandle from "./FullHandle";
-import TopSlider from "./TopSlider";
-import BottomSlider from "./BottomSlider";
-import HorizontalAlign from "./HorizontalAlign";
+import AddProduct from "./AddProduct";
 
 const DesignShirt = () => {
   const [design, setDesign] = useState(initialShirtState.designInfo);
   const [garment, setGarment] = useState(initialShirtState.garment);
   const [thumbRender, setThumbRender] = useState();
 
-  const handleScale = function() {
-    ScalableApiHandler(garment, setGarment);
+  const handleScalableMockup = function() {
+    HandleScalableMockup(garment, setGarment);
   };
-
   const addProduct = function() {
-    FullHandle(garment);
+    AddProduct(garment);
   };
 
   return (
     <Fragment>
       <DesignShirtContainer>
-        <div>
-          <MockupDisplay garment={garment} />
-        </div>
-        <div>
-          <TopSlider garment={garment} setGarment={setGarment} />
-          <TemplateShirt garment={garment} setGarment={setGarment} />
-          <HorizontalAlign garment={garment} setGarment={setGarment} />
-          <BottomSlider garment={garment} setGarment={setGarment} />
-        </div>
-        <DesignInterface>
-          <DesignHandler
-            design={design}
-            setDesign={setDesign}
-            setThumbRender={setThumbRender}
-          />
-          <ThumbDisplay
-            garment={garment}
-            setGarment={setGarment}
-            thumbRender={thumbRender}
-          />
-
-          <Swatch garment={garment} setGarment={setGarment} />
-
-          <ButtonContainer>
-            <button className="designBtn btn btn-primary" onClick={handleScale}>
-              Preview Design
-            </button>
-            <button className="designBtn btn btn-primary" onClick={addProduct}>
-              Add To Store
-            </button>
-          </ButtonContainer>
-        </DesignInterface>
+        <MockupDisplay garment={garment} />
+        <DesignPositionPanel garment={garment} setGarment={setGarment} />
+        <DesignInputPanel
+          design={design}
+          setDesign={setDesign}
+          thumbRender={thumbRender}
+          setThumbRender={setThumbRender}
+          garment={garment}
+          setGarment={setGarment}
+          handleScalableMockup={handleScalableMockup}
+          addProduct={addProduct}
+        />
       </DesignShirtContainer>
     </Fragment>
   );
@@ -75,20 +49,4 @@ const DesignShirtContainer = styled.div`
   justify-content: center;
   max-width: 1200px;
   margin-top: 15px;
-`;
-
-const ButtonContainer = styled.div`
-  // padding: 10px;
-  display: flex;
-  max-width: 300px;
-  flex-direction: row;
-  justify-content: space-around;
-`;
-
-const DesignInterface = styled.div`
-  margin: 63px 0 0 15px;
-
-  button {
-    margin-bottom: 8px;
-  }
 `;
