@@ -309,7 +309,7 @@ const TeamMemberData = [
     },
     {
         index: 3,    //These should be incremental from the last interger
-        name: "Jerris Manning",
+        name: "Jeris Manning",
         imageSrc: "https://avatars2.githubusercontent.com/u/49968389?s=400&v=4",
         Role: "Full-Stack Developer",
         LinkedIn: "https://www.linkedin.com/in/jerismanning/",

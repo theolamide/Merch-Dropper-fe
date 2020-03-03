@@ -3,16 +3,14 @@ import "../../App.css";
 import styled from "styled-components";
 
 const SliderBox = styled.div`
-margin-bottom: 5px;
-margin-left: 25px;
+  margin-bottom: 5px;
+  margin-left: 25px;
 
   h2 {
     // margin-top: 10px;
     margin-left: 10px;
     font-weight: 700;
   }
-
-
 
   input[type="range"] {
     height: 29px;
@@ -111,7 +109,6 @@ margin-left: 25px;
 const BottomSlider = ({ garment, setGarment }) => {
   return (
     <SliderBox>
-
       <input
         type="range"
         name="designWidth"
@@ -124,16 +121,8 @@ const BottomSlider = ({ garment, setGarment }) => {
         }}
       />
       <h2>Design Width - {garment.designWidth} in.</h2>
-
-
     </SliderBox>
   );
 };
 
 export default BottomSlider;
-
-// Category	Size	Description
-// standard	14' x 16'	Adult sized garments
-// pocket	10' x 10' (including height offset)	Adult sized garments with pockets, i.e. hoodies
-// small	10' x 12'	Ladies' and youth sized garments
-// youth-pocket	10' x 6' (including height offset)	Youth sized garments with pockets, i.e. hoodies

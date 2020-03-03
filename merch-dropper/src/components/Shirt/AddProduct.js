@@ -1,7 +1,5 @@
 import axios from "axios";
 
-// for merchDropper api call
-
 const product = {
   productName: "Swarm Collection",
   description: "Swarm Shirt",
@@ -9,7 +7,7 @@ const product = {
   storeID: 1
 };
 
-const FullHandle = async (garment) => {
+const AddProduct = async (garment) => {
   if (garment.mockUrl === "") {
     alert("Please create a mockup first!");
     return null;
@@ -43,4 +41,4 @@ const FullHandle = async (garment) => {
   return null;
 };
 
-export default FullHandle;
+export default AddProduct;

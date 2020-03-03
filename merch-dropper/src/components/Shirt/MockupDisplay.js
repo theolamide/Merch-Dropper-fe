@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const MockImage = styled.img`
@@ -10,9 +10,9 @@ const MockImage = styled.img`
 
 const MockupDisplay = ({ garment }) => {
   return (
-    <Fragment>
+    <div>
       <MockImage src={garment.mockUrl} />
-    </Fragment>
+    </div>
   );
 };
 

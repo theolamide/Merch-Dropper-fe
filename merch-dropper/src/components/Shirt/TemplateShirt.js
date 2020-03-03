@@ -60,8 +60,7 @@ const Design = styled.div.attrs((props) => ({
   left: props.horizontal || "184px"
 }))`
   width: ${(props) => props.designSize};
-
-  height: auto;
+  // height: auto;
   position: relative;
   left: ${(props) => props.horizontal};
   top: ${(props) => props.offset};
