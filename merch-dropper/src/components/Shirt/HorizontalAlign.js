@@ -1,11 +1,6 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
 
-const HorizontalSelect = styled.select`
-  margin: 10px 0 0 138px;
-  border-radius: 4px;
-`;
-
 const HorizontalAlign = ({ garment, setGarment }) => {
   const { designPlacement } = garment;
 
@@ -32,3 +27,8 @@ const HorizontalAlign = ({ garment, setGarment }) => {
 };
 
 export default HorizontalAlign;
+
+const HorizontalSelect = styled.select`
+  margin: 10px 0 0 138px;
+  border-radius: 4px;
+`;
