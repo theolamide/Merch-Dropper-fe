@@ -28,22 +28,26 @@ const Search = (props) => {
 
     return (
         <Form className='search'>
-            <Input 
+            <Input
                 value={searchValue}
                 onChange={handleSearchInput}
                 type='text'
                 placeholder='Store Name'
             />
             <Button onClick={callSearchFunction}>
-                Search
+                <i class="fa fa-search"></i>
             </Button>
+
         </Form>
+
     )
 };
 
 const Form = styled.form`
     display: flex;
-`;
+    width: 15rem;
+    height: 2.25rem;
+`
 
 const mapStateToProps = (state) => {
     let search = state.SearchReducer

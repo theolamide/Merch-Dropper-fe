@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import BoardRoom from '../images/BoardRoom.jpg';
 import OurTeam from '../images/OurTeam.jpg';
@@ -54,6 +53,10 @@ const TeamHeaderImage = styled.div`
             justify-content: space-between;
             height: 50vh;
         }
+        @media (max-width: 360px) {
+            justify-content: space-between;
+            height: 100vh;
+        }
 `
 const TextWrapper = styled.div`
     display:flex;
@@ -73,6 +76,10 @@ const TopHeaderText = styled.h2`
             font-size: 4rem;
             margin: 0.5rem;
         }
+        @media (max-width: 360px) {
+            font-size: 3rem;
+            margin: 0.5rem;
+        }
 `
 const TopParaText = styled.p`
     margin: 0 auto;
@@ -87,6 +94,11 @@ const TopParaText = styled.p`
     //border: 1px solid white;
         @media (max-width: 768px) {
             font-size: 1.5rem;
+            font-weight: normal;
+        }
+
+        @media (max-width: 360px) {
+            font-size: 1rem;
             font-weight: normal;
         }
 `
@@ -128,13 +140,20 @@ const ObjectiveText = styled.p`
         @media (max-width: 768px) {
             font-size: 1rem
         }
+        @media (max-width: 360px) {
+            font-size: 0.9rem;
+        }
 `
 const CardsWrapper = styled.div`
-    width:100%;
+    margin: 0 auto;
+    width: 80%;
     padding-top: 3rem;
     display:flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    @media (max-width: 768px) {
+            width: 100%;
+        }
 `
 const IndividualCard = styled.div`
     margin: 2rem auto;
@@ -151,7 +170,7 @@ const IndividualCard = styled.div`
         }
         @media (max-width: 320px) {
             width: 17rem;
-            height: 38rem;
+            height: 28rem;
             margin: 1rem auto;
         }
 `
@@ -240,6 +259,8 @@ const LearnMore = () => {
                         </SocialWrapper>
                     </TextBodyWrapper>
                 </IndividualCard>
+
+                {/* Map through the other members of the team since thay all have github accounts */}
                 {TeamMemberData.map(person => (
                     // <KeyDiv key={person.index}>
                     <IndividualCard>
@@ -326,12 +347,4 @@ const TeamMemberData = [
         LinkedIn: "https://www.linkedin.com/in/prestonburton/",
         Github: "https://github.com/Oliver-Strange"
     }
-    // , {
-    //     index: 7,    //These should be incremental from the last interger
-    //     name: "Alan Fischbach",
-    //     imageSrc: "https://media-exp1.licdn.com/dms/image/C5603AQEMam4iJFvQfw/profile-displayphoto-shrink_200_200/0?e=1588204800&v=beta&t=3Eib0IgBj9fK5A20aLJw06XGNTFex6zJD36e-mcMhWM",
-    //     Role: "UI/UX Designer",
-    //     LinkedIn: "https://www.linkedin.com/in/jennievan/",
-    //     Github: "https://github.com/yennilee"
-    // }
 ]
