@@ -11,6 +11,7 @@ import DesignShirt from "./components/Shirt/DesignShirt";
 import Dashboard from "./components/Dashboard/Dashboard";
 import SignUp from "./components/Auth/SignUp";
 import LearnMore from "./components/LearnMore";
+import CreateStore from "./components/Auth/CreateStore";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/signup" component={SignUp} />
+      <Route exact path="/createstore" component={CreateStore} />
       <Route exact path="/designshirt" component={DesignShirt} />
       <Route exact path="/learnmore" component={LearnMore} />
       {/* <ImageUpload /> */}

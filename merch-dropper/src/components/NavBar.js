@@ -144,8 +144,8 @@ const NavBar = ({ hidden, history }) => {
 
 
   useEffect(() => {
-    console.log(user);
-    console.log(loading);
+    console.log("This is user in NavBar.js: ", user);
+    console.log("Loading in NavBar.js: ", loading);
   }, [user]);
 
   const logoutWithRedirect = () => {
@@ -157,8 +157,8 @@ const NavBar = ({ hidden, history }) => {
 
   const customLogin = () => {
     loginWithRedirect({
-      redirect_uri: "https://merch-dropper.com/signup"
-      //redirect_uri: "http://localhost:3000/"
+      // redirect_uri: "https://merch-dropper.com/signup"
+      redirect_uri: "http://localhost:3000/"
     });
   };
 
