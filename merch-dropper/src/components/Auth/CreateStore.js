@@ -227,3 +227,4 @@ const OnBoardingStoreTextDiv = styled.div`
   box-sizing: border-box;
   border-radius: 10px;
 `;
+

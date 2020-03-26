@@ -11,6 +11,7 @@ const DEFAULT_REDIRECT_CALLBACK = () =>
 
 export const Auth0Context = React.createContext();
 export const useAuth0 = () => useContext(Auth0Context);
+console.log("This is useAuth0 in Auth.js: ", useAuth0);
 
 // Auth0 Provider is imported in index.js
 export const Auth0Provider = ({

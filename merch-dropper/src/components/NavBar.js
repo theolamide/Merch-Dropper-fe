@@ -139,7 +139,7 @@ export const MediaWrapper = styled.div`
 const NavBar = ({ hidden, history }) => {
   const { user, loginWithRedirect, logout } = useAuth0();
   const { loading } = useAuth0();
-  const [state, setState] = useState({ sideDrawerOpen: false })
+  const [ state, setState ] = useState({ sideDrawerOpen: false })
 
 
 
