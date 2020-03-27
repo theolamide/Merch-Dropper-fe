@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { postUser } from "../../store/actions";
 import styled from "styled-components";
 import { Button, TextField } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import Stepper from "@material-ui/core/Stepper";
+import Step from "@material-ui/core/Step";
+import StepLabel from "@material-ui/core/StepLabel";
 
 const initialStoreName = {
   store_name: ""
@@ -10,6 +14,9 @@ const initialStoreName = {
 
 function CreateStore({ postUser, history }) {
   const [storeName, setStoreName] = useState(initialStoreName);
+  const [activeStep, setActiveStep] = React.useState(2);
+  const steps = getSteps();
+  const classes = useStyles();
 
   const handleChange = e => {
     setStoreName({
@@ -49,15 +56,29 @@ function CreateStore({ postUser, history }) {
       </div>
       <OnBoardingForm>
         <OnBoardingFormHeader>Create store</OnBoardingFormHeader>
+        <StepperDiv>
+          <Stepper activeStep={activeStep} alternativeLabel>
+            {steps.map(label => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        </StepperDiv>
         <OnBoardingStoreTextDiv>
-          <TextField
+          <TextField className={classes.textField}
             id="outlined-basic"
-            label="Store Name"
+            label="Store name"
             variant="outlined"
           />
         </OnBoardingStoreTextDiv>
-        <Button>Create store</Button>
-        <Button>Skip for now</Button>
+        <OnBoardingURLPreviewDiv>
+          <p>merch-dropper.com/</p>
+        </OnBoardingURLPreviewDiv>
+        <OnBoardingCreateStoreButton>Create store</OnBoardingCreateStoreButton>
+        <OnBoardingSkipCreateStoreButton>
+          Skip for now
+        </OnBoardingSkipCreateStoreButton>
       </OnBoardingForm>
     </OnBoardingContainer>
   );
@@ -73,6 +94,17 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { postUser })(CreateStore);
+
+// All the material UI
+function getSteps() {
+  return ["Create account", "Connect Stripe", "Create store"];
+}
+
+const useStyles = makeStyles(theme => ({
+  textField: {
+    width: '37.6ch',
+  },
+}));
 
 // All the styling
 const OnBoardingContainer = styled.div`
@@ -217,14 +249,57 @@ const OnBoardingFormHeader = styled.h2`
   color: #000000;
 `;
 
+const StepperDiv = styled.div`
+  position: absolute;
+  width: 350px;
+  height: 27px;
+  left: calc(50% - 350px / 2 + 1.5px);
+  top: 127px;
+`;
+
 const OnBoardingStoreTextDiv = styled.div`
   position: absolute;
   width: 344px;
   height: 59px;
   left: calc(50% - 344px / 2);
   top: 252px;
-  border: 3px solid #ededed;
   box-sizing: border-box;
   border-radius: 10px;
 `;
 
+const OnBoardingURLPreviewDiv = styled.div`
+  position: absolute;
+  width: 275px;
+  height: 21px;
+  left: calc(50% - 275px / 2 - 10.5px);
+  top: 323px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+`;
+
+const OnBoardingCreateStoreButton = styled.button`
+  position: absolute;
+  width: 344px;
+  height: 59px;
+  left: calc(50% - 344px / 2);
+  top: 372px;
+  background: #c4c4c4;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+`;
+
+const OnBoardingSkipCreateStoreButton = styled.button`
+  position: absolute;
+  width: 344px;
+  height: 59px;
+  left: 103px;
+  top: 449px;
+  border: 3px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 18px;
+`;
