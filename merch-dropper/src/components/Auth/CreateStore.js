@@ -9,23 +9,30 @@ import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 
 const initialStoreName = {
-  store_name: ""
+  store_name: "",
 };
 
 function CreateStore({ postUser, history }) {
-  const [storeName, setStoreName] = useState(initialStoreName);
+  const [storeName, setStoreName] = useState("");
+  const [domain, setDomain] = useState("");
   const [activeStep, setActiveStep] = React.useState(2);
   const steps = getSteps();
   const classes = useStyles();
 
-  const handleChange = e => {
-    setStoreName({
-      ...storeName,
-      [e.target.name]: e.target.value
-    });
+  console.log("This is storeName: ", storeName);
+
+  const handleChange = (e) => {
+    setStoreName(displayStoreName(e.target.value));
   };
 
-  const callCreateStore = e => {
+  const displayStoreName = (string) => {
+    let splitString = string.split(/[^A-Za-z]/);
+    let joinedString = splitString.join("");
+
+    setDomain(joinedString);
+  };
+
+  const callCreateStore = (e) => {
     e.preventDefault();
     postUser(storeName);
     history.push("/");
@@ -35,61 +42,59 @@ function CreateStore({ postUser, history }) {
   // if user skips this step, the user is forwarded to /dashboard until they create a custom store name
 
   return (
-    <OnBoardingContainer>
+    <Container>
       <div>
-        <OnBoardingHeader>Merch made easy.</OnBoardingHeader>
-        <OnBoardingH2>
-          Sell your custom print-on-demand designs with Merch Dropper
-        </OnBoardingH2>
-        <OnBoardingCreateH3>Create your store</OnBoardingCreateH3>
-        <OnBoardingCreateP>
+        <Header>Merch made easy.</Header>
+        <H2>Sell your custom print-on-demand designs with Merch Dropper</H2>
+        <CreateH3>Create your store</CreateH3>
+        <CreateP>
           Simplified setup includes free custom domain and storefront template.
-        </OnBoardingCreateP>
-        <OnBoardingDesignsH3>Upload your designs</OnBoardingDesignsH3>
-        <OnBoardingDesignsP>
+        </CreateP>
+        <DesignsH3>Upload your designs</DesignsH3>
+        <DesignsP>
           Add your artwork or create a design with our easy-to-use tool.
-        </OnBoardingDesignsP>
-        <OnBoardingSalesH3>Hassle-free sales</OnBoardingSalesH3>
-        <OnBoardingSalesP>
-          We print and shop merchandise straight to the customer.
-        </OnBoardingSalesP>
+        </DesignsP>
+        <SalesH3>Hassle-free sales</SalesH3>
+        <SalesP>We print and shop merchandise straight to the customer.</SalesP>
       </div>
-      <OnBoardingForm>
-        <OnBoardingFormHeader>Create store</OnBoardingFormHeader>
+      <CreateStoreForm>
+        <FormHeader>Create store</FormHeader>
         <StepperDiv>
           <Stepper activeStep={activeStep} alternativeLabel>
-            {steps.map(label => (
+            {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
               </Step>
             ))}
           </Stepper>
         </StepperDiv>
-        <OnBoardingStoreTextDiv>
-          <TextField className={classes.textField}
+        <StoreTextDiv>
+          <TextField
+            className={classes.textField}
             id="outlined-basic"
             label="Store name"
+            name="store-name"
             variant="outlined"
+            value={storeName}
+            onChange={handleChange}
           />
-        </OnBoardingStoreTextDiv>
-        <OnBoardingURLPreviewDiv>
-          <p>merch-dropper.com/</p>
-        </OnBoardingURLPreviewDiv>
-        <OnBoardingCreateStoreButton>Create store</OnBoardingCreateStoreButton>
-        <OnBoardingSkipCreateStoreButton>
-          Skip for now
-        </OnBoardingSkipCreateStoreButton>
-      </OnBoardingForm>
-    </OnBoardingContainer>
+        </StoreTextDiv>
+        <URLPreviewDiv>
+          <p>merch-dropper.com/{domain}</p>
+        </URLPreviewDiv>
+        <CreateStoreButton>Create store</CreateStoreButton>
+        <SkipCreateStoreButton>Skip for now</SkipCreateStoreButton>
+      </CreateStoreForm>
+    </Container>
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   let register = state.RegisterReducer;
 
   return {
     isFetching: register.isFetching,
-    error: register.error
+    error: register.error,
   };
 };
 
@@ -100,20 +105,20 @@ function getSteps() {
   return ["Create account", "Connect Stripe", "Create store"];
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   textField: {
-    width: '37.6ch',
+    width: "37.6ch",
   },
 }));
 
 // All the styling
-const OnBoardingContainer = styled.div`
+const Container = styled.div`
   width: 1440px;
   height: 1024px;
   background: #f3f3f3;
 `;
 
-const OnBoardingHeader = styled.h1`
+const Header = styled.h1`
   position: absolute;
   width: 392px;
   height: 56px;
@@ -127,7 +132,7 @@ const OnBoardingHeader = styled.h1`
   color: #000000;
 `;
 
-const OnBoardingH2 = styled.h2`
+const H2 = styled.h2`
   position: absolute;
   width: 555px;
   height: 84px;
@@ -141,7 +146,7 @@ const OnBoardingH2 = styled.h2`
   color: #333333;
 `;
 
-const OnBoardingCreateH3 = styled.h3`
+const CreateH3 = styled.h3`
   position: absolute;
   width: 186px;
   height: 28px;
@@ -155,7 +160,7 @@ const OnBoardingCreateH3 = styled.h3`
   color: #000000;
 `;
 
-const OnBoardingDesignsH3 = styled.h3`
+const DesignsH3 = styled.h3`
   position: absolute;
   width: 220px;
   height: 28px;
@@ -169,7 +174,7 @@ const OnBoardingDesignsH3 = styled.h3`
   color: #000000;
 `;
 
-const OnBoardingSalesH3 = styled.h3`
+const SalesH3 = styled.h3`
   position: absolute;
   width: 190px;
   height: 28px;
@@ -183,7 +188,7 @@ const OnBoardingSalesH3 = styled.h3`
   color: #000000;
 `;
 
-const OnBoardingCreateP = styled.p`
+const CreateP = styled.p`
   position: absolute;
   width: 311px;
   height: 42px;
@@ -197,7 +202,7 @@ const OnBoardingCreateP = styled.p`
   color: #000000;
 `;
 
-const OnBoardingDesignsP = styled.p`
+const DesignsP = styled.p`
   position: absolute;
   width: 311px;
   height: 42px;
@@ -211,7 +216,7 @@ const OnBoardingDesignsP = styled.p`
   color: #000000;
 `;
 
-const OnBoardingSalesP = styled.p`
+const SalesP = styled.p`
   position: absolute;
   width: 311px;
   height: 42px;
@@ -225,7 +230,7 @@ const OnBoardingSalesP = styled.p`
   color: #000000;
 `;
 
-const OnBoardingForm = styled.form`
+const CreateStoreForm = styled.form`
   position: absolute;
   width: 550px;
   height: 888px;
@@ -235,7 +240,7 @@ const OnBoardingForm = styled.form`
   border-radius: 30px;
 `;
 
-const OnBoardingFormHeader = styled.h2`
+const FormHeader = styled.h2`
   position: absolute;
   width: 199px;
   height: 42px;
@@ -257,7 +262,7 @@ const StepperDiv = styled.div`
   top: 127px;
 `;
 
-const OnBoardingStoreTextDiv = styled.div`
+const StoreTextDiv = styled.div`
   position: absolute;
   width: 344px;
   height: 59px;
@@ -267,7 +272,7 @@ const OnBoardingStoreTextDiv = styled.div`
   border-radius: 10px;
 `;
 
-const OnBoardingURLPreviewDiv = styled.div`
+const URLPreviewDiv = styled.div`
   position: absolute;
   width: 275px;
   height: 21px;
@@ -280,7 +285,7 @@ const OnBoardingURLPreviewDiv = styled.div`
   line-height: 21px;
 `;
 
-const OnBoardingCreateStoreButton = styled.button`
+const CreateStoreButton = styled.button`
   position: absolute;
   width: 344px;
   height: 59px;
@@ -292,7 +297,7 @@ const OnBoardingCreateStoreButton = styled.button`
   font-weight: bold;
 `;
 
-const OnBoardingSkipCreateStoreButton = styled.button`
+const SkipCreateStoreButton = styled.button`
   position: absolute;
   width: 344px;
   height: 59px;
