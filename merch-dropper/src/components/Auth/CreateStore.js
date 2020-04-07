@@ -38,6 +38,11 @@ function CreateStore({ postUser, history }) {
     history.push("/");
   };
 
+  const skipToDashboard = (e) => {
+    e.preventDefault();
+    history.push("/");
+  };
+
   // if user submits the store creation form, a new route is created based on the user's custom store name
   // if user skips this step, the user is forwarded to /dashboard until they create a custom store name
 
@@ -57,7 +62,7 @@ function CreateStore({ postUser, history }) {
         <SalesH3>Hassle-free sales</SalesH3>
         <SalesP>We print and shop merchandise straight to the customer.</SalesP>
       </div>
-      <CreateStoreForm>
+      <CreateStoreForm onSubmit={callCreateStore}>
         <FormHeader>Create store</FormHeader>
         <StepperDiv>
           <Stepper activeStep={activeStep} alternativeLabel>
@@ -75,15 +80,25 @@ function CreateStore({ postUser, history }) {
             label="Store name"
             name="store-name"
             variant="outlined"
+            inputProps={{ maxLength: 25 }}
             value={storeName}
             onChange={handleChange}
           />
         </StoreTextDiv>
         <URLPreviewDiv>
-          <p>merch-dropper.com/{domain}</p>
+          {domain.length < 16 ? (
+            <p>merchdropper.com/{domain}</p>
+          ) : (
+            <p>
+              merchdropper.com/<br></br>
+              {domain}
+            </p>
+          )}
         </URLPreviewDiv>
-        <CreateStoreButton>Create store</CreateStoreButton>
-        <SkipCreateStoreButton>Skip for now</SkipCreateStoreButton>
+        <CreateStoreButton type="submit">Create store</CreateStoreButton>
+        <SkipCreateStoreButton onClick={skipToDashboard}>
+          Skip for now
+        </SkipCreateStoreButton>
       </CreateStoreForm>
     </Container>
   );
@@ -107,7 +122,7 @@ function getSteps() {
 
 const useStyles = makeStyles((theme) => ({
   textField: {
-    width: "37.6ch",
+    width: "38.2ch",
   },
 }));
 
