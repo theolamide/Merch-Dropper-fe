@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
+import axios from "axios";
 
 const initialStoreName = {
   store_name: "",
@@ -16,10 +17,11 @@ function CreateStore({ postUser, history }) {
   const [storeName, setStoreName] = useState("");
   const [domain, setDomain] = useState("");
   const [activeStep, setActiveStep] = React.useState(2);
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  // This code is specific to the Material-UI components for displaying the progress bar (steps 1, 2, 3)
   const steps = getSteps();
   const classes = useStyles();
-
-  console.log("This is storeName: ", storeName);
 
   const handleChange = (e) => {
     setStoreName(displayStoreName(e.target.value));
@@ -30,6 +32,23 @@ function CreateStore({ postUser, history }) {
     let joinedString = splitString.join("");
 
     setDomain(joinedString);
+  };
+
+  // The code below must be adjusted for the correct end point once merged
+  // const profile = JSON.parse(localStorage.getItem(profile));
+  // console.log(profile);
+
+  const callSignUp = (e) => {
+    e.preventDefault();
+    setIsSubmit(true);
+    // axios
+    //   .post(`http://localhost:5032/api/stores`, {
+    //     store_name: storeName,
+    //     email: profile.email,
+    //   })
+    //   .then((res) => {
+    //     setIsSubmit(false);
+    //   });
   };
 
   const callCreateStore = (e) => {
@@ -62,7 +81,7 @@ function CreateStore({ postUser, history }) {
         <SalesH3>Hassle-free sales</SalesH3>
         <SalesP>We print and shop merchandise straight to the customer.</SalesP>
       </div>
-      <CreateStoreForm onSubmit={callCreateStore}>
+      <CreateStoreForm onSubmit={callSignUp}>
         <FormHeader>Create store</FormHeader>
         <StepperDiv>
           <Stepper activeStep={activeStep} alternativeLabel>
