@@ -12,7 +12,7 @@ import { Media, NavbarText } from "reactstrap";
 const imgStyle = {
   maxHeight: 45,
   maxWidth: 45,
-  borderRadius: 10
+  borderRadius: 10,
 };
 
 export const DesktopWrapper = styled.div`
@@ -139,20 +139,20 @@ const NavBar = ({ hidden, history }) => {
 
   const logoutWithRedirect = () => {
     logout({
-      returnTo: window.location.origin
+      returnTo: window.location.origin,
     });
     localStorage.removeItem("profile");
   };
 
   const customLogin = () => {
     loginWithRedirect({
-      //redirect_uri: "https://merch-dropper.com/signup"
-      redirect_uri: "http://localhost:3000/redirect"
+      redirect_uri: "https://merch-dropper.com/redirect",
+      // redirect_uri: "http://localhost:3000/redirect"
     });
   };
 
   let drawerToggleClickHandler = () => {
-    setState(prevState => {
+    setState((prevState) => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
   };
@@ -281,8 +281,8 @@ const NavBar = ({ hidden, history }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  hidden: state.CartReducer.hidden
+const mapStateToProps = (state) => ({
+  hidden: state.CartReducer.hidden,
 });
 
 export default withRouter(connect(mapStateToProps)(NavBar));
