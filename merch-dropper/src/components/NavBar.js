@@ -135,7 +135,9 @@ export const MediaWrapper = styled.div`
 
 const NavBar = ({ hidden, history }) => {
   const { user, loginWithRedirect, logout } = useAuth0();
+
   const [state, setState] = useState({ sideDrawerOpen: false });
+
 
   const logoutWithRedirect = () => {
     logout({
@@ -146,8 +148,10 @@ const NavBar = ({ hidden, history }) => {
 
   const customLogin = () => {
     loginWithRedirect({
+
       redirect_uri: "https://merch-dropper.com/redirect",
       // redirect_uri: "http://localhost:3000/redirect"
+
     });
   };
 

@@ -30,12 +30,20 @@ function SignUp({ postUser, history }) {
   const [userData, setUserData] = useState({});
   const [credentials, setCredentials] = useState(initialCredentials);
 
+
   const handleChange = e => {
     setCredentials({
       ...credentials,
       [e.target.name]: e.target.value
     });
   };
+
+    const callSignUp = e => {
+        e.preventDefault();
+        postUser(credentials);
+        history.push("/")
+    };
+
 
   const callSignUp = e => {
     e.preventDefault();
