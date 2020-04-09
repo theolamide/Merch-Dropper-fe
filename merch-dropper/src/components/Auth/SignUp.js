@@ -33,7 +33,7 @@
 
     const callSignUp = e => {
         e.preventDefault();
-        postUser(credentials, history);
+        postUser(credentials);
         history.push("/")
     };
 

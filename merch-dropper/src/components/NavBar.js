@@ -139,13 +139,13 @@ export const MediaWrapper = styled.div`
 const NavBar = ({ hidden, history }) => {
   const { user, loginWithRedirect, logout } = useAuth0();
   const { loading } = useAuth0();
-  const [state, setState] = useState({ sideDrawerOpen: false })
+  const [ state, setState ] = useState({ sideDrawerOpen: false })
 
 
 
   useEffect(() => {
-    console.log(user);
-    console.log(loading);
+    console.log("This is user in NavBar.js: ", user);
+    console.log("Loading in NavBar.js: ", loading);
   }, [user]);
 
   const logoutWithRedirect = () => {
@@ -157,8 +157,8 @@ const NavBar = ({ hidden, history }) => {
 
   const customLogin = () => {
     loginWithRedirect({
-      redirect_uri: "https://merch-dropper.com/signup"
-      //redirect_uri: "http://localhost:3000/"
+      // redirect_uri: "https://merch-dropper.com/signup"
+      redirect_uri: "http://localhost:3000/"
     });
   };
 
