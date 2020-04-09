@@ -8,9 +8,14 @@ import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import axios from "axios";
+import { grey } from "@material-ui/core/colors";
 
 const initialStoreName = {
   store_name: "",
+};
+
+const profile = {
+  email: "email@test.com",
 };
 
 function CreateStore({ postUser, history }) {
@@ -28,33 +33,31 @@ function CreateStore({ postUser, history }) {
   };
 
   const displayStoreName = (string) => {
-    let splitString = string.split(/[^A-Za-z]/);
+    let splitString = string.split(/[^A-Za-z0-9]/);
     let joinedString = splitString.join("");
 
     setDomain(joinedString);
   };
 
   // The code below must be adjusted for the correct end point once merged
-  // const profile = JSON.parse(localStorage.getItem(profile));
+  // const profile = JSON.parse(localStorage.getItem("profile"));
   // console.log(profile);
 
   const callSignUp = (e) => {
     e.preventDefault();
     setIsSubmit(true);
-    // axios
-    //   .post(`http://localhost:5032/api/stores`, {
-    //     store_name: storeName,
-    //     email: profile.email,
-    //   })
-    //   .then((res) => {
-    //     setIsSubmit(false);
-    //   });
-  };
 
-  const callCreateStore = (e) => {
-    e.preventDefault();
-    postUser(storeName);
-    history.push("/");
+    axios
+      .post(`http://localhost:5032/api/stores`, {
+        store_name: storeName,
+        domain_name: domain,
+        email: profile.email,
+      })
+      .then((res) => {
+        console.log("This is res: ", res);
+        setIsSubmit(false);
+        alert("Store Created!");
+      });
   };
 
   const skipToDashboard = (e) => {
@@ -105,13 +108,13 @@ function CreateStore({ postUser, history }) {
           />
         </StoreTextDiv>
         <URLPreviewDiv>
-          {domain.length < 16 ? (
-            <p>merchdropper.com/{domain}</p>
+          {domain.length < 14 ? (
+            <p>merchdropper.store/{domain}</p>
           ) : (
-            <p>
-              merchdropper.com/<br></br>
-              {domain}
-            </p>
+            <>
+              <p style={{ color: "grey" }}>merchdropper.store/</p>
+              <p>{domain}</p>
+            </>
           )}
         </URLPreviewDiv>
         <CreateStoreButton type="submit">Create store</CreateStoreButton>
