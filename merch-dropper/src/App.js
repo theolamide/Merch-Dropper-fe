@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import ProductDisplay from "./components/ProductDisplay";
+import ProductDisplayDomain from "./components/ProductDisplayDomain";
 import CheckoutPage from "./components/Cart/Checkout";
 import Home from "./components/Home.js";
 import ShoppingCart from "./components/Cart/ShoppingCart";
@@ -16,7 +17,6 @@ import Redirect from "./components/Redirect";
 
 import CreateStore from "./components/Onboarding/CreateStore";
 
-
 function App() {
   return (
     <div className="App">
@@ -28,7 +28,12 @@ function App() {
       <Route
         exact
         path="/products"
-        render={(props) => <ProductDisplay {...props} />}
+        render={props => <ProductDisplay {...props} />}
+      />
+      <Route
+        exact
+        path="/stores/:domain_name"
+        render={props => <ProductDisplayDomain {...props} />}
       />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/signup" component={SignUp} />
