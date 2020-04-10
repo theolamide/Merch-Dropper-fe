@@ -32,7 +32,7 @@ function App() {
       />
       <Route
         exact
-        path="/stores/:domain_name"
+        path="/:domain_name"
         render={props => <ProductDisplayDomain {...props} />}
       />
       <Route exact path="/dashboard" component={Dashboard} />
