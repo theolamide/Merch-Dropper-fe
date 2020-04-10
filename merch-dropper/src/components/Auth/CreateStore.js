@@ -8,7 +8,6 @@ import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import axios from "axios";
-import { grey } from "@material-ui/core/colors";
 
 const initialStoreName = {
   store_name: "",
@@ -30,6 +29,7 @@ function CreateStore({ postUser, history }) {
 
   const handleChange = (e) => {
     setStoreName(displayStoreName(e.target.value));
+    
   };
 
   const displayStoreName = (string) => {
