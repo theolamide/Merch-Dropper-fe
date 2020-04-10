@@ -12,7 +12,7 @@ const Redirect = ({ history }) => {
       ) {
         setTimeout(() => {
           // store creation form
-          history.push("/signup");
+          history.push("/stripe-setup");
         }, 500);
       } else {
         setTimeout(() => {
@@ -23,7 +23,6 @@ const Redirect = ({ history }) => {
     }
   });
 
-  useEffect(() => {});
   return (
     <div>
       <h2 style={{ textAlign: "center" }}>Loading before Redirect</h2>
