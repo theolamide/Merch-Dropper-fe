@@ -6,7 +6,7 @@ import { createStructuredSelector } from 'reselect';
 import { toggleCartHidden } from '../../store/actions';
 // import { selectCartItemsCount } from '../Selectors/cart.selectors';
 
-import { ReactComponent as ShoppingIcon } from '../../assets/ShoppingIcon.svg';
+import ShoppingIcon from '../../assets/ShoppingIcon.svg';
 
 const IconWrapper = styled.div`
     width: 45px;
@@ -18,7 +18,7 @@ const IconWrapper = styled.div`
     cursor: pointer;
 `
 
-const Icon = styled(ShoppingIcon)`
+const Icon = styled.img`
     width: 30px;
     height: 30px;
     @media (max-width: 768px) {
@@ -40,7 +40,7 @@ const CartIcon = ({ toggleCartHidden, itemCount }) => {
 
     return (
         <IconWrapper onClick={toggleCartHidden}>
-            <Icon />
+            <Icon src={ShoppingIcon}/>
             <ItemCount>{itemCount}</ItemCount>
         </IconWrapper>
     )
