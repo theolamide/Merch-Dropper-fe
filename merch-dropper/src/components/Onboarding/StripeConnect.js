@@ -20,12 +20,13 @@ const SkipSetup = e => {
 
     e.preventDefault();
     history.push('/createstore');
+    window.location.replace('https://www.merch-dropper.com/createstore');
 }
 
 const StripeConnect = () => {
 
     let queryString = window.location.search;
-    const [stripeConnected,setStripeConnected] = useState(false);
+    let stripeConnected = false;
     let stripeError = false;
     let userCode = "";
     const [activeStep, setActiveStep] = useState(1);
@@ -35,16 +36,25 @@ const StripeConnect = () => {
 
     if(queryString.includes("code=")){
        
-        const stripe = require('stripe')('sk_test_LuUPedkQ24QvxJfvBVKdSdmT00ZkaFXUHk');
+        const stripe = require('stripe')('pk_test_5CW0maSlmn0pz2l96PxJXU6J00l6TB7HzA');
         userCode = queryString.substring( queryString.indexOf('code=') + 5 );
-        
-        stripe.oauth.token({
-            grant_type: 'authorization_code',
-            code: userCode,
-            }).then(res => {/*returns an object withe the users stripe info. Still need to create an endpoint */
-                            setStripeConnected(true);
-            });
 
+        const fetchStripeInfo = async (code) => {
+            console.log('code ', code)
+            const response = await stripe.oauth.token({
+                grant_type: 'authorization_code',
+                code: 'ac_123456789',
+              });
+
+            console.log(response)
+
+            return response.stripe_user_id;
+
+        }
+        fetchStripeInfo(userCode).then((res) => {console.log(res);}  );
+        stripeConnected =true;
+        console.log(stripeConnected)
+              
     }
 
     return (
@@ -70,7 +80,7 @@ const StripeConnect = () => {
                 <StripeSkipButton onClick={SkipSetup}>Skip for now</StripeSkipButton>
             }
             {   //If we get a user code back and the connect was successful
-                queryString &&
+                (queryString &&  stripeConnected) &&
                 <StripeButton onClick={SkipSetup}>Create Store</StripeButton> 
             }
             {   //If the connection was not successful
