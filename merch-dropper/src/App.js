@@ -11,10 +11,10 @@ import DesignShirt from "./components/Shirt/DesignShirt";
 import Dashboard from "./components/Dashboard/Dashboard";
 import SignUp from "./components/Auth/SignUp";
 import LearnMore from "./components/LearnMore";
-
+import StripeSetup from "./components/Onboarding/StripeSetup";
 import Redirect from "./components/Redirect";
 
-import CreateStore from "./components/Auth/CreateStore";
+import CreateStore from "./components/Onboarding/CreateStore";
 
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
       <Route exact path="/designshirt" component={DesignShirt} />
       <Route exact path="/learnmore" component={LearnMore} />
       <Route exact path="/redirect" component={Redirect} />
-
+      <Route exact path="/stripe-setup" component={StripeSetup} />
       {/* <ImageUpload /> */}
       <Footer />
     </div>

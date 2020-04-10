@@ -38,7 +38,6 @@ function SignUp({ postUser, history }) {
     });
   };
 
-
   const callSignUp = e => {
     e.preventDefault();
     postUser(credentials, history);

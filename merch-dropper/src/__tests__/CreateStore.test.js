@@ -6,7 +6,7 @@ import { store } from "../store/store";
 
 configure({ adapter: new Adapter() });
 
-import CreateStore from "../components/Auth/CreateStore";
+import CreateStore from "../components/Onboarding/CreateStore";
 
 const wrapper = shallow(
   <Provider store={store}>

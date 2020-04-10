@@ -62,7 +62,7 @@ function CreateStore({ postUser, history }) {
 
   const skipToDashboard = (e) => {
     e.preventDefault();
-    history.push("/");
+    history.push("/dashboard");
   };
 
   // if user submits the store creation form, a new route is created based on the user's custom store name
