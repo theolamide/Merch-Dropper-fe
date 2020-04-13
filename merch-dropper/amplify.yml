@@ -4,13 +4,14 @@ frontend:
     # IMPORTANT - Please verify your build commands
     preBuild:
       commands:
+        - cd merch-dropper
         - yarn install
     build:
       commands:
         - yarn run build
   artifacts:
     # IMPORTANT - Please verify your build output directory
-    baseDirectory: /merch-dropper/build
+    baseDirectory: build
     files:
       - '**/*'
   cache:
