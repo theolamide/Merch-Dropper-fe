@@ -12,7 +12,7 @@ const Redirect = ({ history }) => {
       ) {
         setTimeout(() => {
           // store creation form
-          history.push("/signup");
+          history.push("/stripe-setup");
         }, 500);
       } else {
         setTimeout(() => {
