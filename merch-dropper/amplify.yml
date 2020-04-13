@@ -4,15 +4,13 @@ frontend:
     # IMPORTANT - Please verify your build commands
     preBuild:
       commands:
-        # Temporarily delete node_modules before building
-        - rm -rf node_modules
         - yarn install
     build:
       commands:
         - yarn run build
   artifacts:
     # IMPORTANT - Please verify your build output directory
-    baseDirectory: build
+    baseDirectory: /merch-dropper/build
     files:
       - '**/*'
   cache:
