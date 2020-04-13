@@ -1,0 +1,21 @@
+version: 0.1
+frontend:
+  phases:
+    # IMPORTANT - Please verify your build commands
+    preBuild:
+      commands:
+        # Temporarily delete node_modules before building
+        - rm -rf node_modules
+        - yarn install
+    build:
+      commands:
+        - yarn test
+        - yarn build
+  artifacts:
+    # IMPORTANT - Please verify your build output directory
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths: 
+      - node_modules/**/*
