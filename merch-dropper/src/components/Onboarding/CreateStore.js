@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { postUser } from "../../store/actions";
-import styled from "styled-components";
-import { Button, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
@@ -32,11 +31,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// This profile is hardcoded for testing the store creation functionality
+// This profile const is hardcoded for testing the store creation functionality
 // Remove for production
-const profile = {
-  email: "email@test.com",
-};
+// const profile = {
+//   email: "email@test.com",
+// };
 
 function CreateStore({ history }) {
   const [storeName, setStoreName] = useState("");
@@ -64,7 +63,7 @@ function CreateStore({ history }) {
   };
 
   // The code below must be adjusted for the correct end point once merged
-  // const profile = JSON.parse(localStorage.getItem("profile"));
+  const profile = JSON.parse(localStorage.getItem("profile"));
   // console.log(profile);
 
   // This function sends a post request to the back end to create a new store associated with the logged in user
@@ -75,7 +74,7 @@ function CreateStore({ history }) {
     setIsSubmit(true);
 
     axios
-      .post(`http://localhost:5032/api/stores`, {
+      .post(`https://merchdropper-production.herokuapp.com/api/stores`, {
         store_name: storeName,
         domain_name: domain,
         email: profile.email,
