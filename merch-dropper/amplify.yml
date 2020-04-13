@@ -4,8 +4,7 @@ frontend:
     # IMPORTANT - Please verify your build commands
     preBuild:
       commands:
-        # Temporarily delete node_modules before building
-        - rm -rf node_modules
+        - cd merch-dropper
         - yarn install
     build:
       commands:
