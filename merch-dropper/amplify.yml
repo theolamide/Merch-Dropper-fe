@@ -9,11 +9,10 @@ frontend:
         - yarn install
     build:
       commands:
-        - yarn test
-        - yarn build
+        - yarn run build
   artifacts:
     # IMPORTANT - Please verify your build output directory
-    baseDirectory: public
+    baseDirectory: build
     files:
       - '**/*'
   cache:
