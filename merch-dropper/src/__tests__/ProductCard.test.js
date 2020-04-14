@@ -2,15 +2,15 @@ import React from "react";
 import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
-configure({ adapter: new Adapter() });
-
 import ProductCard from "../components/ProductCard";
+
+configure({ adapter: new Adapter() });
 
 const product = {
   url: "www.facebook.com",
   design: "design",
   color: "red",
-  price: "$24",
+  price: "$24"
 };
 
 const wrapper = shallow(<ProductCard product={product} />);
