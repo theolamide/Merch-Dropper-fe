@@ -31,13 +31,8 @@ function App() {
       />
       <Route
         exact
-<<<<<<< HEAD
-        path="/stores/:domain_name"
-        render={(props) => <ProductDisplayDomain {...props} />}
-=======
         path="/:domain_name"
-        render={props => <ProductDisplayDomain {...props} />}
->>>>>>> f389725000d6485a4cfb9a706220ec9c9a7b15a5
+        render={(props) => <ProductDisplayDomain {...props} />}
       />
       <Route exact path="/:domain_name/dashboard" component={Dashboard} />
       <Route exact path="/signup" component={SignUp} />
