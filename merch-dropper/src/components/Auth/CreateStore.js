@@ -10,7 +10,7 @@ import StepLabel from "@material-ui/core/StepLabel";
 import axios from "axios";
 
 const initialStoreName = {
-  store_name: "",
+  store_name: ""
 };
 
 function CreateStore({ postUser, history }) {
@@ -23,11 +23,16 @@ function CreateStore({ postUser, history }) {
   const steps = getSteps();
   const classes = useStyles();
 
-  const handleChange = (e) => {
-    setStoreName(displayStoreName(e.target.value));
+  // const handleChange = e => {
+  //   setStoreName(displayStoreName(e.target.value));
+  // };
+
+  const handleChange = e => {
+    setStoreName(e.target.value);
+    displayStoreName(e.target.value);
   };
 
-  const displayStoreName = (string) => {
+  const displayStoreName = string => {
     let splitString = string.split(/[^A-Za-z]/);
     let joinedString = splitString.join("");
 
@@ -35,29 +40,40 @@ function CreateStore({ postUser, history }) {
   };
 
   // The code below must be adjusted for the correct end point once merged
-  // const profile = JSON.parse(localStorage.getItem(profile));
-  // console.log(profile);
+  const profile = JSON.parse(localStorage.getItem("profile"));
+  console.log(profile);
 
-  const callSignUp = (e) => {
+  // const callSignUp = e => {
+  //   e.preventDefault();
+  //   setIsSubmit(true);
+  //   // axios
+  //   //   .post(`http://localhost:5032/api/stores`, {
+  //   //     store_name: storeName,
+  //   //     email: profile.email,
+  //   //   })
+  //   //   .then((res) => {
+  //   //     setIsSubmit(false);
+  //   //   });
+  // };
+  const callSignUp = e => {
     e.preventDefault();
     setIsSubmit(true);
-    // axios
-    //   .post(`http://localhost:5032/api/stores`, {
-    //     store_name: storeName,
-    //     email: profile.email,
-    //   })
-    //   .then((res) => {
-    //     setIsSubmit(false);
-    //   });
+
+    axios
+      .post(`http://localhost:5032/api/stores`, {
+        store_name: storeName,
+        domain_name: domain,
+        email: profile.email
+      })
+      .then(res => {
+        console.log("This is res: ", res);
+        setIsSubmit(false);
+        alert("Store Created!");
+        history.push("/dashboard");
+      });
   };
 
-  const callCreateStore = (e) => {
-    e.preventDefault();
-    postUser(storeName);
-    history.push("/");
-  };
-
-  const skipToDashboard = (e) => {
+  const skipToDashboard = e => {
     e.preventDefault();
     history.push("/");
   };
@@ -85,7 +101,7 @@ function CreateStore({ postUser, history }) {
         <FormHeader>Create store</FormHeader>
         <StepperDiv>
           <Stepper activeStep={activeStep} alternativeLabel>
-            {steps.map((label) => (
+            {steps.map(label => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
               </Step>
@@ -123,26 +139,29 @@ function CreateStore({ postUser, history }) {
   );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   let register = state.RegisterReducer;
 
   return {
     isFetching: register.isFetching,
-    error: register.error,
+    error: register.error
   };
 };
 
-export default connect(mapStateToProps, { postUser })(CreateStore);
+export default connect(
+  mapStateToProps,
+  { postUser }
+)(CreateStore);
 
 // All the material UI
 function getSteps() {
   return ["Create account", "Connect Stripe", "Create store"];
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   textField: {
-    width: "38.2ch",
-  },
+    width: "38.2ch"
+  }
 }));
 
 // All the styling
