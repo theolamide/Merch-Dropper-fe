@@ -148,7 +148,7 @@ const NavBar = ({ hidden, history }) => {
   const customLogin = () => {
     loginWithRedirect({
       // redirect_uri: "https://merch-dropper.com/redirect",
-      redirect_uri: "http://localhost:3000/redirect",
+      redirect_uri: "https://master.dfgmwfkflaboy.amplifyapp.com/redirect",
     });
   };
 
