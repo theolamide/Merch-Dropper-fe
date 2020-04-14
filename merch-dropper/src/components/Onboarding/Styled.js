@@ -274,3 +274,39 @@ export const StripeSkipButton = styled.button`
   text-align: center;
   color: #000000;
 `;
+
+export const ConnectionMessage = styled.p`
+
+    position: absolute;
+    width: 190px;
+    height: 21px;
+    left: 179px;
+    top: 271px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+
+    /* identical to box height */
+    text-align: center;
+
+    color: #000000;
+
+
+
+`;
+
+export const CreateStore = styled.button`
+
+    position: absolute;
+    width: 344px;
+    height: 59px;
+    left: 103px;
+    top: 329px;
+
+    background: #C4C4C4;
+    border-radius: 10px;
+
+`;
