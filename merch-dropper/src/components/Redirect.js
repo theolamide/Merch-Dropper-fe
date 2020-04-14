@@ -3,7 +3,7 @@ import { useAuth0 } from "./Auth/Auth";
 
 const Redirect = ({ history }) => {
   const { isAuthenticated, user } = useAuth0();
-
+  console.log(user);
   useEffect(() => {
     if (user && isAuthenticated) {
       if (
@@ -21,7 +21,7 @@ const Redirect = ({ history }) => {
         }, 500);
       }
     }
-  }, []);
+  });
 
   return (
     <div>
