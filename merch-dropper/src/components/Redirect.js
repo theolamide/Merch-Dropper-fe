@@ -21,9 +21,8 @@ const Redirect = ({ history }) => {
         }, 500);
       }
     }
-  });
+  }, []);
 
-  useEffect(() => {});
   return (
     <div>
       <h2 style={{ textAlign: "center" }}>Loading before Redirect</h2>
