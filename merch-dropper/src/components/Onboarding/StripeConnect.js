@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Stepper, Step, StepLabel } from '@material-ui/core';
-import {FormContainer, ExitButton, StripeTitle, StepContainer, StripeButton, StripeSkipButton} from './Styled'
+import {FormContainer, ExitButton, StripeTitle, StepContainer, StripeButton, StripeSkipButton, CreateStore, ConnectionMessage} from './Styled'
 import history from '../../utils/history';
+import axios from 'axios';
 
 const getSteps = () => {
 
@@ -20,41 +21,41 @@ const SkipSetup = e => {
 
     e.preventDefault();
     history.push('/createstore');
-    window.location.replace('https://www.merch-dropper.com/createstore');
+    window.location.replace('https://master.dfgmwfkflaboy.amplifyapp.com/createstore');
 }
 
 const StripeConnect = () => {
 
-    let queryString = window.location.search;
+    const [queryString, setQueryString] = useState(window.location.search);
     let stripeConnected = false;
     let stripeError = false;
-    let userCode = "";
     const [activeStep, setActiveStep] = useState(1);
+    let userCode = '';
     const steps = getSteps();
 
     if(queryString.includes("error")){ stripeError = true; }
 
     if(queryString.includes("code=")){
-       
-        const stripe = require('stripe')('pk_test_5CW0maSlmn0pz2l96PxJXU6J00l6TB7HzA');
+
         userCode = queryString.substring( queryString.indexOf('code=') + 5 );
 
-        const fetchStripeInfo = async (code) => {
-            console.log('code ', code)
-            const response = await stripe.oauth.token({
-                grant_type: 'authorization_code',
-                code: 'ac_123456789',
-              });
+        axios
+            .post(`/api/stripe/accounts`, {
+            user_code: userCode
+       })
+       .then((res) => {
+           
+        console.log(res)
+         let stripeAccountNum = res.data.stripeAccount.stripe_user_id;
+         axios
+            .post(`/api/stripe/post`, {
+                id: localStorage.getItem('token'),
+                account_num: stripeAccountNum
+            })
+       });
 
-            console.log(response)
-
-            return response.stripe_user_id;
-
-        }
-        fetchStripeInfo(userCode).then((res) => {console.log(res);}  );
-        stripeConnected =true;
-        console.log(stripeConnected)
-              
+       stripeConnected =true;
+                
     }
 
     return (
@@ -79,9 +80,12 @@ const StripeConnect = () => {
                 (!queryString || stripeError) &&
                 <StripeSkipButton onClick={SkipSetup}>Skip for now</StripeSkipButton>
             }
+            {   (queryString &&  stripeConnected) &&
+                <ConnectionMessage>Connection was successful!</ConnectionMessage>   
+            }
             {   //If we get a user code back and the connect was successful
                 (queryString &&  stripeConnected) &&
-                <StripeButton onClick={SkipSetup}>Create Store</StripeButton> 
+                <CreateStore onClick={SkipSetup}>Create Store</CreateStore>    
             }
             {   //If the connection was not successful
                 stripeError &&

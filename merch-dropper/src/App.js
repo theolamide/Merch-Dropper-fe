@@ -15,7 +15,7 @@ import LearnMore from "./components/LearnMore";
 import StripeSetup from "./components/Onboarding/StripeSetup";
 import Redirect from "./components/Redirect";
 
-import CreateStore from "./components/Auth/CreateStore";
+import CreateStore from "./components/Onboarding/CreateStore";
 
 function App() {
   return (
@@ -32,8 +32,13 @@ function App() {
       />
       <Route
         exact
+<<<<<<< HEAD
         path="/stores/:domain_name"
         render={(props) => <ProductDisplayDomain {...props} />}
+=======
+        path="/:domain_name"
+        render={props => <ProductDisplayDomain {...props} />}
+>>>>>>> f389725000d6485a4cfb9a706220ec9c9a7b15a5
       />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/signup" component={SignUp} />
