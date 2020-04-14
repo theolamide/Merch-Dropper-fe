@@ -27,12 +27,12 @@ function App() {
       <Route
         exact
         path="/products"
-        render={props => <ProductDisplay {...props} />}
+        render={(props) => <ProductDisplay {...props} />}
       />
       <Route
         exact
         path="/:domain_name"
-        render={props => <ProductDisplayDomain {...props} />}
+        render={(props) => <ProductDisplayDomain {...props} />}
       />
       <Route exact path="/:domain_name/dashboard" component={Dashboard} />
       <Route exact path="/signup" component={SignUp} />
@@ -41,7 +41,7 @@ function App() {
       <Route exact path="/learnmore" component={LearnMore} />
       <Route exact path="/redirect" component={Redirect} />
       <Route exact path="/stripe-setup" component={StripeSetup} />
-      {/* <ImageUpload /> */}
+
       <Footer />
     </div>
   );
