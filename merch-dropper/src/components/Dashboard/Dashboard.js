@@ -3,10 +3,10 @@ import SideBar from "./SideBar";
 import axios from "axios";
 import Chart from "./Chart";
 import { StyledDiv, BigContainer } from "./Styled";
-import ProductCard from "../ProductCard";
+// import ProductCard from "../ProductCard";
 // import { connect } from "react-redux";
 // import { addToCart } from "../store/actions";
-import { Container, Row, Col } from "reactstrap";
+// import { Container, Row, Col } from "reactstrap";
 
 const Dashboard = ({ products, addToCart, match, location }) => {
   const [user, setUser] = useState();
