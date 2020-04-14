@@ -31,8 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// This profile const is hardcoded for testing the store creation functionality
-// Remove for production
+// This profile const is hardcoded for testing the store creation functionality. Remove for production.
 // const profile = {
 //   email: "email@test.com",
 // };
@@ -66,7 +65,7 @@ function CreateStore({ history }) {
   const profile = JSON.parse(localStorage.getItem("profile"));
   // console.log(profile);
 
-  // This function sends a post request to the back end to create a new store associated with the logged in user
+  // The callSignUp function sends a post request to the back end to create a new store associated with the logged in user
   // The store_name is the unedited input from the user to be displayed on their dashboard and buyer-facing storefront
   // The domain_name is the edited input from the user to make a clean URL for their store
   const callSignUp = (e) => {
