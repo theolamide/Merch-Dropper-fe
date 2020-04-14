@@ -62,40 +62,19 @@ it("renders the Skip for now button", () => {
   expect(skipButton.length).toEqual(1);
 });
 
-// it("button click should call callSignUp", () => {
-//   const clickFn = jest.fn();
-//   const form = mount(<CreateStoreForm onSubmit={clickFn} />);
-//   // form.find('[type="submit"]').simulate("click");
-//   // expect(clickFn).toHaveBeenCalled();
+it("simulates the Create Store button being clicked", () => {
+  const callSignup = jest.fn();
+  const wrapper = shallow(<CreateStoreForm onSubmit={callSignup} />);
+  const form = wrapper.find("form");
+  form.simulate("submit");
+  expect(callSignup).toHaveBeenCalledTimes(1);
+});
 
-//   // expect(form.find("button[type='submit']").text()).toEqual("Create store");
+it("simulates the Skip for Now button being clicked", () => {
+  const skipCreate = jest.fn();
+  const wrapper = shallow(<SkipCreateStoreButton onClick={skipCreate} />);
+  const button = wrapper.find("button");
+  button.simulate("click");
+  expect(skipCreate).toHaveBeenCalledTimes(1);
+});
 
-//   expect(form.length).toEqual(1);
-
-//   // expect(form.find('[type="submit"]').text().toEqual(["Create store"]));
-//   // expect(form.find('[type="submit"]').getElements()).toEqual(["Create store"])
-//   // const submitButton = shallow(<CreateStoreButton />)
-// });
-
-// it("button click should call callSignUp", () => {
-//   const clickFn = jest.fn();
-//   const form = mount(<CreateStoreForm onSubmit={clickFn} />);
-//   form.find('[type="submit"]').simulate("click");
-//   expect(clickFn).toHaveBeenCalled();
-// });
-
-// it("test", () => {
-//   const callSignupMock = jest.fn();
-//   const wrapper = mount(
-//     <Provider store={store}>
-//       <Router>
-//         <CreateStore callSignupMock={callSignupMock} />
-//       </Router>
-//     </Provider>
-//   );
-
-//   expect(wrapper.find("button[type='submit']").text()).toEqual("Create store");
-
-//   wrapper.find("button[type='submit']").simulate("click");
-//   expect(callSignupMock).toHaveBeenCalled();
-// });
