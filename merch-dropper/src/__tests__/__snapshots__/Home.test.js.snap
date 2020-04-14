@@ -94,18 +94,20 @@ exports[`renders Home correctly 1`] = `
                 }
               }
             >
-              <button
+              <a
                 aria-label={null}
                 className="letsGo btn btn-primary"
+                href="/designshirt"
                 onClick={[Function]}
               >
                 Let's Go!
-              </button>
+              </a>
               <br />
               <button
                 aria-label={null}
                 className="learnMore btn btn-outline-light"
                 onClick={[Function]}
+                type="button"
               >
                 Learn More
               </button>
