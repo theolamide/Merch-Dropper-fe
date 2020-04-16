@@ -4,8 +4,8 @@ frontend:
     # IMPORTANT - Please verify your build commands
     preBuild:
       commands:
-     -cd merch-dropper
-     -yarn install 
+        -cd merch-dropper
+        -yarn install 
     build:
       commands: 
         -yarn run build
