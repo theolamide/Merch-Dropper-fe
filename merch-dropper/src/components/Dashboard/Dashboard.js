@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import SideBar from "./SideBar";
 import axios from "axios";
-import Chart from "./Chart";
 import { StyledDiv, BigContainer } from "./Styled";
-// import ProductCard from "../ProductCard";
-// import { connect } from "react-redux";
-// import { addToCart } from "../store/actions";
-// import { Container, Row, Col } from "reactstrap";
+import Settings from "./Settings";
+
 
 const Dashboard = ({ products, addToCart, match, location }) => {
   const [user, setUser] = useState();
@@ -43,13 +39,10 @@ const Dashboard = ({ products, addToCart, match, location }) => {
 
   return (
     <BigContainer className="dashboard-container">
-      <div className="user-info">
-        <h2 align="right">Welcome, {user} </h2>
-      </div>
       <StyledDiv className="dashboard-components">
-        <SideBar />
-        <Chart />
+        <Settings />
       </StyledDiv>
+      
     </BigContainer>
   );
 };
