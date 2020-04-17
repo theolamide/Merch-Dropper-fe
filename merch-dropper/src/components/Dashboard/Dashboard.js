@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SideBar from "./SideBar";
 import axios from "axios";
-import Chart from "./Chart";
 import { StyledDiv, BigContainer } from "./Styled";
 // import ProductCard from "../ProductCard";
 // import { connect } from "react-redux";
@@ -47,8 +45,6 @@ const Dashboard = ({ products, addToCart, match, location }) => {
         <h2 align="right">Welcome! </h2>
       </div>
       <StyledDiv className="dashboard-components">
-        <SideBar />
-        <Chart />
       </StyledDiv>
     </BigContainer>
   );
