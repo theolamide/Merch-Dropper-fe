@@ -28,9 +28,11 @@ describe("components/NavBar - logged in", () => {
     });
     localStorage.setItem("profile", JSON.stringify(user));
   });
+
   it("localStorage has profile", () => {
     expect(localStorage.getItem("profile")).toBeTruthy();
   });
+
   it("Renders with required props", () => {
     const wrapper = mount(
       <Provider store={store}>
@@ -41,7 +43,7 @@ describe("components/NavBar - logged in", () => {
     );
     expect(wrapper).toBeTruthy();
   });
-  it("Renders the log out button", () => {
+  it("Renders the sign out button", () => {
     const wrapper = mount(
       <Provider store={store}>
         <Router>
@@ -49,10 +51,8 @@ describe("components/NavBar - logged in", () => {
         </Router>
       </Provider>
     );
-    expect(wrapper.find("button")).toHaveLength(5);
-    expect(
-      wrapper.containsMatchingElement(<button>Log out</button>)
-    ).toBeTruthy();
-    // expect(wrapper.find("button").getElements()).toEqual([]);
+
+    expect(wrapper.find("span.links")).toHaveLength(1);
+    expect(wrapper.containsMatchingElement(<span>Sign out</span>)).toBeTruthy();
   });
 });
