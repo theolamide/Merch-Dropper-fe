@@ -125,9 +125,21 @@ const NavBar = ({ hidden, history, location }) => {
           {pathname === "/" ? (
             <>
               {localStorage.getItem("profile") ? (
-                <span className="links" onClick={logoutWithRedirect}>
-                  Sign out
-                </span>
+                <>
+                  <Link to="#" className="links">
+                    View Store
+                  </Link>
+                  <Link to="/dashboard" className="links">
+                    Dashboard
+                  </Link>
+                  <span
+                    className="links"
+                    onClick={logoutWithRedirect}
+                    style={{ marginLeft: "32px" }}
+                  >
+                    Sign out
+                  </span>
+                </>
               ) : (
                 <>
                   <span className="links" onClick={customLogin}>

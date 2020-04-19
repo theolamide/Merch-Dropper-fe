@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const NavbarStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
 
     * {
         margin: 0;
