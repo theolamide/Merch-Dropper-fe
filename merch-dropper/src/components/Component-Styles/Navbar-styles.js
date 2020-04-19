@@ -13,7 +13,6 @@ export const NavbarStyles = createGlobalStyle`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        // padding: 4.07% 11.25% 2.53% 1.6%;
         height: 118px;
         background: white;
         width: 100%;

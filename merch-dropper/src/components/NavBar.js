@@ -81,6 +81,7 @@ const NavBar = ({ hidden, history, location }) => {
           <img
             className="BrandLogo"
             src="https://uxmasters.org/images/merch_logo_50.svg"
+            alt="merch-dropper logo"
             onClick={() => {
               history.push("/");
             }}
@@ -116,7 +117,7 @@ const NavBar = ({ hidden, history, location }) => {
             history.push("/");
           }}
         >
-          <img className="BrandLogo" src={logo} />
+          <img className="BrandLogo" src={logo} alt="merch-dropper logo" />
           <h2 className="BrandTitle">Merch Dropper</h2>
         </div>
 
@@ -128,12 +129,13 @@ const NavBar = ({ hidden, history, location }) => {
                   Sign out
                 </span>
               ) : (
-                <span className="links" onClick={customLogin}>
-                  Sign In
-                </span>
+                <>
+                  <span className="links" onClick={customLogin}>
+                    Sign in
+                  </span>
+                  <span className="links cta">Sign up</span>
+                </>
               )}
-
-              <span className="links cta">Sign up</span>
             </>
           ) : (
             <>
