@@ -4,6 +4,7 @@ import styled from "styled-components";
 import DesignHandler from "./DesignHandler";
 import ThumbDisplay from "./ThumbDisplay";
 import Swatch from "./Swatch";
+import { Link } from "react-router-dom";
 
 const DesignInputPanel = ({
   design,
@@ -33,12 +34,13 @@ const DesignInputPanel = ({
       <ButtonContainer>
         <button
           className="designBtn btn btn-primary"
-          onClick={handleScalableMockup}>
+          onClick={handleScalableMockup}
+        >
           Preview Design
         </button>
-        <button className="designBtn btn btn-primary" onClick={addProduct}>
-          Add To Store
-        </button>
+        <Link to="/addproduct" className="designBtn btn btn-primary">
+          Add Description
+        </Link>
       </ButtonContainer>
     </Panel>
   );

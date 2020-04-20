@@ -12,22 +12,25 @@ import DesignInputPanel from "./DesignInputPanel";
 // function imported that literally returns NULL??
 import HandleScalableMockup from "./HandleScalableMockup";
 // initial design and garment state
-import initialShirtState from "./initialShirtState";
+
 // another function
-import AddProduct from "./AddProduct";
+// import AddProduct from "./addProduct";
 
 // This code represents the shirt designer tool/page that gets imported into App.js
-const DesignShirt = () => {
-  const [design, setDesign] = useState(initialShirtState.designInfo);
-  const [garment, setGarment] = useState(initialShirtState.garment);
-  const [thumbRender, setThumbRender] = useState();
-
+const DesignShirt = ({
+  setDesign,
+  setGarment,
+  setThumbRender,
+  design,
+  garment,
+  thumbRender
+}) => {
   const handleScalableMockup = function() {
     HandleScalableMockup(garment, setGarment);
   };
-  const addProduct = function() {
-    AddProduct(garment);
-  };
+  // const addProduct = function() {
+  //   AddProduct(garment);
+  // };
 
   return (
     <Fragment>
@@ -42,7 +45,6 @@ const DesignShirt = () => {
           garment={garment}
           setGarment={setGarment}
           handleScalableMockup={handleScalableMockup}
-          addProduct={addProduct}
         />
       </DesignShirtContainer>
     </Fragment>
