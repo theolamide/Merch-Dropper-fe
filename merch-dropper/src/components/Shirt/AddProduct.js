@@ -7,7 +7,7 @@ import axios from "axios";
 //   storeID: 1
 // };
 
-// this function allows the user to
+// this function allows the user to design a product
 const addProduct = async (garment, product) => {
   console.log({ garment });
   if (garment.mockUrl === "") {
