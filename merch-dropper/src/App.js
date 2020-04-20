@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, withRouter } from "react-router-dom";
+import { Route } from "react-router-dom";
 // import "./App.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -15,8 +15,7 @@ import StripeSetup from "./components/Onboarding/StripeSetup";
 import Redirect from "./components/Redirect";
 import CreateStore from "./components/Onboarding/CreateStore";
 
-function App({ location }) {
-  const { pathname } = location;
+function App() {
   return (
     <div className="App">
       <NavBar />
@@ -46,4 +45,4 @@ function App({ location }) {
   );
 }
 
-export default withRouter(App);
+export default App;
