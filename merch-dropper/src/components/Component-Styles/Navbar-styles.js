@@ -115,6 +115,7 @@ export const NavbarStyles = createGlobalStyle`
         line-height: 22px;
         color: #1c1c2e;
         cursor: pointer;
+       
 
         &:first-child {
             margin-right: 32px;
@@ -123,6 +124,7 @@ export const NavbarStyles = createGlobalStyle`
         &:hover {
             text-decoration: none;
             color: #4455ee;
+            font-weight: 700;
             
         }
     }

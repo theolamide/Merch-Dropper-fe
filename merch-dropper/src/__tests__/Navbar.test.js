@@ -29,7 +29,9 @@ describe("Navbar displays logo and brand name", () => {
     );
 
     const logo = wrapper.find(".BrandLogo");
-    const name = wrapper.find(".BrandTitle");
+    const name = wrapper.find(".DesktopWrapper .BrandTitle");
+
+    console.log(name.debug());
 
     expect(logo).toBeTruthy();
     expect(name).toBeTruthy();
@@ -117,7 +119,7 @@ describe("Navbar in '/' route - user is logged in", () => {
     expect(wrapper).toBeTruthy();
   });
 
-  it("display 'Sign out', 'View Store', 'Dashboard' links", () => {
+  it("display 'Logout', 'View Store', 'Dashboard' links", () => {
     const signout = wrapper.find("span.links");
     const links = wrapper.find("a.links");
 

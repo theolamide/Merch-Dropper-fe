@@ -53,6 +53,6 @@ describe("components/NavBar - logged in", () => {
     );
 
     expect(wrapper.find("span.links")).toHaveLength(1);
-    expect(wrapper.containsMatchingElement(<span>Sign out</span>)).toBeTruthy();
+    expect(wrapper.containsMatchingElement(<span>Logout</span>)).toBeTruthy();
   });
 });
