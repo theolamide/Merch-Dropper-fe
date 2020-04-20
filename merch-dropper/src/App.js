@@ -37,8 +37,11 @@ function App() {
       <Route exact path="/:domain_name/dashboard" component={Dashboard} />
 =======
       <Route exact path="/dashboard" component={Dashboard} />
+<<<<<<< HEAD
       <Route exact path="/signup" component={SignUp} />
 >>>>>>> 45681f40114bdc1698ed71e7842d056ac9a5ff90
+=======
+>>>>>>> 6c4d0416a067ab52131b322a4fc96ba71a4b9311
       <Route exact path="/createstore" component={CreateStore} />
       <Route exact path="/designshirt" component={DesignShirt} />
       <Route exact path="/learnmore" component={LearnMore} />
