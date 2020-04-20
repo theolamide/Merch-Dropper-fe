@@ -67,7 +67,7 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(css|less|sass|scss)$": "identity-obj-proxy",
-      "\\.(svg)$": "<rootDir>/__mocks__/fileMock.js"
+      "\\.(svg|png)$": "<rootDir>/__mocks__/fileMock.js"
     },
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
@@ -77,7 +77,7 @@
     ],
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/jest-transformer.js",
-      "^.+\\.svg$": "<rootDir>/svgTransform.js"
+      "^.+\\.(svg|png)$": "<rootDir>/svgTransform.js"
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
