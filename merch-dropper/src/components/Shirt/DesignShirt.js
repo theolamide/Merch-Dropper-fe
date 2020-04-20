@@ -8,6 +8,7 @@ import styled from "styled-components";
 import MockupDisplay from "./MockupDisplay";
 import DesignPositionPanel from "./DesignPositionPanel";
 import DesignInputPanel from "./DesignInputPanel";
+import AddProductToMerch from "./AddProductToMerch";
 
 // function imported that literally returns NULL??
 import HandleScalableMockup from "./HandleScalableMockup";
@@ -44,6 +45,7 @@ const DesignShirt = () => {
           handleScalableMockup={handleScalableMockup}
           addProduct={addProduct}
         />
+        
       </DesignShirtContainer>
     </Fragment>
   );
