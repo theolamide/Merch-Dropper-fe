@@ -34,15 +34,15 @@ const NavBar = ({ hidden, history, location, match }) => {
 
   const customLogin = () => {
     loginWithRedirect({
-      redirect_uri: "http://localhost:3000/redirect",
-      // redirect_uri: "https://merchdropper.store/redirect",
+      // redirect_uri: "http://localhost:3000/redirect",
+      redirect_uri: "https://www.merchdropper.store/redirect",
     });
   };
 
   const customSignup = () => {
     loginWithRedirect({
-      redirect_uri: "http://localhost:3000/redirect",
-      // redirect_uri: "https://merchdropper.store/redirect",
+      // redirect_uri: "http://localhost:3000/redirect",
+      redirect_uri: "https://www.merchdropper.store/redirect",
       signup: true,
     });
   };
