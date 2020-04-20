@@ -43,13 +43,6 @@ export const NavbarStyles = createGlobalStyle`
         justify-content: space-between;
         align-items: center;
         height: 49px;
-       
-     
-        
-
-        @media (max-width: 768px) {
-            width: 30%;
-        }
 
         @media (max-width: 411px) {
             width: 49%;
@@ -71,6 +64,7 @@ export const NavbarStyles = createGlobalStyle`
         cursor: pointer;
         margin-left: 24px;
         line-height: 36px;
+
 
         @media (max-width: 411px) {
             font-size: 1.25rem;
@@ -129,6 +123,20 @@ export const NavbarStyles = createGlobalStyle`
         &:hover {
             text-decoration: none;
             color: #4455ee;
+            
+        }
+    }
+
+    .links.cta {
+        width: 160px;
+        height: 48px;
+        background: #4455ee;
+        border: 0;
+        border-radius: 8px;
+        color: #fff;
+
+        &:hover {
+            background: #3e32cc;
         }
     }
 

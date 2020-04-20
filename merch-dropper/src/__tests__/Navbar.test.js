@@ -62,13 +62,13 @@ describe("Navbar in '/' route", () => {
     expect(wrapper).toBeTruthy();
   });
 
-  it("display 'Sign in' and 'Sign up' links", () => {
+  it("display 'Sign in' and 'Get Started' links", () => {
     const links = wrapper.find("span.links");
-    const signup = wrapper.find("span.cta");
+    const signup = wrapper.find("button.cta");
     const signin = wrapper.find("nav").childAt(0);
 
-    expect(links).toHaveLength(2);
-    expect(signup.text()).toEqual("Sign up");
+    expect(links).toHaveLength(1);
+    expect(signup.text()).toEqual("Get Started");
     expect(signin.text()).toEqual("Sign in");
   });
 
@@ -124,7 +124,7 @@ describe("Navbar in '/' route - user is logged in", () => {
     expect(links).toHaveLength(2);
     expect(links.at(0).text()).toEqual("View Store");
     expect(links.at(1).text()).toEqual("Dashboard");
-    expect(signout.text()).toEqual("Sign out");
+    expect(signout.text()).toEqual("Logout");
   });
 
   it("signout btn calls logout() when clicked", () => {

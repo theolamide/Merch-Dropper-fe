@@ -18,9 +18,10 @@ import { useAuth0 } from "./Auth/Auth";
 // logo
 import logo from "../assets/merchdropper-logo.png";
 
-const NavBar = ({ hidden, history, location }) => {
+const NavBar = ({ hidden, history, location, match }) => {
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
+  const { domain_name } = match.params;
 
   const [state, setState] = useState({ sideDrawerOpen: false });
 
@@ -35,6 +36,14 @@ const NavBar = ({ hidden, history, location }) => {
     loginWithRedirect({
       redirect_uri: "http://localhost:3000/redirect",
       // redirect_uri: "https://merchdropper.store/redirect",
+    });
+  };
+
+  const customSignup = () => {
+    loginWithRedirect({
+      redirect_uri: "http://localhost:3000/redirect",
+      // redirect_uri: "https://merchdropper.store/redirect",
+      signup: true,
     });
   };
 
@@ -77,28 +86,26 @@ const NavBar = ({ hidden, history, location }) => {
       <NavbarStyles />
       <div className="MobileWrapper">
         {sideDrawer}
-        <div className="BrandWrapper">
+        <div
+          className="BrandWrapper"
+          onClick={() => {
+            history.push("/");
+          }}
+        >
           <img
             className="BrandLogo"
-            src="https://uxmasters.org/images/merch_logo_50.svg"
+            src={logo}
             alt="merch-dropper logo"
             onClick={() => {
               history.push("/");
             }}
           />
 
-          <div
-            className="Brandtitle"
-            onClick={() => {
-              history.push("/");
-            }}
-          >
-            Merch Dropper
-          </div>
+          <h2 className="BrandTitle">Merch Dropper</h2>
         </div>
 
         <div className="CartAndHamWrapper">
-          <CartIcon />
+          {/* <CartIcon /> */}
 
           <button className="Hamburger" onClick={drawerToggleClickHandler}>
             <div className="HamburgerLines"></div>
@@ -137,7 +144,7 @@ const NavBar = ({ hidden, history, location }) => {
                     onClick={logoutWithRedirect}
                     style={{ marginLeft: "32px" }}
                   >
-                    Sign out
+                    Logout
                   </span>
                 </>
               ) : (
@@ -145,16 +152,34 @@ const NavBar = ({ hidden, history, location }) => {
                   <span className="links" onClick={customLogin}>
                     Sign in
                   </span>
-                  <span className="links cta">Sign up</span>
+                  <button className="links cta" onClick={customSignup}>
+                    Get Started
+                  </button>
                 </>
               )}
             </>
           ) : (
             <>
-              <Link to="#" className="links">
+              <Link
+                to="#"
+                className="links"
+                style={
+                  pathname === `/${domain_name}`
+                    ? { fontWeight: 700 }
+                    : { fontWeight: 500 }
+                }
+              >
                 View Store
               </Link>
-              <Link to="/dashboard" className="links">
+              <Link
+                to="/dashboard"
+                className="links"
+                style={
+                  pathname === "/dashboard"
+                    ? { fontWeight: 700 }
+                    : { fontWeight: 500 }
+                }
+              >
                 Dashboard
               </Link>
             </>
