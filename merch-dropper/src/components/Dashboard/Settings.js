@@ -10,6 +10,29 @@ import {SettingsH2, SettingsBox, StripeH3, StripeStatusTitle, StripeStatus, Sett
 
 const Settings = () => {
 
+    const profile = JSON.parse(localStorage.getItem("profile"));
+    const [stripe,setStripe] = useState('');
+    const [store,setStore] = useState('');
+    let parser = new URL(window.location.href);
+    const domain = parser.pathname.split('/')[1];
+    
+    console.log(domain)
+
+    axios
+    .get(`/api/stripe/${profile.email}`)
+    .then((res) => {
+        console.log(res.data.user.stripe_account)
+        if(res.data.user.stripe_account){setStripe(res.data.user.stripe_account);}
+       });
+    
+    axios
+    .get(`/api/stores/domain/${domain}`)
+    .then((res) => {
+        console.log('Store res ',res)
+        if(res.data.store_name){setStore(res.data.store_name)}
+        
+    });
+
     return (
         <SettingsContainer>
             <SettingsH2>Settings</SettingsH2>
@@ -22,7 +45,7 @@ const Settings = () => {
                     </StripeStatusContainer>
                     <AccountContainer>
                         <AccountTitle>Account Number:</AccountTitle>
-                        <AccountNumber>123456789</AccountNumber>
+                        <AccountNumber>{stripe}</AccountNumber>
                     </AccountContainer>
                 </StripeContainer>
 
@@ -39,7 +62,7 @@ const Settings = () => {
                     </StorefrontStatusConainer>
                     <StorefrontNameContainer>
                         <StorefrontTitle>Store Name:</StorefrontTitle>
-                        <StorefrontName>The Merch Man</StorefrontName>
+                        <StorefrontName>{store}</StorefrontName>
                     </StorefrontNameContainer> 
                 </StorefrontContainer>
             </SettingsBox>

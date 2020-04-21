@@ -43,10 +43,7 @@ const Dashboard = ({ products, addToCart, match, location }) => {
         <h2 align="right">Welcome! </h2>
       </div>
       <StyledDiv className="dashboard-components">
-<<<<<<< HEAD
         <Settings />
-=======
->>>>>>> 6c4d0416a067ab52131b322a4fc96ba71a4b9311
       </StyledDiv>
       
     </BigContainer>
