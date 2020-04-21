@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import InventoryCard from "./InventoryCard";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import axios from "axios";
 
 const initialProducts = [
   {
@@ -52,20 +53,63 @@ const initialProducts = [
 ];
 
 function InventoryList({ history }) {
-  const [products, setProducts] = useState(initialProducts);
+  const [products, setProducts] = useState([]);
+  const [stores, setStores] = useState([]);
+
+  console.log("This is products: ", products);
 
   // This useEffect hook will make a GET request to the back end to retrieve the user's inventory
+  // useEffect(() => {
+  //   axiosWithAuth()
+  //     .get(`https://merchdropper-production.herokuapp.com/api/products/`)
+  //     .then((res) => {
+  //       console.log("This is res.data: ", res.data);
+  //       setProducts(res.data);
+  //     })
+  //     .catch((err) => console.log("Error retrieving products: ", err));
+  // }, []);
+
   useEffect(() => {
-    axiosWithAuth().get().then().catch()
-  }, [])
+    async function getInventory() {
+      // const { email } = JSON.parse(localStorage.getItem("profile"));
+      const email = "jthanson238@gmail.com";
+      // let email;
+
+      const resUser = await axios.get(
+        `https://merchdropper-production.herokuapp.com/api/users/email/${email}`
+      );
+      const userID = resUser.data.id;
+      const resStore = await axios.get(
+        `https://merchdropper-production.herokuapp.com/api/stores/user/${userID}`
+      );
+      setStores(resStore.data);
+      const storeID = resStore.data.id;
+      const resProducts = await axios.get(
+        `https://merchdropper-production.herokuapp.com/api/products/store/${storeID}`
+      );
+      setProducts(resProducts.data);
+    }
+    getInventory();
+  }, []);
 
   return (
     <>
+      {products.length === 0 && (
+        <p style={emptyInventoryStyle}>Add items to your store to see them here</p>
+      )}
       {products.map((product) => (
-        <InventoryCard fullSizeURL={product.fullSizeURL} history={history} />
+        <InventoryCard
+          fullSizeURL={product.fullSizeURL}
+          history={history}
+          shirtID={product.id}
+        />
       ))}
     </>
   );
 }
 
 export default InventoryList;
+
+const emptyInventoryStyle = {
+  margin: "250px auto",
+};

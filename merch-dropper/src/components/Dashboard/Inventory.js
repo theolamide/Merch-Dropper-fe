@@ -1,14 +1,44 @@
 import React from "react";
 import InventoryList from "./InventoryList";
-import InventoryCard from "./InventoryCard";
+
+// This is the highest level component for the inventory display on the dashboard.
+// The inventory displays all saved products from the user
+function Inventory({ history }) {
+  const addNewItem = (e) => {
+    e.preventDefault();
+    history.push("/designshirt");
+  };
+
+  return (
+    <div>
+      <span style={headerStyle}>
+        <h1 style={inventoryH1Style}>Inventory</h1>
+        <button onClick={addNewItem} style={buttonStyle}>
+          Add new item
+        </button>
+      </span>
+      <div style={inventoryStyle}>
+        <InventoryList history={history} />
+      </div>
+    </div>
+  );
+}
+
+export default Inventory;
 
 const headerStyle = {
   display: "flex",
   justifyContent: "space-between",
+  alignItems: "center",
+};
+
+const inventoryH1Style = {
+  fontFamily: "Lato",
+  fontSize: "30px",
+  fontWeight: "bold",
 };
 
 const buttonStyle = {
-  //   position: "relative",
   color: "white",
   width: "160px",
   height: "48px",
@@ -20,27 +50,9 @@ const buttonStyle = {
 
 const inventoryStyle = {
   margin: "0 auto",
-  maxWidth: "1080px",
+  // backgroundColor: "#E5E5E5",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-around",
   flexWrap: "wrap",
 };
-
-// This is the highest level component for the inventory display on the dashboard.
-// The inventory displays all saved products from the user
-function Inventory({ history }) {
-  return (
-    <div>
-      <span style={headerStyle}>
-        <h1>Inventory</h1>
-        <button style={buttonStyle}>Add new item</button>
-      </span>
-      <div style={inventoryStyle}>
-        <InventoryList history={history} />
-      </div>
-    </div>
-  );
-}
-
-export default Inventory;

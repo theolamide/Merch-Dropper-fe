@@ -7,7 +7,7 @@ import Inventory from "./Inventory";
 // import { addToCart } from "../store/actions";
 // import { Container, Row, Col } from "reactstrap";
 
-const Dashboard = ({ products, addToCart, match, location }) => {
+const Dashboard = ({ products, addToCart, match, location, history }) => {
   const [user, setUser] = useState();
   // const [shirts, setShirts] = useState([]);
   console.log({ match, location });
@@ -46,7 +46,7 @@ const Dashboard = ({ products, addToCart, match, location }) => {
         <h2 align="right">Welcome, {user} </h2>
       </div>
       <StyledDiv className="dashboard-components"></StyledDiv>
-      <Inventory />
+      <Inventory history={history}/>
     </BigContainer>
   );
 };
