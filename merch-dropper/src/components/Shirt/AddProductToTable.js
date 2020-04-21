@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 // import { addProduct } from "../../store/actions";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
+import Button from "@material-ui/core/Button";
 import axios from "axios";
 import addProduct from "./addProduct";
+import { makeStyles } from "@material-ui/core/styles";
 
 // const stores = [
 //   {
@@ -16,8 +18,25 @@ import addProduct from "./addProduct";
 //     storeID: 2
 //   }
 // ];
+const useStyles = makeStyles({
+  createTitle: {
+    position: "absolute",
+    width: "544px",
+    height: "59px",
+    left: "736px",
+    top: "190px",
+
+    background: "#FFFFFF",
+    /* #020202 Entry field stroke */
+
+    border: "2px solid rgba(2, 2, 2, 0.12)",
+    boxSizing: "border-box",
+    borderRadius: "8px"
+  }
+});
 
 export default function AddProductToTable(props) {
+  const classes = useStyles();
   const [stores, setStores] = useState([]);
   const [product, setProduct] = useState({
     productName: "",
@@ -25,7 +44,7 @@ export default function AddProductToTable(props) {
     description: "",
     storeID: 0
   });
-  //should a deafult store ID better than undefined. 0 could work.
+  //Is zero the best initial value? undefined does not work.
 
   //fetch stores on mount of logged in user
   // get currently logged in user data from localstorage
@@ -39,12 +58,12 @@ export default function AddProductToTable(props) {
       const { email } = JSON.parse(localStorage.getItem("profile"));
 
       const res = await axios.get(
-        `https://merchdropper-production.herokuapp.com/api/users/email/${email}`
+        `http://localhost:5032/api/users/email/${email}`
       );
       console.log(res);
       const userID = res.data.id;
       const res2 = await axios.get(
-        `https://merchdropper-production.herokuapp.com/api/stores/user/${userID}`
+        `http://localhost:5032/api/stores/user/${userID}`
       );
       console.log(res2);
       setStores([res2.data]);
@@ -74,6 +93,7 @@ export default function AddProductToTable(props) {
     <div>
       <form onSubmit={handleSubmit}>
         <TextField
+          className={classes.createTitle}
           label="Product Name"
           name="productName"
           value={product.productName}
@@ -97,7 +117,6 @@ export default function AddProductToTable(props) {
           label="Select Store"
           value={product.storeID}
           onChange={handleChange}
-          helperText="Please select your Store"
         >
           {stores.map(store => (
             <MenuItem key={store.id} value={store.id}>
@@ -105,6 +124,7 @@ export default function AddProductToTable(props) {
             </MenuItem>
           ))}
         </TextField>
+
         <button type="submit">Add Product</button>
       </form>
     </div>
