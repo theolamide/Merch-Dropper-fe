@@ -32,6 +32,77 @@ const useStyles = makeStyles({
     border: "2px solid rgba(2, 2, 2, 0.12)",
     boxSizing: "border-box",
     borderRadius: "8px"
+  },
+  price: {
+    position: "absolute",
+    width: "160px",
+    height: "59px",
+    left: "736px",
+    top: "273px",
+
+    background: "#FFFFFF",
+    /* #020202 Entry field stroke */
+
+    border: "2px solid rgba(2, 2, 2, 0.12)",
+    boxSizing: "borderBox",
+    borderRadius: "8px"
+  },
+  desc: {
+    position: "absolute",
+    width: " 544px",
+    height: "126px",
+    left: "736px",
+    top: "356px",
+
+    background: "#FFFFFF",
+    /* #020202 Entry field stroke */
+
+    border: "2px solid rgba(2, 2, 2, 0.12)",
+    boxSizing: "borderBox",
+    borderRadius: "8px"
+  },
+  storeSelect: {
+    position: "absolute",
+    width: "160px",
+    height: "22px",
+    left: "736px",
+    top: "506px",
+    /* Lato/Reg/18 */
+
+    fontFamily: "Lato",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "18px",
+    lineHeight: "22px",
+    /* identical to box height */
+
+    /* #010101 Inactive text */
+
+    color: "rgba(1, 1, 1, 0.54)"
+  },
+  addButton: {
+    position: "absolute",
+    width: "140px",
+    height: "22px",
+    left: "766px",
+    top: "663px",
+
+    /* Lato/Bold/18 */
+
+    fontFamily: "Lato",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "18px",
+    lineHeight: "22px",
+    /* identical to box height */
+
+    display: "flex",
+    alignItems: "center",
+    textAlign: "center",
+
+    /* #010101 Inactive text */
+
+    color: "rgba(1, 1, 1, 0.54)"
   }
 });
 
@@ -94,25 +165,33 @@ export default function AddProductToTable(props) {
       <form onSubmit={handleSubmit}>
         <TextField
           className={classes.createTitle}
-          label="Product Name"
+          label="Create Title"
           name="productName"
           value={product.productName}
           onChange={handleChange}
+          InputProps={{ disableUnderline: true }}
         />
         <TextField
-          label="Price"
+          className={classes.price}
+          label="$"
           name="price"
           value={product.price}
           onChange={handleChange}
+          InputProps={{ disableUnderline: true }}
         />
         <TextField
+          className={classes.desc}
           label="Description"
           name="description"
+          multiline
+          rows={5}
           value={product.description}
           onChange={handleChange}
+          InputProps={{ disableUnderline: true }}
         />
         <TextField
           select
+          className={classes.storeSelect}
           name="storeID"
           label="Select Store"
           value={product.storeID}
@@ -125,7 +204,9 @@ export default function AddProductToTable(props) {
           ))}
         </TextField>
 
-        <button type="submit">Add Product</button>
+        <Button className={classes.addProduct} type="submit">
+          Add item to store
+        </Button>
       </form>
     </div>
   );
