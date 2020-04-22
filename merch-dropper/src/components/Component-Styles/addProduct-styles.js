@@ -16,6 +16,7 @@ export const useStyles = makeStyles({
     width: "344px",
     height: "59px",
     marginBottom: "24px",
+    padding: "0 10px",
 
     background: "#FFFFFF",
     /* #020202 Entry field stroke */
@@ -24,6 +25,11 @@ export const useStyles = makeStyles({
     boxSizing: "border-box",
     borderRadius: "8px"
   },
+
+  labelText: {
+    padding: "0 10px"
+  },
+
   price: {
     width: "159px",
     height: "59px",

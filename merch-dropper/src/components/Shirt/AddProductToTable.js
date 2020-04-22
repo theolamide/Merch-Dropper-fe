@@ -96,6 +96,11 @@ export default function AddProductToTable(props) {
             InputProps={{
               disableUnderline: true
             }}
+            InputLabelProps={{
+              classes: {
+                root: classes.labelText
+              }
+            }}
           />{" "}
           <TextField
             className={classes.price}
@@ -105,6 +110,11 @@ export default function AddProductToTable(props) {
             onChange={handleChange}
             InputProps={{
               disableUnderline: true
+            }}
+            InputLabelProps={{
+              classes: {
+                root: classes.labelText
+              }
             }}
           />{" "}
           <TextField
@@ -117,6 +127,11 @@ export default function AddProductToTable(props) {
             onChange={handleChange}
             InputProps={{
               disableUnderline: true
+            }}
+            InputLabelProps={{
+              classes: {
+                root: classes.labelText
+              }
             }}
           />{" "}
           {/* <Typography
