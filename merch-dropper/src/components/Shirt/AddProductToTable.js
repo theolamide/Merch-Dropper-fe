@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 import addProduct from "./addProduct";
 import { makeStyles } from "@material-ui/core/styles";
@@ -61,9 +62,9 @@ const useStyles = makeStyles({
     boxSizing: "borderBox",
     borderRadius: "8px"
   },
-  storeSelect: {
+  productHeader: {
     position: "absolute",
-    width: "160px",
+    width: "63px",
     height: "22px",
     left: "736px",
     top: "506px",
@@ -80,12 +81,89 @@ const useStyles = makeStyles({
 
     color: "rgba(1, 1, 1, 0.54)"
   },
+  product: {
+    position: "absolute",
+    width: "166px",
+    height: "22px",
+    left: "736px",
+    top: "536px",
+
+    /* Lato/Bold/18 */
+
+    fontFamily: "Lato",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "18px",
+    lineHeight: "22px",
+    /* identical to box height */
+
+    /* #1C1C2E Text black */
+
+    color: "#1C1C2E"
+  },
+  colorHeader: {
+    /* Color */
+
+    position: "absolute",
+    width: "44px",
+    height: "22px",
+    left: "736px",
+    top: "574px",
+
+    /* Lato/Reg/18 */
+
+    fontFamily: "Lato",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "18px",
+    lineHeight: "22px",
+    /* identical to box height */
+
+    /* #010101 Inactive text */
+
+    color: "rgba(1, 1, 1, 0.54)"
+  },
+  color: {
+    /* White */
+
+    position: "absolute",
+    width: "50px",
+    height: "22px",
+    left: "736px",
+    top: "604px",
+
+    /* Lato/Bold/18 */
+
+    fontFamily: "Lato",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "18px",
+    lineHeight: "22px",
+    /* identical to box height */
+
+    /* #1C1C2E Text black */
+
+    color: "#1C1C2E"
+  },
   addButton: {
+    position: "absolute",
+    width: "200px",
+    height: "48px",
+    left: "736px",
+    top: "750px",
+
+    /* #4455EE Primary */
+
+    background: "#4455EE",
+    borderRadius: "8px",
+    color: "white"
+  },
+  buttonText: {
     position: "absolute",
     width: "140px",
     height: "22px",
     left: "766px",
-    top: "663px",
+    top: "763px",
 
     /* Lato/Bold/18 */
 
@@ -100,9 +178,23 @@ const useStyles = makeStyles({
     alignItems: "center",
     textAlign: "center",
 
-    /* #010101 Inactive text */
+    /* #FFFFFF White */
 
-    color: "rgba(1, 1, 1, 0.54)"
+    color: "black"
+  },
+  storeSelect: {
+    position: "absolute",
+    width: "160px",
+    height: "59px",
+    left: "736px",
+    top: "670px",
+
+    background: "#FFFFFF",
+    /* #020202 Entry field stroke */
+
+    border: "2px solid rgba(2, 2, 2, 0.12)",
+    boxSizing: "borderBox",
+    borderRadius: "8px"
   }
 });
 
@@ -159,55 +251,83 @@ export default function AddProductToTable(props) {
     //   props.history.push("/dashboard");
     // }, 800);
   };
-
+  console.log(props.garment);
+  const shirtColor = props.garment.color;
+  console.log(product);
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <TextField
-          className={classes.createTitle}
-          label="Create Title"
-          name="productName"
-          value={product.productName}
-          onChange={handleChange}
-          InputProps={{ disableUnderline: true }}
-        />
-        <TextField
-          className={classes.price}
-          label="$"
-          name="price"
-          value={product.price}
-          onChange={handleChange}
-          InputProps={{ disableUnderline: true }}
-        />
-        <TextField
-          className={classes.desc}
-          label="Description"
-          name="description"
-          multiline
-          rows={5}
-          value={product.description}
-          onChange={handleChange}
-          InputProps={{ disableUnderline: true }}
-        />
-        <TextField
-          select
-          className={classes.storeSelect}
-          name="storeID"
-          label="Select Store"
-          value={product.storeID}
-          onChange={handleChange}
-        >
-          {stores.map(store => (
-            <MenuItem key={store.id} value={store.id}>
-              {store.store_name}
-            </MenuItem>
-          ))}
-        </TextField>
+      <div></div>
 
-        <Button className={classes.addProduct} type="submit">
-          Add item to store
-        </Button>
-      </form>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            className={classes.createTitle}
+            label="Create Title"
+            name="productName"
+            value={product.productName}
+            onChange={handleChange}
+            InputProps={{ disableUnderline: true }}
+          />
+          <TextField
+            className={classes.price}
+            label="$"
+            name="price"
+            value={product.price}
+            onChange={handleChange}
+            InputProps={{ disableUnderline: true }}
+          />
+          <TextField
+            className={classes.desc}
+            label="Add Product Description"
+            name="description"
+            multiline
+            rows={5}
+            value={product.description}
+            onChange={handleChange}
+            InputProps={{ disableUnderline: true }}
+          />
+          <Typography
+            className={classes.productHeader}
+            variant="h3"
+            gutterBottom
+          >
+            Product:
+          </Typography>
+          <Typography className={classes.product} variant="body1" gutterBottom>
+            Unisex T-Shirt
+          </Typography>
+          <Typography className={classes.colorHeader} variant="h3" gutterBottom>
+            Color:
+          </Typography>
+          <Typography className={classes.color} variant="body1" gutterBottom>
+            {shirtColor}
+          </Typography>
+
+          <TextField
+            select
+            className={classes.storeSelect}
+            name="storeID"
+            label="Select Store"
+            value={product.storeID}
+            onChange={handleChange}
+            InputProps={{ disableUnderline: true }}
+          >
+            {stores.map(store => (
+              <MenuItem key={store.id} value={store.id}>
+                {store.store_name}
+              </MenuItem>
+            ))}
+          </TextField>
+
+          <Button
+            variant="contained"
+            className={classes.addButton}
+            type="submit"
+          >
+            Add item to store
+          </Button>
+        </form>
+      </div>
     </div>
   );
 }
