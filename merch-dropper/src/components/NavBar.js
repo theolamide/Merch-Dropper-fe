@@ -7,26 +7,6 @@ import SideDrawer from "./SideDrawer";
 import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
 import Search from "./Search";
-<<<<<<< HEAD
-import { useAuth0 } from "./Auth/Auth";
-import { Media, NavbarText } from "reactstrap";
-
-const imgStyle = {
-  maxHeight: 45,
-  maxWidth: 45,
-  borderRadius: 10
-};
-
-export const DesktopWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem;
-  background: white;
-  width: 100%;
-  // border: 1px solid black;
-=======
->>>>>>> 975d07e199deb79a2ce841e8d0e8b1084d916e4c
 
 // styles
 import { Media, NavbarText } from "reactstrap";
@@ -54,11 +34,6 @@ const NavBar = ({ hidden, history, location, match }) => {
 
   const customLogin = () => {
     loginWithRedirect({
-<<<<<<< HEAD
-      // redirect_uri: "https://merch-dropper.com/redirect",
-      // redirect_uri: "https://www.merchdropper.store/redirect"
-      redirect_uri: "http://localhost:3000/redirect"
-=======
       // redirect_uri: "http://localhost:3000/redirect",
       redirect_uri: "https://www.merchdropper.store/redirect",
     });
@@ -69,7 +44,6 @@ const NavBar = ({ hidden, history, location, match }) => {
       // redirect_uri: "http://localhost:3000/redirect",
       redirect_uri: "https://www.merchdropper.store/redirect",
       signup: true,
->>>>>>> 975d07e199deb79a2ce841e8d0e8b1084d916e4c
     });
   };
 
