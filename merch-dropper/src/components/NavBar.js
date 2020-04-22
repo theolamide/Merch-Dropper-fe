@@ -45,7 +45,6 @@ const NavBar = ({ hidden, history, location, match }) => {
     loginWithRedirect({
       // redirect_uri: "http://localhost:3000/redirect",
       redirect_uri: "https://www.merchdropper.store/redirect",
-      signup: true,
     });
   };
 
