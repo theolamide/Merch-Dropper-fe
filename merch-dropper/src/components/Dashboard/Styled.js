@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 export const BigContainer = styled.div`
@@ -215,6 +214,7 @@ export const StorefrontStatusConainer = styled.div`
 export const StorefrontStatusInner = styled.div`
 
     display: flex; 
+    width: 10%;
 
 `;
 
@@ -233,6 +233,7 @@ export const StorefrontStatus = styled.p`
 
     width: 70px;
     height: 29px;
+    margin-left: 10%;
 
     font-family: Lato;
     font-style: normal;

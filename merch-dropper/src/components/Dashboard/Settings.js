@@ -10,28 +10,37 @@ import {SettingsH2, SettingsBox, StripeH3, StripeStatusTitle, StripeStatus, Sett
 
 const Settings = () => {
 
-    const profile = JSON.parse(localStorage.getItem("profile"));
     const [stripe,setStripe] = useState('');
     const [store,setStore] = useState('');
-    let parser = new URL(window.location.href);
-    const domain = parser.pathname.split('/')[1];
-    
-    console.log(domain)
 
-    axios
-    .get(`/api/stripe/${profile.email}`)
-    .then((res) => {
-        console.log(res.data.user.stripe_account)
-        if(res.data.user.stripe_account){setStripe(res.data.user.stripe_account);}
-       });
-    
-    axios
-    .get(`/api/stores/domain/${domain}`)
-    .then((res) => {
-        console.log('Store res ',res)
-        if(res.data.store_name){setStore(res.data.store_name)}
-        
-    });
+    useEffect(() => {
+        async function getInfo() {
+
+            const { email } = JSON.parse(localStorage.getItem("profile"));
+            //const email = 'jthanson238@gmail.com'; //for Testing on local seeded db
+
+            axios
+            .get(`/api/stripe/${email}`)
+            .then((res) => {
+                console.log(res.data.user.stripe_account)
+                if(res.data.user.stripe_account){setStripe(res.data.user.stripe_account);}
+                });
+          
+            const res = await axios.get(
+                `/api/users/email/${email}`
+            );
+
+            console.log(res);
+
+            const userID = res.data.id;
+            const res2 = await axios.get(
+                `/api/stores/user/${userID}`
+            );
+            console.log(res2);
+            setStore(res2.data.store_name);
+        }
+        getInfo();
+      }, []);
 
     return (
         <SettingsContainer>

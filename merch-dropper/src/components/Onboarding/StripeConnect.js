@@ -32,7 +32,7 @@ const StripeConnect = () => {
     const [activeStep, setActiveStep] = useState(1);
     let userCode = '';
     const steps = getSteps();
-    const profile = JSON.parse(localStorage.getItem("profile"));
+    const {email} = JSON.parse(localStorage.getItem("profile"));
 
     if(queryString.includes("error")){ stripeError = true; }
 
@@ -44,7 +44,7 @@ const StripeConnect = () => {
         axios
             .post('/api/stripe/accounts', {
             user_code: userCode,
-            email: profile.email,
+            email: email,
        })
        .then((res) => {
         console.log(res)
