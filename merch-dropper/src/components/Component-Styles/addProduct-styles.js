@@ -162,15 +162,22 @@ export const useStyles = makeStyles({
     height: "59px",
 
     /* #4455EE Primary */
+  
 
-    background: "#C4C4C4",
+    background: "#4455EE",
     borderRadius: "10px",
-    color: "#000000",
+    color: "white",
     fontWeight: "bold",
     fontFamily: "Roboto",
     fontStyle: "normal",
-    textTransform: "none"
+    textTransform: "none",
+    "&:hover":{
+        background:"#3E32CC"
+    }
+
   },
+
+ 
 
   storeSelect: {
     width: "160px",
