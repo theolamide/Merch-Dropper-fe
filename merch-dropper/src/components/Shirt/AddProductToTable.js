@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 import addProduct from "./addProduct";
-import { makeStyles } from "@material-ui/core/styles";
+import { useStyles } from "../Component-Styles/addProduct-styles.js";
 
 // const stores = [
 //   {
@@ -19,202 +19,6 @@ import { makeStyles } from "@material-ui/core/styles";
 //     storeID: 2
 //   }
 // ];
-const useStyles = makeStyles({
-  createTitle: {
-    position: "absolute",
-    width: "544px",
-    height: "59px",
-    left: "736px",
-    top: "190px",
-
-    background: "#FFFFFF",
-    /* #020202 Entry field stroke */
-
-    border: "2px solid rgba(2, 2, 2, 0.12)",
-    boxSizing: "border-box",
-    borderRadius: "8px"
-  },
-  price: {
-    position: "absolute",
-    width: "160px",
-    height: "59px",
-    left: "736px",
-    top: "273px",
-
-    background: "#FFFFFF",
-    /* #020202 Entry field stroke */
-
-    border: "2px solid rgba(2, 2, 2, 0.12)",
-    boxSizing: "borderBox",
-    borderRadius: "8px"
-  },
-  desc: {
-    position: "absolute",
-    width: " 544px",
-    height: "126px",
-    left: "736px",
-    top: "356px",
-
-    background: "#FFFFFF",
-    /* #020202 Entry field stroke */
-
-    border: "2px solid rgba(2, 2, 2, 0.12)",
-    boxSizing: "borderBox",
-    borderRadius: "8px"
-  },
-  productHeader: {
-    position: "absolute",
-    width: "63px",
-    height: "22px",
-    left: "736px",
-    top: "506px",
-    /* Lato/Reg/18 */
-
-    fontFamily: "Lato",
-    fontStyle: "normal",
-    fontWeight: "normal",
-    fontSize: "18px",
-    lineHeight: "22px",
-    /* identical to box height */
-
-    /* #010101 Inactive text */
-
-    color: "rgba(1, 1, 1, 0.54)"
-  },
-  product: {
-    position: "absolute",
-    width: "166px",
-    height: "22px",
-    left: "736px",
-    top: "536px",
-
-    /* Lato/Bold/18 */
-
-    fontFamily: "Lato",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: "18px",
-    lineHeight: "22px",
-    /* identical to box height */
-
-    /* #1C1C2E Text black */
-
-    color: "#1C1C2E"
-  },
-  colorHeader: {
-    /* Color */
-
-    position: "absolute",
-    width: "44px",
-    height: "22px",
-    left: "736px",
-    top: "574px",
-
-    /* Lato/Reg/18 */
-
-    fontFamily: "Lato",
-    fontStyle: "normal",
-    fontWeight: "normal",
-    fontSize: "18px",
-    lineHeight: "22px",
-    /* identical to box height */
-
-    /* #010101 Inactive text */
-
-    color: "rgba(1, 1, 1, 0.54)"
-  },
-  color: {
-    /* White */
-
-    position: "absolute",
-    width: "50px",
-    height: "22px",
-    left: "736px",
-    top: "604px",
-
-    /* Lato/Bold/18 */
-
-    fontFamily: "Lato",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: "18px",
-    lineHeight: "22px",
-    /* identical to box height */
-
-    /* #1C1C2E Text black */
-
-    color: "#1C1C2E"
-  },
-  addButton: {
-    position: "absolute",
-    width: "200px",
-    height: "48px",
-    left: "736px",
-    top: "750px",
-
-    /* #4455EE Primary */
-
-    background: "#4455EE",
-    borderRadius: "8px",
-    color: "white"
-  },
-  buttonText: {
-    position: "absolute",
-    width: "140px",
-    height: "22px",
-    left: "766px",
-    top: "763px",
-
-    /* Lato/Bold/18 */
-
-    fontFamily: "Lato",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: "18px",
-    lineHeight: "22px",
-    /* identical to box height */
-
-    display: "flex",
-    alignItems: "center",
-    textAlign: "center",
-
-    /* #FFFFFF White */
-
-    color: "black"
-  },
-  storeSelect: {
-    position: "absolute",
-    width: "160px",
-    height: "59px",
-    left: "736px",
-    top: "670px",
-
-    background: "#FFFFFF",
-    /* #020202 Entry field stroke */
-
-    border: "2px solid rgba(2, 2, 2, 0.12)",
-    boxSizing: "borderBox",
-    borderRadius: "8px"
-  },
-
-  previewShirt: {
-    position: "absolute",
-    width: "544px",
-    height: "688px",
-    left: "160px",
-    top: "878px",
-
-    background:
-      "url(-fruit-of-the-loom-5-oz-white-full-color-100-heavy-cotton-hd-t-shirt-3931wfc-white.jpg), #FFFFFF",
-    border: "1px solid #F2F2F2",
-    boxSizing: "borderBox",
-    /* Primary Drop Shadow */
-
-    boxShadow: "0px 4px 50px rgba(0, 0, 0, 0.02)",
-    borderRadius: "10px",
-    transform: "matrix(1, 0, 0, -1, 0, 0)"
-  }
-});
 
 export default function AddProductToTable(props) {
   const classes = useStyles();
@@ -273,15 +77,16 @@ export default function AddProductToTable(props) {
   console.log(props.garment);
   const shirtColor = props.garment.color;
   const shirtImage = props.garment.mockUrl;
+  const shirtEx =
+    "https://scalablepress.com:443/mockupServer/view/ALPHA-3001C-aqua-front/ffffff/regular?designId=5ea0b8b2c548a06758f70285";
   console.log(product);
   return (
-    <div>
-      <div>
-
-        <img className={classes.previewShirt} src={shirtImage} />
+    <div className={classes.addproductContainer}>
+      <div className={classes.imgContainer}>
+        <img src={shirtImage} className={classes.shirtImg} />
       </div>
-      <div>
-        <form onSubmit={handleSubmit}>
+      <div className={classes.formContainer}>
+        <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
             className={classes.createTitle}
             label="Create Title"
@@ -314,61 +119,47 @@ export default function AddProductToTable(props) {
               disableUnderline: true
             }}
           />{" "}
-          <Typography
-            className={classes.productHeader}
-            variant="h3"
-            gutterBottom
-          >
-            Product:
-          </Typography>{" "}
-          <Typography className={classes.product} variant="body1" gutterBottom>
-            Unisex T - Shirt{" "}
-          </Typography>{" "}
-          <Typography className={classes.colorHeader} variant="h3" gutterBottom>
+          {/* <Typography
+                              className={classes.productHeader}
+                              variant="h3"
+                              gutterBottom
+                            >
+                              Product:
+                            </Typography>
+                            <Typography className={classes.product} variant="body1" gutterBottom>
+                              Unisex T - Shirt
+                            </Typography> */}{" "}
+          {/* <Typography className={classes.colorHeader} variant="h3" gutterBottom>
             Color:
           </Typography>{" "}
           <Typography className={classes.color} variant="body1" gutterBottom>
             {" "}
             {shirtColor}{" "}
-          </Typography>
+          </Typography>{" "} */}
           {/* <TextField
-                  select
-                  className={classes.storeSelect}
-                  name="storeID"
-                  label="Select Store"
-                  value={product.storeID}
-                  onChange={handleChange}
-                  InputProps={{ disableUnderline: true }}
-                >
-                  {stores.map(store => (
-                    <MenuItem key={store.id} value={store.id}>
-                      {store.store_name}
-                    </MenuItem>
-                  ))}
-                </TextField> */}
+                            select
+                            className={classes.storeSelect}
+                            name="storeID"
+                            label="Select Store"
+                            value={product.storeID}
+                            onChange={handleChange}
+                            InputProps={{ disableUnderline: true }}
+                          >
+                            {stores.map(store => (
+                              <MenuItem key={store.id} value={store.id}>
+                                {store.store_name}
+                              </MenuItem>
+                            ))}
+                          </TextField> */}{" "}
           <Button
             variant="contained"
             className={classes.addButton}
             type="submit"
           >
-            Add item to store{" "}
+            Add Product{" "}
           </Button>{" "}
         </form>{" "}
       </div>{" "}
     </div>
   );
 }
-
-// const mapStateToProps = state => {
-//   let product = state.ProductReducers;
-//
-//   return {
-//     isFetching: product.isFetching,
-//     error: product.error
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   { addProduct }
-// )(AddProductToTable);
