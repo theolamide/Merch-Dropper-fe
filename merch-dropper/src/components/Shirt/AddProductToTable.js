@@ -88,6 +88,7 @@ export default function AddProductToTable(props) {
       <div className={classes.formContainer}>
         <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
+          
             className={classes.createTitle}
             label="Create Title"
             name="productName"
@@ -103,6 +104,7 @@ export default function AddProductToTable(props) {
             }}
           />{" "}
           <TextField
+          
             className={classes.price}
             label="$"
             name="price"
