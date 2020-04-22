@@ -41,8 +41,6 @@ export const Auth0Provider = ({
         const token = await auth0FromHook.getTokenSilently();
         const id = user.sub.split("|");
 
-        console.log(user);
-
         setUser(user);
         localStorage.setItem("profile", JSON.stringify(user));
         localStorage.setItem("id", id[1]);
