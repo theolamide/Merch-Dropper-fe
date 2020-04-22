@@ -1,7 +1,7 @@
 import React from "react";
 import { configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import { MemoryRouter, Link } from "react-router-dom";
+import { MemoryRouter, Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../store/store.js";
 import { useAuth0 } from "../components/Auth/Auth.js";
@@ -27,15 +27,54 @@ describe("Navbar displays logo and brand name", () => {
         </MemoryRouter>
       </Provider>
     );
-
     const logo = wrapper.find(".BrandLogo");
     const name = wrapper.find(".DesktopWrapper .BrandTitle");
-
-    console.log(name.debug());
 
     expect(logo).toBeTruthy();
     expect(name).toBeTruthy();
     expect(name.text()).toEqual("Merch Dropper");
+  });
+
+  it("redirects to homepage when logo is clicked", () => {
+    let historyMock = {
+      push: jest.fn(),
+      listen: jest.fn(),
+      location: { pathname: "/" },
+    };
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router history={historyMock}>
+          <NavBar />
+        </Router>
+      </Provider>
+    );
+
+    const logo = wrapper.find(".DesktopWrapper .BrandLogo");
+
+    logo.simulate("click");
+
+    expect(historyMock.push).toHaveBeenCalledTimes(1);
+  });
+
+  it("redirects to homepage when brand name is clicked", () => {
+    let historyMock = {
+      push: jest.fn(),
+      listen: jest.fn(),
+      location: { pathname: "/" },
+    };
+    const wrapper = mount(
+      <Provider store={store}>
+        <Router history={historyMock}>
+          <NavBar />
+        </Router>
+      </Provider>
+    );
+
+    const brand = wrapper.find(".DesktopWrapper .BrandTitle");
+
+    brand.simulate("click");
+
+    expect(historyMock.push).toHaveBeenCalledTimes(1);
   });
 });
 
