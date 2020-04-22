@@ -195,12 +195,30 @@ const useStyles = makeStyles({
     border: "2px solid rgba(2, 2, 2, 0.12)",
     boxSizing: "borderBox",
     borderRadius: "8px"
+  },
+
+  previewShirt: {
+    position: "absolute",
+    width: "544px",
+    height: "688px",
+    left: "160px",
+    top: "878px",
+
+    background:
+      "url(-fruit-of-the-loom-5-oz-white-full-color-100-heavy-cotton-hd-t-shirt-3931wfc-white.jpg), #FFFFFF",
+    border: "1px solid #F2F2F2",
+    boxSizing: "borderBox",
+    /* Primary Drop Shadow */
+
+    boxShadow: "0px 4px 50px rgba(0, 0, 0, 0.02)",
+    borderRadius: "10px",
+    transform: "matrix(1, 0, 0, -1, 0, 0)"
   }
 });
 
 export default function AddProductToTable(props) {
   const classes = useStyles();
-  const [stores, setStores] = useState([]);
+  const [stores, setStores] = useState("");
   const [product, setProduct] = useState({
     productName: "",
     price: "",
@@ -229,7 +247,7 @@ export default function AddProductToTable(props) {
         `http://localhost:5032/api/stores/user/${userID}`
       );
       console.log(res2);
-      setStores([res2.data]);
+      setStores(res2.data);
     }
     getStores();
   }, []);
@@ -237,6 +255,7 @@ export default function AddProductToTable(props) {
   const handleChange = event => {
     setProduct({
       ...product,
+      storeID: stores.id,
       [event.target.name]: event.target.value
     });
   };
@@ -253,11 +272,14 @@ export default function AddProductToTable(props) {
   };
   console.log(props.garment);
   const shirtColor = props.garment.color;
+  const shirtImage = props.garment.mockUrl;
   console.log(product);
   return (
     <div>
-      <div></div>
+      <div>
 
+        <img className={classes.previewShirt} src={shirtImage} />
+      </div>
       <div>
         <form onSubmit={handleSubmit}>
           <TextField
@@ -266,16 +288,20 @@ export default function AddProductToTable(props) {
             name="productName"
             value={product.productName}
             onChange={handleChange}
-            InputProps={{ disableUnderline: true }}
-          />
+            InputProps={{
+              disableUnderline: true
+            }}
+          />{" "}
           <TextField
             className={classes.price}
             label="$"
             name="price"
             value={product.price}
             onChange={handleChange}
-            InputProps={{ disableUnderline: true }}
-          />
+            InputProps={{
+              disableUnderline: true
+            }}
+          />{" "}
           <TextField
             className={classes.desc}
             label="Add Product Description"
@@ -284,50 +310,51 @@ export default function AddProductToTable(props) {
             rows={5}
             value={product.description}
             onChange={handleChange}
-            InputProps={{ disableUnderline: true }}
-          />
+            InputProps={{
+              disableUnderline: true
+            }}
+          />{" "}
           <Typography
             className={classes.productHeader}
             variant="h3"
             gutterBottom
           >
             Product:
-          </Typography>
+          </Typography>{" "}
           <Typography className={classes.product} variant="body1" gutterBottom>
-            Unisex T-Shirt
-          </Typography>
+            Unisex T - Shirt{" "}
+          </Typography>{" "}
           <Typography className={classes.colorHeader} variant="h3" gutterBottom>
             Color:
-          </Typography>
+          </Typography>{" "}
           <Typography className={classes.color} variant="body1" gutterBottom>
-            {shirtColor}
+            {" "}
+            {shirtColor}{" "}
           </Typography>
-
-          <TextField
-            select
-            className={classes.storeSelect}
-            name="storeID"
-            label="Select Store"
-            value={product.storeID}
-            onChange={handleChange}
-            InputProps={{ disableUnderline: true }}
-          >
-            {stores.map(store => (
-              <MenuItem key={store.id} value={store.id}>
-                {store.store_name}
-              </MenuItem>
-            ))}
-          </TextField>
-
+          {/* <TextField
+                  select
+                  className={classes.storeSelect}
+                  name="storeID"
+                  label="Select Store"
+                  value={product.storeID}
+                  onChange={handleChange}
+                  InputProps={{ disableUnderline: true }}
+                >
+                  {stores.map(store => (
+                    <MenuItem key={store.id} value={store.id}>
+                      {store.store_name}
+                    </MenuItem>
+                  ))}
+                </TextField> */}
           <Button
             variant="contained"
             className={classes.addButton}
             type="submit"
           >
-            Add item to store
-          </Button>
-        </form>
-      </div>
+            Add item to store{" "}
+          </Button>{" "}
+        </form>{" "}
+      </div>{" "}
     </div>
   );
 }
