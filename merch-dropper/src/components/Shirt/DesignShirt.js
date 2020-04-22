@@ -44,6 +44,7 @@ const DesignShirt = () => {
           handleScalableMockup={handleScalableMockup}
           addProduct={addProduct}
         />
+        
       </DesignShirtContainer>
     </Fragment>
   );

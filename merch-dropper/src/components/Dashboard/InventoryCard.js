@@ -3,7 +3,7 @@ import axios from "axios";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 
 let style = {
-  margin: "16px 0px",
+  margin: "16px 16px",
   width: "352px",
   textAlign: "center",
 };

@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
-import { useHistory } from "react-router-dom";
 
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
 
 export const Auth0Context = React.createContext();
 export const useAuth0 = () => useContext(Auth0Context);
-console.log("This is useAuth0 in Auth.js: ", useAuth0);
 
 export const Auth0Provider = ({
   children,
@@ -42,8 +40,6 @@ export const Auth0Provider = ({
         const user = await auth0FromHook.getUser();
         const token = await auth0FromHook.getTokenSilently();
         const id = user.sub.split("|");
-
-        console.log(user);
 
         setUser(user);
         localStorage.setItem("profile", JSON.stringify(user));
