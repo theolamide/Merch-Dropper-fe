@@ -30,6 +30,7 @@ ReactDOM.render(
         <Auth0Provider
           domain={config.domain}
           client_id={config.clientId}
+          redirect_uri={window.location.origin}
           audience={config.audience}
           onRedirectCallback={onRedirectCallback}
         >
@@ -45,5 +46,3 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
-// redirect_uri={window.location.origin}
