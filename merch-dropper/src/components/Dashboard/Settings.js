@@ -16,9 +16,11 @@ const Settings = () => {
     useEffect(() => {
         async function getInfo() {
 
-            const { email } = JSON.parse(localStorage.getItem("profile"));
-            //const email = 'jthanson238@gmail.com'; //for Testing on local seeded db
+      
+            //let { email } = JSON.parse(localStorage.getItem("profile"));
+            let email = 'jthanson238@gmail.com'; //for Testing on local seeded db
 
+            
             axios
             .get(`/api/stripe/${email}`)
             .then((res) => {
