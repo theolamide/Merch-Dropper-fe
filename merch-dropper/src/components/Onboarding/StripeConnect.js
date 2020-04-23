@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Stepper, Step, StepLabel } from '@material-ui/core';
 import {FormContainer, ExitButton, StripeTitle, StepContainer, StripeButton, StripeSkipButton, CreateStore, ConnectionMessage} from './Styled';
 import history from '../../utils/history';
-import axios from 'axios';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 const getSteps = () => {
 
@@ -43,8 +43,8 @@ const StripeConnect = () => {
         userCode = queryString.substring( queryString.indexOf('code=') + 5 );
         console.log(userCode)
 
-        axios
-            .post('https://merchdropper-production.herokuapp.com/api/stripe/accounts', {
+        axiosWithAuth()
+            .post('/api/stripe/accounts', {
             user_code: userCode,
             email: profile.email,
        })
