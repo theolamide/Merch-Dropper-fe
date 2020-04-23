@@ -11,8 +11,8 @@ function InventoryList({ history }) {
 
   useEffect(() => {
     async function getInventory() {
-      // const { email } = JSON.parse(localStorage.getItem("profile"));
-      const email = "jthanson238@gmail.com";
+      const { email } = JSON.parse(localStorage.getItem("profile"));
+      // const email = "jthanson238@gmail.com";
       // let email;
 
       const resUser = await axios.get(
