@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import history from '../../utils/history';
-import axios from 'axios';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import {SettingsH2, SettingsBox, StripeH3, StripeStatusTitle, StripeStatus, SettingsContainer, StorefrontH3,
          AccountTitle, AccountNumber, Divider, StorefrontStatusTitle, StorefrontStatusConainer,
         StorefrontStatusDot, StorefrontStatus, StorefrontTitle, StorefrontName, StripeContainer,
@@ -15,27 +15,27 @@ const Settings = () => {
 
     useEffect(() => {
         async function getInfo() {
-
       
-            //let { email } = JSON.parse(localStorage.getItem("profile"));
-            let email = 'jthanson238@gmail.com'; //for Testing on local seeded db
+            let profile = JSON.parse(localStorage.getItem("profile"));
+            //let email = 'jthanson238@gmail.com'; //for Testing on local seeded db
+            console.log(profile.email)
 
             
-            axios
-            .get(`/api/stripe/${email}`)
+            axiosWithAuth()
+            .get(`/api/stripe/${profile.email}`)
             .then((res) => {
                 console.log(res.data.user.stripe_account)
                 if(res.data.user.stripe_account){setStripe(res.data.user.stripe_account);}
                 });
           
-            const res = await axios.get(
-                `/api/users/email/${email}`
+            const res = await axiosWithAuth().get(
+                `/api/users/email/${profile.email}`
             );
 
             console.log(res);
 
             const userID = res.data.id;
-            const res2 = await axios.get(
+            const res2 = await axiosWithAuth().get(
                 `/api/stores/user/${userID}`
             );
             console.log(res2);
