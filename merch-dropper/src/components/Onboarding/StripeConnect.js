@@ -44,7 +44,10 @@ const StripeConnect = () => {
         console.log(userCode)
 
         axiosWithAuth()
-            .get(`/api/stripe/accounts/${profile.email}/${userCode}`)
+            .post('/api/stripe/accounts', {
+            user_code: userCode,
+            email: profile.email,
+       })
        .then((res) => {
         console.log(res)
        });
