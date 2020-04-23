@@ -60,7 +60,6 @@ export const Auth0Provider = ({
     try {
       await auth0Client.loginWithPopup(params);
     } catch (error) {
-      console.error(error);
     } finally {
       setPopupOpen(false);
     }
@@ -92,12 +91,7 @@ export const Auth0Provider = ({
         loginWithRedirect: (...p) => auth0Client.loginWithRedirect(...p),
         getTokenSilently: (...p) => auth0Client.getTokenSilently(...p),
         getTokenWithPopup: (...p) => auth0Client.getTokenWithPopup(...p),
-        logout: (...p) => {
-          localStorage.removeItem("id");
-          localStorage.removeItem("token");
-          localStorage.removeItem("profile");
-          auth0Client.logout(...p);
-        },
+        logout: (...p) => auth0Client.logout(...p),
       }}
     >
       {children}

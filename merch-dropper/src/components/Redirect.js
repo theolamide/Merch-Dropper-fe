@@ -7,8 +7,8 @@ const Redirect = ({ history }) => {
   useEffect(() => {
     if (user && isAuthenticated) {
       if (
-        user["https://merch-dropper.com/signup"] ||
-        user["https://merch-dropper.com/idp/signup"]
+        user["https://merchdropper.store/signup"] ||
+        user["https://merchdropper.store/idp/signup"]
       ) {
         setTimeout(() => {
           // store creation form

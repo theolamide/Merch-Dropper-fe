@@ -41,7 +41,9 @@
       }
       gtag("js", new Date());
 
-      gtag("config", "UA-158058442-1");
+      gtag("config", "UA-158058442-1", {
+        cookie_flags: 'max-age=7200;secure;samesite=none'
+      });
     </script>
 
     <!--
