@@ -49,7 +49,10 @@ describe("component redirects to /stripe-setup when signing up via auth0", () =>
   beforeEach(() => {
     useAuth0.mockReturnValue({
       isAuthenticated: true,
-      user,
+      user: {
+        ...user,
+        "https://merchdropper.store/signup": true,
+      },
       logout: jest.fn(),
       loginWithRedirect: jest.fn(),
     });
@@ -86,7 +89,7 @@ describe("component redirects to /stripe-setup when signing up via google/facebo
       isAuthenticated: true,
       user: {
         ...user,
-        "https://merch-dropper.com/idp/signup": true,
+        "https://merchdropper.store/idp/signup": true,
       },
       logout: jest.fn(),
       loginWithRedirect: jest.fn(),
@@ -124,7 +127,7 @@ describe("component redirects to /dashboard when logging in", () => {
       isAuthenticated: true,
       user: {
         ...user,
-        "https://merch-dropper.com/signup": false,
+        "https://merchdropper.store/signup": false,
       },
       logout: jest.fn(),
       loginWithRedirect: jest.fn(),
