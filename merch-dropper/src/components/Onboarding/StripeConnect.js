@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Stepper, Step, StepLabel } from '@material-ui/core';
 import {FormContainer, ExitButton, StripeTitle, StepContainer, StripeButton, StripeSkipButton, CreateStore, ConnectionMessage} from './Styled';
 import history from '../../utils/history';
-import axios from 'axios';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 const getSteps = () => {
 
@@ -11,9 +11,9 @@ const getSteps = () => {
 }
 
 const ConnectStripe = e => {
-
     e.preventDefault();
-    window.location.replace('https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write')
+    history.push('https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write');
+    window.location.replace(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write`)
 
 }
 
@@ -24,6 +24,7 @@ const SkipSetup = e => {
     window.location.replace('https://www.merchdropper.store/createstore');
 }
 
+
 const StripeConnect = () => {
 
     const [queryString, setQueryString] = useState(window.location.search);
@@ -32,7 +33,8 @@ const StripeConnect = () => {
     const [activeStep, setActiveStep] = useState(1);
     let userCode = '';
     const steps = getSteps();
-    const {email} = JSON.parse(localStorage.getItem("profile"));
+    const profile = JSON.parse(localStorage.getItem("profile"));
+    console.log(profile.email)
 
     if(queryString.includes("error")){ stripeError = true; }
 
@@ -41,10 +43,10 @@ const StripeConnect = () => {
         userCode = queryString.substring( queryString.indexOf('code=') + 5 );
         console.log(userCode)
 
-        axios
+        axiosWithAuth()
             .post('/api/stripe/accounts', {
             user_code: userCode,
-            email: email,
+            email: profile.email,
        })
        .then((res) => {
         console.log(res)
