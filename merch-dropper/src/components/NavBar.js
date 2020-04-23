@@ -26,10 +26,12 @@ const NavBar = ({ hidden, history, location, match }) => {
   const [state, setState] = useState({ sideDrawerOpen: false });
 
   const logoutWithRedirect = () => {
+    localStorage.removeItem("profile");
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
     logout({
       returnTo: window.location.origin,
     });
-    localStorage.removeItem("profile");
   };
 
   const customLogin = () => {
@@ -45,6 +47,10 @@ const NavBar = ({ hidden, history, location, match }) => {
       redirect_uri: "https://www.merchdropper.store/redirect",
       signup: true,
     });
+  };
+
+  const homepageRedirect = () => {
+    history.push("/");
   };
 
   let drawerToggleClickHandler = () => {
@@ -86,19 +92,12 @@ const NavBar = ({ hidden, history, location, match }) => {
       <NavbarStyles />
       <div className="MobileWrapper">
         {sideDrawer}
-        <div
-          className="BrandWrapper"
-          onClick={() => {
-            history.push("/");
-          }}
-        >
+        <div className="BrandWrapper" onClick={homepageRedirect}>
           <img
             className="BrandLogo"
             src={logo}
             alt="merch-dropper logo"
-            onClick={() => {
-              history.push("/");
-            }}
+            onClick={homepageRedirect}
           />
 
           <h2 className="BrandTitle">Merch Dropper</h2>
@@ -118,12 +117,7 @@ const NavBar = ({ hidden, history, location, match }) => {
       </div>
 
       <div className="DesktopWrapper">
-        <div
-          className="BrandWrapper"
-          onClick={() => {
-            history.push("/");
-          }}
-        >
+        <div className="BrandWrapper" onClick={homepageRedirect}>
           <img className="BrandLogo" src={logo} alt="merch-dropper logo" />
           <h2 className="BrandTitle">Merch Dropper</h2>
         </div>
@@ -182,6 +176,13 @@ const NavBar = ({ hidden, history, location, match }) => {
               >
                 Dashboard
               </Link>
+              <span
+                className="links"
+                onClick={logoutWithRedirect}
+                style={{ marginLeft: "32px" }}
+              >
+                Logout
+              </span>
             </>
           )}
         </nav>

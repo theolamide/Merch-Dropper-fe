@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Stepper, Step, StepLabel } from '@material-ui/core';
-import {FormContainer, ExitButton, StripeTitle, StepContainer, StripeButton, StripeSkipButton, CreateStore, ConnectionMessage} from './Styled'
+import {FormContainer, ExitButton, StripeTitle, StepContainer, StripeButton, StripeSkipButton, CreateStore, ConnectionMessage} from './Styled';
 import history from '../../utils/history';
 import axios from 'axios';
 
@@ -32,26 +32,22 @@ const StripeConnect = () => {
     const [activeStep, setActiveStep] = useState(1);
     let userCode = '';
     const steps = getSteps();
+    const {email} = JSON.parse(localStorage.getItem("profile"));
 
     if(queryString.includes("error")){ stripeError = true; }
 
     if(queryString.includes("code=")){
 
         userCode = queryString.substring( queryString.indexOf('code=') + 5 );
+        console.log(userCode)
 
         axios
-            .post(`/api/stripe/accounts`, {
-            user_code: userCode
+            .post('/api/stripe/accounts', {
+            user_code: userCode,
+            email: email,
        })
        .then((res) => {
-           
         console.log(res)
-         let stripeAccountNum = res.data.stripeAccount.stripe_user_id;
-         axios
-            .post(`/api/stripe/post`, {
-                id: localStorage.getItem('token'),
-                account_num: stripeAccountNum
-            })
        });
 
        stripeConnected =true;

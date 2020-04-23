@@ -33,6 +33,7 @@ function App() {
         path="/:domain_name"
         render={(props) => <ProductDisplayDomain {...props} />}
       />
+      <Route exact path="/:domain_name/dashboard" component={Dashboard} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/createstore" component={CreateStore} />
       <Route exact path="/designshirt" component={DesignShirt} />
