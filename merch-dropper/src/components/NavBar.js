@@ -30,14 +30,14 @@ const NavBar = ({ hidden, history, location, match }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("id");
     logout({
-      returnTo: window.location.origin,
+      returnTo: window.location.origin
     });
   };
 
   const customLogin = () => {
     loginWithRedirect({
       //redirect_uri: "http://localhost:3000/redirect",
-      redirect_uri: "https://www.merchdropper.store/redirect",
+      redirect_uri: "https://www.merchdropper.store/redirect"
     });
   };
 
@@ -45,7 +45,7 @@ const NavBar = ({ hidden, history, location, match }) => {
     loginWithRedirect({
       //redirect_uri: "http://localhost:3000/redirect",
       redirect_uri: "https://www.merchdropper.store/redirect",
-      signup: true,
+      signup: true
     });
   };
 
@@ -54,7 +54,7 @@ const NavBar = ({ hidden, history, location, match }) => {
   };
 
   let drawerToggleClickHandler = () => {
-    setState((prevState) => {
+    setState(prevState => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
   };
@@ -67,7 +67,7 @@ const NavBar = ({ hidden, history, location, match }) => {
   const imgStyle = {
     maxHeight: 45,
     maxWidth: 45,
-    borderRadius: 10,
+    borderRadius: 10
   };
 
   if (state.sideDrawerOpen) {
@@ -192,8 +192,8 @@ const NavBar = ({ hidden, history, location, match }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  hidden: state.CartReducer.hidden,
+const mapStateToProps = state => ({
+  hidden: state.CartReducer.hidden
 });
 
 export default withRouter(connect(mapStateToProps)(NavBar));
