@@ -6,7 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
-import addProduct from "./addProduct";
+import addProduct from "./AddProduct";
 import { useStyles } from "../Component-Styles/addProduct-styles.js";
 
 // const stores = [
