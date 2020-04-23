@@ -10,7 +10,7 @@ function Inventory({ history }) {
   };
 
   return (
-    <div>
+    <div style={container}>
       <span style={headerStyle}>
         <h1 style={inventoryH1Style}>Inventory</h1>
         <button onClick={addNewItem} style={buttonStyle}>
@@ -26,10 +26,15 @@ function Inventory({ history }) {
 
 export default Inventory;
 
+const container = {
+  margin: "0px 160px",
+}
+
 const headerStyle = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+  marginBottom: "34px"
 };
 
 const inventoryH1Style = {
@@ -53,6 +58,6 @@ const inventoryStyle = {
   // backgroundColor: "#E5E5E5",
   display: "flex",
   flexDirection: "row",
-  justifyContent: "space-around",
+  justifyContent: "space-between",
   flexWrap: "wrap",
 };
