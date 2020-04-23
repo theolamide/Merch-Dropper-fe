@@ -77,18 +77,22 @@ export default function AddProductToTable(props) {
   console.log(props.garment);
   const shirtColor = props.garment.color;
   const shirtImage = props.garment.mockUrl;
-  const shirtEx =
-    "https://scalablepress.com:443/mockupServer/view/ALPHA-3001C-aqua-front/ffffff/regular?designId=5ea0b8b2c548a06758f70285";
+  //hardcoded shirt image variable
+  // const shirtEx =
+  //   "https://scalablepress.com:443/mockupServer/view/ALPHA-3001C-aqua-front/ffffff/regular?designId=5ea0b8b2c548a06758f70285";
   console.log(product);
   return (
     <div className={classes.addproductContainer}>
       <div className={classes.imgContainer}>
-        <img src={shirtImage} className={classes.shirtImg} />
+        <img
+          src={shirtImage}
+          className={classes.shirtImg}
+          alt="shirt design preview"
+        />
       </div>
       <div className={classes.formContainer}>
         <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
-          
             className={classes.createTitle}
             label="Create Title"
             name="productName"
@@ -104,7 +108,6 @@ export default function AddProductToTable(props) {
             }}
           />{" "}
           <TextField
-          
             className={classes.price}
             label="$"
             name="price"

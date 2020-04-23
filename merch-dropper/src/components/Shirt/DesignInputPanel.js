@@ -39,7 +39,7 @@ const DesignInputPanel = ({
           Preview Design
         </button>
         <Link to="/addproduct" className="designBtn btn btn-primary">
-          Add Description
+          Save & Continue
         </Link>
       </ButtonContainer>
     </Panel>
