@@ -21,7 +21,7 @@ const Redirect = ({ history }) => {
         }, 500);
       }
     }
-  }, [user]);
+  });
 
   return (
     <div>
