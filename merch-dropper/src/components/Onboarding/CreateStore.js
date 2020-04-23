@@ -82,18 +82,12 @@ function CreateStore({ history }) {
         console.log("This is res: ", res);
         setIsSubmit(false);
         alert("Store Created!");
-        // history.push("/dashboard");
+        history.push("/dashboard");
       })
       .catch((err) => {
         setIsSubmit(false);
         console.log("This is error: ", err);
       });
-
-    // axios
-    //   .get(`https://merchdropper-production.herokuapp.com/api/stores/${domain}`)
-    //   .then((res) => {
-    //     history.push("/dashboard");
-    //   });
   };
 
   // This function allows the user to skip the store creation form and be forwarded to the user's dashboard
