@@ -27,7 +27,8 @@ function Inventory({ history }) {
 export default Inventory;
 
 const container = {
-  margin: "0px 160px",
+  margin: "0px auto",
+  maxWidth: "1440px"
 }
 
 const headerStyle = {
