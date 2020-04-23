@@ -1,6 +1,8 @@
-import { createGlobalStyle } from "styled-components";
+import {
+    createGlobalStyle
+} from "styled-components";
 
-export const NavbarStyles = createGlobalStyle`
+export const NavbarStyles = createGlobalStyle `
 
 
     * {
@@ -80,7 +82,7 @@ export const NavbarStyles = createGlobalStyle`
     .CartAndHamWrapper {
         width: 8rem;
         display: flex;
-        jusitfy-content: space-between;
+        justify-content: space-between;
 
     }
 

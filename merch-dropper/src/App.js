@@ -1,5 +1,5 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Route, Switch } from "react-router";
 // import "./App.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -14,33 +14,57 @@ import LearnMore from "./components/LearnMore";
 import StripeSetup from "./components/Onboarding/StripeSetup";
 import Redirect from "./components/Redirect";
 import CreateStore from "./components/Onboarding/CreateStore";
+import AddProductToTable from "./components/Shirt/AddProductToTable.js";
+import initialShirtState from "./components/Shirt/initialShirtState";
 
 function App() {
+  const [design, setDesign] = useState(initialShirtState.designInfo);
+  const [garment, setGarment] = useState(initialShirtState.garment);
+  const [thumbRender, setThumbRender] = useState();
   return (
     <div className="App">
       <NavBar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/cart" component={ShoppingCart} />
+        <Route exact path="/checkout" component={CheckoutPage} />
+        <Route
+          exact
+          path="/addproduct"
+          render={props => <AddProductToTable garment={garment} {...props} />}
+        />
+        <Route
+          exact
+          path="/products"
+          render={props => <ProductDisplay {...props} />}
+        />
 
-      <Route exact path="/" component={Home} />
-      <Route exact path="/cart" component={ShoppingCart} />
-      <Route exact path="/checkout" component={CheckoutPage} />
-      <Route
-        exact
-        path="/products"
-        render={(props) => <ProductDisplay {...props} />}
-      />
-      <Route
-        exact
-        path="/:domain_name"
-        render={(props) => <ProductDisplayDomain {...props} />}
-      />
-      <Route exact path="/:domain_name/dashboard" component={Dashboard} />
-      <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/createstore" component={CreateStore} />
-      <Route exact path="/designshirt" component={DesignShirt} />
-      <Route exact path="/learnmore" component={LearnMore} />
-      <Route exact path="/redirect" component={Redirect} />
-      <Route exact path="/stripe-setup" component={StripeSetup} />
-
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/createstore" component={CreateStore} />
+        <Route
+          exact
+          path="/designshirt"
+          render={props => (
+            <DesignShirt
+              design={design}
+              setDesgin={setDesign}
+              garment={garment}
+              setGarment={setGarment}
+              thumbRender={thumbRender}
+              setThumbRender={setThumbRender}
+              {...props}
+            />
+          )}
+        />
+        <Route exact path="/learnmore" component={LearnMore} />
+        <Route exact path="/redirect" component={Redirect} />
+        <Route exact path="/stripe-setup" component={StripeSetup} />
+        <Route
+          exact
+          path="/:domain_name"
+          render={props => <ProductDisplayDomain {...props} />}
+        />
+      </Switch>
       <Footer />
     </div>
   );
