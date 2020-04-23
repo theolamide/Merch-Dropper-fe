@@ -54,10 +54,16 @@ const Settings = () => {
                         <StripeStatusTitle>Status:</StripeStatusTitle>
                         <StripeStatus>Connected</StripeStatus>
                     </StripeStatusContainer>
-                    <AccountContainer>
-                        <AccountTitle>Account Number:</AccountTitle>
-                        <AccountNumber>{stripe}</AccountNumber>
-                    </AccountContainer>
+                  
+                    {
+                        /*
+                        <AccountContainer>
+                            <AccountTitle>Account Number:</AccountTitle>
+                            <AccountNumber>{stripe}</AccountNumber>
+                        </AccountContainer>*/
+
+                    }
+                    
                 </StripeContainer>
 
                 <Divider/>
