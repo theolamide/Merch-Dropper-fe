@@ -22,12 +22,7 @@ const Dashboard = ({ products, addToCart, match, location, history }) => {
   return (
     <BigContainer className="dashboard-container">
 
-      <div className="user-info">
-        <h2 align="right">Welcome! </h2>
-      </div>
-      <StyledDiv className="dashboard-components"></StyledDiv>
       <Inventory history={history} />
-
       <StyledDiv className="dashboard-components">
         <Settings />
       </StyledDiv>  
