@@ -34,6 +34,7 @@ export const useStyles = makeStyles({
     width: "159px",
     height: "59px",
     marginBottom: "24px",
+    padding: "0 10px",
 
     background: "#FFFFFF",
     /* #020202 Entry field stroke */
@@ -77,6 +78,7 @@ export const useStyles = makeStyles({
     width: "344px",
     height: "126px",
     marginBottom: "24px",
+    padding: "0 10px",
 
     background: "#FFFFFF",
     /* #020202 Entry field stroke */
@@ -162,7 +164,6 @@ export const useStyles = makeStyles({
     height: "59px",
 
     /* #4455EE Primary */
-  
 
     background: "#4455EE",
     borderRadius: "10px",
@@ -171,13 +172,10 @@ export const useStyles = makeStyles({
     fontFamily: "Roboto",
     fontStyle: "normal",
     textTransform: "none",
-    "&:hover":{
-        background:"#3E32CC"
+    "&:hover": {
+      background: "#3E32CC"
     }
-
   },
-
- 
 
   storeSelect: {
     width: "160px",
