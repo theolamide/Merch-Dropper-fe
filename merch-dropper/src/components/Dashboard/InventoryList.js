@@ -12,19 +12,17 @@ function InventoryList({ history }) {
   useEffect(() => {
     async function getInventory() {
       const { email } = JSON.parse(localStorage.getItem("profile"));
-      // const email = "jthanson238@gmail.com";
-      // let email;
 
-      const resUser = await axios.get(
+      const resUser = await axiosWithAuth.get(
         `https://merchdropper-production.herokuapp.com/api/users/email/${email}`
       );
       const userID = resUser.data.id;
-      const resStore = await axios.get(
+      const resStore = await axiosWithAuth.get(
         `https://merchdropper-production.herokuapp.com/api/stores/user/${userID}`
       );
       setStores(resStore.data);
       const storeID = resStore.data.id;
-      const resProducts = await axios.get(
+      const resProducts = await axiosWithAuth.get(
         `https://merchdropper-production.herokuapp.com/api/products/store/${storeID}`
       );
       setProducts(resProducts.data);

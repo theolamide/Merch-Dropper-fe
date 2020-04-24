@@ -33,6 +33,8 @@ const container = {
 
 const headerStyle = {
   display: "flex",
+  width: "100vh",
+  maxWidth: "1440px",
   justifyContent: "space-between",
   alignItems: "center",
   marginBottom: "34px"
