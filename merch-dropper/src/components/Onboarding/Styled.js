@@ -194,7 +194,7 @@ export const CreateStoreButton = styled.button`
   height: 59px;
   left: calc(50% - 344px / 2);
   top: 372px;
-  background: #c4c4c4;
+  background: #4455EE;
   border-radius: 10px;
   font-size: 18px;
   font-weight: bold;
@@ -206,7 +206,7 @@ export const SkipCreateStoreButton = styled.button`
   height: 59px;
   left: 103px;
   top: 449px;
-  border: 3px solid #c4c4c4;
+  border: 3px solid #4455EE;
   box-sizing: border-box;
   border-radius: 10px;
   font-size: 18px;
@@ -247,7 +247,7 @@ export const StripeButton = styled.button`
   height: 59px;
   left: 103px;
   top: 252px;
-  background: #c4c4c4;
+  background: #4455EE;
   border-radius: 10px;
   font-family: Roboto;
   font-style: normal;
@@ -262,7 +262,7 @@ export const StripeSkipButton = styled.button`
   height: 59px;
   left: 103px;
   top: 329px;
-  border: 3px solid #c4c4c4;
+  border: 3px solid #4455EE;
   box-sizing: border-box;
   border-radius: 10px;
   background: white;
@@ -306,7 +306,7 @@ export const CreateStore = styled.button`
     left: 103px;
     top: 329px;
 
-    background: #C4C4C4;
+    background: #4455EE;
     border-radius: 10px;
 
 `;
