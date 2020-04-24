@@ -17,7 +17,8 @@ const Settings = () => {
         async function getInfo() {
       
             let profile = JSON.parse(localStorage.getItem("profile"));
-            //let email = 'jthanson238@gmail.com'; //for Testing on local seeded db
+            // let profile = {
+                // email: 'jthanson238@gmail.com'}; //for Testing on local seeded db
             console.log(profile.email)
 
             
