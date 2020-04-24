@@ -58,7 +58,7 @@ export default function AddProductToTable(props) {
     }, 800);
   };
   console.log(props.garment);
-  const shirtColor = props.garment.color;
+  // const shirtColor = props.garment.color;
   const shirtImage = props.garment.mockUrl;
 
   console.log(product);
