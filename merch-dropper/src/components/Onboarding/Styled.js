@@ -198,6 +198,7 @@ export const CreateStoreButton = styled.button`
   border-radius: 10px;
   font-size: 18px;
   font-weight: bold;
+  color: #FFFFFF;
 `;
 
 export const SkipCreateStoreButton = styled.button`
