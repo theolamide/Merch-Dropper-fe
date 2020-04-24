@@ -210,6 +210,7 @@ export const SkipCreateStoreButton = styled.button`
   box-sizing: border-box;
   border-radius: 10px;
   font-size: 18px;
+  
 `;
 
 export const StepContainer = styled.div`
@@ -248,6 +249,7 @@ export const StripeButton = styled.button`
   left: 103px;
   top: 252px;
   background: #4455EE;
+  color: #FFFFFF;
   border-radius: 10px;
   font-family: Roboto;
   font-style: normal;
@@ -305,7 +307,7 @@ export const CreateStore = styled.button`
     height: 59px;
     left: 103px;
     top: 329px;
-
+    color: #FFFFFF;
     background: #4455EE;
     border-radius: 10px;
 
