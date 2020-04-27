@@ -6,8 +6,13 @@ import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 import addProduct from "./AddProduct";
 import { useStyles } from "../Component-Styles/addProduct-styles.js";
+import { Dimmer, Loader, Image, Segment } from "semantic-ui-react";
+import "semantic-ui-css/semantic.min.css";
+import ReactDOM from "react-dom";
+import Modal from "react-modal";
 
-export default function AddProductToTable(props) {
+Modal.setAppElement("#root");
+export default function AddProductToTable(props, history) {
   const classes = useStyles();
   const [stores, setStores] = useState("");
   const [product, setProduct] = useState({
@@ -16,6 +21,10 @@ export default function AddProductToTable(props) {
     description: "",
     storeID: 0
   });
+  const [modalIsOpen, setIsOpen] = useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
 
   //fetch stores on mount of logged in user
   // get currently logged in user data from localstorage
@@ -52,10 +61,11 @@ export default function AddProductToTable(props) {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    addProduct(props.garment, product);
-    setTimeout(() => {
-      props.history.push("/dashboard");
-    }, 800);
+    openModal();
+    addProduct(props.history, props.garment, product);
+    // setTimeout(() => {
+    //   props.history.push("/dashboard");
+    // }, 800);
   };
   console.log(props.garment);
   // const shirtColor = props.garment.color;
@@ -64,6 +74,17 @@ export default function AddProductToTable(props) {
   console.log(product);
   return (
     <div className={classes.addproductContainer}>
+      <Modal
+        className={classes.modal}
+        isOpen={modalIsOpen}
+        contentLabel="Modal"
+      >
+        <Segment className={classes.segment}>
+          <Dimmer active>
+            <Loader>Adding Product to Inventory</Loader>
+          </Dimmer>
+        </Segment>
+      </Modal>
       <div className={classes.imgContainer}>
         <img
           src={shirtImage}

@@ -202,5 +202,21 @@ export const useStyles = makeStyles({
     boxShadow: "0px 4px 50px rgba(0, 0, 0, 0.02)",
     borderRadius: "10px",
     transform: "matrix(1, 0, 0, -1, 0, 0)"
+  },
+  loaderContainer: { width: "800px", height: "800px" },
+  modal: {
+    marginTop: "30%",
+    height: "400px",
+    marginLeft: "50%",
+
+    //  top: "50%",
+    // left: "50%",
+    // right: "auto",
+    // bottom: "auto",
+    // marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
+  },
+  segment: {
+    height: "400px"
   }
 });
