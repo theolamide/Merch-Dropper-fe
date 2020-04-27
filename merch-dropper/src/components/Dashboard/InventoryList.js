@@ -11,8 +11,8 @@ function InventoryList({ history }) {
 
   useEffect(() => {
     async function getInventory() {
-      const { email } = JSON.parse(localStorage.getItem("profile"));
-      // let email = "jthanson238@gmail.com";
+      // const { email } = JSON.parse(localStorage.getItem("profile"));
+      let email;
 
       const resUser = await axios.get(
         `https://merchdropper-production.herokuapp.com/api/users/email/${email}`

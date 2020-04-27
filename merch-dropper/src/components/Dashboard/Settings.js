@@ -16,9 +16,9 @@ const Settings = () => {
     useEffect(() => {
         async function getInfo() {
       
-            let profile = JSON.parse(localStorage.getItem("profile"));
-            // let profile = {
-                // email: 'jthanson238@gmail.com'}; //for Testing on local seeded db
+            // let profile = JSON.parse(localStorage.getItem("profile"));
+            let profile = {
+                email: 'jthanson238@gmail.com'}; //for Testing on local seeded db
             console.log(profile.email)
 
             
