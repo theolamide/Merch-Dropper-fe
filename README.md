@@ -42,11 +42,13 @@ Deployed URL: https://www.merchdropper.store/
 
 ## Project Overview
 
-[Trello Board](https://trello.com/b/3J8Q4Zry/merch-dropper)
+Labs 20 [Trello Board](https://trello.com/b/3J8Q4Zry/merch-dropper)
+Labs 22 [Trello Board](https://trello.com/b/98SlA6dU/labs-22-merch-dropper)
 
 [Product Canvas](https://www.notion.so/Vision-Problem-Objectives-e21883c7bdb943a681ed3dd03e83624e)
 
-[UX Design files](https://www.figma.com/file/5lLWs0crM1wyPltJmAqj0n/Merch-Dropper?node-id=122%3A2)
+Labs 20 [UX Design files](https://www.figma.com/file/5lLWs0crM1wyPltJmAqj0n/Merch-Dropper?node-id=122%3A2)
+Labs 22 [UX Design files](https://www.figma.com/file/ODYgt18MsYssYoQrVm9vtf/Merch-Dropper-Alison-and-Trevor?node-id=628%3A563)
 
 Merch Dropper aims to solve, for creators and enterpreneurs, the hassle that comes with creating customized merchindize at a small scale. We aim to take the work away from you so you focus on what you do best, to create. We focus on recieveing the orders, shipping, payments collection, and all the nitty gritty for a fee. We are a plug and play one stop shop.
 
@@ -62,7 +64,6 @@ Merch Dropper aims to solve, for creators and enterpreneurs, the hassle that com
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
 ![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 🚫 more info on using badges [here](https://github.com/badges/shields) -->
