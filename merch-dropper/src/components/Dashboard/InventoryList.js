@@ -8,10 +8,10 @@ function InventoryList({ history }) {
   const [products, setProducts] = useState([]);
   const [stores, setStores] = useState([]);
 
-
   useEffect(() => {
     async function getInventory() {
       const { email } = JSON.parse(localStorage.getItem("profile"));
+      // let email = "jthanson238@gmail.com";
       // let email;
 
       const resUser = await axios.get(
@@ -34,7 +34,9 @@ function InventoryList({ history }) {
   return (
     <>
       {products.length === 0 && (
-        <p style={emptyInventoryStyle}>Add items to your store to see them here</p>
+        <p style={emptyInventoryStyle}>
+          Add items to your store to see them here
+        </p>
       )}
       {products.map((product) => (
         <InventoryCard

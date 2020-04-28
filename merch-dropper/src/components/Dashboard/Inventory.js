@@ -28,7 +28,7 @@ export default Inventory;
 
 const container = {
   margin: "0px auto",
-  maxWidth: "1440px"
+  maxWidth: "1120px"
 }
 
 const headerStyle = {

@@ -57,11 +57,13 @@ export default InventoryCard;
 
 
 const imgStyle = {
-  width: "352px",
+  // width: "352px",
+  width: "300px",
 };
 
 const cardContainer = {
-  width: "352px",
+  // width: "352px",
+  width: "300px",
   margin: "0px 16px 16px",
   textAlign: "center",
 };
