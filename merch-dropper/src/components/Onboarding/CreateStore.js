@@ -20,29 +20,26 @@ import {
 
 import axios from "axios";
 
-// All the material UI
+// This function is to provide the Material UI Stepper with the names of each step to display.
 function getSteps() {
   return ["Create account", "Connect Stripe", "Create store"];
 }
 
+// This is styling for the Material UI TextField element where users enter their desired store name that gets converted to their domain name. The width was determined by the UX figma designs.
 const useStyles = makeStyles((theme) => ({
   textField: {
     width: "38.2ch",
   },
 }));
 
-// This profile const is hardcoded for testing the store creation functionality. Remove for production.
-// const profile = {
-//   email: "email@test.com",
-// };
-
+// This component displays the Create Store form for the user to experiement with store names so they can see how it will be converted to their domain name. The back end stores the store name as it is entered by the user as well as the domain name it gets converted to. The intent of this decision was to save the store name for things like displaying it on the seller's dashboard as well as the storefront a potential customer would see upon visiting the seller's domain.
 function CreateStore({ history }) {
   const [storeName, setStoreName] = useState("");
   const [domain, setDomain] = useState("");
   const [activeStep, setActiveStep] = React.useState(2);
   const [isSubmit, setIsSubmit] = useState(false);
 
-  // This code is specific to the Material-UI components for displaying the progress bar (steps 1, 2, 3)
+  // This code is specific to the Material-UI components for displaying the progress bar (steps 1, 2, 3). This design should be made consistent across all onboarding forms. Each form was designed independently 
   const steps = getSteps();
   const classes = useStyles();
 
@@ -54,6 +51,7 @@ function CreateStore({ history }) {
     convertToDomain(e.target.value);
   };
 
+  // This function converts the user's input into their domain by removing any character that isn't A-Z, a-z, or 0-9. The filter could be modified to ma
   const convertToDomain = (string) => {
     let splitString = string.split(/[^A-Za-z0-9]/);
     let joinedString = splitString.join("");
@@ -61,9 +59,7 @@ function CreateStore({ history }) {
     setDomain(joinedString);
   };
 
-  // The code below must be adjusted for the correct end point once merged
   const profile = JSON.parse(localStorage.getItem("profile"));
-  // console.log(profile);
 
   // The callSignUp function sends a post request to the back end to create a new store associated with the logged in user
   // The store_name is the unedited input from the user to be displayed on their dashboard and buyer-facing storefront
@@ -127,10 +123,12 @@ function CreateStore({ history }) {
         </StoreTextDiv>
         <URLPreviewDiv>
           {domain.length < 14 ? (
+            // 14 was chosen based on testing different values and could be improved since different characters like l or 1, take up less space than characters like O or M (with the current font) - the font could be changed to one which all characters occupy the same space, and a better value than 14 could be found
             <p>merchdropper.store/{domain}</p>
           ) : (
             <>
               <p style={{ color: "grey" }}>merchdropper.store/</p>
+              {/* the base URL is greyed out when the text reaches long enough to be on two lines - this was a UX design decision to highlight the user's input */}
               <p>{domain}</p>
             </>
           )}

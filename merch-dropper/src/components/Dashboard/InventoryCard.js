@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 
+// The purpose of the InventoryCard component is to render each product in a user's inventory. The InventoryList component calls the InventoryCard components using a .map method as long as the inventory array length is greater than 0.
+
 const InventoryCard = (props) => {
   const [imgIsHovered, setImgIsHovered] = useState(false);
+  // This const sets the state for the card based on whether or not the cursor is hovering over one of the cards.
+  // The intent was to give a clean way of showing / unhiding a delete/edit button. A cleaner implementation would be preferred, as we just needed to implement delete functionality and didn't have time to implement the edit/delete flow UX initially designed for us.
 
-  console.log("This is imgIsHovered: ", imgIsHovered);
-
+  // deleteItem is an event handler that makes an axios.delete request to the back end when a user clicks on the Delete button. This should be an axiosWithAuth request, but we ran into issues implementing axiosWithAuth in the Inventory components where the inventory would only load with plain axios calls.
   const deleteItem = (e) => {
     e.preventDefault();
-    console.log("This is props: ", props);
     axios
       .delete(
         `https://merchdropper-production.herokuapp.com/api/products/${props.shirtID}`
@@ -20,6 +22,7 @@ const InventoryCard = (props) => {
       .catch((err) => console.log("This is err in deleteItem: ", err));
   };
 
+  // This component returns a card with an image of the shirt/model and a "Delete listing" button that only appears when the cursor hovers over the image or the space below the image where the Delete button resides.
   return (
     <div style={cardContainer}>
       <img
@@ -55,7 +58,7 @@ const InventoryCard = (props) => {
 
 export default InventoryCard;
 
-
+// All styling for this component is below the export line.
 const imgStyle = {
   // width: "352px",
   width: "300px",

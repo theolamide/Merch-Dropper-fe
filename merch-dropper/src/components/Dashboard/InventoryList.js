@@ -4,15 +4,21 @@ import InventoryCard from "./InventoryCard";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import axios from "axios";
 
+// The purpose of the InventoryList component is to create a list of products that exist in the user's inventory. 
+
 function InventoryList({ history }) {
   const [products, setProducts] = useState([]);
   const [stores, setStores] = useState([]);
 
+  // This useEffect performs a series of axios.get requests to retrieve the user's inventory from the back end anytime the dashboard component is loaded. 
+  // First, the user's email is retrieved from localStorage and set to "email". 
+  // Second, a GET request is made to retrieve the user object from the backend using the user's email in order to obtain the userID. 
+  // The userID is then used in the next GET request to obtain the user's store object so the final GET request can be made to retrieve the inventory of the desired store.
+  // This multi-step process was necessary because we don't keep userID in localStorage, and the store table in the back end is not connected to a user's email.
+  // This should be a series of axiosWithAuth requests, but we ran into issues implementing axiosWithAuth in the Inventory components where the inventory would only load with plain axios calls.  
   useEffect(() => {
     async function getInventory() {
       const { email } = JSON.parse(localStorage.getItem("profile"));
-      // let email = "jthanson238@gmail.com";
-      // let email;
 
       const resUser = await axios.get(
         `https://merchdropper-production.herokuapp.com/api/users/email/${email}`
@@ -51,6 +57,7 @@ function InventoryList({ history }) {
 
 export default InventoryList;
 
+// This styling is to create a big empty div to display the text "Add items to your store to see them here"
 const emptyInventoryStyle = {
   margin: "250px auto",
   fontSize: "24px",

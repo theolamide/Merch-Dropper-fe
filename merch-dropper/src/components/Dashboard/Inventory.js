@@ -1,9 +1,10 @@
 import React from "react";
 import InventoryList from "./InventoryList";
 
-// This is the highest level component for the inventory display on the dashboard.
-// The inventory displays all saved products from the user
+// Inventory is the highest level component for the inventory display on the dashboard, with InventoryList being rendered below the header. The header of the Inventory component contains the text "Inventory" and the "Add new item" button, which links to the /designshirt component. 
 function Inventory({ history }) {
+
+  // This is an onClick handler that pushes the user to the /designshirt component
   const addNewItem = (e) => {
     e.preventDefault();
     history.push("/designshirt");
@@ -26,6 +27,7 @@ function Inventory({ history }) {
 
 export default Inventory;
 
+// This is the styling for the Inventory component
 const container = {
   margin: "0px auto",
   maxWidth: "1120px"
