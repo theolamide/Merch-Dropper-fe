@@ -149,3 +149,18 @@ export const searchStoreName = (storeName) => dispatch => {
         })
 };
 
+export const GET_QUOTE_START = "GET_QUOTE_START";
+export const GET_QUOTE_SUCCESS = "GET_QUOTE_SUCCESS";
+export const GET_QUOTE_FAILURE = "GET_QUOTE_FAILURE";
+
+export const getQuote = (quote) => dispatch => {
+    dispatch({type: GET_QUOTE_START})
+    axiosWithAuth()
+        .post('/api/quotes', quote)
+        .then(res => {
+            dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
+        })
+        .catch(err => {
+            dispatch({type: GET_QUOTE_FAILURE, payload: err})                
+})
+}
