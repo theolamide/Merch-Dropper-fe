@@ -21,6 +21,8 @@ const NavBar = ({ hidden, history, location, match }) => {
 
   const [state, setState] = useState({ sideDrawerOpen: false });
 
+  const store_name = localStorage.getItem("store_name")
+
   const logoutWithRedirect = () => {
     localStorage.removeItem("profile");
     localStorage.removeItem("token");
@@ -157,7 +159,7 @@ const NavBar = ({ hidden, history, location, match }) => {
             </>
           ) : (
             <>
-              <Link to={`#`} className="links" style={{ display: "none" }}>
+              <Link to={`${store_name}`} className="links">
                 View Store
               </Link>
               <Link
