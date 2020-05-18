@@ -16,6 +16,10 @@ const DesignInputPanel = ({
   handleScalableMockup,
   addProduct
 }) => {
+
+  const getQuote = e => {
+    e.pre
+  }
   return (
     <Panel>
       <DesignHandler
