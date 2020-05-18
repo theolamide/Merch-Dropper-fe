@@ -36,15 +36,15 @@ const NavBar = ({ hidden, history, location, match }) => {
 
   const customLogin = () => {
     loginWithRedirect({
-      // redirect_uri: "http://localhost:3000/redirect",
-      redirect_uri: "https://www.merchdropper.store/redirect",
+      redirect_uri: "http://localhost:3000/redirect",
+      // redirect_uri: "https://www.merchdropper.store/redirect",
     });
   };
 
   const customSignup = () => {
     loginWithRedirect({
-      // redirect_uri: "http://localhost:3000/redirect",
-      redirect_uri: "https://www.merchdropper.store/redirect",
+      redirect_uri: "http://localhost:3000/redirect",
+      // redirect_uri: "https://www.merchdropper.store/redirect",
       signup: true,
     });
   };
@@ -104,12 +104,13 @@ const NavBar = ({ hidden, history, location, match }) => {
         </div>
 
         <div className="CartAndHamWrapper">
-          {/* <CartIcon /> */}
+          <CartIcon />
 
           <button className="Hamburger" onClick={drawerToggleClickHandler}>
             <div className="HamburgerLines"></div>
             <div className="HamburgerLines"></div>
             <div className="HamburgerLines"></div>
+            CLICK ME
           </button>
         </div>
 
@@ -154,7 +155,7 @@ const NavBar = ({ hidden, history, location, match }) => {
             </>
           ) : (
             <>
-              <Link to="#" className="links" style={{ display: "none" }}>
+              <Link to="#" className="links" >
                 View Store
               </Link>
               <Link
