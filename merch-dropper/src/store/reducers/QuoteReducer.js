@@ -1,6 +1,6 @@
-import {GET_QUOTE_FAILURE, GET_QUOTE_STARTED, GET_QUOTE_SUCCESS} from "../actions/index.js"
+import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS} from "../actions/index.js"
 
-const initialQuoteState = {
+ const initialQuoteState = {
     userID: null,
     storeID: null,
     total: 0.00,
@@ -15,9 +15,9 @@ const initialQuoteState = {
     error: ''
 }
 
-export const QuoteReducer = (state = initialState, action) => {
+const QuoteReducer = (state = initialQuoteState, action) => {
     switch(action.type){
-        case GET_QUOTE_STARTED:
+        case GET_QUOTE_START:
             return{
                 ...state,
                 isFetching: true
@@ -36,3 +36,5 @@ export const QuoteReducer = (state = initialState, action) => {
         }
     }
 }
+
+export default QuoteReducer;

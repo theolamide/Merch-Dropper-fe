@@ -7,6 +7,7 @@ import LoginReducer from './LoginReducers';
 import CartReducer from './CartReducer';
 import ProductReducer from './ProductReducers';
 import SearchReducer from './SearchReducers';
+import QuoteReducer from "./QuoteReducer"
 
 
 const persistConfig = {
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
     LoginReducer,
     CartReducer,
     ProductReducer,
-    SearchReducer
+    SearchReducer,
+    QuoteReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
