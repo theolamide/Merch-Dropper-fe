@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { StyledDiv, BigContainer } from "./Styled";
 
 import Inventory from "./Inventory";
@@ -10,23 +11,29 @@ import Inventory from "./Inventory";
 
 import Settings from "./Settings";
 
-
-
 const Dashboard = ({ products, addToCart, match, location, history }) => {
   const [user, setUser] = useState();
   // const [shirts, setShirts] = useState([]);
   console.log({ match, location });
+  const userID = localStorage.getItem("id")
 
-
+  useEffect(() => {
+    axiosWithAuth()
+    .get(`/api/stores/user/${userID}`)
+    .then((res) => {
+      localStorage.setItem("store_name", res.data.store_name);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, [])
 
   return (
     <BigContainer className="dashboard-container">
-
       <Inventory history={history} />
       <StyledDiv className="dashboard-components">
         <Settings />
-      </StyledDiv>  
-
+      </StyledDiv>
     </BigContainer>
   );
 };

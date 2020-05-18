@@ -129,12 +129,13 @@ const NavBar = ({ hidden, history, location, match }) => {
             <>
               {localStorage.getItem("profile") ? (
                 <>
-                  <Link to="#" className="links" style={{ display: "none" }}>
+                  <Link to={`#`} className="links" style={{ display: "none" }}>
                     View Store
                   </Link>
                   <Link to="/dashboard" className="links">
                     Dashboard
                   </Link>
+                  
                   <span
                     className="links"
                     onClick={logoutWithRedirect}
@@ -156,7 +157,7 @@ const NavBar = ({ hidden, history, location, match }) => {
             </>
           ) : (
             <>
-              <Link to="#" className="links" style={{ display: "none" }}>
+              <Link to={`#`} className="links" style={{ display: "none" }}>
                 View Store
               </Link>
               <Link

@@ -19,7 +19,7 @@ const Settings = () => {
             let profile = JSON.parse(localStorage.getItem("profile"));
             // let profile = {
                 // email: 'jthanson238@gmail.com'}; //for Testing on local seeded db
-            console.log(profile.email)
+            
 
             
             axiosWithAuth()
