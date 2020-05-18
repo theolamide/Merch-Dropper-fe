@@ -4,6 +4,7 @@ import styled from "styled-components";
 import DesignHandler from "./DesignHandler";
 import ThumbDisplay from "./ThumbDisplay";
 import Swatch from "./Swatch";
+import {axiosWithAuth} from "../../utils/axiosWithAuth.js"
 import { Link } from "react-router-dom";
 
 const DesignInputPanel = ({
@@ -17,8 +18,11 @@ const DesignInputPanel = ({
   addProduct
 }) => {
 
-  const getQuote = e => {
-    e.pre
+  const getQuote = (e, data) => {
+    e.preventDefault();
+    axiosWithAuth()
+    .post('/api/quotes/', data)
+
   }
   return (
     <Panel>
