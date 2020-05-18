@@ -17,13 +17,6 @@ const DesignInputPanel = ({
   handleScalableMockup,
   addProduct
 }) => {
-
-  const getQuote = (e, data) => {
-    e.preventDefault();
-    axiosWithAuth()
-    .post('/api/quotes/', data)
-
-  }
   return (
     <Panel>
       <DesignHandler
