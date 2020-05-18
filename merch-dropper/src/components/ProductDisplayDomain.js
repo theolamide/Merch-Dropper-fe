@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NavBar from "./NavBar";
-import StoreNavBar from "./StoreNavBar";
 import ProductCard from "./ProductCard";
 import { connect } from "react-redux";
 import { addToCart } from "../store/actions";
@@ -36,7 +35,6 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
 
   return (
     <Container fluid="true" className="container-margin">
-      <StoreNavBar />
       <Row>
         <Col sm="7" className="flex ">
           {shirts.map((product, id) => (
