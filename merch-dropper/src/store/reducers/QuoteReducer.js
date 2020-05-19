@@ -1,8 +1,8 @@
-import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS} from "../actions"
+import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, GET_STORE_ID} from "../actions"
 
 const initialQuoteState =  {
     quote:{
-        userID: null,
+        userID: localStorage.getItem('id'),
         storeID: null,
         total: 0.00,
         subtotal: 0.00,
@@ -17,13 +17,18 @@ const initialQuoteState =  {
     }
 }
 
-export const QuoteReducer = (state = initialQuoteState, action) => {
+const QuoteReducer = (state = initialQuoteState, action) => {
     switch(action.type){
         case GET_QUOTE_START:
             return{
                 ...state,
                 isFetching: true
             };
+        case GET_STORE_ID:
+            return {
+                ...state,
+                storeId: action.payload.storeID
+            }
         case GET_QUOTE_SUCCESS:
             return{
                 ...state,
@@ -40,4 +45,4 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
             return state;
     }
 }
-
+export default QuoteReducer;

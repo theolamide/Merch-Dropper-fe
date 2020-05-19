@@ -5,6 +5,8 @@ import DesignHandler from "./DesignHandler";
 import ThumbDisplay from "./ThumbDisplay";
 import Swatch from "./Swatch";
 import { Link } from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {getQuote} from "../../store/actions"
 
 const DesignInputPanel = ({
   design,
@@ -16,6 +18,11 @@ const DesignInputPanel = ({
   handleScalableMockup,
   addProduct
 }) => {
+  
+  const sendQuote = (e, garmet) => {
+    e.preventDefault();
+    dispatchEvent(getQuote(garmet))
+  }
   return (
     <Panel>
       <DesignHandler
@@ -38,7 +45,7 @@ const DesignInputPanel = ({
         >
           Preview Design
         </button>
-        <Link to="/addproduct" className="designBtn btn btn-primary">
+        <Link to="/addproduct" className="designBtn btn btn-primary" onClick={() => sendQuote(garmet)}>
           Save & Continue
         </Link>
       </ButtonContainer>

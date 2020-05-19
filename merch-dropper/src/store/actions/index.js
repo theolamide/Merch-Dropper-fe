@@ -154,13 +154,20 @@ export const GET_QUOTE_SUCCESS = "GET_QUOTE_SUCCESS";
 export const GET_QUOTE_FAILURE = "GET_QUOTE_FAILURE";
 
 export const getQuote = (quote) => dispatch => {
+    const userId = localStorage.getItem('id')
     dispatch({type: GET_QUOTE_START})
     axiosWithAuth()
-        .post('/api/quotes', quote)
+        .get(`/api/stores/user/${id}`)
         .then(res => {
-            dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
-        })
-        .catch(err => {
-            dispatch({type: GET_QUOTE_FAILURE, payload: err})                
+            dispatch({type: GET_STORE_ID, payload: res.data})
+            axiosWithAuth()
+                .post('/api/quotes', quote)
+                .then(res => {
+                    dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
+                })
+                .catch(err => {
+                    dispatch({type: GET_QUOTE_FAILURE, payload: err})                
 })
+        })
+        
 }
