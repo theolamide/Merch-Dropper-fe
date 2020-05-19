@@ -6,7 +6,7 @@ import axios from "axios";
 import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
 
 const StripeCheckoutButton = ({ price, history }) => {
-  // const devPriceStripe = 1 * 100;  // for testing
+  const devPriceStripe = 1 * 100;  // for testing
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_BMXGPoL1peDqHyy42iFEoAMg00l0M6PNex";
   //const publishableKey = 'pk_live_3zwsNFDgIC2nJd4h7F9Y5K8s00exa06IRd'; //Uncomment this line for when stripe is collecting Live payments. Make sure to also change the environment variable on the Backend to the Live key.
