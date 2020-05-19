@@ -158,7 +158,7 @@ export const getQuote = (quote) => dispatch => {
     const userId = localStorage.getItem('id')
     dispatch({type: GET_QUOTE_START})
     axiosWithAuth()
-        .get(`/api/stores/user/${id}`)
+        .get(`/api/stores/user/${userId}`)
         .then(res => {
             dispatch({type: GET_STORE_ID, payload: res.data})
             axiosWithAuth()
