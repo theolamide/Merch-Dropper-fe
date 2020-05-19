@@ -6,7 +6,7 @@ import ThumbDisplay from "./ThumbDisplay";
 import Swatch from "./Swatch";
 import {axiosWithAuth} from "../../utils/axiosWithAuth.js"
 import { Link } from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getQuote} from "../../store/actions"
 
 const DesignInputPanel = ({
@@ -19,8 +19,28 @@ const DesignInputPanel = ({
   handleScalableMockup,
   addProduct
 }) => {
+
+  const dispatch = useDispatch();
+  const quote = useSelector(state => state.QuoteReducer.quote)
+  const sendQuote = info => {
+    console.log("we made it")
+    dispatch(getQuote(info))
+  }
+
+  const data ={
+    quoteInfo: {
+      userId: localStorage.getItem('id'),
+      storeId: quote.storeId
+    },
+    spInfo:
+      garment
+    
+  }
+
   
- 
+  console.log(quote,data, "quote")
+
+  
   return (
     <Panel>
       <DesignHandler
@@ -43,6 +63,7 @@ const DesignInputPanel = ({
         >
           Preview Design
         </button>
+        <button onClick={() => sendQuote(data)}>Quote</button>
         <Link to="/addproduct" className="designBtn btn btn-primary" >
           Save & Continue
         </Link>

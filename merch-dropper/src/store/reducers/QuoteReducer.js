@@ -2,8 +2,8 @@ import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, GET_STORE_ID} fro
 
 const initialQuoteState =  {
     quote:{
-        userID: localStorage.getItem('id'),
-        storeID: null,
+        userId: localStorage.getItem('id'),
+        storeId: null,
         total: 0.00,
         subtotal: 0.00,
         tax: 0.00,
@@ -27,7 +27,7 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
         case GET_STORE_ID:
             return {
                 ...state,
-                storeId: action.payload.storeID
+                storeId: action.payload.id
             }
         case GET_QUOTE_SUCCESS:
             return{
