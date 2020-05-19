@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import { StyledDiv, BigContainer } from "./Styled";
 
 import Inventory from "./Inventory";
@@ -17,7 +18,7 @@ const Dashboard = ({ products, addToCart, match, location, history }) => {
   // const [shirts, setShirts] = useState([]);
   console.log({ match, location });
 
-
+//call database to get user id/store here
 
   return (
     <BigContainer className="dashboard-container">
