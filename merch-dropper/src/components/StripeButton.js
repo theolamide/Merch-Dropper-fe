@@ -38,8 +38,8 @@ const StripeCheckoutButton = ({ price, history }) => {
     <StripeCheckout
       label="Pay Now"
       name="MerchDropper"
-      billingAddress
-      shippingAddress
+      billingAddress={true}
+      shippingAddress={true}
       image={`${MerchDropperLogo}`}
       description={`Your total is $${price}`}
       amount={priceForStripe}
