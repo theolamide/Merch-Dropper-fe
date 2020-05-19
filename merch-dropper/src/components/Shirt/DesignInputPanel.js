@@ -19,10 +19,7 @@ const DesignInputPanel = ({
   addProduct
 }) => {
   
-  const sendQuote = (e, garmet) => {
-    e.preventDefault();
-    dispatchEvent(getQuote(garmet))
-  }
+ 
   return (
     <Panel>
       <DesignHandler
@@ -45,7 +42,7 @@ const DesignInputPanel = ({
         >
           Preview Design
         </button>
-        <Link to="/addproduct" className="designBtn btn btn-primary" onClick={() => sendQuote(garmet)}>
+        <Link to="/addproduct" className="designBtn btn btn-primary" >
           Save & Continue
         </Link>
       </ButtonContainer>
