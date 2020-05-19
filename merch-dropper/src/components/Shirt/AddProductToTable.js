@@ -109,6 +109,7 @@ export default function AddProductToTable(props, history) {
               }
             }}
           />{" "}
+          
           <TextField
             className={classes.price}
             label="$"
@@ -124,6 +125,7 @@ export default function AddProductToTable(props, history) {
               }
             }}
           />{" "}
+          
           <TextField
             className={classes.desc}
             label="Add Product Description"
