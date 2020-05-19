@@ -6,6 +6,8 @@ import ThumbDisplay from "./ThumbDisplay";
 import Swatch from "./Swatch";
 import {axiosWithAuth} from "../../utils/axiosWithAuth.js"
 import { Link } from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {getQuote} from "../../store/actions"
 
 const DesignInputPanel = ({
   design,
@@ -17,6 +19,8 @@ const DesignInputPanel = ({
   handleScalableMockup,
   addProduct
 }) => {
+  
+ 
   return (
     <Panel>
       <DesignHandler
@@ -39,7 +43,7 @@ const DesignInputPanel = ({
         >
           Preview Design
         </button>
-        <Link to="/addproduct" className="designBtn btn btn-primary">
+        <Link to="/addproduct" className="designBtn btn btn-primary" >
           Save & Continue
         </Link>
       </ButtonContainer>
