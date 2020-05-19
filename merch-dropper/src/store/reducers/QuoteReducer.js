@@ -17,7 +17,7 @@ const initialQuoteState =  {
     }
 }
 
-const QuoteReducer = (state = initialQuoteState, action) => {
+export const QuoteReducer = (state = initialQuoteState, action) => {
     switch(action.type){
         case GET_QUOTE_START:
             return{

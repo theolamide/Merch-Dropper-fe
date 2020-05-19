@@ -152,6 +152,7 @@ export const searchStoreName = (storeName) => dispatch => {
 export const GET_QUOTE_START = "GET_QUOTE_START";
 export const GET_QUOTE_SUCCESS = "GET_QUOTE_SUCCESS";
 export const GET_QUOTE_FAILURE = "GET_QUOTE_FAILURE";
+export const GET_STORE_ID = "GET_STORE_ID";
 
 export const getQuote = (quote) => dispatch => {
     const userId = localStorage.getItem('id')

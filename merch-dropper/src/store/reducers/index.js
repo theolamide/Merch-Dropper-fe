@@ -7,7 +7,7 @@ import LoginReducer from './LoginReducers';
 import CartReducer from './CartReducer';
 import ProductReducer from './ProductReducers';
 import SearchReducer from './SearchReducers';
-import {QuoteReducer} from "./QuoteReducer"
+import QuoteReducer from "./QuoteReducer"
 
 
 const persistConfig = {
