@@ -21,7 +21,7 @@ const NavBar = ({ hidden, history, location, match }) => {
 
   const [state, setState] = useState({ sideDrawerOpen: false });
 
-  const store_name = localStorage.getItem("store_name")
+  const store_name = localStorage.getItem("store_name");
 
   const logoutWithRedirect = () => {
     localStorage.removeItem("profile");
@@ -38,11 +38,11 @@ const NavBar = ({ hidden, history, location, match }) => {
     url = "http://localhost:3000/redirect";
   } else {
     url = "https://www.merchdropper.store/redirect";
-  }  
+  }
 
   const customLogin = () => {
     loginWithRedirect({
-      redirect_uri: url
+      redirect_uri: url,
     });
   };
 
@@ -127,37 +127,7 @@ const NavBar = ({ hidden, history, location, match }) => {
         </div>
 
         <nav className="ButtonWrapper">
-          {pathname === "/" ? (
-            <>
-              {localStorage.getItem("profile") ? (
-                <>
-                  <Link to={`#`} className="links" style={{ display: "none" }}>
-                    View Store
-                  </Link>
-                  <Link to="/dashboard" className="links">
-                    Dashboard
-                  </Link>
-                  
-                  <span
-                    className="links"
-                    onClick={logoutWithRedirect}
-                    style={{ marginLeft: "32px" }}
-                  >
-                    Logout
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span className="links" onClick={customLogin}>
-                    Sign in
-                  </span>
-                  <button className="links cta" onClick={customSignup}>
-                    Get Started
-                  </button>
-                </>
-              )}
-            </>
-          ) : (
+          {!!localStorage.getItem("profile") ? (
             <>
               <Link to={`${store_name}`} className="links">
                 View Store
@@ -180,6 +150,15 @@ const NavBar = ({ hidden, history, location, match }) => {
               >
                 Logout
               </span>
+            </>
+          ) : (
+            <>
+              <span className="links" onClick={customLogin}>
+                Sign in
+              </span>
+              <button className="links cta" onClick={customSignup}>
+                Get Started
+              </button>
             </>
           )}
         </nav>
