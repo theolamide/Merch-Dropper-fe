@@ -5,7 +5,9 @@ import axios from "axios";
 
 import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
 
-const StripeCheckoutButton = ({ price, history }) => {
+const StripeCheckoutButton = ({ price, items, history }) => {
+  console.log('the stores id', items[0].storeID)
+  const { storeID } = items[0]
   const devPriceStripe = 1 * 100;  // for testing
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_BMXGPoL1peDqHyy42iFEoAMg00l0M6PNex";
