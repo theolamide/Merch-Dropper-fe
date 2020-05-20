@@ -1,9 +1,36 @@
 import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, GET_STORE_ID} from "../actions"
 
 const initialQuoteState =  {
-    quote:{
-        userId: localStorage.getItem('id'),
-        storeId: null,
+    sendQuote:{
+        quoteInfo: { 
+            storeID: null,
+            userID: parseInt(localStorage.getItem('id'))
+         },
+        spInfo: {
+            type: dtg,
+            designId: null,
+            products: [
+                {	
+                id: null,
+                color: "",
+                quantity: null,
+                size: ""
+                }
+            ],
+            address:  {
+                name: "",
+                address1: "",
+                city: "",
+                state: "",
+                zip: "",
+                country: ""
+            }
+        }
+    },
+
+       quote:{ 
+        userID: parseInt(localStorage.getItem('id')),
+        storeID: null,
         total: 0.00,
         subtotal: 0.00,
         tax: 0.00,
@@ -24,11 +51,6 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
                 ...state,
                 isFetching: true
             };
-        case GET_STORE_ID:
-            return {
-                ...state,
-                storeId: action.payload.id
-            }
         case GET_QUOTE_SUCCESS:
             return{
                 ...state,
