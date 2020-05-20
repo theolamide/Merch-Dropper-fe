@@ -5,6 +5,8 @@ import DesignHandler from "./DesignHandler";
 import ThumbDisplay from "./ThumbDisplay";
 import Swatch from "./Swatch";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import sca
 
 
 
@@ -19,6 +21,15 @@ const DesignInputPanel = ({
   addProduct
 }) => {
 
+    const getPrice = (productId) => {
+      axios.get('/api/products/price', productId)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }
   return (
     <Panel>
       <DesignHandler
