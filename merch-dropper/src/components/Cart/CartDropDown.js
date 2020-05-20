@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 import { Button } from 'reactstrap';
 
-import { toggleCartHidden } from '../../store/actions';
+import { toggleCart } from '../../store/actions';
 
 
 
@@ -101,7 +101,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
         </CartItemsDiv>
         <CustomButton onClick={() => {
             history.push('/checkout');
-            dispatch(toggleCartHidden());
+            dispatch(toggleCart());
         }} >
             GO TO CHECKOUT
         </CustomButton>
