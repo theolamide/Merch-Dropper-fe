@@ -7,7 +7,7 @@ const initialQuoteState =  {
             userID: parseInt(localStorage.getItem('id'))
          },
         spInfo: {
-            type: dtg,
+            type: "dtg",
             designId: null,
             products: [
                 {	
