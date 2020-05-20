@@ -19,16 +19,17 @@ const StripeCheckoutButton = ({ price, history }) => {
   const onToken = token => {
     console.log(token);
     axios
-      .post("https://merchdropper-production.herokuapp.com/api/payments/", {
+      .post("https://localhost:5032/api/payments/create-payment-intent", {
+        //https://merchdropper-production.herokuapp.com/api/payments/
         amount: priceForStripe,
         token,
-        config
+        config,
       })
-      .then(function() {
+      .then(function () {
         alert("payment successful");
         history.push("/products");
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("payment error", error);
         alert("There was an issue with your payment.");
       });

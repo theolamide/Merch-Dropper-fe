@@ -106,9 +106,8 @@ const NavBar = ({ hidden, history, location, match }) => {
 
           <h2 className="BrandTitle">Merch Dropper</h2>
         </div>
-
         <div className="CartAndHamWrapper">
-          {/* <CartIcon /> */}
+          <CartIcon />
 
           <button className="Hamburger" onClick={drawerToggleClickHandler}>
             <div className="HamburgerLines"></div>
@@ -116,7 +115,6 @@ const NavBar = ({ hidden, history, location, match }) => {
             <div className="HamburgerLines"></div>
           </button>
         </div>
-
         {hidden ? null : <CartDropDown />}
       </div>
 
@@ -150,6 +148,7 @@ const NavBar = ({ hidden, history, location, match }) => {
               >
                 Logout
               </span>
+              <CartIcon />
             </>
           ) : (
             <>
