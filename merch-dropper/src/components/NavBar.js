@@ -131,7 +131,7 @@ const NavBar = ({ hidden, history, location, match }) => {
           {!!localStorage.getItem("profile") ? (
             <>
               <Link to={`${store_name}`} className="links">
-                View Store
+                Your Store
               </Link>
               <Link
                 to="/dashboard"
