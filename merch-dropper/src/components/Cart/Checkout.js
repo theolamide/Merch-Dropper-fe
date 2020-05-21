@@ -54,7 +54,8 @@ const CheckoutPage = ({ cartItems, total, addItem, removeItem, clearItem }) => (
         <Total className='total'>
             <span>Total: ${total}</span>
         </Total>
-        <StripeCheckoutButton price={total} />
+        {/* Drill the storeId into the checkout component for the Acct Number */}
+        <StripeCheckoutButton price={total} items={cartItems} />
     </CheckoutPageWrapper>
 );
 
