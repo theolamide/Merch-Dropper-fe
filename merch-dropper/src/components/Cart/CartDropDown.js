@@ -109,7 +109,7 @@ const CartDropdown = ({ cart, history, dispatch }) => {
         </CartItemsDiv>
         <CustomButton
           onClick={() => {
-            history.push(`/checkout`);
+            history.push(`${localStorage.getItem("domain_name")}/checkout`);
             dispatch(toggleCart());
           }}
         >
