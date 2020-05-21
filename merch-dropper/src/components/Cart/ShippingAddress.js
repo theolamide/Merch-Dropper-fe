@@ -3,11 +3,13 @@ import {useSelector, useDispatch} from "react-redux";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
 
 const ShippingAddress = () => {
-    const [address, setAddress] = useState(useSelector(state => state));
-    console.log(address)
+    const address = useSelector(state => state.QuoteReducer.sendQuote.spInfo.address);
+    console.log(address, "address")
 
     return(
-        null
+        <div>
+            Hi
+        </div>
     )
 
 

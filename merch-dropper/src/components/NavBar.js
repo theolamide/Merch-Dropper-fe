@@ -130,7 +130,7 @@ const NavBar = ({ hidden, history, location, match }) => {
         <nav className="ButtonWrapper">
           {!!localStorage.getItem("profile") ? (
             <>
-              <Link to={`${store_name}`} className="links">
+              <Link to={`/${store_name}`} className="links">
                 Your Store
               </Link>
               <Link

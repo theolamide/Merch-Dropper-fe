@@ -50,6 +50,7 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
         <Col sm="7" className="flex ">
           {shirts.map((product, id) => (
             <ProductCard
+              key={id}
               url={product.thumbnailURL}
               name={product.productName}
               design={product.design}
