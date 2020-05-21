@@ -67,11 +67,14 @@ export default function AddProductToTable(props, history) {
 
   //bring back value object into array to get price for the item
   let valueArray =[];
+  let baseCost;
   const garmentColor = props.garment.color.toLowerCase();
    for (let [key, value] of Object.entries(cost)) {
     let keyLower = key.toLowerCase()
-    if(keyLower === garmentColor){      
-      valueArray.push(value)    
+    if(keyLower === garmentColor){ 
+      console.log(keyLower, garmentColor, "compare")     
+      baseCost = ((value.sml.price/100) * 0.029) + (value.sml.price / 100)
+      console.log(baseCost, "value")    
     }    
   }
 
@@ -82,6 +85,15 @@ export default function AddProductToTable(props, history) {
       [event.target.name]: event.target.value
     });
   };
+
+  const calcPrice = (e, cost = baseCost) => {
+    if(product.price){
+      return product.price - cost
+    } else{
+      return 0;
+    }
+    
+  }
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -154,9 +166,9 @@ export default function AddProductToTable(props, history) {
 
            <TextField
             className={classes.price}
-            label="Price after fee"
+            label="Commission per Item"
             name="price"
-            value={product.price + .30}
+            value={calcPrice().toFixed(2)}
             onChange={handleChange}
             InputProps={{
               disableUnderline: true
