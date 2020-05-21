@@ -20,9 +20,9 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
 
   const onToken = token => {
     console.log('token at top', token); // should clear this or at least comment out post feature development
-    token.store_name = domain;
+    token.domain_name = domain;
     axios
-      .post("https://localhost:5032/api/payments/create-payment-intent", {
+      .post("http://localhost:5032/api/payments/create-payment-intent", {
         //https://merchdropper-production.herokuapp.com/api/payments/
         amount: priceForStripe,
         token,
@@ -35,8 +35,7 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
       })
       .catch(error => {
         console.log('token in error', token);
-        debugger
-        console.log("payment error", error.response);
+        console.dir("payment error", error);
         alert("There was an issue with your payment.");
       });
   };
