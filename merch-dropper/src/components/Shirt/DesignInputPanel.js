@@ -6,7 +6,7 @@ import ThumbDisplay from "./ThumbDisplay";
 import Swatch from "./Swatch";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import sca
+import scalableData from "./scalableData.js"
 
 
 
@@ -18,18 +18,9 @@ const DesignInputPanel = ({
   garment,
   setGarment,
   handleScalableMockup,
+  
   addProduct
 }) => {
-
-    const getPrice = (productId) => {
-      axios.get('/api/products/price', productId)
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    }
   return (
     <Panel>
       <DesignHandler
@@ -52,7 +43,7 @@ const DesignInputPanel = ({
         >
           Preview Design
         </button>
-        <button onClick={() => {}}>Quote</button>
+        
         <Link to="/addproduct" className="designBtn btn btn-primary" >
           Save & Continue
         </Link>

@@ -21,11 +21,13 @@ export default function AddProductToTable(props, history) {
     description: "",
     storeID: 0
   });
+  const [cost, setCost] = useState([])
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
     setIsOpen(true);
   }
-
+  
+  
   //fetch stores on mount of logged in user
   // get currently logged in user data from localstorage
   //GET userID from this endpoint /api/users/email
@@ -49,7 +51,29 @@ export default function AddProductToTable(props, history) {
       setStores(res2.data);
     }
     getStores();
+    //get price of product from scalablepress
+      const product = {
+        "productId": "canvas-unisex-t-shirt"
+      }
+      axios.post('http://localhost:5032/api/products/price', product)
+          .then(res => {
+             setCost(res.data)
+          })
+          .catch(err => {
+            console.log(err)
+          })
+    
   }, []);
+
+  //bring back value object into array to get price for the item
+  let valueArray =[];
+  const garmentColor = props.garment.color.toLowerCase();
+   for (let [key, value] of Object.entries(cost)) {
+    let keyLower = key.toLowerCase()
+    if(keyLower === garmentColor){      
+      valueArray.push(value)    
+    }    
+  }
 
   const handleChange = event => {
     setProduct({
@@ -68,6 +92,7 @@ export default function AddProductToTable(props, history) {
     // }, 800);
   };
   console.log(props.garment);
+  
   // const shirtColor = props.garment.color;
   const shirtImage = props.garment.mockUrl;
 
@@ -124,6 +149,7 @@ export default function AddProductToTable(props, history) {
               }
             }}
           />{" "}
+          {valueArray && valueArray.length > 0 ? `${valueArray[0].sml.price}` : null}
           <TextField
             className={classes.desc}
             label="Add Product Description"
