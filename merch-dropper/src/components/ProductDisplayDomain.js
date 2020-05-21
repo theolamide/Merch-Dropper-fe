@@ -19,6 +19,8 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
     axios
       .get(
         `https://merchdropper-production.herokuapp.com/api/stores/domain/${domain_name}`
+        // local dev server
+        // `http://localhost:5032/api/stores/domain/${domain_name}`
       )
       .then((res) => {
         storeID = res.data.id

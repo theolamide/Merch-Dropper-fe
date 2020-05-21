@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
-import axios from "axios"
+import axios from "axios";
+import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
@@ -36,6 +37,9 @@ const CheckoutPage = ({ cart, total, match, addItem, removeItem, clearItem }) =>
     
     
 
+// const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
+  // const { domain_name } = useParams();
+  console.log('checkout params', domain_name)
   return (
     <CheckoutPageWrapper className="checkout-page">
       <CheckoutHeader className="checkout-header">
@@ -90,7 +94,8 @@ const CheckoutPage = ({ cart, total, match, addItem, removeItem, clearItem }) =>
         <span>Total: ${total}</span>
       </Total>
       <Link to="/:domain-name/address">Next</Link>
-      <StripeCheckoutButton price={total} />
+      
+      <StripeCheckoutButton price={total} domain={domain_name} />
     </CheckoutPageWrapper>
   );
 };
