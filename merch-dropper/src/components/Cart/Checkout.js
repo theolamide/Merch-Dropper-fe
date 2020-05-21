@@ -43,11 +43,11 @@ const CheckoutPage = ({ cartItems, total, addItem, removeItem, clearItem }) => (
                         <Arrow className='arrow' onClick={() => removeItem(cartItem)} >&#10094;</Arrow>
                         <ValueDiv className='value'>{cartItem.quantity}</ValueDiv>
                         <Arrow className='arrow' onClick={() => addItem(cartItem)} >&#10095;</Arrow>
-                        {/* <div className='arrow' >&#10095;</div> */}
+                        
                     </QuantityWrapper>
                     <PriceWrapper className='price'>${cartItem.price}</PriceWrapper>
                     <RemoveButton className='remove-button' onClick={() => clearItem(cartItem)} >&#10005;</RemoveButton>
-                    {/* <div className='remove-button' >&#10005;</div> */}
+                    
                 </CheckoutItemWrapper>
             )
         }
