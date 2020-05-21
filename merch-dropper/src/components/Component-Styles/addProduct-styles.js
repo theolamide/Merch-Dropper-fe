@@ -218,5 +218,15 @@ export const useStyles = makeStyles({
   },
   segment: {
     height: "400px"
+  },
+  cost: {
+    display: "flex",
+    justifyContent: "space-between",
+    width: "344px"
+  },
+  profit:{
+    marginTop: 17,
+    marginRight: 10,
+    fontSize: "15px"
   }
 });

@@ -66,7 +66,6 @@ export default function AddProductToTable(props, history) {
   }, []);
 
   //bring back value object into array to get price for the item
-  let valueArray =[];
   let baseCost;
   const garmentColor = props.garment.color.toLowerCase();
    for (let [key, value] of Object.entries(cost)) {
@@ -92,7 +91,6 @@ export default function AddProductToTable(props, history) {
     } else{
       return 0;
     }
-    
   }
 
   const handleSubmit = async event => {
@@ -146,7 +144,7 @@ export default function AddProductToTable(props, history) {
               }
             }}
           />{" "}
-          
+          <div className={classes.cost}>
           <TextField
             className={classes.price}
             label="$"
@@ -162,9 +160,9 @@ export default function AddProductToTable(props, history) {
               }
             }}
           />{" "}
-          {valueArray && valueArray.length > 0 ? `${valueArray[0].sml.price}` : null}
-
-           <TextField
+         <span className={classes.profit}>Profit per item:<strong> ${`${calcPrice().toFixed(2)}`}</strong></span>
+          </div>
+           {/* <TextField
             className={classes.price}
             label="Commission per Item"
             name="price"
@@ -178,7 +176,7 @@ export default function AddProductToTable(props, history) {
                 root: classes.labelText
               }
             }}
-          />{" "}
+          />{" "} */}
 
           <TextField
             className={classes.desc}
