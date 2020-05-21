@@ -1,4 +1,4 @@
-import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, GET_STORE_ID} from "../actions"
+import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, ADD_ADDRESS_SUCCESS} from "../actions"
 
 const initialQuoteState =  {
     sendQuote:{
@@ -63,6 +63,11 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
                 isFetching: false,
                 error: action.payload
         };
+        case ADD_ADDRESS_SUCCESS:
+            return{
+                ...state,
+                address: action.payload
+            }
         default:
             return state;
     }
