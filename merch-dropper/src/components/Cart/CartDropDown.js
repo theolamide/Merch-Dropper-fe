@@ -86,13 +86,13 @@ const SingleCartItem = ({ item: { thumbnailURL, price, name, quantity } }) => (
     </CartItemDiv>
 )
 
-const CartDropdown = ({ cartItems, history, dispatch }) => (
+const CartDropdown = ({ cart, history, dispatch }) => (
     
     <CartDropdownDiv className='cart-dropdown'>
         <CartItemsDiv className='cart-items'>
             {
-                cartItems.length ?
-                    cartItems.map(cartItem => (
+                cart.length ?
+                    cart.map(cartItem => (
                         <SingleCartItem key={cartItem.id} item={cartItem} />
                     ))
                     :
@@ -113,7 +113,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
 const mapStateToProps = (state) => {
     console.log(state)
     return {
-        cartItems: state.CartReducer.cart
+        cart: state.CartReducer.cart
     }
 }
 
