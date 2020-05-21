@@ -127,6 +127,7 @@ describe("Navbar in '/' route", () => {
   });
 });
 
+
 describe("Navbar in '/' route - user is logged in", () => {
   const user = {
     email: "test@email.com",
