@@ -87,6 +87,7 @@ const SingleCartItem = ({ item: { thumbnailURL, price, name, quantity } }) => (
 )
 
 const CartDropdown = ({ cartItems, history, dispatch }) => (
+    
     <CartDropdownDiv className='cart-dropdown'>
         <CartItemsDiv className='cart-items'>
             {
@@ -100,7 +101,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
 
         </CartItemsDiv>
         <CustomButton onClick={() => {
-            history.push('/checkout');
+            history.push(`/checkout`);
             dispatch(toggleCart());
         }} >
             GO TO CHECKOUT
@@ -110,7 +111,7 @@ const CartDropdown = ({ cartItems, history, dispatch }) => (
 
 
 const mapStateToProps = (state) => {
-    // console.log(state)
+    console.log(state)
     return {
         cartItems: state.CartReducer.cart
     }
