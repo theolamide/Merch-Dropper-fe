@@ -16,7 +16,8 @@ describe('Navbar', () => {
             <Navbar>
                 <div className="MobileWrapper" />
             </Navbar>);
-             expect(mobileWrapper.toHaveStyleRule('display', 'none'));
+            expect(mobileWrapper).toBeTruthy();
+             expect(mobileWrapper).toHaveStyleRule('display', 'none');
     });
    
 })
