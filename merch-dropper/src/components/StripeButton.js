@@ -25,18 +25,12 @@ const StripeCheckoutButton = ({ price, items, history }) => {
   const onToken = token => {
     console.log('token at top', token); // should clear this or at least comment out post feature development
     axios
-<<<<<<< HEAD
-      // .post("https://merchdropper-production.herokuapp.com/api/payments/", {
-        .post("http://localhost:5032/api/payments/create-payment-intent/", {
-=======
       .post("https://localhost:5032/api/payments/create-payment-intent", {
         //https://merchdropper-production.herokuapp.com/api/payments/
->>>>>>> 331f9ecb9769e7ce0bee6817918f7fa9dfdd6fe5
         amount: priceForStripe,
         token,
         config,
       })
-<<<<<<< HEAD
       .then(res => {
         console.log('token in success', token);
         alert("payment successful");
@@ -46,14 +40,6 @@ const StripeCheckoutButton = ({ price, items, history }) => {
         console.log('token in error', token);
         // debugger
         console.log("payment error", error.response);
-=======
-      .then(function () {
-        alert("payment successful");
-        history.push("/products");
-      })
-      .catch((error) => {
-        console.log("payment error", error);
->>>>>>> 331f9ecb9769e7ce0bee6817918f7fa9dfdd6fe5
         alert("There was an issue with your payment.");
       });
   };
