@@ -5,12 +5,8 @@ import axios from "axios";
 
 import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
 
-const StripeCheckoutButton = ({ price, items, history }) => {
-  console.log('the stores id', items[0].storeID)
-  const { storeID } = items[0]
-  useEffect(()=> {
-    axios.get(``)
-  })
+const StripeCheckoutButton = ({ price, domain, history }) => {
+  console.log('the store', domain)
   const devPriceStripe = 1 * 100;  // for testing
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_BMXGPoL1peDqHyy42iFEoAMg00l0M6PNex";
@@ -51,7 +47,7 @@ const StripeCheckoutButton = ({ price, items, history }) => {
       billingAddress={true}
       shippingAddress={true}
       zipCode={true}
-      currency='usd'
+      currency='USD'
       image={`${MerchDropperLogo}`}
       description={`Your total is $${price}`}
       amount={priceForStripe}

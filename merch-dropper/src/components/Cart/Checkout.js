@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
@@ -12,6 +13,8 @@ import { addToCart, removeFromCart, clearItemFromCart } from '../../store/action
 
 
 const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
+  const { domain_name } = useParams();
+  console.log('checkout params', domain_name)
   return (
     <CheckoutPageWrapper className="checkout-page">
       <CheckoutHeader className="checkout-header">
@@ -65,7 +68,7 @@ const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
       <Total className="total">
         <span>Total: ${total}</span>
       </Total>
-      <StripeCheckoutButton price={total} />
+      <StripeCheckoutButton price={total} domain={domain_name} />
     </CheckoutPageWrapper>
   );
 };
