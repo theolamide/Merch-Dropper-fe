@@ -37,13 +37,7 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
           )
           .then((res) => {
             console.log(res);
-            const shirtsToDisplay = storeID
-              ? res.data.filter(
-                  (product) => product.storeID === parseInt(storeID)
-                )
-              : res.data;
-            console.log(shirtsToDisplay);
-            setShirts(shirtsToDisplay);
+            setShirts(res.data);
           })
           .catch((err) => {
             console.log(err.response);
