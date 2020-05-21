@@ -134,6 +134,7 @@ export default function AddProductToTable(props, history) {
               }
             }}
           />{" "}
+          
           <TextField
             className={classes.price}
             label="$"
@@ -150,6 +151,23 @@ export default function AddProductToTable(props, history) {
             }}
           />{" "}
           {valueArray && valueArray.length > 0 ? `${valueArray[0].sml.price}` : null}
+
+           <TextField
+            className={classes.price}
+            label="Price after fee"
+            name="price"
+            value={product.price + .30}
+            onChange={handleChange}
+            InputProps={{
+              disableUnderline: true
+            }}
+            InputLabelProps={{
+              classes: {
+                root: classes.labelText
+              }
+            }}
+          />{" "}
+
           <TextField
             className={classes.desc}
             label="Add Product Description"
