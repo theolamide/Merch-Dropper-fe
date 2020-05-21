@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import axios from "axios"
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
@@ -10,8 +11,30 @@ import { addToCart, removeFromCart, clearItemFromCart } from '../../store/action
 
 
 
+const CheckoutPage = ({ cart, total, match, addItem, removeItem, clearItem }) => {
+    const {domain_name} = match.params
+    useEffect(() => {
+      // GET request to 'stores/domain/${match.params.domain_name}'
+      
+       axios
+        .get(
+          `https://merchdropper-production.herokuapp.com/api/stores/domain/${domain_name}`
+        )
+        .then((res) => {
+            
+            if(Number(res.data.id) !== Number(localStorage.getItem("storeID"))) {
+                localStorage.setItem("storeID", Number(res.data.id));
+                window.location.reload()
+            }
+          
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }, [match.params, domain_name]);
+    
+    
 
-const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
   return (
     <CheckoutPageWrapper className="checkout-page">
       <CheckoutHeader className="checkout-header">

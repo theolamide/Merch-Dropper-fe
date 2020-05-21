@@ -11,20 +11,18 @@ import "../App.css";
 const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   // console.log('productdisplay/products', products)
   const [shirts, setShirts] = useState([]);
-  let storeID = 0;
+  let storeID = 0
   const { domain_name } = useParams();
   localStorage.setItem("domain_name", domain_name)
-  // filters products by user associated store
+  
   useEffect(() => {
-    // GET request to 'stores/domain/${match.params.domain_name}'
     axios
       .get(
         `https://merchdropper-production.herokuapp.com/api/stores/domain/${domain_name}`
       )
       .then((res) => {
-        storeID = Number(res.data.id);
+        storeID = res.data.id
         localStorage.setItem("storeID", storeID);
-        console.log(res.data.id);
       })
       .catch((err) => {
         console.log(err);
