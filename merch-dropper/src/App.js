@@ -17,6 +17,7 @@ import Redirect from "./components/Redirect";
 import CreateStore from "./components/Onboarding/CreateStore";
 import AddProductToTable from "./components/Shirt/AddProductToTable.js";
 import initialShirtState from "./components/Shirt/initialShirtState";
+import ShippingAddress from "./components/Cart/ShippingAddress.js"
 
 function App() {
   const [design, setDesign] = useState(initialShirtState.designInfo);
@@ -57,6 +58,7 @@ function App() {
             />
           )}
         />
+        <Route exact path="/address" component={ShippingAddress}/>
         <Route exact path="/learnmore" component={LearnMore} />
         <Route exact path="/redirect" component={Redirect} />
         <Route exact path="/stripe-setup" component={StripeSetup} />

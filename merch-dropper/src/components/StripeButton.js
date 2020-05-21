@@ -6,8 +6,8 @@ import axios from "axios";
 import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
 
 const StripeCheckoutButton = ({ price, items, history }) => {
-  console.log('the stores id', items[0].storeID)
-  const { storeID } = items[0]
+  // console.log('the stores id', items[0].storeID)
+  // const { storeID } = items[0]
   useEffect(()=> {
     axios.get(``)
   })
