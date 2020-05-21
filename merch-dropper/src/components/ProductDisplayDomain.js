@@ -10,7 +10,7 @@ import "../App.css";
 const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   // console.log('productdisplay/products', products)
   const [shirts, setShirts] = useState([]);
-  console.log({ match, location });
+  console.log("product")
 
   // filters products by user associated store
   useEffect(() => {
@@ -25,9 +25,10 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
       const res2 = await axios.get(
         "https://merchdropper-production.herokuapp.com/api/products"
       );
+      console.log(res2)
       const shirtsToDisplay = storeID
-        ? res2.data.filter(product => product.storeID === parseInt(storeID))
-        : res2.data;
+        ? res2.data
+        : res2.data.filter((product) => product.storeID === parseInt(storeID));
       setShirts(shirtsToDisplay);
     }
     getProducts();
@@ -48,6 +49,7 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
               addToCart={addToCart}
             />
           ))}
+
         </Col>
       </Row>
     </Container>

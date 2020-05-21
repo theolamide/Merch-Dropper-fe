@@ -38,7 +38,7 @@ export default function AddProductToTable(props, history) {
   useEffect(() => {
     async function getStores() {
       const { email } = JSON.parse(localStorage.getItem("profile"));
-
+      console.log(email)
       const res = await axios.get(
         `https://merchdropper-production.herokuapp.com/api/users/email/${email}`
       );
