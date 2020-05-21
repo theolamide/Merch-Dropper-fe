@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
@@ -8,6 +8,9 @@ import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
 const StripeCheckoutButton = ({ price, items, history }) => {
   console.log('the stores id', items[0].storeID)
   const { storeID } = items[0]
+  useEffect(()=> {
+    axios.get(``)
+  })
   const devPriceStripe = 1 * 100;  // for testing
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_BMXGPoL1peDqHyy42iFEoAMg00l0M6PNex";
@@ -22,8 +25,8 @@ const StripeCheckoutButton = ({ price, items, history }) => {
   const onToken = token => {
     console.log('token at top', token); // should clear this or at least comment out post feature development
     axios
-      .post("https://merchdropper-production.herokuapp.com/api/payments/", {
-        // .post("http://localhost:5032/api/payments/", {
+      // .post("https://merchdropper-production.herokuapp.com/api/payments/", {
+        .post("http://localhost:5032/api/payments/create-payment-intent/", {
         amount: priceForStripe,
         token,
         config
@@ -47,6 +50,8 @@ const StripeCheckoutButton = ({ price, items, history }) => {
       name="MerchDropper"
       billingAddress={true}
       shippingAddress={true}
+      zipCode={true}
+      currency='usd'
       image={`${MerchDropperLogo}`}
       description={`Your total is $${price}`}
       amount={priceForStripe}
