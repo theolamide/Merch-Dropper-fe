@@ -87,30 +87,37 @@ const SingleCartItem = ({ item: { thumbnailURL, price, name, quantity } }) => (
   </CartItemDiv>
 );
 
-const CartDropdown = ({ cart, history, dispatch }) => (
-  <CartDropdownDiv className="cart-dropdown">
-    <CartItemsDiv className="cart-items">
-      {cart.filter((item) => item.storeID === localStorage.getItem("storeID"))
-        .length ? (
-        cart
-          .filter((item) => item.storeID === localStorage.getItem("storeID"))
-          .map((cartItem) => (
-            <SingleCartItem key={cartItem.id} item={cartItem} />
-          ))
-      ) : (
-        <span className="empty-message">Your Cart is Empty</span>
-      )}
-    </CartItemsDiv>
-    <CustomButton
-      onClick={() => {
-        history.push(`/checkout`);
-        dispatch(toggleCart());
-      }}
-    >
-      GO TO CHECKOUT
-    </CustomButton>
-  </CartDropdownDiv>
-);
+const CartDropdown = ({ cart, history, dispatch }) => {
+  
+    return (
+      <CartDropdownDiv className="cart-dropdown">
+        <CartItemsDiv className="cart-items">
+          {cart.filter(
+            (item) => item.storeID === Number(localStorage.getItem("storeID"))
+          ).length ? (
+            cart
+              .filter(
+                (item) =>
+                  item.storeID === Number(localStorage.getItem("storeID"))
+              )
+              .map((cartItem) => (
+                <SingleCartItem key={cartItem.id} item={cartItem} />
+              ))
+          ) : (
+            <span className="empty-message">Your Cart is Empty</span>
+          )}
+        </CartItemsDiv>
+        <CustomButton
+          onClick={() => {
+            history.push(`/checkout`);
+            dispatch(toggleCart());
+          }}
+        >
+          GO TO CHECKOUT
+        </CustomButton>
+      </CartDropdownDiv>
+    );
+};
 
 const mapStateToProps = (state) => {
   console.log(state);
