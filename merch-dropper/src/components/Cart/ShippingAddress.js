@@ -3,10 +3,14 @@ import {useSelector, useDispatch} from "react-redux";
 import {axiosWithAuth} from "../../utils/axiosWithAuth";
 
 const ShippingAddress = () => {
-    const [address, setAddress] = useState(useSelector(state => state.QuoteReducer));
+    const [address, setAddress] = useState(useSelector(state => state));
     console.log(address)
 
+    return(
+        null
+    )
+
+
     
-    return
-    null
 }
+export default ShippingAddress;
