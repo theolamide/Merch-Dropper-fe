@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router";
 // import "./App.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import PrivateRoute from "./components/PrivateRoute";
 import ProductDisplay from "./components/ProductDisplay";
 import ProductDisplayDomain from "./components/ProductDisplayDomain";
 import CheckoutPage from "./components/Cart/Checkout";
@@ -28,18 +29,18 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/cart" component={ShoppingCart} />
         <Route exact path="/checkout" component={CheckoutPage} />
-        <Route
+        <PrivateRoute
           exact
           path="/addproduct"
           render={props => <AddProductToTable garment={garment} {...props} />}
         />
-        <Route
+        <PrivateRoute
           exact
           path="/products"
           render={props => <ProductDisplay {...props} />}
         />
 
-        <Route exact path="/dashboard" component={Dashboard} />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <Route exact path="/createstore" component={CreateStore} />
         <Route
           exact

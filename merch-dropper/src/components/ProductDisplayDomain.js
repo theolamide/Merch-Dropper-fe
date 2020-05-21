@@ -36,7 +36,6 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
 
   return (
     <Container fluid="true" className="container-margin">
-      {/*<NavBar />*/}
       <Row>
         <Col sm="7" className="flex ">
           {shirts.map((product, id) => (
