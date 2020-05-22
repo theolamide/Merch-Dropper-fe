@@ -5,6 +5,7 @@ const initialState = {
     {
       id: 1,
       color: "Burnt Orange",
+      designId: "123",
       design: "Static Ant",
       url:
         "https://raw.githubusercontent.com/Jeris-Manning/FILES/master/shirtsSmall/burnt.png",
@@ -13,6 +14,7 @@ const initialState = {
     {
       id: 2,
       color: "Blue Steel",
+      designId: "123",
       design: "Battle Ant",
       url:
         "https://raw.githubusercontent.com/Jeris-Manning/FILES/master/shirtsSmall/bluesteel.png",
@@ -21,6 +23,7 @@ const initialState = {
     {
       id: 3,
       color: "Gold",
+      designId: "123",
       design: "Merch Dropper",
       url:
         "https://raw.githubusercontent.com/Jeris-Manning/FILES/master/shirtsSmall/gold.png",
@@ -29,6 +32,7 @@ const initialState = {
     {
       id: 4,
       color: "Oxblood",
+      designId: "123",
       design: "Static Ant",
       url:
         "https://raw.githubusercontent.com/Jeris-Manning/FILES/master/shirtsSmall/oxblood.png",
@@ -37,6 +41,7 @@ const initialState = {
     {
       id: 5,
       color: "Heather Stone",
+      designId: "123",
       design: "Battle Ant",
       url:
         "https://raw.githubusercontent.com/Jeris-Manning/FILES/master/shirtsSmall/heatherStone.jpg",
@@ -45,6 +50,7 @@ const initialState = {
     {
       id: 6,
       color: "Black",
+      designId: "123",
       design: "Merch Dropper",
       url:
         "https://raw.githubusercontent.com/Jeris-Manning/FILES/master/shirtsSmall/black.png",

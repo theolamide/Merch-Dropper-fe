@@ -21,7 +21,8 @@ export default function AddProductToTable(props, history) {
     productName: "",
     price: "",
     description: "",
-    storeID: 0
+    storeID: 0,
+    
   });
   const [cost, setCost] = useState([])
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -98,7 +99,8 @@ export default function AddProductToTable(props, history) {
   const handleSubmit = async event => {
     event.preventDefault();
     openModal();
-    addProduct(props.history, props.garment, product, designId);
+    addProduct(props.history, props.garment, product);
+    setDesignId(props.garment.mockUrl.substring(102))
     // setTimeout(() => {
     //   props.history.push("/dashboard");
     // }, 800);
@@ -107,6 +109,7 @@ export default function AddProductToTable(props, history) {
   
   // const shirtColor = props.garment.color;
   const shirtImage = props.garment.mockUrl;
+  setDesignId(shirtImage.substring(102))
 
   console.log(product);
   return (
