@@ -21,11 +21,13 @@ export default function AddProductToTable(props, history) {
     description: "",
     storeID: 0
   });
+  const [cost, setCost] = useState([])
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
     setIsOpen(true);
   }
-
+  
+  
   //fetch stores on mount of logged in user
   // get currently logged in user data from localstorage
   //GET userID from this endpoint /api/users/email
@@ -36,7 +38,7 @@ export default function AddProductToTable(props, history) {
   useEffect(() => {
     async function getStores() {
       const { email } = JSON.parse(localStorage.getItem("profile"));
-
+      console.log(email)
       const res = await axios.get(
         `https://merchdropper-production.herokuapp.com/api/users/email/${email}`
       );
@@ -49,7 +51,31 @@ export default function AddProductToTable(props, history) {
       setStores(res2.data);
     }
     getStores();
+    //get price of product from scalablepress
+      const product = {
+        "productId": "canvas-unisex-t-shirt"
+      }
+      axios.post('http://localhost:5032/api/products/price', product)
+          .then(res => {
+             setCost(res.data)
+          })
+          .catch(err => {
+            console.log(err)
+          })
+    
   }, []);
+
+  //bring back value object into array to get price for the item
+  let baseCost;
+  const garmentColor = props.garment.color.toLowerCase();
+   for (let [key, value] of Object.entries(cost)) {
+    let keyLower = key.toLowerCase()
+    if(keyLower === garmentColor){ 
+      console.log(keyLower, garmentColor, "compare")     
+      baseCost = ((value.sml.price/100) * 0.029) + (value.sml.price / 100)
+      console.log(baseCost, "value")    
+    }    
+  }
 
   const handleChange = event => {
     setProduct({
@@ -58,6 +84,14 @@ export default function AddProductToTable(props, history) {
       [event.target.name]: event.target.value
     });
   };
+
+  const calcPrice = (e, cost = baseCost) => {
+    if(product.price){
+      return product.price - cost
+    } else{
+      return 0;
+    }
+  }
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -68,6 +102,7 @@ export default function AddProductToTable(props, history) {
     // }, 800);
   };
   console.log(props.garment);
+  
   // const shirtColor = props.garment.color;
   const shirtImage = props.garment.mockUrl;
 
@@ -109,6 +144,7 @@ export default function AddProductToTable(props, history) {
               }
             }}
           />{" "}
+          <div className={classes.cost}>
           <TextField
             className={classes.price}
             label="$"
@@ -124,6 +160,24 @@ export default function AddProductToTable(props, history) {
               }
             }}
           />{" "}
+         <span className={classes.profit}>Profit per item:<strong> ${`${calcPrice().toFixed(2)}`}</strong></span>
+          </div>
+           {/* <TextField
+            className={classes.price}
+            label="Commission per Item"
+            name="price"
+            value={calcPrice().toFixed(2)}
+            onChange={handleChange}
+            InputProps={{
+              disableUnderline: true
+            }}
+            InputLabelProps={{
+              classes: {
+                root: classes.labelText
+              }
+            }}
+          />{" "} */}
+
           <TextField
             className={classes.desc}
             label="Add Product Description"

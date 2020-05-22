@@ -123,11 +123,11 @@ export const clearItemFromCart = product => {
 };
 
 //toggle shopping cart
-export const TOGGLE_CART_HIDDEN = 'TOGGLE_CART_HIDDEN';
-export const toggleCartHidden = (cart) => {
-    // console.log('hide cart toggle triggered', cart)
+export const TOGGLE_CART = 'TOGGLE_CART_HIDDEN';
+
+export const toggleCart = () => {
     return {
-        type: TOGGLE_CART_HIDDEN
+        type: TOGGLE_CART
     }
 };
 
@@ -171,4 +171,10 @@ export const getQuote = (quote) => dispatch => {
 })
         })
         
+}
+
+export const ADD_ADDRESS_SUCCESS = "ADD_ADDRESS_SUCCESS";
+
+export const addAddress = (address) => dispatch => {
+    dispatch({type: ADD_ADDRESS_SUCCESS, payload: address})
 }

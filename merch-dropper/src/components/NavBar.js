@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
-
 // components
 import SideDrawer from "./SideDrawer";
 import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
 import Search from "./Search";
-
 // styles
 import { Media, NavbarText } from "reactstrap";
 import { NavbarStyles } from "./Component-Styles/Navbar-styles.js";
-
 // auth0 client
 import { useAuth0 } from "./Auth/Auth";
-
 // logo
 import logo from "../assets/merchdropper-logo.png";
 
@@ -25,6 +21,8 @@ const NavBar = ({ hidden, history, location, match }) => {
 
   const [state, setState] = useState({ sideDrawerOpen: false });
 
+  const store_name = localStorage.getItem("store_name");
+
   const logoutWithRedirect = () => {
     localStorage.removeItem("profile");
     localStorage.removeItem("token");
@@ -34,17 +32,25 @@ const NavBar = ({ hidden, history, location, match }) => {
     });
   };
 
+  let url = "";
+
+  if (process.env.REACT_APP_BASE_URL === "development") {
+    url = "http://localhost:3000/redirect";
+  } else {
+    url = "https://www.merchdropper.store/redirect";
+  }
+
   const customLogin = () => {
     loginWithRedirect({
-      // redirect_uri: "http://localhost:3000/redirect",
-      redirect_uri: "https://www.merchdropper.store/redirect",
+      redirect_uri: "http://localhost:3000/redirect",
+      // redirect_uri: "https://www.merchdropper.store/redirect",
     });
   };
 
   const customSignup = () => {
     loginWithRedirect({
-      // redirect_uri: "http://localhost:3000/redirect",
-      redirect_uri: "https://www.merchdropper.store/redirect",
+      redirect_uri: "http://localhost:3000/redirect",
+      // redirect_uri: "https://www.merchdropper.store/redirect",
       signup: true,
     });
   };
@@ -102,17 +108,16 @@ const NavBar = ({ hidden, history, location, match }) => {
 
           <h2 className="BrandTitle">Merch Dropper</h2>
         </div>
-
         <div className="CartAndHamWrapper">
-          {/* <CartIcon /> */}
+          <CartIcon />
 
           <button className="Hamburger" onClick={drawerToggleClickHandler}>
             <div className="HamburgerLines"></div>
             <div className="HamburgerLines"></div>
             <div className="HamburgerLines"></div>
+            CLICK ME
           </button>
         </div>
-
         {hidden ? null : <CartDropDown />}
       </div>
 
@@ -123,39 +128,10 @@ const NavBar = ({ hidden, history, location, match }) => {
         </div>
 
         <nav className="ButtonWrapper">
-          {pathname === "/" ? (
+          {!!localStorage.getItem("profile") ? (
             <>
-              {localStorage.getItem("profile") ? (
-                <>
-                  <Link to="#" className="links" style={{ display: "none" }}>
-                    View Store
-                  </Link>
-                  <Link to="/dashboard" className="links">
-                    Dashboard
-                  </Link>
-                  <span
-                    className="links"
-                    onClick={logoutWithRedirect}
-                    style={{ marginLeft: "32px" }}
-                  >
-                    Logout
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span className="links" onClick={customLogin}>
-                    Sign in
-                  </span>
-                  <button className="links cta" onClick={customSignup}>
-                    Get Started
-                  </button>
-                </>
-              )}
-            </>
-          ) : (
-            <>
-              <Link to="#" className="links" style={{ display: "none" }}>
-                View Store
+              <Link to={`/${store_name}`} className="links">
+                Your Store
               </Link>
               <Link
                 to="/dashboard"
@@ -175,6 +151,16 @@ const NavBar = ({ hidden, history, location, match }) => {
               >
                 Logout
               </span>
+              <CartIcon />
+            </>
+          ) : (
+            <>
+              <span className="links" onClick={customLogin}>
+                Sign in
+              </span>
+              <button className="links cta" onClick={customSignup}>
+                Get Started
+              </button>
             </>
           )}
         </nav>

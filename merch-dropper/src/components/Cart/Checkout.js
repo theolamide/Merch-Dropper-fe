@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import axios from "axios";
+import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 
+import {Link} from "react-router-dom";
 import StripeCheckoutButton from '../StripeButton';
 
 import { selectCartItems, selectCartTotal } from '../../store/Selectors/cart.selectors';
@@ -10,53 +13,92 @@ import { addToCart, removeFromCart, clearItemFromCart } from '../../store/action
 
 
 
+const CheckoutPage = ({ cart, total, match, addItem, removeItem, clearItem }) => {
+    const {domain_name} = match.params
+    useEffect(() => {
+      // GET request to 'stores/domain/${match.params.domain_name}'
+      
+       axios
+        .get(
+          `https://merchdropper-production.herokuapp.com/api/stores/domain/${domain_name}`
+        )
+        .then((res) => {
+            
+            if(Number(res.data.id) !== Number(localStorage.getItem("storeID"))) {
+                localStorage.setItem("storeID", Number(res.data.id));
+                window.location.reload()
+            }
+          
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }, [match.params, domain_name]);
+    
+    
 
-const CheckoutPage = ({ cartItems, total, addItem, removeItem, clearItem }) => (
-
-    <CheckoutPageWrapper className='checkout-page'>
-        <CheckoutHeader className='checkout-header'>
-            <HeaderBlock className='header-block'>
-                <span>Product</span>
-            </HeaderBlock>
-            <HeaderBlock className='header-block'>
-                <span>Description</span>
-            </HeaderBlock>
-            <HeaderBlock className='header-block'>
-                <span>Quantity</span>
-            </HeaderBlock>
-            <HeaderBlock className='header-block'>
-                <span>Unit Price</span>
-            </HeaderBlock>
-            <HeaderBlock className='header-block'>
-                <span>Remove</span>
-            </HeaderBlock>
-        </CheckoutHeader>
-        {
-            cartItems.map(cartItem =>
-                // <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-                <CheckoutItemWrapper key={cartItem.id} className='checkout-item'>
-                    <ImageWrapper className='image-container'>
-                        <ImageContainer src={cartItem.thumbnailURL} alt='item' />
-                    </ImageWrapper>
-                    <DescriptionWrapper className='description'>{cartItem.description}</DescriptionWrapper>
-                    <QuantityWrapper className='quantity'>
-                        <Arrow className='arrow' onClick={() => removeItem(cartItem)} >&#10094;</Arrow>
-                        <ValueDiv className='value'>{cartItem.quantity}</ValueDiv>
-                        <Arrow className='arrow' onClick={() => addItem(cartItem)} >&#10095;</Arrow>
-                        {/* <div className='arrow' >&#10095;</div> */}
-                    </QuantityWrapper>
-                    <PriceWrapper className='price'>${cartItem.price}</PriceWrapper>
-                    <RemoveButton className='remove-button' onClick={() => clearItem(cartItem)} >&#10005;</RemoveButton>
-                    {/* <div className='remove-button' >&#10005;</div> */}
-                </CheckoutItemWrapper>
-            )
-        }
-        <Total className='total'>
-            <span>Total: ${total}</span>
-        </Total>
-        <StripeCheckoutButton price={total} />
+// const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
+  // const { domain_name } = useParams();
+  console.log('checkout params', domain_name)
+  return (
+    <CheckoutPageWrapper className="checkout-page">
+      <CheckoutHeader className="checkout-header">
+        <HeaderBlock className="header-block">
+          <span>Product</span>
+        </HeaderBlock>
+        <HeaderBlock className="header-block">
+          <span>Description</span>
+        </HeaderBlock>
+        <HeaderBlock className="header-block">
+          <span>Quantity</span>
+        </HeaderBlock>
+        <HeaderBlock className="header-block">
+          <span>Unit Price</span>
+        </HeaderBlock>
+        <HeaderBlock className="header-block">
+          <span>Remove</span>
+        </HeaderBlock>
+      </CheckoutHeader>
+      {cart
+        .filter(
+          (item) => item.storeID === Number(localStorage.getItem("storeID"))
+        )
+        .map((cartItem) => (
+          // <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+          <CheckoutItemWrapper key={cartItem.id} className="checkout-item">
+            <ImageWrapper className="image-container">
+              <ImageContainer src={cartItem.thumbnailURL} alt="item" />
+            </ImageWrapper>
+            <DescriptionWrapper className="description">
+              {cartItem.description}
+            </DescriptionWrapper>
+            <QuantityWrapper className="quantity">
+              <Arrow className="arrow" onClick={() => removeItem(cartItem)}>
+                &#10094;
+              </Arrow>
+              <ValueDiv className="value">{cartItem.quantity}</ValueDiv>
+              <Arrow className="arrow" onClick={() => addItem(cartItem)}>
+                &#10095;
+              </Arrow>
+            </QuantityWrapper>
+            <PriceWrapper className="price">${cartItem.price}</PriceWrapper>
+            <RemoveButton
+              className="remove-button"
+              onClick={() => clearItem(cartItem)}
+            >
+              &#10005;
+            </RemoveButton>
+          </CheckoutItemWrapper>
+        ))}
+      <Total className="total">
+        <span>Total: ${total}</span>
+      </Total>
+      <Link to="/:domain-name/address">Next</Link>
+      
+      <StripeCheckoutButton price={total} domain={domain_name} />
     </CheckoutPageWrapper>
-);
+  );
+};
 
 const mapDispatchToProps = dispatch => ({
     addItem: item => dispatch(addToCart(item)),
@@ -65,7 +107,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToprops = createStructuredSelector({
-    cartItems: selectCartItems,
+    cart: selectCartItems,
     total: selectCartTotal
 })
 
