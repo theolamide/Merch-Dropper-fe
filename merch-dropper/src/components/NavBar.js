@@ -80,7 +80,7 @@ const NavBar = ({ hidden, history, location }) => {
       />
     );
   }
-
+  
   const Nav = () => {
     if (!!localStorage.getItem("profile")) {
       return (
@@ -109,7 +109,7 @@ const NavBar = ({ hidden, history, location }) => {
           <CartIcon />
         </>
       );
-    } else if (domain_name === pathname.substr(1)) {
+    } else if (domain_name === pathname.substr(1).split("/")[0]) {
              return (
                <>
                  <Link to={`${domain_name}`} className="links">
