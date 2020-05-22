@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams, withRouter, Link } from "react-router-dom";
+import axios from "axios";
 // components
 import SideDrawer from "./SideDrawer";
 import CartIcon from "./Cart/CartIcon.js";
@@ -14,11 +15,10 @@ import { useAuth0 } from "./Auth/Auth";
 // logo
 import logo from "../assets/merchdropper-logo.png";
 
-const NavBar = ({ hidden, history, location, match }) => {
+const NavBar = ({ hidden, history, location }) => {
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
-  const { domain_name } = useParams();
-  console.log(pathname);
+  const domain_name = localStorage.getItem("domain_name");
 
   const [state, setState] = useState({ sideDrawerOpen: false });
 
@@ -90,7 +90,7 @@ const NavBar = ({ hidden, history, location, match }) => {
     if (!!localStorage.getItem("profile")) {
       return (
         <>
-          <Link to={`${store_name}`} className="links">
+          <Link to={`${domain_name}`} className="links">
             Your Store
           </Link>
           <Link
@@ -114,24 +114,27 @@ const NavBar = ({ hidden, history, location, match }) => {
           <CartIcon />
         </>
       );
-    } else if (!!domain_name) {
-      return (
-        <>
-          <CartIcon />
-        </>
-      );
-    } else {
-      return (
-        <>
-          <span className="links" onClick={customLogin}>
-            Sign in
-          </span>
-          <button className="links cta" onClick={customSignup}>
-            Get Started
-          </button>
-        </>
-      );
-    }
+    } else if (domain_name === pathname.substr(1)) {
+             return (
+               <>
+                 <Link to={`${domain_name}`} className="links">
+                   {domain_name}
+                 </Link>
+                 <CartIcon />
+               </>
+             );
+           } else {
+             return (
+               <>
+                 <span className="links" onClick={customLogin}>
+                   Sign in
+                 </span>
+                 <button className="links cta" onClick={customSignup}>
+                   Get Started
+                 </button>
+               </>
+             );
+           }
   };
 
   return (
