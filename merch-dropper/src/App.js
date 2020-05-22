@@ -29,8 +29,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/cart" component={ShoppingCart} />
-
-        <Route
+        <Route exact path="/checkout" component={CheckoutPage} />
+        <PrivateRoute
           exact
           path="/addproduct"
           render={(props) => <AddProductToTable garment={garment} {...props} />}
