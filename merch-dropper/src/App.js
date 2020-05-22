@@ -32,12 +32,12 @@ function App() {
         <PrivateRoute
           exact
           path="/addproduct"
-          render={props => <AddProductToTable garment={garment} {...props} />}
+          render={(props) => <AddProductToTable garment={garment} {...props} />}
         />
         <PrivateRoute
           exact
           path="/products"
-          render={props => <ProductDisplay {...props} />}
+          render={(props) => <ProductDisplay {...props} />}
         />
 
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
@@ -45,7 +45,7 @@ function App() {
         <Route
           exact
           path="/designshirt"
-          render={props => (
+          render={(props) => (
             <DesignShirt
               design={design}
               setDesgin={setDesign}
@@ -63,8 +63,9 @@ function App() {
         <Route
           exact
           path="/:domain_name"
-          render={props => <ProductDisplayDomain {...props} />}
+          render={(props) => <ProductDisplayDomain {...props} />}
         />
+        <Route exact path="/:domain_name/checkout" component={CheckoutPage} />
       </Switch>
       <Footer />
     </div>
