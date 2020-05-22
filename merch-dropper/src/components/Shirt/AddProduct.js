@@ -1,7 +1,14 @@
 import axios from "axios";
+import React, {useState} from "react";
+import {useSelector} from "react-redux";
+
 
 // this function allows the user to design a product
-const addProduct = async (history, garment, product) => {
+const addProduct = async (history, garment, product, designId) => {
+  
+  //setting designId to state
+  
+  console.log({designId}, "Design")
   console.log({ garment });
   if (garment.mockUrl === "") {
     alert("Please create a mockup first!");

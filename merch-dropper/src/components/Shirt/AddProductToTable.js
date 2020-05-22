@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {useSelector} from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
@@ -15,6 +16,7 @@ Modal.setAppElement("#root");
 export default function AddProductToTable(props, history) {
   const classes = useStyles();
   const [stores, setStores] = useState("");
+  const [designId, setDesignId] = useState(useSelector(state => state.QuoteReducer.sendQuote.spInfo.designId))
   const [product, setProduct] = useState({
     productName: "",
     price: "",
@@ -55,7 +57,7 @@ export default function AddProductToTable(props, history) {
       const product = {
         "productId": "canvas-unisex-t-shirt"
       }
-      axios.post('http://localhost:5032/api/products/price', product)
+      axios.post('https://merchdropper-production.herokuapp.com/api/products/price', product)
           .then(res => {
              setCost(res.data)
           })
@@ -96,7 +98,7 @@ export default function AddProductToTable(props, history) {
   const handleSubmit = async event => {
     event.preventDefault();
     openModal();
-    addProduct(props.history, props.garment, product);
+    addProduct(props.history, props.garment, product, designId);
     // setTimeout(() => {
     //   props.history.push("/dashboard");
     // }, 800);
@@ -162,22 +164,6 @@ export default function AddProductToTable(props, history) {
           />{" "}
          <span className={classes.profit}>Profit per item:<strong> ${`${calcPrice().toFixed(2)}`}</strong></span>
           </div>
-           {/* <TextField
-            className={classes.price}
-            label="Commission per Item"
-            name="price"
-            value={calcPrice().toFixed(2)}
-            onChange={handleChange}
-            InputProps={{
-              disableUnderline: true
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.labelText
-              }
-            }}
-          />{" "} */}
-
           <TextField
             className={classes.desc}
             label="Add Product Description"
