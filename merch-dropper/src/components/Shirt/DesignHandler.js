@@ -8,11 +8,17 @@ const DesignHandler = ({ design, setDesign, setThumbRender }) => {
   useEffect(() => {
     (async () => {
       if (designAdded > 0) {
-        const res = await axios.post(
-          "https://merchdropper-production.herokuapp.com/api/designs",
-          design
-        );
-        setThumbRender(res);
+        axios
+          .post(
+            "https://merchdropper-production.herokuapp.com/api/designs",
+            design
+          )
+          .then((res) => {
+            setThumbRender(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     })();
   }, [designAdded]);
