@@ -19,7 +19,7 @@ export default function AddProductToTable(props, history) {
     productName: "",
     price: "",
     description: "",
-    storeID: 0
+    storeID: 0,
   });
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
@@ -34,32 +34,39 @@ export default function AddProductToTable(props, history) {
   //setStore to that list
 
   useEffect(() => {
-    async function getStores() {
-      const { email } = JSON.parse(localStorage.getItem("profile"));
-      console.log(email)
-      const res = await axios.get(
+    const { email } = JSON.parse(localStorage.getItem("profile"));
+
+    axios
+      .get(
         `https://merchdropper-production.herokuapp.com/api/users/email/${email}`
-      );
-      console.log(res);
-      const userID = res.data.id;
-      const res2 = await axios.get(
-        `https://merchdropper-production.herokuapp.com/api/stores/user/${userID}`
-      );
-      console.log(res2);
-      setStores(res2.data);
-    }
-    getStores();
+      )
+      .then((res) => {
+        const userID = res.data.id;
+        axios
+          .get(
+            `https://merchdropper-production.herokuapp.com/api/stores/user/${userID}`
+          )
+          .then((res2) => {
+            setStores(res2.data);
+          })
+          .catch((err2) => {
+            console.log(err2);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setProduct({
       ...product,
       storeID: stores.id,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     openModal();
     addProduct(props.history, props.garment, product);
@@ -101,12 +108,12 @@ export default function AddProductToTable(props, history) {
             value={product.productName}
             onChange={handleChange}
             InputProps={{
-              disableUnderline: true
+              disableUnderline: true,
             }}
             InputLabelProps={{
               classes: {
-                root: classes.labelText
-              }
+                root: classes.labelText,
+              },
             }}
           />{" "}
           <TextField
@@ -116,12 +123,12 @@ export default function AddProductToTable(props, history) {
             value={product.price}
             onChange={handleChange}
             InputProps={{
-              disableUnderline: true
+              disableUnderline: true,
             }}
             InputLabelProps={{
               classes: {
-                root: classes.labelText
-              }
+                root: classes.labelText,
+              },
             }}
           />{" "}
           <TextField
@@ -133,12 +140,12 @@ export default function AddProductToTable(props, history) {
             value={product.description}
             onChange={handleChange}
             InputProps={{
-              disableUnderline: true
+              disableUnderline: true,
             }}
             InputLabelProps={{
               classes: {
-                root: classes.labelText
-              }
+                root: classes.labelText,
+              },
             }}
           />{" "}
           {/* <Typography
