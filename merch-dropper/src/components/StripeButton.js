@@ -5,12 +5,8 @@ import axios from "axios";
 
 import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
 
-const StripeCheckoutButton = ({ price, items, history }) => {
-  console.log('the stores id', items[0].storeID)
-  const { storeID } = items[0]
-  useEffect(()=> {
-    axios.get(``)
-  })
+const StripeCheckoutButton = ({ price, domain, history }) => {
+  console.log('the store', domain)
   const devPriceStripe = 1 * 100;  // for testing
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_BMXGPoL1peDqHyy42iFEoAMg00l0M6PNex";
@@ -19,14 +15,14 @@ const StripeCheckoutButton = ({ price, items, history }) => {
   let config = {
     headers: {
       "Content-Type": "application/json"
-    }
+    },
   };
 
   const onToken = token => {
     console.log('token at top', token); // should clear this or at least comment out post feature development
+    token.domain_name = domain;
     axios
-      // .post("https://merchdropper-production.herokuapp.com/api/payments/", {
-        .post("http://localhost:5032/api/payments/create-payment-intent/", {
+      .post("https://merchdropper-production.herokuapp.com/api/payments/create-payment-intent", {
         amount: priceForStripe,
         token,
         config,
@@ -38,8 +34,7 @@ const StripeCheckoutButton = ({ price, items, history }) => {
       })
       .catch(error => {
         console.log('token in error', token);
-        // debugger
-        console.log("payment error", error.response);
+        console.dir("payment error", error);
         alert("There was an issue with your payment.");
       });
   };
@@ -51,7 +46,7 @@ const StripeCheckoutButton = ({ price, items, history }) => {
       billingAddress={true}
       shippingAddress={true}
       zipCode={true}
-      currency='usd'
+      currency='USD'
       image={`${MerchDropperLogo}`}
       description={`Your total is $${price}`}
       amount={priceForStripe}

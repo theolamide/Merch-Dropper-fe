@@ -1,4 +1,4 @@
-import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, GET_STORE_ID} from "../actions"
+import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, ADD_ADDRESS_SUCCESS} from "../actions"
 
 const initialQuoteState =  {
     sendQuote:{
@@ -28,20 +28,20 @@ const initialQuoteState =  {
         }
     },
 
-       quote:{ 
-        userID: parseInt(localStorage.getItem('id')),
-        storeID: null,
-        total: 0.00,
-        subtotal: 0.00,
-        tax: 0.00,
-        fees: 0.00,
-        shipping: 0.00,
-        orderToken: "",
-        warnings: "",
-        mode: "",
-        isFetching: false,
-        error: ''
-    }
+    //    quote:{ 
+    //     userID: parseInt(localStorage.getItem('id')),
+    //     storeID: null,
+    //     total: 0.00,
+    //     subtotal: 0.00,
+    //     tax: 0.00,
+    //     fees: 0.00,
+    //     shipping: 0.00,
+    //     orderToken: "",
+    //     warnings: "",
+    //     mode: "",
+    //     isFetching: false,
+    //     error: ''
+    // }
 }
 
 export const QuoteReducer = (state = initialQuoteState, action) => {
@@ -63,6 +63,11 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
                 isFetching: false,
                 error: action.payload
         };
+        case ADD_ADDRESS_SUCCESS:
+            return{
+                ...state,
+                address: action.payload
+            }
         default:
             return state;
     }

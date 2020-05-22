@@ -228,5 +228,10 @@ export const useStyles = makeStyles({
     marginTop: 17,
     marginRight: 10,
     fontSize: "15px"
+  },
+  addressField: {
+    margin: 5,
+    width: 230,
+    height: 50
   }
 });
