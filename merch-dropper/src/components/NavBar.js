@@ -112,7 +112,7 @@ const NavBar = ({ hidden, history, location }) => {
     } else if (domain_name === pathname.substr(1).split("/")[0]) {
              return (
                <>
-                 <Link to={`${domain_name}`} className="links">
+                 <Link to={`/${domain_name}`} className="links">
                    {domain_name}
                  </Link>
                  <CartIcon />
