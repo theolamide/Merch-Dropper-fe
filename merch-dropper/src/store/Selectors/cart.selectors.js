@@ -24,3 +24,6 @@ export const selectCartTotal = createSelector(
     cartItems =>
         cartItems.reduce((accumulatedQuantity, cartItem) => accumulatedQuantity + cartItem.quantity * cartItem.price, 0)
 )
+
+//export = add shipping + (shipping+tax) to selectCartTotal
+//shipping from Quote api or BulkQuote api
