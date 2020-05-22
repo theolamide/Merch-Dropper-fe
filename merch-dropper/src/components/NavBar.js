@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { useParams, withRouter, Link } from "react-router-dom";
-import axios from "axios";
+import { withRouter, Link } from "react-router-dom";
 // components
 import SideDrawer from "./SideDrawer";
 import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
-import Search from "./Search";
 // styles
-import { Media, NavbarText } from "reactstrap";
 import { NavbarStyles } from "./Component-Styles/Navbar-styles.js";
 // auth0 client
 import { useAuth0 } from "./Auth/Auth";
@@ -21,8 +18,6 @@ const NavBar = ({ hidden, history, location }) => {
   const domain_name = localStorage.getItem("domain_name");
 
   const [state, setState] = useState({ sideDrawerOpen: false });
-
-  const store_name = localStorage.getItem("store_name");
 
   const logoutWithRedirect = () => {
     localStorage.removeItem("profile");
