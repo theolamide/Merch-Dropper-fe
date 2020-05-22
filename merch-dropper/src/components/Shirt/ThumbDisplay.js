@@ -19,16 +19,17 @@ const PicDisplay = styled.div`
   }
 `;
 
-const ThumbDisplay = ({ garment, setGarment, thumbRender }) => {
+export default function ThumbDisplay({ garment, setGarment, thumbRender }) {
   const [designArray, setDesignArray] = useState();
   useEffect(() => {
-    async function fetchDesigns() {
-      let fetchedDesigns = await axios.get(
-        "https://merchdropper-production.herokuapp.com/api/designs"
-      );
-      setDesignArray(fetchedDesigns.data);
-    }
-    fetchDesigns();
+    axios
+      .get("https://merchdropper-production.herokuapp.com/api/designs")
+      .then((res) => {
+        setDesignArray(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [thumbRender]);
 
   if (!designArray) {
@@ -52,6 +53,4 @@ const ThumbDisplay = ({ garment, setGarment, thumbRender }) => {
       </PicDisplay>
     </Fragment>
   );
-};
-
-export default ThumbDisplay;
+}
