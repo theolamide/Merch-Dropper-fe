@@ -2,7 +2,6 @@ import axios from "axios";
 
 // this function allows the user to design a product
 export default async function addProduct (history, garment, product) {
-  console.log({ garment });
   if (garment.mockUrl === "") {
     alert("Please create a mockup first!");
     return null;
@@ -31,7 +30,6 @@ export default async function addProduct (history, garment, product) {
             thumbnailURL: cloudRes.data.eager[1].secure_url,
           })
           .then((merchDropRes) => {
-            console.log(`${merchDropRes.data.productName} added successfully!`);
             history.push("/dashboard");
           })
           .catch((err) => {
