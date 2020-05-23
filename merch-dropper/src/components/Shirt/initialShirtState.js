@@ -27,6 +27,7 @@ const initialShirtState = {
 
   productInfo: {
     productName: "Hive Collection",
+    designId: "",
     fullSizeURL: "",
     thumbnailURL: "",
     description: "Limited Edition",
