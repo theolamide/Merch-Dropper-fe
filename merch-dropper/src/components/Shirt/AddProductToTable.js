@@ -16,13 +16,13 @@ Modal.setAppElement("#root");
 export default function AddProductToTable(props, history) {
   const classes = useStyles();
   const [stores, setStores] = useState("");
-  const [designId, setDesignId] = useState(useSelector(state => state.QuoteReducer.sendQuote.spInfo.designId))
+  
   const [product, setProduct] = useState({
     productName: "",
     price: "",
     description: "",
     storeID: 0,
-    
+    designId: ""
   });
   const [cost, setCost] = useState([])
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -66,7 +66,7 @@ export default function AddProductToTable(props, history) {
             console.log(err)
           })
     
-  }, []);
+  }, [product.designId]);
 
   //bring back value object into array to get price for the item
   let baseCost;
@@ -100,7 +100,9 @@ export default function AddProductToTable(props, history) {
     event.preventDefault();
     openModal();
     addProduct(props.history, props.garment, product);
-    setDesignId(props.garment.mockUrl.substring(102))
+    setProduct({ ...product,
+      designID: props.garment.mockUrl.substring(102)
+    })
     // setTimeout(() => {
     //   props.history.push("/dashboard");
     // }, 800);
@@ -109,7 +111,7 @@ export default function AddProductToTable(props, history) {
   
   // const shirtColor = props.garment.color;
   const shirtImage = props.garment.mockUrl;
-  setDesignId(shirtImage.substring(102))
+ 
 
   console.log(product);
   return (

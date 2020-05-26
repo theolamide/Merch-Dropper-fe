@@ -32,7 +32,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/cart" component={ShoppingCart} />
         <Route exact path="/checkout" component={CheckoutPage} />
-        <PrivateRoute
+        <Route
           exact
           path="/addproduct"
           render={(props) => <AddProductToTable garment={garment} product={product}{...props} />}

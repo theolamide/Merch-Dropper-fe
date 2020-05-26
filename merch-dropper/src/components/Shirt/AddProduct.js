@@ -1,14 +1,10 @@
 import axios from "axios";
-import React, {useState} from "react";
-import {useSelector} from "react-redux";
+
 
 
 // this function allows the user to design a product
-const addProduct = async (history, garment, product, designId) => {
+const addProduct = async (history, garment, product) => {
   
-  //setting designId to state
-  
-  console.log({designId}, "Design")
   console.log({ garment });
   if (garment.mockUrl === "") {
     alert("Please create a mockup first!");
@@ -36,7 +32,8 @@ const addProduct = async (history, garment, product, designId) => {
 
     //
     const merchDropRes = await axios
-      .post("https://merchdropper-production.herokuapp.com/api/products", {
+      .post("http://localhost:5000/api/products", {
+        // "https://merchdropper-production.herokuapp.com/api/products", {
         ...product,
         fullSizeURL: cloudRes.data.eager[0].secure_url,
         thumbnailURL: cloudRes.data.eager[1].secure_url
@@ -45,7 +42,7 @@ const addProduct = async (history, garment, product, designId) => {
       .catch(err => {
         console.log("error uploading image", err);
       });
-    console.log(`${merchDropRes.data.productName} added successfully!`);
+    console.log(` added successfully!`);
   })();
   return null;
 };
