@@ -41,6 +41,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "cypress": "cypress open",
     "build": "react-scripts build",
     "test": "jest --watchAll",
     "eject": "react-scripts eject",
