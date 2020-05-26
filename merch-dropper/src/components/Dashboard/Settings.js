@@ -56,7 +56,7 @@ const Settings = () => {
                     <StripeStatusContainer>
                         <StripeStatusTitle>Status:</StripeStatusTitle>
                         {connected ? <StripeStatus>Connected</StripeStatus>
-                        : <StripeButton>Connect</StripeButton>}
+                        : <StripeButton>Connect to Stripe</StripeButton>}
                         
                     </StripeStatusContainer>
                   
