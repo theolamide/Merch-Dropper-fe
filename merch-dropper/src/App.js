@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router";
 // import "./App.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import PrivateRoute from "./components/PrivateRoute";
 import ProductDisplay from "./components/ProductDisplay";
 import ProductDisplayDomain from "./components/ProductDisplayDomain";
 import CheckoutPage from "./components/Cart/Checkout";
@@ -16,6 +17,7 @@ import Redirect from "./components/Redirect";
 import CreateStore from "./components/Onboarding/CreateStore";
 import AddProductToTable from "./components/Shirt/AddProductToTable.js";
 import initialShirtState from "./components/Shirt/initialShirtState";
+import ShippingAddress from "./components/Cart/ShippingAddress.js"
 
 function App() {
   const [design, setDesign] = useState(initialShirtState.designInfo);
@@ -27,24 +29,24 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/cart" component={ShoppingCart} />
-        <Route exact path="/checkout" component={CheckoutPage} />
+
         <Route
           exact
           path="/addproduct"
-          render={props => <AddProductToTable garment={garment} {...props} />}
+          render={(props) => <AddProductToTable garment={garment} {...props} />}
         />
-        <Route
+        <PrivateRoute
           exact
           path="/products"
-          render={props => <ProductDisplay {...props} />}
+          render={(props) => <ProductDisplay {...props} />}
         />
 
-        <Route exact path="/dashboard" component={Dashboard} />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <Route exact path="/createstore" component={CreateStore} />
         <Route
           exact
           path="/designshirt"
-          render={props => (
+          render={(props) => (
             <DesignShirt
               design={design}
               setDesgin={setDesign}
@@ -56,14 +58,16 @@ function App() {
             />
           )}
         />
+        <Route exact path="/:domain_name/address" component={ShippingAddress}/>
         <Route exact path="/learnmore" component={LearnMore} />
         <Route exact path="/redirect" component={Redirect} />
         <Route exact path="/stripe-setup" component={StripeSetup} />
         <Route
           exact
           path="/:domain_name"
-          render={props => <ProductDisplayDomain {...props} />}
+          render={(props) => <ProductDisplayDomain {...props} />}
         />
+        <Route exact path="/:domain_name/checkout" component={CheckoutPage} />
       </Switch>
       <Footer />
     </div>

@@ -39,7 +39,7 @@ function CreateStore({ history }) {
   const [activeStep, setActiveStep] = React.useState(2);
   const [isSubmit, setIsSubmit] = useState(false);
 
-  // This code is specific to the Material-UI components for displaying the progress bar (steps 1, 2, 3). This design should be made consistent across all onboarding forms. Each form was designed independently 
+  // This code is specific to the Material-UI components for displaying the progress bar (steps 1, 2, 3). This design should be made consistent across all onboarding forms. Each form was designed independently
   const steps = getSteps();
   const classes = useStyles();
 

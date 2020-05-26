@@ -25,9 +25,9 @@ const DesignShirt = ({
   garment,
   thumbRender
 }) => {
-  const handleScalableMockup = function() {
-    HandleScalableMockup(garment, setGarment);
-  };
+   
+    
+ 
   // const addProduct = function() {
   //   AddProduct(garment);
   // };
@@ -44,7 +44,7 @@ const DesignShirt = ({
           setThumbRender={setThumbRender}
           garment={garment}
           setGarment={setGarment}
-          handleScalableMockup={handleScalableMockup}
+          handleScalableMockup={e => HandleScalableMockup(garment, setGarment)}
         />
         
       </DesignShirtContainer>
