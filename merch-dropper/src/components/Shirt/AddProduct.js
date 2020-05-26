@@ -48,4 +48,3 @@ const addProduct = async (history, garment, product, design) => {
 };
 
 export default addProduct;
-a
