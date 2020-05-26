@@ -30,7 +30,7 @@ const AddProductToTable = (props, history) => {
     setIsOpen(true);
   }
   
-  
+  console.log(props, "props")
   //fetch stores on mount of logged in user
   // get currently logged in user data from localstorage
   //GET userID from this endpoint /api/users/email
@@ -74,9 +74,9 @@ const AddProductToTable = (props, history) => {
    for (let [key, value] of Object.entries(cost)) {
     let keyLower = key.toLowerCase()
     if(keyLower === garmentColor){ 
-      console.log(keyLower, garmentColor, "compare")     
+      // console.log(keyLower, garmentColor, "compare")     
       baseCost = ((value.sml.price/100) * 0.029) + (value.sml.price / 100)
-      console.log(baseCost, "value")    
+      // console.log(baseCost, "value")    
     }    
   }
 
@@ -99,10 +99,10 @@ const AddProductToTable = (props, history) => {
   const handleSubmit = async event => {
     event.preventDefault();
     openModal();
-    addProduct(props.history, props.garment, product);
-    setProduct({ ...product,
-      designID: props.garment.mockUrl.substring(102)
-    })
+    addProduct(props.history, props.garment, product, props.design);
+    // setProduct({ ...product,
+    //   designID: props.garment.mockUrl.substring(102)
+    // })
     // setTimeout(() => {
     //   props.history.push("/dashboard");
     // }, 800);

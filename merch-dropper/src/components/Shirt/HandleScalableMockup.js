@@ -2,10 +2,12 @@ import axios from "axios";
 import {useState} from "react";
 import {useSelector} from "react-redux"
 import scalableData from "./scalableData";
+import parseUrl from "./parseURL"
 
 
 
-const HandleScalableMockup = async (garment, setGarment) => {
+const HandleScalableMockup = async (garment, setGarment, design, setDesign) => {
+
   async function makeShirt() {
     try {
       // this code calls the scalableData component to create a garment object to be sent to Scalable Press as "data" in the axios.post call below
@@ -27,7 +29,8 @@ const HandleScalableMockup = async (garment, setGarment) => {
       console.log(response)
       // setGarment spreads in the existing garment state object and sets the URL of the mock up image (shirtImage) to mockURL, a property
       setGarment({ ...garment, mockUrl: response.data.URL });
-      
+      setDesign({...design, designId:parseUrl(response.data.URL).designId[0]})
+      // console.log(design, "design")
       
     } catch (err) {
       console.log("ERROR:", err);

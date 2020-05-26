@@ -35,7 +35,7 @@ function App() {
         <Route
           exact
           path="/addproduct"
-          render={(props) => <AddProductToTable garment={garment} product={product}{...props} />}
+          render={(props) => <AddProductToTable garment={garment} design={design}{...props} />}
         />
         <PrivateRoute
           exact
@@ -54,6 +54,8 @@ function App() {
               setDesgin={setDesign}
               garment={garment}
               setGarment={setGarment}
+              design={design}              
+              setDesign={setDesign}
               thumbRender={thumbRender}
               setThumbRender={setThumbRender}
               {...props}
