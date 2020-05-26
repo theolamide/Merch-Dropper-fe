@@ -4,13 +4,14 @@ import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import {SettingsH2, SettingsBox, StripeH3, StripeStatusTitle, StripeStatus, SettingsContainer, StorefrontH3,
          AccountTitle, AccountNumber, Divider, StorefrontStatusTitle, StorefrontStatusConainer,
         StorefrontStatusDot, StorefrontStatus, StorefrontTitle, StorefrontName, StripeContainer,
-        StripeStatusContainer, AccountContainer, StorefrontContainer, StorefrontStatusInner, StorefrontNameContainer } from './Styled';
+        StripeStatusContainer, StripeButton, AccountContainer, StorefrontContainer, StorefrontStatusInner, StorefrontNameContainer } from './Styled';
 
 
 
 const Settings = () => {
 
     const [stripe,setStripe] = useState('');
+    const [connected, setConnected] = useState(false)
     const [store,setStore] = useState('');
 
     useEffect(() => {
@@ -27,6 +28,7 @@ const Settings = () => {
             .then((res) => {
                 console.log(res.data.user.stripe_account)
                 if(res.data.user.stripe_account){setStripe(res.data.user.stripe_account);}
+                if(stripe){setConnected(true)}
                 });
           
             const res = await axiosWithAuth().get(
@@ -53,13 +55,17 @@ const Settings = () => {
                     <StripeH3>Stripe</StripeH3>
                     <StripeStatusContainer>
                         <StripeStatusTitle>Status:</StripeStatusTitle>
-                        <StripeStatus>Connected</StripeStatus>
+                        {connected ? <StripeStatus>Connected</StripeStatus>
+                        : <StripeButton>Connect</StripeButton>}
+                        
                     </StripeStatusContainer>
                   
 
                     <AccountContainer>
                         <AccountTitle>Account Number:</AccountTitle>
-                        <AccountNumber>{stripe}</AccountNumber>
+                        {connected ? <AccountNumber>{stripe}</AccountNumber>
+                        : <AccountNumber>No Account</AccountNumber>}
+                        
                     </AccountContainer>
 
                     
