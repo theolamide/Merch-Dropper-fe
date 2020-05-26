@@ -13,7 +13,7 @@ import ReactDOM from "react-dom";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
-export default function AddProductToTable(props, history) {
+const AddProductToTable = (props, history) => {
   const classes = useStyles();
   const [stores, setStores] = useState("");
   
@@ -229,4 +229,6 @@ export default function AddProductToTable(props, history) {
       </div>{" "}
     </div>
   );
-}
+};
+
+export default AddProductToTable;
