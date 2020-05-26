@@ -13,6 +13,7 @@ const initialQuoteState =  {
                 {	
                 id: null,
                 color: "",
+                designId: null,
                 quantity: null,
                 size: ""
                 }

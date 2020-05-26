@@ -155,21 +155,21 @@ export const GET_QUOTE_FAILURE = "GET_QUOTE_FAILURE";
 export const GET_STORE_ID = "GET_STORE_ID";
 
 export const getQuote = (quote) => dispatch => {
-    const userId = localStorage.getItem('id')
-    dispatch({type: GET_QUOTE_START})
-    axiosWithAuth()
-        .get(`/api/stores/user/${userId}`)
-        .then(res => {
-            dispatch({type: GET_STORE_ID, payload: res.data})
-            axiosWithAuth()
-                .post('/api/quotes', quote)
-                .then(res => {
-                    dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
-                })
-                .catch(err => {
-                    dispatch({type: GET_QUOTE_FAILURE, payload: err})                
-})
-        })
+//     const userId = localStorage.getItem('id')
+//     dispatch({type: GET_QUOTE_START})
+//     axiosWithAuth()
+//         .get(`/api/stores/user/${userId}`)
+//         .then(res => {
+//             dispatch({type: GET_STORE_ID, payload: res.data})
+//             axiosWithAuth()
+//                 .post('/api/quotes', quote)
+//                 .then(res => {
+//                     dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
+//                 })
+//                 .catch(err => {
+//                     dispatch({type: GET_QUOTE_FAILURE, payload: err})                
+// })
+//         })
         
 }
 

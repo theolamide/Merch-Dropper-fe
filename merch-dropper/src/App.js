@@ -18,10 +18,12 @@ import CreateStore from "./components/Onboarding/CreateStore";
 import AddProductToTable from "./components/Shirt/AddProductToTable.js";
 import initialShirtState from "./components/Shirt/initialShirtState";
 import ShippingAddress from "./components/Cart/ShippingAddress.js"
+import initialState from "./store/reducers/initialState"
 
 function App() {
   const [design, setDesign] = useState(initialShirtState.designInfo);
   const [garment, setGarment] = useState(initialShirtState.garment);
+  const [product, setProduct] = useState(initialState.products)
   const [thumbRender, setThumbRender] = useState();
   return (
     <div className="App">
@@ -33,7 +35,7 @@ function App() {
         <PrivateRoute
           exact
           path="/addproduct"
-          render={(props) => <AddProductToTable garment={garment} {...props} />}
+          render={(props) => <AddProductToTable garment={garment} product={product}{...props} />}
         />
         <PrivateRoute
           exact
