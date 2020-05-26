@@ -37,12 +37,12 @@ const NavBar = ({ hidden, history, location, match }) => {
   if (process.env.REACT_APP_BASE_URL === "development") {
     url = "http://localhost:3000/redirect";
   } else {
-    url = "https://www.merchdropper.store/redirect";
+    url = "https://merchdropper.store/redirect";
   }
 
   const customLogin = () => {
     loginWithRedirect({
-      redirect_uri: url
+      redirect_uri: url,
     });
   };
 
