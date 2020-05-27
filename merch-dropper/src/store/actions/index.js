@@ -155,17 +155,16 @@ export const GET_QUOTE_FAILURE = "GET_QUOTE_FAILURE";
 export const GET_STORE_ID = "GET_STORE_ID";
 
 export const getQuote = (quote) => dispatch => {
-    dispatch({type: GET_QUOTE_START})
-    axiosWithAuth()
-        .post('/api/quotes', quote)
-        .then(res => {
-            dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
-        })
-        .catch(err => {
-            dispatch({type: GET_QUOTE_FAILURE, payload: err})                
-})
-        }   
-
+    dispatch({type: GET_QUOTE_START});
+    axios
+    .post('https://merchdropper-production.herokuapp.com/api/quotes')
+    .then(res => {
+        dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
+    })
+    .catch(err => {
+        dispatch({type: GET_QUOTE_FAILURE, payload: err})                
+    })       
+}
 
 export const ADD_ADDRESS_SUCCESS = "ADD_ADDRESS_SUCCESS";
 export const ADD_PRODUCT_QUOTE = "ADD_PRODUCT_QUOTE";

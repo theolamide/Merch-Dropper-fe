@@ -4,7 +4,7 @@ import axios from "axios";
 
 // this function allows the user to design a product
 const addProduct = async (history, garment, product, design) => {
-  
+  console.log({ design });
   console.log({ garment });
   if (garment.mockUrl === "") {
     alert("Please create a mockup first!");

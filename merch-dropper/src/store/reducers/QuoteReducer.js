@@ -13,14 +13,15 @@ const initialQuoteState =  {
                 {	
                 id: null,
                 color: "",
-                designId: null,
+                size: "",
                 quantity: null,
-                size: ""
                 }
             ],
             address:  {
                 name: "",
+                company: "",
                 address1: "",
+                address2: "",
                 city: "",
                 state: "",
                 zip: "",
@@ -29,20 +30,46 @@ const initialQuoteState =  {
         }
     },
 
-    //    quote:{ 
-    //     userID: parseInt(localStorage.getItem('id')),
-    //     storeID: null,
-    //     total: 0.00,
-    //     subtotal: 0.00,
-    //     tax: 0.00,
-    //     fees: 0.00,
-    //     shipping: 0.00,
-    //     orderToken: "",
-    //     warnings: "",
-    //     mode: "",
-    //     isFetching: false,
-    //     error: ''
-    // }
+    bulkQuote: [{
+        spInfo: {
+            type: "dtg",
+            designId: null,
+            products: [
+                {	
+                id: null,
+                color: "",
+                size: "",
+                quantity: null,
+                }
+            ],
+            address:  {
+                name: "",
+                company: "",
+                address1: "",
+                address2: "",
+                city: "",
+                state: "",
+                zip: "",
+                country: ""
+            }
+        }
+    }],
+
+    quote:{ 
+    userID: null, 
+    // userID was -> parseInt(localStorage.getItem('id')), without buyer user this seems unnecessary
+    storeID: null,
+    total: 0.00,
+    subtotal: 0.00,
+    tax: 0.00,
+    fees: 0.00,
+    shipping: 0.00,
+    orderToken: "",
+    warnings: "",
+    mode: "",
+    isFetching: false,
+    error: ''
+}
 }
 
 export const QuoteReducer = (state = initialQuoteState, action) => {
