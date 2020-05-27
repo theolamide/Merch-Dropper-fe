@@ -2,10 +2,10 @@ import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, ADD_ADDRESS_SUCCE
 
 const initialQuoteState =  {
     sendQuote:{
-        quoteInfo: { 
-            storeID: null,
-            userID: parseInt(localStorage.getItem('id'))
-         },
+        // quoteInfo: { 
+        //     storeID: null,
+        //     userID: parseInt(localStorage.getItem('id'))
+        //  },
         spInfo: {
             type: "dtg",
             designId: null,
@@ -13,14 +13,15 @@ const initialQuoteState =  {
                 {	
                 id: null,
                 color: "",
-                designId: null,
+                size: "",
                 quantity: null,
-                size: ""
                 }
             ],
             address:  {
                 name: "",
+                company: "",
                 address1: "",
+                address2: "",
                 city: "",
                 state: "",
                 zip: "",
@@ -28,6 +29,31 @@ const initialQuoteState =  {
             }
         }
     },
+
+    bulkQuote: [{
+        spInfo: {
+            type: "dtg",
+            designId: null,
+            products: [
+                {	
+                id: null,
+                color: "",
+                size: "",
+                quantity: null,
+                }
+            ],
+            address:  {
+                name: "",
+                company: "",
+                address1: "",
+                address2: "",
+                city: "",
+                state: "",
+                zip: "",
+                country: ""
+            }
+        }
+    }]
 
     //    quote:{ 
     //     userID: parseInt(localStorage.getItem('id')),
@@ -74,3 +100,48 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
     }
 }
 export default QuoteReducer;
+
+// const initialQuoteState =  {
+//     sendQuote:{
+//         quoteInfo: { 
+//             storeID: null,
+//             userID: parseInt(localStorage.getItem('id'))
+//          },
+//         spInfo: {
+//             type: "dtg",
+//             designId: null,
+//             products: [
+//                 {	
+//                 id: null,
+//                 color: "",
+//                 designId: null,
+//                 quantity: null,
+//                 size: ""
+//                 }
+//             ],
+//             address:  {
+//                 name: "",
+//                 address1: "",
+//                 city: "",
+//                 state: "",
+//                 zip: "",
+//                 country: ""
+//             }
+//         }
+//     },
+
+//        quote:{ 
+//         userID: parseInt(localStorage.getItem('id')),
+//         storeID: null,
+//         total: 0.00,
+//         subtotal: 0.00,
+//         tax: 0.00,
+//         fees: 0.00,
+//         shipping: 0.00,
+//         orderToken: "",
+//         warnings: "",
+//         mode: "",
+//         isFetching: false,
+//         error: ''
+//     }
+// }
