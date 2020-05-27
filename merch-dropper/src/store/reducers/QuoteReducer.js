@@ -1,9 +1,9 @@
-import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, ADD_ADDRESS_SUCCESS} from "../actions"
+import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, ADD_ADDRESS_SUCCESS, ADD_PRODUCT_QUOTE, SET_DESIGNID_QUOTE} from "../actions"
 
 const initialQuoteState =  {
     sendQuote:{
         quoteInfo: { 
-            storeID: null,
+            storeID: parseInt(localStorage.getItem('store_id')),
             userID: parseInt(localStorage.getItem('id'))
          },
         spInfo: {
@@ -67,8 +67,29 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
         case ADD_ADDRESS_SUCCESS:
             return{
                 ...state,
+                spInfo:{
+                    ...state.spInfo,
                 address: action.payload
-            }
+                }
+            };
+        case ADD_PRODUCT_QUOTE:
+            return{
+                ...state.sendQuote,
+                quoteInfo:{
+                storeID: action.payload.quoteInfo.storeID,
+                userID: action.payload.quoteInfo.userID,
+                },
+                spInfo:{
+                products: action.payload.spInfo.products,
+                designId: action.payload.spInfo.designId
+                }
+
+            };
+        case SET_DESIGNID_QUOTE:
+            return{
+                ...state.sendQuote,
+                designId: action.payload
+            };
         default:
             return state;
     }

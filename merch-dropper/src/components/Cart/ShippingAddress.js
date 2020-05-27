@@ -4,12 +4,12 @@ import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import styled from 'styled-components';
 import {TextField, Button} from "@material-ui/core";
 import { useStyles } from "../Component-Styles/addProduct-styles.js";
-import {addAddress} from "../../store/actions"
+import {addAddress, setQuote} from "../../store/actions"
 
 const ShippingAddress = () => {
     const dispatch = useDispatch();
     const classes = useStyles();
-    const [address, setAddress] = useState(useSelector(state => state.QuoteReducer.sendQuote.spInfo.address));
+    const [address, setAddress] = useState({});
     console.log(address, "address")
 
     const handleChange = e => {
@@ -22,6 +22,20 @@ const ShippingAddress = () => {
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(addAddress(address))
+        // dispatch(setQuote({
+        //   quoteInfo: { 
+        //     storeID: parseInt(localStorage.getItem('store_id')),
+        //     userID: parseInt(localStorage.getItem('id'))
+        //  },
+        // spInfo: {
+        //     type: "dtg",
+        //     designId: cart.designId,
+        //     products: [
+        //        cart
+        //     ]
+        //   }
+        // }))
+        // axios
     }
 
 

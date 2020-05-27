@@ -155,25 +155,27 @@ export const GET_QUOTE_FAILURE = "GET_QUOTE_FAILURE";
 export const GET_STORE_ID = "GET_STORE_ID";
 
 export const getQuote = (quote) => dispatch => {
-//     const userId = localStorage.getItem('id')
-//     dispatch({type: GET_QUOTE_START})
-//     axiosWithAuth()
-//         .get(`/api/stores/user/${userId}`)
-//         .then(res => {
-//             dispatch({type: GET_STORE_ID, payload: res.data})
-//             axiosWithAuth()
-//                 .post('/api/quotes', quote)
-//                 .then(res => {
-//                     dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
-//                 })
-//                 .catch(err => {
-//                     dispatch({type: GET_QUOTE_FAILURE, payload: err})                
-// })
-//         })
-        
-}
+    dispatch({type: GET_QUOTE_START})
+    axiosWithAuth()
+        .post('/api/quotes', quote)
+        .then(res => {
+            dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
+        })
+        .catch(err => {
+            dispatch({type: GET_QUOTE_FAILURE, payload: err})                
+})
+        }   
+
 
 export const ADD_ADDRESS_SUCCESS = "ADD_ADDRESS_SUCCESS";
+export const ADD_PRODUCT_QUOTE = "ADD_PRODUCT_QUOTE";
+export const SET_DESIGNID_QUOTE = "SET_DESIGNID_QUOTE"
+
+export const setQuote = (stuff) => dispatch => {
+    dispatch({type: ADD_PRODUCT_QUOTE, payload: stuff})
+    console.log(stuff, "stuff")
+    // dispatch({type: SET_DESIGNID_QUOTE, payload: designId})
+}
 
 export const addAddress = (address) => dispatch => {
     dispatch({type: ADD_ADDRESS_SUCCESS, payload: address})
