@@ -53,22 +53,22 @@ const initialQuoteState =  {
                 country: ""
             }
         }
-    }]
+    }],
 
-    //    quote:{ 
-    //     userID: parseInt(localStorage.getItem('id')),
-    //     storeID: null,
-    //     total: 0.00,
-    //     subtotal: 0.00,
-    //     tax: 0.00,
-    //     fees: 0.00,
-    //     shipping: 0.00,
-    //     orderToken: "",
-    //     warnings: "",
-    //     mode: "",
-    //     isFetching: false,
-    //     error: ''
-    // }
+    quote:{ 
+    userID: parseInt(localStorage.getItem('id')),
+    storeID: null,
+    total: 0.00,
+    subtotal: 0.00,
+    tax: 0.00,
+    fees: 0.00,
+    shipping: 0.00,
+    orderToken: "",
+    warnings: "",
+    mode: "",
+    isFetching: false,
+    error: ''
+}
 }
 
 export const QuoteReducer = (state = initialQuoteState, action) => {
