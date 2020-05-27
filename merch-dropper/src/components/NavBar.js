@@ -85,7 +85,7 @@ const NavBar = ({ hidden, history, location }) => {
     if (!!localStorage.getItem("profile")) {
       return (
         <>
-          <Link to={`${domain_name}`} className="links">
+          <Link to={`/${domain_name}`} className="links">
             Your Store
           </Link>
           <Link

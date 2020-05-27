@@ -4,13 +4,15 @@ import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import styled from 'styled-components';
 import {TextField, Button} from "@material-ui/core";
 import { useStyles } from "../Component-Styles/addProduct-styles.js";
-import {addAddress, setQuote} from "../../store/actions"
+import {addAddress, getQuote} from "../../store/actions"
 
 const ShippingAddress = () => {
     const dispatch = useDispatch();
     const classes = useStyles();
     const [address, setAddress] = useState({});
-    console.log(address, "address")
+    const quote = useSelector(state => state.QuoteReducer.sendQuote)
+    console.log("Quote", quote)
+    // console.log(address, "address")
 
     const handleChange = e => {
         setAddress({
@@ -19,9 +21,17 @@ const ShippingAddress = () => {
         })
     }
 
+    const handleQuote = e => {
+      e.preventDefault()
+      dispatch(getQuote(quote))
+    }
+
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(addAddress(address))
+        // .then(() => {
+        //   dispatch(getQuote(quote))
+        // })
         // dispatch(setQuote({
         //   quoteInfo: { 
         //     storeID: parseInt(localStorage.getItem('store_id')),
@@ -104,6 +114,7 @@ const ShippingAddress = () => {
             onChange={handleChange}
           />
           <Button onClick={handleSubmit}>Submit</Button>
+          <Button onClick={handleQuote}>Get Quote</Button>
        </AddressPageWrapper>
     )
 

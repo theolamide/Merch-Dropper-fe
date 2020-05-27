@@ -3,7 +3,7 @@ import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, ADD_ADDRESS_SUCCE
 const initialQuoteState =  {
     sendQuote:{
         quoteInfo: { 
-            storeID: parseInt(localStorage.getItem('store_id')),
+            storeID: parseInt(localStorage.getItem('storeID')),
             userID: parseInt(localStorage.getItem('id'))
          },
         spInfo: {
@@ -19,9 +19,7 @@ const initialQuoteState =  {
             ],
             address:  {
                 name: "",
-                company: "",
                 address1: "",
-                address2: "",
                 city: "",
                 state: "",
                 zip: "",
@@ -30,30 +28,30 @@ const initialQuoteState =  {
         }
     },
 
-    bulkQuote: [{
-        spInfo: {
-            type: "dtg",
-            designId: null,
-            products: [
-                {	
-                id: null,
-                color: "",
-                size: "",
-                quantity: null,
-                }
-            ],
-            address:  {
-                name: "",
-                company: "",
-                address1: "",
-                address2: "",
-                city: "",
-                state: "",
-                zip: "",
-                country: ""
-            }
-        }
-    }],
+    // bulkQuote: [{
+    //     spInfo: {
+    //         type: "dtg",
+    //         designId: null,
+    //         products: [
+    //             {	
+    //             id: null,
+    //             color: "",
+    //             size: "",
+    //             quantity: null,
+    //             }
+    //         ],
+    //         address:  {
+    //             name: "",
+    //             company: "",
+    //             address1: "",
+    //             address2: "",
+    //             city: "",
+    //             state: "",
+    //             zip: "",
+    //             country: ""
+    //         }
+    //     }
+    // }],
 
     quote:{ 
     userID: null, 
@@ -82,8 +80,9 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
         case GET_QUOTE_SUCCESS:
             return{
                 ...state,
+                quote: action.payload,
                 isFetching: false,
-                quote: action.payload
+                
             };
         case GET_QUOTE_FAILURE:
             return{
@@ -94,29 +93,31 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
         case ADD_ADDRESS_SUCCESS:
             return{
                 ...state,
-                spInfo:{
-                    ...state.spInfo,
-                address: action.payload
-                }
+                sendQuote: {
+                    ...state.sendQuote,
+                    spInfo:{
+                        ...state.sendQuote.spInfo,
+                    address: action.payload
+                    }
+                }                
             };
         case ADD_PRODUCT_QUOTE:
             return{
-                ...state.sendQuote,
-                quoteInfo:{
-                storeID: action.payload.quoteInfo.storeID,
-                userID: action.payload.quoteInfo.userID,
-                },
-                spInfo:{
-                products: action.payload.spInfo.products,
-                designId: action.payload.spInfo.designId
-                }
-
+                ...state,
+               sendQuote: {
+                   ...state.sendQuote,
+                    quoteInfo:{
+                        storeID: action.payload.quoteInfo.storeID,
+                        userID: action.payload.quoteInfo.userID,
+                    },                     
+                    spInfo:{
+                        type: action.payload.spInfo.type,
+                        designId: action.payload.spInfo.designId,
+                        products: action.payload.spInfo.products                       
+                    }
+}
             };
-        case SET_DESIGNID_QUOTE:
-            return{
-                ...state.sendQuote,
-                designId: action.payload
-            };
+        
         default:
             return state;
     }

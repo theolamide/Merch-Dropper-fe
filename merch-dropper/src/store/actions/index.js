@@ -156,8 +156,9 @@ export const GET_STORE_ID = "GET_STORE_ID";
 
 export const getQuote = (quote) => dispatch => {
     dispatch({type: GET_QUOTE_START});
-    axios
-    .post('https://merchdropper-production.herokuapp.com/api/quotes')
+    console.log(quote, "in function")
+    axiosWithAuth()
+    .post('https://merchdropper-production.herokuapp.com/api/quotes', quote)
     .then(res => {
         dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
     })
@@ -176,6 +177,12 @@ export const setQuote = (stuff) => dispatch => {
     // dispatch({type: SET_DESIGNID_QUOTE, payload: designId})
 }
 
-export const addAddress = (address) => dispatch => {
+export const addAddress = (address, quote) => dispatch => {
     dispatch({type: ADD_ADDRESS_SUCCESS, payload: address})
+    .then(() => {
+        dispatch(getQuote(quote))
+    })
+    .catch(err => {
+        console.dir(err)
+    })
 }

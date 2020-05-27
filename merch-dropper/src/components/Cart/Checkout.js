@@ -28,12 +28,12 @@ const CheckoutPage = ({
   removeItem,
   clearItem,
 }) => {
-  const quote = useSelector(state => state.quoteReducer)
+  // const quote = useSelector(state => state.quoteReducer)
   const dispatch = useDispatch();
   const { domain_name } = match.params;
   useEffect(() => {
     dispatch(setQuote({ quoteInfo: { 
-              storeID: parseInt(localStorage.getItem('store_id')),
+              storeID: parseInt(localStorage.getItem('storeID')),
               userID: parseInt(localStorage.getItem('id'))
            },
           spInfo: {
@@ -43,9 +43,9 @@ const CheckoutPage = ({
                  cart
               ]}
             }))
-    if(quote && quote.quoteInfo.length > 0) 
-    { console.log(quote)
-      dispatch(getQuote(quote.quoteInfo))}
+    // if(quote && quote.quoteInfo.length > 0) 
+    // { console.log(quote)
+    //   dispatch(getQuote(quote.quoteInfo))}
     // GET request to 'stores/domain/${match.params.domain_name}'
 
     axios
