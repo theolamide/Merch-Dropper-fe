@@ -56,7 +56,8 @@ const initialQuoteState =  {
     }],
 
     quote:{ 
-    userID: parseInt(localStorage.getItem('id')),
+    userID: null, 
+    // userID was -> parseInt(localStorage.getItem('id')), without buyer user this seems unnecessary
     storeID: null,
     total: 0.00,
     subtotal: 0.00,
