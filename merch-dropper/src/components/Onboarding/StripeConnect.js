@@ -21,7 +21,7 @@ const SkipSetup = e => {
 
     e.preventDefault();
     history.push('/createstore');
-    window.location.replace('https://www.merchdropper.store/createstore');
+    window.location.replace('https://merchdropper.store/createstore');
 }
 
 

@@ -33,7 +33,7 @@ const NavBar = ({ hidden, history, location }) => {
   if (process.env.REACT_APP_BASE_URL === "development") {
     url = "http://localhost:3000/redirect";
   } else {
-    url = "https://www.merchdropper.store/redirect";
+    url = "https://merchdropper.store/redirect";
   }
 
   const customLogin = () => {
@@ -160,6 +160,7 @@ const NavBar = ({ hidden, history, location }) => {
             <div className="HamburgerLines"></div>
             <div className="HamburgerLines"></div>
             <div className="HamburgerLines"></div>
+            CLICK ME
           </button>
         </div>
         {hidden ? null : <CartDropDown />}
@@ -172,7 +173,41 @@ const NavBar = ({ hidden, history, location }) => {
         </div>
 
         <nav className="ButtonWrapper">
-          <Nav />
+          {!!localStorage.getItem("profile") ? (
+            <>
+              <Link to={`/${store_name}`} className="links">
+                Your Store
+              </Link>
+              <Link
+                to="/dashboard"
+                className="links"
+                style={
+                  pathname === "/dashboard"
+                    ? { fontWeight: 700 }
+                    : { fontWeight: 500 }
+                }
+              >
+                Dashboard
+              </Link>
+              <span
+                className="links"
+                onClick={logoutWithRedirect}
+                style={{ marginLeft: "32px" }}
+              >
+                Logout
+              </span>
+              <CartIcon />
+            </>
+          ) : (
+            <>
+              <span className="links" onClick={customLogin}>
+                Sign in
+              </span>
+              <button className="links cta" onClick={customSignup}>
+                Get Started
+              </button>
+            </>
+          )}
         </nav>
         {hidden ? null : <CartDropDown />}
       </div>

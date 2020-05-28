@@ -1,48 +1,38 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from 'react';
 import axios from "axios";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import styled from "styled-components";
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import styled from 'styled-components';
 
-import StripeCheckoutButton from "../StripeButton";
+import {Link} from "react-router-dom";
+import StripeCheckoutButton from '../StripeButton';
+import { selectCartItems, selectCartTotal } from '../../store/Selectors/cart.selectors';
+import { addToCart, removeFromCart, clearItemFromCart } from '../../store/actions/index';
 
-import {
-  selectCartItems,
-  selectCartTotal,
-} from "../../store/Selectors/cart.selectors";
-import {
-  addToCart,
-  removeFromCart,
-  clearItemFromCart,
-} from "../../store/actions/index";
 
-const CheckoutPage = ({
-  cart,
-  total,
-  match,
-  addItem,
-  removeItem,
-  clearItem,
-}) => {
-  const { domain_name } = match.params;
-  useEffect(() => {
-    // GET request to 'stores/domain/${match.params.domain_name}'
 
-    axios
-      .get(
-        `https://merchdropper-production.herokuapp.com/api/stores/domain/${domain_name}`
-      )
-      .then((res) => {
-        if (Number(res.data.id) !== Number(localStorage.getItem("storeID"))) {
-          localStorage.setItem("storeID", Number(res.data.id));
-          window.location.reload();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [match.params, domain_name]);
-
+const CheckoutPage = ({ cart, total, match, addItem, removeItem, clearItem }) => {
+    const {domain_name} = match.params
+    useEffect(() => {
+      // GET request to 'stores/domain/${match.params.domain_name}'
+      
+       axios
+        .get(
+          `https://merchdropper-production.herokuapp.com/api/stores/domain/${domain_name}`
+        )
+        .then((res) => {
+            
+            if(Number(res.data.id) !== Number(localStorage.getItem("storeID"))) {
+                localStorage.setItem("storeID", Number(res.data.id));
+                window.location.reload()
+            }
+          
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    }, [match.params, domain_name]);
+    
   return (
     <CheckoutPageWrapper className="checkout-page">
       <CheckoutHeader className="checkout-header">
@@ -96,7 +86,9 @@ const CheckoutPage = ({
       <Total className="total">
         <span>Total: ${total}</span>
       </Total>
-      <StripeCheckoutButton price={total} />
+      <Link to="/:domain-name/address">Next</Link>
+      
+      <StripeCheckoutButton price={total} domain={domain_name} />
     </CheckoutPageWrapper>
   );
 };

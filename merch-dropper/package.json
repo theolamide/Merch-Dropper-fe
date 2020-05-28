@@ -42,6 +42,7 @@
   },
   "scripts": {
     "start": "env-cmd react-scripts start",
+    "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --watchAll",
     "eject": "react-scripts eject",
