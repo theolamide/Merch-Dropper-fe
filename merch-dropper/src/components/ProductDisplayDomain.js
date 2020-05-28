@@ -31,8 +31,8 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
       })
       .finally(() => {
         axios
-          .get(
-            `https://merchdropper-production.herokuapp.com/api/products/store/${storeID}`
+          .get(`http://localhost:4000/api/products/store/${storeID}`
+            // `https://merchdropper-production.herokuapp.com/api/products/store/${storeID}`
           )
           .then((res) => {
             console.log(res);

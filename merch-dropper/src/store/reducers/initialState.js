@@ -1,12 +1,14 @@
 const initialState = {
   hidden: true,
   cart: [],
-  products: [
+  products: 
     {
       id: "",
+      productName: "",
       color: "",
+      size: "",
       designId: "",
-      design: "",
+      type: "",
       url: "",
       price: null
     }
@@ -64,7 +66,7 @@ const initialState = {
     //     "https://raw.githubusercontent.com/Jeris-Manning/FILES/master/shirtsSmall/black.png",
     //   price: 29.99
     // }
-  ]
+  
 };
 
 export default initialState;

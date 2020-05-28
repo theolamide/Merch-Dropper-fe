@@ -58,6 +58,8 @@ function App() {
               setDesign={setDesign}
               thumbRender={thumbRender}
               setThumbRender={setThumbRender}
+              product={product}
+              setProduct={setProduct}
               {...props}
             />
           )}

@@ -158,7 +158,7 @@ export const getQuote = (quote) => dispatch => {
     dispatch({type: GET_QUOTE_START});
     console.log(quote, "in function")
     axiosWithAuth()
-    .post('https://merchdropper-production.herokuapp.com/api/quotes', quote)
+    .post('http://localhost:4000/api/quotes', quote)
     .then(res => {
         dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
     })
@@ -179,10 +179,19 @@ export const setQuote = (stuff) => dispatch => {
 
 export const addAddress = (address, quote) => dispatch => {
     dispatch({type: ADD_ADDRESS_SUCCESS, payload: address})
-    .then(() => {
-        dispatch(getQuote(quote))
-    })
-    .catch(err => {
-        console.dir(err)
-    })
+    // .then(() => {
+    //     dispatch(getQuote(quote))
+    // })
+    // .catch(err => {
+    //     console.dir(err)
+    // })
+}
+
+export const ADD_PRODUCT_STATE_START = "ADD_PRODUCT_STATE_START";
+export const ADD_PRODUCT_STATE_SUCCESS = "ADD_PRODUCT_STATE_SUCCESS";
+export const ADD_PRODUCT_STATE_FAILURE = "ADD_PRODUCT_STATE_FAILURE";
+
+export const addProdToState = (product) => dispatch => {
+    dispatch({type: ADD_PRODUCT_STATE_SUCCESS, payload: product})
+    
 }

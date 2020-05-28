@@ -11,7 +11,8 @@ export const axiosWithAuth = () => {
   const token = localStorage.getItem("token");
 
   return axios.create({
-    baseURL: "https://merchdropper-production.herokuapp.com",
+    baseURL: "http://localhost:4000",
+    // "https://merchdropper-production.herokuapp.com",
     headers: {
       Authorization: token,
       "Content-Type": "application/json",

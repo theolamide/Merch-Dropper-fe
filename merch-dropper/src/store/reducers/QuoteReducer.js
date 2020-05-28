@@ -11,7 +11,7 @@ const initialQuoteState =  {
             designId: null,
             products: [
                 {	
-                id: null,
+                id: "canvas-unisex-t-shirt",
                 color: "",
                 size: "",
                 quantity: null,

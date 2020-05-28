@@ -32,17 +32,16 @@ const addProduct = async (history, garment, product, design) => {
 
     //
     const merchDropRes = await axios
-      .post("https://merchdropper-production.herokuapp.com/api/products", {
+      .post("http://localhost:4000/api/products", {
         ...product,
         fullSizeURL: cloudRes.data.eager[0].secure_url,
         thumbnailURL: cloudRes.data.eager[1].secure_url,
-        designId: design.designId
       })
       .then(history.push("/dashboard"))
       .catch(err => {
-        console.log("error uploading image", err);
+        console.log("MERCHDROPRES", err);
       });
-    console.log(`${merchDropRes.data.productName} added successfully!`);
+    console.log(` added successfully!`);
   })();
   return null;
 };

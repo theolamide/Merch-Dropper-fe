@@ -9,7 +9,8 @@ const DesignHandler = ({ design, setDesign, setThumbRender }) => {
     (async () => {
       if (designAdded > 0) {
         const res = await axios.post(
-          "https://merchdropper-production.herokuapp.com/api/designs",
+          "http://localhost:4000/api/designs",
+          // "https://merchdropper-production.herokuapp.com/api/designs",
           design
         );
         setThumbRender(res);

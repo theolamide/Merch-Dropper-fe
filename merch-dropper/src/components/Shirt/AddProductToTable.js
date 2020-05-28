@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {useSelector} from "react-redux";
+
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
@@ -11,18 +11,24 @@ import { Dimmer, Loader, Image, Segment } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
+import scalableData from "./scalableData"
 
 Modal.setAppElement("#root");
 const AddProductToTable = (props, history) => {
   const classes = useStyles();
   const [stores, setStores] = useState("");
-  
+  const data = scalableData(props.garment);
+  console.log(data, "add product")
   const [product, setProduct] = useState({
     productName: "",
     price: "",
     description: "",
     storeID: 0,
-    designId: ""
+    designId: props.design.designId,
+    color: data.product.color,
+    size: "",
+    product_id: data.product.id,
+    type: data.design.type
   });
   const [cost, setCost] = useState([])
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -54,12 +60,10 @@ const AddProductToTable = (props, history) => {
       setStores(res2.data);
     }
     getStores();
-    //get price of product from scalablepress
-      const product = {
-        "productId": "canvas-unisex-t-shirt"
-      }
-      axios.post('https://merchdropper-production.herokuapp.com/api/products/price', product)
+    //get price of product from scalablepress 
+      axios.post('https://merchdropper-production.herokuapp.com/api/products/price', product.product_id)
           .then(res => {
+            console.log(res, "price res")
              setCost(res.data)
           })
           .catch(err => {
