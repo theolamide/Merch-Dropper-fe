@@ -40,12 +40,12 @@ export default function AddProductToTable(props, history) {
       const { email } = JSON.parse(localStorage.getItem("profile"));
       console.log(email)
       const res = await axios.get(
-        `https://merchdropper-production.herokuapp.com/api/users/email/${email}`
+        `https://merch-dropper.herokuapp.com/api/users/email/${email}`
       );
       console.log(res);
       const userID = res.data.id;
       const res2 = await axios.get(
-        `https://merchdropper-production.herokuapp.com/api/stores/user/${userID}`
+        `https://merch-dropper.herokuapp.com/api/stores/user/${userID}`
       );
       console.log(res2);
       setStores(res2.data);
