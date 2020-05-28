@@ -6,7 +6,7 @@ const initialState = {
       id: "",
       productName: "",
       color: "",
-      size: "",
+      size: "med",
       designId: "",
       type: "",
       url: "",

@@ -62,6 +62,7 @@ const AddProductToTable = (props, history) => {
     getStores();
     //get price of product from scalablepress 
       axios.post('https://merchdropper-production.herokuapp.com/api/products/price', product.product_id)
+      console.log(product.product_id, "product price")
           .then(res => {
             console.log(res, "price res")
              setCost(res.data)

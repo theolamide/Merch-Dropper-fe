@@ -11,7 +11,7 @@ const initialQuoteState =  {
             designId: null,
             products: [
                 {	
-                id: "canvas-unisex-t-shirt",
+                id: "",
                 color: "",
                 size: "",
                 quantity: null,
@@ -104,18 +104,23 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
         case ADD_PRODUCT_QUOTE:
             return{
                 ...state,
-               sendQuote: {
-                   ...state.sendQuote,
-                    quoteInfo:{
-                        storeID: action.payload.quoteInfo.storeID,
-                        userID: action.payload.quoteInfo.userID,
-                    },                     
-                    spInfo:{
-                        type: action.payload.spInfo.type,
-                        designId: action.payload.spInfo.designId,
-                        products: action.payload.spInfo.products                       
-                    }
-}
+                sendQuote: {
+                    ...state.sendQuote,
+                    spInfo: {
+                        ...state.sendQuote.spInfo,
+                        type: action.payload.spInfo.cart[0].type,
+                        designId: action.payload.spInfo.cart[0].designId,
+                        products:{
+                            id: action.payload.spInfo.cart[0].product_id,
+                            color: action.payload.spInfo.cart[0].color,
+                            size:"med",
+                            quantity: action.payload.spInfo.cart[0].quantity
+                        }
+                }
+               
+
+                }
+              
             };
         
         default:
