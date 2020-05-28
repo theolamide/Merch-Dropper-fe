@@ -9,7 +9,7 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 export const postUser = (credentials) => dispatch => {
     // console.log('credentials', credentials)
     dispatch({ type: REGISTER_START })
-    axios.post('https://merchdropper-production.herokuapp.com/api/auth/register', credentials)
+    axios.post('https://merch-dropper.herokuapp.com/api/auth/register', credentials)
         .then(res => {
             console.log('postUser res', res);
             dispatch({ type: REGISTER_SUCCESS, payload: res.data })
@@ -140,7 +140,7 @@ export const searchStoreName = (storeName) => dispatch => {
     let encodedURI = encodeURI(storeName)
     // console.log('search action called', encodedURI)
     dispatch({ type: SEARCH_STORE_START })
-    axios.get(`https://merchdropper-production.herokuapp.com/api/stores/storename/${encodedURI}`)
+    axios.get(`https://merch-dropper.herokuapp.com/api/stores/storename/${encodedURI}`)
         .then(res => {
             dispatch({ type: SEARCH_STORE_SUCCESS, payload: res.data })
         })

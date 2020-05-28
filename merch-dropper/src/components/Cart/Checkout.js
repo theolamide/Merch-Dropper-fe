@@ -18,7 +18,7 @@ const CheckoutPage = ({ cart, total, match, addItem, removeItem, clearItem }) =>
       
        axios
         .get(
-          `https://merchdropper-production.herokuapp.com/api/stores/domain/${domain_name}`
+          `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
         )
         .then((res) => {
             
