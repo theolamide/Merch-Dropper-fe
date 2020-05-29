@@ -60,6 +60,7 @@ function CreateStore({ history }) {
   };
 
   const profile = JSON.parse(localStorage.getItem("profile"));
+  console.log(profile)
 
   // The callSignUp function sends a post request to the back end to create a new store associated with the logged in user
   // The store_name is the unedited input from the user to be displayed on their dashboard and buyer-facing storefront
