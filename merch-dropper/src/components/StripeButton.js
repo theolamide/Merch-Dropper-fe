@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
-import axios from "axios";
 
 import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
+import { axiosWithEnv } from "../utils/axiosWithEnv";
 
 const StripeCheckoutButton = ({ price, domain, history }) => {
   console.log('the store', domain)
@@ -21,8 +21,8 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
   const onToken = token => {
     console.log('token at top', token); // should clear this or at least comment out post feature development
     token.domain_name = domain;
-    axios
-      .post("https://merch-dropper.herokuapp.com/api/payments/create-payment-intent", {
+    axiosWithEnv()
+      .post("/api/payments/create-payment-intent", {
         amount: priceForStripe,
         token,
         config,
