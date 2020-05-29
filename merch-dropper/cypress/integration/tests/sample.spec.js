@@ -3,3 +3,10 @@ describe('My First Test', function () {
         expect(true).to.equal(true)
     })
 })
+
+describe('https://merchdropper.store/', () => {
+    it('contains a sign in button', () => {
+        cy.visit('https://merchdropper.store/')
+        cy.contains('Sign in')
+    })
+})
