@@ -23,7 +23,7 @@ const initialQuoteState =  {
                 city: "",
                 state: "",
                 zip: "",
-                country: ""
+                // country: ""
             }
         }
     },
@@ -110,12 +110,12 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
                         ...state.sendQuote.spInfo,
                         type: action.payload.spInfo.cart[0].type,
                         designId: action.payload.spInfo.cart[0].designId,
-                        products:{
+                        products:[{
                             id: action.payload.spInfo.cart[0].product_id,
                             color: action.payload.spInfo.cart[0].color,
                             size:"med",
                             quantity: action.payload.spInfo.cart[0].quantity
-                        }
+                        }]
                 }
                
 
