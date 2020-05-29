@@ -55,7 +55,7 @@ export default function AddProductToTable(props, history) {
       const product = {
         "productId": "canvas-unisex-t-shirt"
       }
-      axios.post('http://localhost:5032/api/products/price', product)
+      axios.post('https://merch-dropper.herokuapp.com/api/products/price', product)
           .then(res => {
              setCost(res.data)
           })
@@ -70,10 +70,8 @@ export default function AddProductToTable(props, history) {
   const garmentColor = props.garment.color.toLowerCase();
    for (let [key, value] of Object.entries(cost)) {
     let keyLower = key.toLowerCase()
-    if(keyLower === garmentColor){ 
-      console.log(keyLower, garmentColor, "compare")     
-      baseCost = ((value.sml.price/100) * 0.029) + (value.sml.price / 100)
-      console.log(baseCost, "value")    
+    if(keyLower === garmentColor){            
+      baseCost = ((value.sml.price/100) * 0.029) + (value.sml.price / 100)         
     }    
   }
 
