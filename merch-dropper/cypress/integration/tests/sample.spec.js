@@ -12,6 +12,10 @@ describe('https://merchdropper.store/', () => {
     })
     it('contains a Get Started button', () => {
         cy.visit('https://merchdropper.store/') 
-        cy.contains('Get Start')
+        cy.contains('Get Started')
+    })
+    it('contains a Learn more button', () => {
+        cy.visit('https://merchdropper.store/') 
+        cy.contains('Learn More')
     })
 })
