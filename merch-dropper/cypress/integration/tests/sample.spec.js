@@ -5,8 +5,13 @@ describe('My First Test', function () {
 })
 
 describe('https://merchdropper.store/', () => {
-    it('contains a sign in button', () => {
-        cy.visit('https://merchdropper.store/')
+    
+    it('contains a Sign in button', () => {  
+        cy.visit('https://merchdropper.store/') 
         cy.contains('Sign in')
+    })
+    it('contains a Get Started button', () => {
+        cy.visit('https://merchdropper.store/') 
+        cy.contains('Get Start')
     })
 })
