@@ -56,7 +56,7 @@ export default function AddProductToTable(props, history) {
       const product = {
         "productId": "canvas-unisex-t-shirt"
       }
-      axios.post('https://merch-dropper.herokuapp.com/api/products/price', product)
+      axiosWithEnv().post('/api/products/price', product)
           .then(res => {
              setCost(res.data)
           })
