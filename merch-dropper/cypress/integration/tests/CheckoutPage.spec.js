@@ -1,10 +1,12 @@
 ///Tests if the checkout pay button is clickable
 describe('Checkout Page', () => {
 
- 
-        it('visits the checkout page', () => {
-            cy.visit('http://localhost:3000/null/checkout')
-    
+ before(()=> {
+    cy.visit('http://localhost:3000/null/checkout')
+ })
+
+        it('clicks the Pay button', () => {
+           
             cy.get('.StripeCheckout').click()
         })
          
