@@ -1,4 +1,5 @@
 import axios from "axios";
+import { axiosWithEnv } from "../../utils/axiosWithEnv";
 
 // this function allows the user to design a product
 const addProduct = async (history, garment, product) => {
@@ -28,8 +29,8 @@ const addProduct = async (history, garment, product) => {
       });
 
     //
-    const merchDropRes = await axios
-      .post("https://merch-dropper.herokuapp.com/api/products", {
+    const merchDropRes = await axiosWithEnv()
+      .post("/api/products", {
         ...product,
         fullSizeURL: cloudRes.data.eager[0].secure_url,
         thumbnailURL: cloudRes.data.eager[1].secure_url

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import axios from "axios";
+import { axiosWithEnv } from '../../utils/axiosWithEnv'
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
@@ -12,13 +12,15 @@ import { addToCart, removeFromCart, clearItemFromCart } from '../../store/action
 
 
 const CheckoutPage = ({ cart, total, match, addItem, removeItem, clearItem }) => {
+    
     const {domain_name} = match.params
+
     useEffect(() => {
       // GET request to 'stores/domain/${match.params.domain_name}'
       
-       axios
+       axiosWithEnv()
         .get(
-          `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
+          `/api/stores/domain/${domain_name}`
         )
         .then((res) => {
             
