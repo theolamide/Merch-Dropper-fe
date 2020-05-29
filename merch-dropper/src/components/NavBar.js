@@ -12,10 +12,14 @@ import { useAuth0 } from "./Auth/Auth";
 // logo
 import logo from "../assets/merchdropper-logo.png";
 
+
+
 const NavBar = ({ hidden, history, location }) => {
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
+
+  const store_name = localStorage.getItem('store_name');
 
   const [state, setState] = useState({ sideDrawerOpen: false });
 
@@ -174,6 +178,7 @@ const NavBar = ({ hidden, history, location }) => {
 
         <nav className="ButtonWrapper">
           {!!localStorage.getItem("profile") ? (
+            
             <>
               <Link to={`/${store_name}`} className="links">
                 Your Store
