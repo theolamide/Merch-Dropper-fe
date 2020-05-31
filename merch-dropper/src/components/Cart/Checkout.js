@@ -3,7 +3,7 @@ import axios from "axios";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+
 
 
 import StripeCheckoutButton from "../StripeButton";
@@ -114,9 +114,6 @@ const CheckoutPage = ({
       <Total className="total">
         <span>Total: ${total}</span>
       </Total>
-      <Link to="/:domain-name/address" 
-      >Next</Link>
-      
       <StripeCheckoutButton price={total} domain={domain_name} />
     </CheckoutPageWrapper>
   );

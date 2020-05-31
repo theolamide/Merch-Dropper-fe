@@ -158,7 +158,7 @@ export const getQuote = (quote) => dispatch => {
     dispatch({type: GET_QUOTE_START});
     console.log(quote, "in function")
     axiosWithAuth()
-    .post('http:/localhost:5032/api/quotes', quote)
+    .post('/api/quotes', quote)
     .then(res => {
         dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
     })
