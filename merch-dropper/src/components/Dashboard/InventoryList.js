@@ -21,16 +21,16 @@ function InventoryList({ history }) {
       const { email } = JSON.parse(localStorage.getItem("profile"));
 
       const resUser = await axios.get(
-        `http:/localhost:5032/api/users/email/${email}`
+        `http://localhost:5032/api/users/email/${email}`
       );
       const userID = resUser.data.id;
       const resStore = await axios.get(
-        `http:/localhost:5032/api/stores/user/${userID}`
+        `http://localhost:5032/api/stores/user/${userID}`
       );
       setStores(resStore.data);
       const storeID = resStore.data.id;
       const resProducts = await axios.get(
-        `http:/localhost:5032/api/products/store/${storeID}`
+        `http://localhost:5032/api/products/store/${storeID}`
       );
       setProducts(resProducts.data);
     }

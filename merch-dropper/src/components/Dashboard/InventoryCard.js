@@ -14,7 +14,7 @@ const InventoryCard = (props) => {
     e.preventDefault();
     axios
       .delete(
-        `http:/localhost:5032/api/products/${props.shirtID}`
+        `http://localhost:5032/api/products/${props.shirtID}`
       )
       .then((res) => {
         window.location.reload();

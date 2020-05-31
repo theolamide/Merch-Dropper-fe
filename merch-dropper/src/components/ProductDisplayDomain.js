@@ -18,7 +18,7 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   useEffect(() => {
     axios
       .get(
-        `http:/localhost:5032/api/stores/domain/${domain_name}`
+        `http://localhost:5032/api/stores/domain/${domain_name}`
         // local dev server
         // `http://localhost:5032/api/stores/domain/${domain_name}`
       )

@@ -49,20 +49,22 @@ const AddProductToTable = (props, history) => {
       const { email } = JSON.parse(localStorage.getItem("profile"));
       console.log(email)
       const res = await axios.get(
-        `http:/localhost:5032/api/users/email/${email}`
+        `http://localhost:5032/api/users/email/${email}`
       );
       console.log(res);
       const userID = res.data.id;
       const res2 = await axios.get(
-        `http:/localhost:5032/api/stores/user/${userID}`
+        `http://localhost:5032/api/stores/user/${userID}`
       );
       console.log(res2);
       setStores(res2.data);
     }
     getStores();
-    //get price of product from scalablepress 
-      axios.post('http://localhost5032/api/products/price', product.product_id)
-      console.log(product.product_id, "product price")
+    //get price of product from scalablepress
+      const product = {
+        "productId": "canvas-unisex-t-shirt"
+      }
+      axios.post('http://localhost:5032/api/products/price', product)
           .then(res => {
             console.log(res, "price res")
              setCost(res.data)

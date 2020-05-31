@@ -13,7 +13,7 @@ const ProductDisplay = ({ products, addToCart }) => {
   const [shirts, setShirts] = useState([]);
 
   useEffect(() => {
-    axios.get('http:/localhost:5032/api/products')
+    axios.get('http://localhost:5032/api/products')
       .then(res => {
         // console.log('res', res.data)
         setShirts(res.data);
