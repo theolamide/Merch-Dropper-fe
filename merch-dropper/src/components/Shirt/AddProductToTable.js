@@ -49,12 +49,12 @@ const AddProductToTable = (props, history) => {
       const { email } = JSON.parse(localStorage.getItem("profile"));
       console.log(email)
       const res = await axios.get(
-        `https://merchdropper-production.herokuapp.com/api/users/email/${email}`
+        `https://merch-dropper.herokuapp.com/api/users/email/${email}`
       );
       console.log(res);
       const userID = res.data.id;
       const res2 = await axios.get(
-        `https://merchdropper-production.herokuapp.com/api/stores/user/${userID}`
+        `https://merch-dropper.herokuapp.com/api/stores/user/${userID}`
       );
       console.log(res2);
       setStores(res2.data);
@@ -78,10 +78,8 @@ const AddProductToTable = (props, history) => {
   const garmentColor = props.garment.color.toLowerCase();
    for (let [key, value] of Object.entries(cost)) {
     let keyLower = key.toLowerCase()
-    if(keyLower === garmentColor){ 
-      // console.log(keyLower, garmentColor, "compare")     
-      baseCost = ((value.sml.price/100) * 0.029) + (value.sml.price / 100)
-      // console.log(baseCost, "value")    
+    if(keyLower === garmentColor){            
+      baseCost = ((value.sml.price/100) * 0.029) + (value.sml.price / 100)         
     }    
   }
 

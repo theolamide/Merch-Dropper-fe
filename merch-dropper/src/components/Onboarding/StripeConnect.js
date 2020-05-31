@@ -21,7 +21,7 @@ const SkipSetup = e => {
 
     e.preventDefault();
     history.push('/createstore');
-    window.location.replace('https://www.merchdropper.store/createstore');
+    window.location.replace('https://merchdropper.store/createstore');
 }
 
 
@@ -44,7 +44,7 @@ const StripeConnect = () => {
         console.log(userCode)
 
         axiosWithAuth()
-            .post('https://merchdropper-production.herokuapp.com/api/stripe/accounts', {
+            .post('https://merch-dropper.herokuapp.com/api/stripe/accounts', {
             user_code: userCode,
             email: profile.email,
        })

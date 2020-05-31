@@ -64,7 +64,7 @@ function App() {
             />
           )}
         />
-        <Route exact path="/:domain_name/address" component={ShippingAddress}/>
+        <Route exact path="/:domain_name/address" component={ShippingAddress} />
         <Route exact path="/learnmore" component={LearnMore} />
         <Route exact path="/redirect" component={Redirect} />
         <Route exact path="/stripe-setup" component={StripeSetup} />

@@ -14,7 +14,7 @@ const InventoryCard = (props) => {
     e.preventDefault();
     axios
       .delete(
-        `https://merchdropper-production.herokuapp.com/api/products/${props.shirtID}`
+        `https://merch-dropper.herokuapp.com/api/products/${props.shirtID}`
       )
       .then((res) => {
         window.location.reload();

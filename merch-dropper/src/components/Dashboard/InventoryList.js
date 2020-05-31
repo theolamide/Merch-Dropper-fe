@@ -21,17 +21,16 @@ function InventoryList({ history }) {
       const { email } = JSON.parse(localStorage.getItem("profile"));
 
       const resUser = await axios.get(
-        `https://merchdropper-production.herokuapp.com/api/users/email/${email}`
+        `https://merch-dropper.herokuapp.com/api/users/email/${email}`
       );
       const userID = resUser.data.id;
       const resStore = await axios.get(
-        `https://merchdropper-production.herokuapp.com/api/stores/user/${userID}`
+        `https://merch-dropper.herokuapp.com/api/stores/user/${userID}`
       );
       setStores(resStore.data);
       const storeID = resStore.data.id;
       const resProducts = await axios.get(
-        `http://localhost:4000/api/products/store/${storeID}`
-        // `https://merchdropper-production.herokuapp.com/api/products/store/${storeID}`
+        `https://merch-dropper.herokuapp.com/api/products/store/${storeID}`
       );
       setProducts(resProducts.data);
     }
