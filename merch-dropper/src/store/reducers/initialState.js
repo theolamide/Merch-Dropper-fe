@@ -9,9 +9,13 @@ const initialState = {
       size: "med",
       designId: "",
       type: "",
-      url: "",
+      fullSizeURL: "",
+      thumbnailURL: "",
+      description: "",
+      storeID: null,
       price: null
     }
+    
     // {
     //   id: 1,
     //   color: "Burnt Orange",

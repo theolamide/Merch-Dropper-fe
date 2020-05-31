@@ -18,9 +18,9 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   useEffect(() => {
     axios
       .get(
-        // `http://localhost:5032/api/stores/domain/${domain_name}`
+        `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
         // local dev server
-        `http://localhost:5032/api/stores/domain/${domain_name}`
+        // `http://localhost:5032/api/stores/domain/${domain_name}`
       )
       .then((res) => {
         storeID = res.data.id
@@ -32,7 +32,7 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
       .finally(() => {
         axios
           .get(
-            `http://localhost:5032/api/products/store/${storeID}`
+            `https://merch-dropper.herokuapp.com/api/products/store/${storeID}`
           )
           .then((res) => {
             console.log(res, "res");

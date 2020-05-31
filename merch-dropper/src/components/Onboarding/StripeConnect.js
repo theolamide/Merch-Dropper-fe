@@ -44,7 +44,7 @@ const StripeConnect = () => {
         console.log(userCode)
 
         axiosWithAuth()
-            .post('http://localhost:5032/api/stripe/accounts', {
+            .post('https://merch-dropper.herokuapp.com/api/stripe/accounts', {
             user_code: userCode,
             email: profile.email,
        })

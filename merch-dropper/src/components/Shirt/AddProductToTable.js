@@ -49,12 +49,12 @@ const AddProductToTable = (props, history) => {
       const { email } = JSON.parse(localStorage.getItem("profile"));
       console.log(email)
       const res = await axios.get(
-        `http://localhost:5032/api/users/email/${email}`
+        `https://merch-dropper.herokuapp.com/api/users/email/${email}`
       );
       console.log(res);
       const userID = res.data.id;
       const res2 = await axios.get(
-        `http://localhost:5032/api/stores/user/${userID}`
+        `https://merch-dropper.herokuapp.com/api/stores/user/${userID}`
       );
       console.log(res2);
       setStores(res2.data);
@@ -64,7 +64,7 @@ const AddProductToTable = (props, history) => {
       const product = {
         "productId": "canvas-unisex-t-shirt"
       }
-      axios.post('http://localhost:5032/api/products/price', product)
+      axios.post('https://merch-dropper.herokuapp.com/api/products/price', product)
           .then(res => {
             console.log(res, "price res")
              setCost(res.data)
