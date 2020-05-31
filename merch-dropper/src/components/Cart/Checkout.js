@@ -45,7 +45,7 @@ const CheckoutPage = ({
 
     axios
       .get(
-        `https://merchdropper-production.herokuapp.com/api/stores/domain/${domain_name}`
+        `http:/localhost:5032/api/stores/domain/${domain_name}`
       )
       .then((res) => {
         if (Number(res.data.id) !== Number(localStorage.getItem("storeID"))) {

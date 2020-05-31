@@ -70,7 +70,7 @@ function CreateStore({ history }) {
     setIsSubmit(true);
 
     axios
-      .post(`https://merch-dropper.herokuapp.com/api/stores`, {
+      .post(`http:/localhost:5032/api/stores`, {
         store_name: storeName,
         domain_name: domain,
         email: profile.email,

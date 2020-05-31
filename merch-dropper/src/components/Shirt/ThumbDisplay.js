@@ -24,7 +24,7 @@ const ThumbDisplay = ({ garment, setGarment, thumbRender }) => {
   useEffect(() => {
     async function fetchDesigns() {
       let fetchedDesigns = await axios.get(
-        "https://merchdropper-production.herokuapp.com/api/designs"
+        "http:/localhost:5032/api/designs"
       );
       setDesignArray(fetchedDesigns.data);
     }
