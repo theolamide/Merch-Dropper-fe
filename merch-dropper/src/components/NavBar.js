@@ -38,13 +38,17 @@ const NavBar = ({ hidden, history, location }) => {
     url = "https://merchdropper.store/redirect";
   }
 
-  const customLogin = () => {
-    loginWithRedirect({
+  const userOperation = (operation) => {
+    {process.env.REACT_APP_BASE_URL === "development" ? history.push(`/${operation}`) : loginWithRedirect({
       redirect_uri: url,
-    });
+      signup: operation === "signup"
+    });}
   };
 
   const customSignup = () => {
+    {process.env.REACT_APP_BASE_URL === "development" ? history.push("/login") : loginWithRedirect({
+      redirect_uri: url,
+    });}
     loginWithRedirect({
       redirect_uri: url,
       signup: true,
@@ -78,7 +82,6 @@ const NavBar = ({ hidden, history, location }) => {
         closeDrawer={closeBackDropClickHandler}
         imgStyle={imgStyle}
         logoutWithRedirect={logoutWithRedirect}
-        customLogin={customLogin}
       />
     );
   }
@@ -124,10 +127,10 @@ const NavBar = ({ hidden, history, location }) => {
     } else {
       return (
         <nav classname="ButtonWrapper">
-          <span className="links" onClick={customLogin}>
+          <span className="links" onClick={() => userOperation("login")}>
             Sign in
           </span>
-          <button className="links cta" onClick={customSignup}>
+          <button className="links cta" onClick={() => userOperation("signup")}>
             Get Started
           </button>
         </nav>
