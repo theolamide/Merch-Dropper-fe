@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import NavBar from "./NavBar";
 import ProductCard from "./ProductCard";
@@ -7,6 +6,7 @@ import { connect } from "react-redux";
 import { addToCart } from "../store/actions";
 import { Container, Row, Col } from "reactstrap";
 import "../App.css";
+import { axiosWithEnv } from "../utils/axiosWithEnv";
 
 const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   // console.log('productdisplay/products', products)
@@ -16,11 +16,9 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   localStorage.setItem("domain_name", domain_name)
   
   useEffect(() => {
-    axios
+    axiosWithEnv()
       .get(
-        `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
-        // local dev server
-        // `http://localhost:5032/api/stores/domain/${domain_name}`
+        `/api/stores/domain/${domain_name}`
       )
       .then((res) => {
         storeID = res.data.id
@@ -30,9 +28,9 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
         console.log(err);
       })
       .finally(() => {
-        axios
+        axiosWithEnv()
           .get(
-            `https://merch-dropper.herokuapp.com/api/products/store/${storeID}`
+            `/api/products/store/${storeID}`
           )
           .then((res) => {
             console.log(res, "res");

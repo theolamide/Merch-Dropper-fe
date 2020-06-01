@@ -13,6 +13,7 @@
 # Merch Dropper
 
 Deployed URL: https://www.merchdropper.store/
+Go to the Contributing section for important info on how to get started.
 
 ## Contributors
 
@@ -156,6 +157,8 @@ Jest is a JavaScript Testing Framework maintained by Facebook, Inc. with a focus
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
+
+To develop locally with the Merch Dropper backend, please ensure that you have a .env file with the variable `REACT_APP_BASE_URL=development`. You will need to clone the BE at [https://github.com/Lambda-School-Labs/Merch-Dropper-be], cd into the project and run `yarn run server`. 
 
 ## Issue/Bug Request
 

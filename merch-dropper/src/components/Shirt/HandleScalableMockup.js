@@ -1,6 +1,8 @@
 import axios from "axios";
 import scalableData from "./scalableData";
+import { axiosWithEnv } from "../../utils/axiosWithEnv";
 import parseUrl from "./parseURL"
+
 
 const HandleScalableMockup = async (garment, setGarment, design, setDesign, product, setProduct) => {
    
@@ -10,8 +12,8 @@ const HandleScalableMockup = async (garment, setGarment, design, setDesign, prod
       const data = await scalableData(garment);
            
       // shirtImage saves/posts the shirt preview to the back end
-      const shirtImage = await axios.post(
-        "https://merch-dropper.herokuapp.com/api/products/mockup",
+      const shirtImage = await axiosWithEnv().post(
+        "/api/products/mockup",
         data,
         {
           headers: {
@@ -28,7 +30,7 @@ const HandleScalableMockup = async (garment, setGarment, design, setDesign, prod
       setDesign({...design, designId:parseUrl(response.data.URL).designId[0]});
       
     } catch (err) {
-      console.log("ERROR:", err);
+      console.log("ERROR:", err.message);
     }
   }
 

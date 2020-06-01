@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { axiosWithEnv } from "../../utils/axiosWithEnv";
 
 const PicDisplay = styled.div`
   width: 320px;
@@ -23,8 +24,8 @@ const ThumbDisplay = ({ garment, setGarment, thumbRender }) => {
   const [designArray, setDesignArray] = useState();
   useEffect(() => {
     async function fetchDesigns() {
-      let fetchedDesigns = await axios.get(
-        "https://merchdropper-production.herokuapp.com/api/designs"
+      let fetchedDesigns = await axiosWithEnv().get(
+        "/api/designs"
       );
       setDesignArray(fetchedDesigns.data);
     }

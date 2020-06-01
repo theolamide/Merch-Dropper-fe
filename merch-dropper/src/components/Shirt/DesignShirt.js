@@ -40,6 +40,7 @@ const DesignShirt = ({
   // })
 
   console.log(product,"designshirt")
+
   return (
     <Fragment>
       <DesignShirtContainer>

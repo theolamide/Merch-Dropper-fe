@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
-import axios from "axios";
-import { connect, useDispatch, useSelector } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import styled from "styled-components";
+
+import React, {useEffect} from 'react';
+import { axiosWithEnv } from '../../utils/axiosWithEnv'
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import styled from 'styled-components';
+
 
 
 
 import StripeCheckoutButton from "../StripeButton";
+
 
 import {
   selectCartItems,
@@ -43,10 +46,10 @@ const CheckoutPage = ({
     //   dispatch(getQuote(quote.quoteInfo))}
     // GET request to 'stores/domain/${match.params.domain_name}'
 
-    axios
-      .get(
-        `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
-      )
+       axiosWithEnv()
+        .get(
+          `/api/stores/domain/${domain_name}`
+        )
       .then((res) => {
         if (Number(res.data.id) !== Number(localStorage.getItem("storeID"))) {
           localStorage.setItem("storeID", Number(res.data.id));
@@ -61,6 +64,7 @@ const CheckoutPage = ({
 // const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
   // const { domain_name } = useParams();
   console.log('checkout params', domain_name)
+
   return (
     <CheckoutPageWrapper className="checkout-page">
       <CheckoutHeader className="checkout-header">

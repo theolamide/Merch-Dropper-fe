@@ -51,7 +51,7 @@ function App() {
           render={(props) => (
             <DesignShirt
               design={design}
-              setDesgin={setDesign}
+              setDesign={setDesign}
               garment={garment}
               setGarment={setGarment}
               design={design}              

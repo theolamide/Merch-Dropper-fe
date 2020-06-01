@@ -11,7 +11,9 @@ import { Dimmer, Loader, Image, Segment } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
+import { axiosWithEnv } from "../../utils/axiosWithEnv";
 import scalableData from "./scalableData"
+
 
 Modal.setAppElement("#root");
 const AddProductToTable = (props, history) => {
@@ -48,13 +50,13 @@ const AddProductToTable = (props, history) => {
     async function getStores() {
       const { email } = JSON.parse(localStorage.getItem("profile"));
       console.log(email)
-      const res = await axios.get(
-        `https://merch-dropper.herokuapp.com/api/users/email/${email}`
+      const res = await axiosWithEnv().get(
+        `/api/users/email/${email}`
       );
       console.log(res);
       const userID = res.data.id;
-      const res2 = await axios.get(
-        `https://merch-dropper.herokuapp.com/api/stores/user/${userID}`
+      const res2 = await axiosWithEnv().get(
+        `/api/stores/user/${userID}`
       );
       console.log(res2);
       setStores(res2.data);
@@ -64,7 +66,7 @@ const AddProductToTable = (props, history) => {
       const product = {
         "productId": "canvas-unisex-t-shirt"
       }
-      axios.post('https://merch-dropper.herokuapp.com/api/products/price', product)
+      axiosWithEnv().post('/api/products/price', product)
           .then(res => {
             console.log(res, "price res")
              setCost(res.data)
