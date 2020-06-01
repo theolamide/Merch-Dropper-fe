@@ -30,7 +30,7 @@ function InventoryList({ history }) {
       );
       setStores(resStore.data);
       const storeID = resStore.data.id;
-      const resProducts = await axiosWithEnv.get(
+      const resProducts = await axiosWithEnv().get(
         `/api/products/store/${storeID}`
       );
       setProducts(resProducts.data);
