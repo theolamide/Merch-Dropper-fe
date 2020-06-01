@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "../../App.css";
 import styled from "styled-components";
 import DesignHandler from "./DesignHandler";
 import ThumbDisplay from "./ThumbDisplay";
 import Swatch from "./Swatch";
 import { Link } from "react-router-dom";
+import {useSelector} from "react-redux";
 import axios from "axios";
 import scalableData from "./scalableData.js"
 

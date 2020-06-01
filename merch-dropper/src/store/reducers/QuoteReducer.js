@@ -1,9 +1,9 @@
-import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, ADD_ADDRESS_SUCCESS} from "../actions"
+import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, ADD_ADDRESS_SUCCESS, ADD_PRODUCT_QUOTE, SET_DESIGNID_QUOTE} from "../actions"
 
 const initialQuoteState =  {
     sendQuote:{
         quoteInfo: { 
-            storeID: null,
+            storeID: parseInt(localStorage.getItem('storeID')),
             userID: parseInt(localStorage.getItem('id'))
          },
         spInfo: {
@@ -11,10 +11,10 @@ const initialQuoteState =  {
             designId: null,
             products: [
                 {	
-                id: null,
+                id: "",
                 color: "",
+                size: "",
                 quantity: null,
-                size: ""
                 }
             ],
             address:  {
@@ -23,25 +23,51 @@ const initialQuoteState =  {
                 city: "",
                 state: "",
                 zip: "",
-                country: ""
+                // country: ""
             }
         }
     },
 
-    //    quote:{ 
-    //     userID: parseInt(localStorage.getItem('id')),
-    //     storeID: null,
-    //     total: 0.00,
-    //     subtotal: 0.00,
-    //     tax: 0.00,
-    //     fees: 0.00,
-    //     shipping: 0.00,
-    //     orderToken: "",
-    //     warnings: "",
-    //     mode: "",
-    //     isFetching: false,
-    //     error: ''
-    // }
+    // bulkQuote: [{
+    //     spInfo: {
+    //         type: "dtg",
+    //         designId: null,
+    //         products: [
+    //             {	
+    //             id: null,
+    //             color: "",
+    //             size: "",
+    //             quantity: null,
+    //             }
+    //         ],
+    //         address:  {
+    //             name: "",
+    //             company: "",
+    //             address1: "",
+    //             address2: "",
+    //             city: "",
+    //             state: "",
+    //             zip: "",
+    //             country: ""
+    //         }
+    //     }
+    // }],
+
+    quote:{ 
+    userID: null, 
+    // userID was -> parseInt(localStorage.getItem('id')), without buyer user this seems unnecessary
+    storeID: null,
+    total: 0.00,
+    subtotal: 0.00,
+    tax: 0.00,
+    fees: 0.00,
+    shipping: 0.00,
+    orderToken: "",
+    warnings: "",
+    mode: "",
+    isFetching: false,
+    error: ''
+}
 }
 
 export const QuoteReducer = (state = initialQuoteState, action) => {
@@ -54,8 +80,9 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
         case GET_QUOTE_SUCCESS:
             return{
                 ...state,
+                quote: action.payload,
                 isFetching: false,
-                quote: action.payload
+                
             };
         case GET_QUOTE_FAILURE:
             return{
@@ -66,8 +93,36 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
         case ADD_ADDRESS_SUCCESS:
             return{
                 ...state,
-                address: action.payload
-            }
+                sendQuote: {
+                    ...state.sendQuote,
+                    spInfo:{
+                        ...state.sendQuote.spInfo,
+                    address: action.payload
+                    }
+                }                
+            };
+        case ADD_PRODUCT_QUOTE:
+            return{
+                ...state,
+                sendQuote: {
+                    ...state.sendQuote,
+                    spInfo: {
+                        ...state.sendQuote.spInfo,
+                        type: action.payload.spInfo.cart[0].type,
+                        designId: action.payload.spInfo.cart[0].designId,
+                        products:[{
+                            id: action.payload.spInfo.cart[0].product_id,
+                            color: action.payload.spInfo.cart[0].color,
+                            size:"med",
+                            quantity: action.payload.spInfo.cart[0].quantity
+                        }]
+                }
+               
+
+                }
+              
+            };
+        
         default:
             return state;
     }

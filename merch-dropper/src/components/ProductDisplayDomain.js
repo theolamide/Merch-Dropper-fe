@@ -33,7 +33,7 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
             `/api/products/store/${storeID}`
           )
           .then((res) => {
-            console.log(res);
+            console.log(res, "res");
             setShirts(res.data);
           })
           .catch((err) => {

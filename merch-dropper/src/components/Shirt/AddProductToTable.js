@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
@@ -11,16 +12,25 @@ import "semantic-ui-css/semantic.min.css";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import { axiosWithEnv } from "../../utils/axiosWithEnv";
+import scalableData from "./scalableData"
+
 
 Modal.setAppElement("#root");
-export default function AddProductToTable(props, history) {
+const AddProductToTable = (props, history) => {
   const classes = useStyles();
   const [stores, setStores] = useState("");
+  const data = scalableData(props.garment);
+  console.log(data, "add product")
   const [product, setProduct] = useState({
     productName: "",
     price: "",
     description: "",
-    storeID: 0
+    storeID: 0,
+    designId: props.design.designId,
+    color: data.product.color,
+    size: "",
+    product_id: data.product.id,
+    type: data.design.type
   });
   const [cost, setCost] = useState([])
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -28,7 +38,7 @@ export default function AddProductToTable(props, history) {
     setIsOpen(true);
   }
   
-  
+  console.log(props, "props")
   //fetch stores on mount of logged in user
   // get currently logged in user data from localstorage
   //GET userID from this endpoint /api/users/email
@@ -58,13 +68,14 @@ export default function AddProductToTable(props, history) {
       }
       axiosWithEnv().post('/api/products/price', product)
           .then(res => {
+            console.log(res, "price res")
              setCost(res.data)
           })
           .catch(err => {
             console.log(err)
           })
     
-  }, []);
+  }, [product.designId]);
 
   //bring back value object into array to get price for the item
   let baseCost;
@@ -95,7 +106,10 @@ export default function AddProductToTable(props, history) {
   const handleSubmit = async event => {
     event.preventDefault();
     openModal();
-    addProduct(props.history, props.garment, product);
+    addProduct(props.history, props.garment, product, props.design);
+    // setProduct({ ...product,
+    //   designID: props.garment.mockUrl.substring(102)
+    // })
     // setTimeout(() => {
     //   props.history.push("/dashboard");
     // }, 800);
@@ -104,6 +118,7 @@ export default function AddProductToTable(props, history) {
   
   // const shirtColor = props.garment.color;
   const shirtImage = props.garment.mockUrl;
+ 
 
   console.log(product);
   return (
@@ -161,22 +176,6 @@ export default function AddProductToTable(props, history) {
           />{" "}
          <span className={classes.profit}>Profit per item:<strong> ${`${calcPrice().toFixed(2)}`}</strong></span>
           </div>
-           {/* <TextField
-            className={classes.price}
-            label="Commission per Item"
-            name="price"
-            value={calcPrice().toFixed(2)}
-            onChange={handleChange}
-            InputProps={{
-              disableUnderline: true
-            }}
-            InputLabelProps={{
-              classes: {
-                root: classes.labelText
-              }
-            }}
-          />{" "} */}
-
           <TextField
             className={classes.desc}
             label="Add Product Description"
@@ -237,4 +236,6 @@ export default function AddProductToTable(props, history) {
       </div>{" "}
     </div>
   );
-}
+};
+
+export default AddProductToTable;
