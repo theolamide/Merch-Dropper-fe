@@ -12,14 +12,12 @@ import { useAuth0 } from "./Auth/Auth";
 // logo
 import logo from "../assets/merchdropper-logo.png";
 
-
-
 const NavBar = ({ hidden, history, location }) => {
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
 
-  const store_name = localStorage.getItem('store_name');
+  const store_name = localStorage.getItem("store_name");
 
   const [state, setState] = useState({ sideDrawerOpen: false });
 
@@ -49,7 +47,7 @@ const NavBar = ({ hidden, history, location }) => {
   const customSignup = () => {
     loginWithRedirect({
       redirect_uri: url,
-      signup: true
+      signup: true,
     });
   };
 
@@ -84,11 +82,11 @@ const NavBar = ({ hidden, history, location }) => {
       />
     );
   }
-  
+
   const Nav = () => {
     if (!!localStorage.getItem("profile")) {
       return (
-        <>
+        <nav classname="ButtonWrapper">
           <Link to={`${domain_name}`} className="links">
             Your Store
           </Link>
@@ -111,29 +109,29 @@ const NavBar = ({ hidden, history, location }) => {
             Logout
           </span>
           <CartIcon />
-        </>
+        </nav>
       );
     } else if (domain_name === pathname.substr(1).split("/")[0]) {
-             return (
-               <>
-                 <Link to={`/${domain_name}`} className="links">
-                   {domain_name}
-                 </Link>
-                 <CartIcon />
-               </>
-             );
-           } else {
-             return (
-               <>
-                 <span className="links" onClick={customLogin}>
-                   Sign in
-                 </span>
-                 <button className="links cta" onClick={customSignup}>
-                   Get Started
-                 </button>
-               </>
-             );
-           }
+      return (
+        <nav classname="ButtonWrapper">
+          <Link to={`/${domain_name}`} className="links">
+            {domain_name}
+          </Link>
+          <CartIcon />
+        </nav>
+      );
+    } else {
+      return (
+        <nav classname="ButtonWrapper">
+          <span className="links" onClick={customLogin}>
+            Sign in
+          </span>
+          <button className="links cta" onClick={customSignup}>
+            Get Started
+          </button>
+        </nav>
+      );
+    }
   };
 
   return (
@@ -176,44 +174,7 @@ const NavBar = ({ hidden, history, location }) => {
           <h2 className="BrandTitle">Merch Dropper</h2>
         </div>
 
-        <nav className="ButtonWrapper">
-          {!!localStorage.getItem("profile") ? (
-            
-            <>
-              <Link to={`/${store_name}`} className="links">
-                Your Store
-              </Link>
-              <Link
-                to="/dashboard"
-                className="links"
-                style={
-                  pathname === "/dashboard"
-                    ? { fontWeight: 700 }
-                    : { fontWeight: 500 }
-                }
-              >
-                Dashboard
-              </Link>
-              <span
-                className="links"
-                onClick={logoutWithRedirect}
-                style={{ marginLeft: "32px" }}
-              >
-                Logout
-              </span>
-              <CartIcon />
-            </>
-          ) : (
-            <>
-              <span className="links" onClick={customLogin}>
-                Sign in
-              </span>
-              <button className="links cta" onClick={customSignup}>
-                Get Started
-              </button>
-            </>
-          )}
-        </nav>
+        <Nav />
         {hidden ? null : <CartDropDown />}
       </div>
     </div>
