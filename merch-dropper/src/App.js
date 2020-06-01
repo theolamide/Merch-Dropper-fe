@@ -32,6 +32,8 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/cart" component={ShoppingCart} />
         <Route exact path="/checkout" component={CheckoutPage} />
+        <Route exact path="/signup" />
+        <Route exact path="/login" />
         <Route
           exact
           path="/addproduct"
