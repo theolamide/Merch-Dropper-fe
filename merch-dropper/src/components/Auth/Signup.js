@@ -10,7 +10,7 @@ import {
 } from "./Styled.js";
 
 const initialSignupInfo = {
-  username: "",
+  email: "",
   password: ""
 };
 
@@ -26,7 +26,7 @@ function Signup({ userSignup, history }) {
 
   const callSignup = e => {
     e.preventDefault();
-    userSignup(signupInfo, history);
+    userSignup(signupInfo);
   };
 
   return (
