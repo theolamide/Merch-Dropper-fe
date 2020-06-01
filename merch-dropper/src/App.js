@@ -17,11 +17,13 @@ import Redirect from "./components/Redirect";
 import CreateStore from "./components/Onboarding/CreateStore";
 import AddProductToTable from "./components/Shirt/AddProductToTable.js";
 import initialShirtState from "./components/Shirt/initialShirtState";
-import ShippingAddress from "./components/Cart/ShippingAddress.js";
+import ShippingAddress from "./components/Cart/ShippingAddress.js"
+import initialState from "./store/reducers/initialState"
 
 function App() {
   const [design, setDesign] = useState(initialShirtState.designInfo);
   const [garment, setGarment] = useState(initialShirtState.garment);
+  const [product, setProduct] = useState(initialState.products)
   const [thumbRender, setThumbRender] = useState();
   return (
     <div className="App">
@@ -29,11 +31,11 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/cart" component={ShoppingCart} />
-
+        <Route exact path="/checkout" component={CheckoutPage} />
         <Route
           exact
           path="/addproduct"
-          render={(props) => <AddProductToTable garment={garment} {...props} />}
+          render={(props) => <AddProductToTable garment={garment} design={design}{...props} />}
         />
         <PrivateRoute
           exact
@@ -49,16 +51,20 @@ function App() {
           render={(props) => (
             <DesignShirt
               design={design}
-              setDesgin={setDesign}
+              setDesign={setDesign}
               garment={garment}
               setGarment={setGarment}
+              design={design}              
+              setDesign={setDesign}
               thumbRender={thumbRender}
               setThumbRender={setThumbRender}
+              product={product}
+              setProduct={setProduct}
               {...props}
             />
           )}
         />
-        <Route exact path="/:domain_name/address" component={ShippingAddress} />
+        <Route exact path="/:domain_name/shippingAddress" component={ShippingAddress} />
         <Route exact path="/learnmore" component={LearnMore} />
         <Route exact path="/redirect" component={Redirect} />
         <Route exact path="/stripe-setup" component={StripeSetup} />

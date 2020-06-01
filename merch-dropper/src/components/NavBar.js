@@ -88,6 +88,7 @@ const NavBar = ({ hidden, history, location }) => {
       return (
         <nav classname="ButtonWrapper">
           <Link to={`${domain_name}`} className="links">
+
             Your Store
           </Link>
           <Link

@@ -1,16 +1,19 @@
 import React, {useState, useEffect} from 'react';
+import {useHistory} from "react-router";
 import {useSelector, useDispatch} from "react-redux";
-import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import styled from 'styled-components';
 import {TextField, Button} from "@material-ui/core";
 import { useStyles } from "../Component-Styles/addProduct-styles.js";
-import {addAddress} from "../../store/actions"
+import {addAddress, getQuote, GET_QUOTE_FAILURE} from "../../store/actions"
 
 const ShippingAddress = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const classes = useStyles();
-    const [address, setAddress] = useState(useSelector(state => state.QuoteReducer.sendQuote.spInfo.address));
-    console.log(address, "address")
+    const [address, setAddress] = useState({});
+    const quote = useSelector(state => state.QuoteReducer.sendQuote)
+    console.log("Quote", quote)
+   
 
     const handleChange = e => {
         setAddress({
@@ -18,10 +21,14 @@ const ShippingAddress = () => {
             [e.target.name]: e.target.value
         })
     }
-
-    const handleSubmit = e => {
+    const handleSubmit = async (e)  => {
+      const domain_name = localStorage.getItem("domain_name")
         e.preventDefault();
-        dispatch(addAddress(address))
+       await dispatch(addAddress(address))
+          dispatch(getQuote(quote))
+          history.push(`/${domain_name}/checkout`)
+          
+        
     }
 
 
@@ -79,7 +86,7 @@ const ShippingAddress = () => {
             onChange={handleChange}
           />
           
-          <TextField
+          {/* <TextField
             className={classes.addressField}
             id="outlined-basic"
             label="Country"
@@ -88,8 +95,9 @@ const ShippingAddress = () => {
             inputProps={{ maxLength: 5 }}
             value={address.country}
             onChange={handleChange}
-          />
+          /> */}
           <Button onClick={handleSubmit}>Submit</Button>
+          
        </AddressPageWrapper>
     )
 

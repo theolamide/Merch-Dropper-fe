@@ -9,9 +9,15 @@ axios.interceptors.response.use((res) => {
 
 export const axiosWithAuth = () => {
   const token = localStorage.getItem("token");
+  let url;
+  if (process.env.REACT_APP_BASE_URL === "development") {
+    url = "http://localhost:5032";
+  } else {
+    url = "https://merch-dropper.herokuapp.com";
+  }
 
   return axios.create({
-    baseURL: "https://merch-dropper.herokuapp.com",
+    baseURL: url,
     headers: {
       Authorization: token,
       "Content-Type": "application/json",

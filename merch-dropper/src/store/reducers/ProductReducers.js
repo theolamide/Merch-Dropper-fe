@@ -7,7 +7,9 @@ import {
     ADD_PRODUCT_FAIL,
     REMOVE_PRODUCT_START, 
     REMOVE_PRODUCT_SUCCESS,
-    REMOVE_PRODUCT_FAIL
+    REMOVE_PRODUCT_FAIL,
+    ADD_PRODUCT_STATE_SUCCESS,
+    ADD_PRODUCT_STATE_FAILURE
  } from '../actions';
 import initialState from './initialState';
 
@@ -71,7 +73,27 @@ import initialState from './initialState';
                 ...state,
                 isFetching: false,
                 error: action.payload
+            };
+            ADD_PRODUCT_STATE_START:
+            return {
+                ...state,
+                isFetching: true
             }
+        case ADD_PRODUCT_STATE_SUCCESS:
+            return{
+                ...state,
+                products: {
+                    ...state,
+                    products: action.payload
+                },
+                isFetching: false
+            }
+            case ADD_PRODUCT_STATE_FAILURE:
+                return{
+                    ...state,
+                    error: action.payload,
+                    isFetching: false
+                }
         default: 
             return state;
     }

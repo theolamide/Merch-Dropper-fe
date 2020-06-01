@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 import InventoryCard from "./InventoryCard";
-import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import { axiosWithEnv } from "../../utils/axiosWithEnv";
 import axios from "axios";
 
 // The purpose of the InventoryList component is to create a list of products that exist in the user's inventory. 
 
 function InventoryList({ history }) {
+
   const [products, setProducts] = useState([]);
   const [stores, setStores] = useState([]);
 
@@ -20,17 +21,17 @@ function InventoryList({ history }) {
     async function getInventory() {
       const { email } = JSON.parse(localStorage.getItem("profile"));
 
-      const resUser = await axios.get(
-        `https://merch-dropper.herokuapp.com/api/users/email/${email}`
+      const resUser = await axiosWithEnv().get(
+        `/api/users/email/${email}`
       );
       const userID = resUser.data.id;
-      const resStore = await axios.get(
-        `https://merch-dropper.herokuapp.com/api/stores/user/${userID}`
+      const resStore = await axiosWithEnv().get(
+        `/api/stores/user/${userID}`
       );
       setStores(resStore.data);
       const storeID = resStore.data.id;
-      const resProducts = await axios.get(
-        `https://merch-dropper.herokuapp.com/api/products/store/${storeID}`
+      const resProducts = await axiosWithEnv.get(
+        `/api/products/store/${storeID}`
       );
       setProducts(resProducts.data);
     }
@@ -46,9 +47,10 @@ function InventoryList({ history }) {
       )}
       {products.map((product) => (
         <InventoryCard
+          key={product.id}
           fullSizeURL={product.fullSizeURL}
           history={history}
-          shirtID={product.id}
+          shirtID={product.product_id}
         />
       ))}
     </>
