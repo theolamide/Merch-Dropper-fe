@@ -19,6 +19,8 @@ import AddProductToTable from "./components/Shirt/AddProductToTable.js";
 import initialShirtState from "./components/Shirt/initialShirtState";
 import ShippingAddress from "./components/Cart/ShippingAddress.js"
 import initialState from "./store/reducers/initialState"
+import Login from "./components/Auth/Login"
+import Signup from "./components/Auth/Signup"
 
 function App() {
   const [design, setDesign] = useState(initialShirtState.designInfo);
@@ -32,8 +34,8 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/cart" component={ShoppingCart} />
         <Route exact path="/checkout" component={CheckoutPage} />
-        <Route exact path="/signup" />
-        <Route exact path="/login" />
+        <Route exact path="/signup" component={Signup}/>
+        <Route exact path="/login" component={Login}/>
         <Route
           exact
           path="/addproduct"

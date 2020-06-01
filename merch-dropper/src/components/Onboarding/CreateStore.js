@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { postUser } from "../../store/actions";
 import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
@@ -153,4 +152,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { postUser })(CreateStore);
+export default connect(mapStateToProps, {})(CreateStore);
