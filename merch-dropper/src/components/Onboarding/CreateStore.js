@@ -68,7 +68,7 @@ function CreateStore({ history }) {
     e.preventDefault();
     setIsSubmit(true);
 
-    axiosWithEnv
+    axiosWithEnv()
       .post(`/api/stores`, {
         store_name: storeName,
         domain_name: domain,
