@@ -73,6 +73,7 @@ function CreateStore({ history }) {
         store_name: storeName,
         domain_name: domain,
         email: profile.email,
+        id: localStorage.getItem("id")
       })
       .then((res) => {
         console.log("This is res: ", res);
