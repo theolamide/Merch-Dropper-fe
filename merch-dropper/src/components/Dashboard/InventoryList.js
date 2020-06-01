@@ -46,9 +46,10 @@ function InventoryList({ history }) {
       )}
       {products.map((product) => (
         <InventoryCard
+          key={product.id}
           fullSizeURL={product.fullSizeURL}
           history={history}
-          shirtID={product.id}
+          shirtID={product.product_id}
         />
       ))}
     </>

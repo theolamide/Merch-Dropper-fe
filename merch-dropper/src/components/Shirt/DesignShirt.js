@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 // styles
 import "../../App.css";
@@ -23,15 +23,23 @@ const DesignShirt = ({
   setThumbRender,
   design,
   garment,
-  thumbRender
-}) => {
-   
-    
- 
-  // const addProduct = function() {
-  //   AddProduct(garment);
-  // };
+  thumbRender,
+  product,
+  setProduct
+}) => {  
+  
+  // const [product, setProduct] = useState({
+  //     id: "",
+  //     productName: "",
+  //     color: "",
+  //     size: "",
+  //     designId: "",
+  //     type: "",
+  //     url: "",
+  //     price: null
+  // })
 
+  console.log(product,"designshirt")
   return (
     <Fragment>
       <DesignShirtContainer>
@@ -44,7 +52,7 @@ const DesignShirt = ({
           setThumbRender={setThumbRender}
           garment={garment}
           setGarment={setGarment}
-          handleScalableMockup={e => HandleScalableMockup(garment, setGarment)}
+          handleScalableMockup={e => HandleScalableMockup(garment, setGarment, design, setDesign, product, setProduct)}
         />
         
       </DesignShirtContainer>

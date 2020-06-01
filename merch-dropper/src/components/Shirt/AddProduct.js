@@ -1,7 +1,10 @@
 import axios from "axios";
 
+
+
 // this function allows the user to design a product
-const addProduct = async (history, garment, product) => {
+const addProduct = async (history, garment, product, design) => {
+  console.log({ design });
   console.log({ garment });
   if (garment.mockUrl === "") {
     alert("Please create a mockup first!");
@@ -32,11 +35,11 @@ const addProduct = async (history, garment, product) => {
       .post("https://merch-dropper.herokuapp.com/api/products", {
         ...product,
         fullSizeURL: cloudRes.data.eager[0].secure_url,
-        thumbnailURL: cloudRes.data.eager[1].secure_url
+        thumbnailURL: cloudRes.data.eager[1].secure_url,
       })
       .then(history.push("/dashboard"))
       .catch(err => {
-        console.log("error uploading image", err);
+        console.log("MERCHDROPRES", err);
       });
     console.log(`${merchDropRes.data.productName} added successfully!`);
   })();

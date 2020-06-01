@@ -35,7 +35,7 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
             `https://merch-dropper.herokuapp.com/api/products/store/${storeID}`
           )
           .then((res) => {
-            console.log(res);
+            console.log(res, "res");
             setShirts(res.data);
           })
           .catch((err) => {
