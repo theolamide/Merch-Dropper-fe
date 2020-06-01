@@ -31,7 +31,6 @@ const DesignShirt = ({
   // const addProduct = function() {
   //   AddProduct(garment);
   // };
-
   return (
     <Fragment>
       <DesignShirtContainer>

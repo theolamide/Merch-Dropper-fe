@@ -21,6 +21,7 @@ const DesignInputPanel = ({
   
   addProduct
 }) => {
+
   return (
     <Panel>
       <DesignHandler
