@@ -36,18 +36,7 @@ describe('Checkout Page', () => {
    cy.get('.total').should('be.visible')
    })
 
-   it('clicks the Pay button', () => {
-           
-    cy.get('.StripeCheckout').click()
-
-    //add check if modal is visible after click
-     //*** cypress shows all Modal classes to be undefined  - test code needs fixed***/
-     //cy.get('.ModalContainer').should('not.be.visible')
-})
-
-//get inputs and and give them aliases
-//type into form
-//assert clicking send button is successful
+ 
 
 
    
@@ -67,17 +56,27 @@ describe('Checkout Page', () => {
         cy.get('.BrandTitle').should('be.visible')
         cy.get('.BrandTitle').contains('Merch Dropper')
         cy.get('.BrandLogo').should('be.visible')
+         //cart icon
+        cy.get('.sc-AxhUy').should('be.visible')
+
+        //mobile menu
         cy.get('.Hamburger').should('be.visible')
         cy.get('.HamburgerLines').should('be.visible')
-        cy.get('.sc-AxhUy').should('be.visible')
+        //mobile links
+        cy.get('sc-AxAm').should('not.be.visible')
         
 
           // Big screen components (.DesktopWrapper)
           cy.get('nav.ButtonWrapper').should('not.be.visible')
           cy.get('.DesktopWrapper').should('not.be.visible')
         
-        
     })
+
+    it('clicks the hamburger menu', () => {
+        cy.get('button.Hamburger').click()
+    })
+
+  
 
 })
          
@@ -85,4 +84,19 @@ describe('Checkout Page', () => {
 
 })//end describe CheckoutPage
 
+
+describe('it clicks the Pay button', () => {
+    it('clicks the Pay button', () => {
+           
+        cy.get('.StripeCheckout').click()
+    
+        //add check if modal is visible after click
+         //*** cypress shows all Modal classes to be undefined  - test code needs fixed***/
+         //cy.get('.ModalContainer').should('not.be.visible')
+    })
+    
+    //get inputs and and give them aliases
+    //type into form
+    //assert clicking send button is successful
+})
    
