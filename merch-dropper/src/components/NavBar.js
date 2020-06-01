@@ -49,7 +49,7 @@ const NavBar = ({ hidden, history, location }) => {
   const customSignup = () => {
     loginWithRedirect({
       redirect_uri: url,
-      signup: true,
+      signup: true
     });
   };
 

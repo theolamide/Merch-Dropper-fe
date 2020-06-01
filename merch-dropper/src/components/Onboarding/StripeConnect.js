@@ -20,8 +20,14 @@ const ConnectStripe = e => {
 const SkipSetup = e => {
 
     e.preventDefault();
-    history.push('/createstore');
-    window.location.replace('https://merchdropper.store/createstore');
+    if(process.env.REACT_APP_BASE_URL === "development") {
+        history.push('/createstore');
+        window.location.reload()
+    } else {
+        history.push('/createstore');
+        window.location.replace('https://merchdropper.store/createstore');
+    }
+    
 }
 
 
