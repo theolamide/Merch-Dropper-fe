@@ -30,7 +30,7 @@ const addProduct = async (history, garment, product, design) => {
       .catch(err => {
         console.log("error uploading image", err);
       });
-
+      console.log('product to our be', product)
     //
     const merchDropRes = await axios
       .post("https://merch-dropper.herokuapp.com/api/products", {

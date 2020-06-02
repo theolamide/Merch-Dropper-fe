@@ -1,7 +1,7 @@
 
-import React, {useEffect, useDispatch} from 'react';
+import React, {useEffect } from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 
