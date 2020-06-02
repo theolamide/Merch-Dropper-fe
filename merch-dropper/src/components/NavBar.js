@@ -121,7 +121,6 @@ const NavBar = ({ hidden, history, location }) => {
           >
             Logout
           </span>
-          <CartIcon />
         </nav>
              );
            } else {
