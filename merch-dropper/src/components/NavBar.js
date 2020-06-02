@@ -88,7 +88,7 @@ const NavBar = ({ hidden, history, location }) => {
   const Nav = () => {
     if (!!localStorage.getItem("profile")) {
       return (
-        <>
+        <nav className="ButtonWrapper">
           <Link to={`/${store_name}`} className="links">
             Your Store
           </Link>
@@ -111,27 +111,27 @@ const NavBar = ({ hidden, history, location }) => {
             Logout
           </span>
           <CartIcon />
-        </>
+        </nav>
       );
     } else if (domain_name === pathname.substr(1).split("/")[0]) {
              return (
-               <>
+               <nav className="ButtonWrapper">
                  <Link to={`/${domain_name}`} className="links">
                    {domain_name}
                  </Link>
                  <CartIcon />
-               </>
+               </nav>
              );
            } else {
              return (
-               <>
+               <nav className="ButtonWrapper">
                  <span className="links" onClick={customLogin}>
                    Sign in
                  </span>
                  <button className="links cta" onClick={customSignup}>
                    Get Started
                  </button>
-               </>
+               </nav>
              );
            }
   };
