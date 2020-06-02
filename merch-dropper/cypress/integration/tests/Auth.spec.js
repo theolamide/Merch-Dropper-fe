@@ -7,3 +7,4 @@ cy.visit('https://merch-dropper.auth0.com/login?state=g6Fo2SBoLUw5TVBMZXpZejRzV0
 cy.get('#btn-login').click()
     })
 })
+// page doesn't load after test runs but posts 200
