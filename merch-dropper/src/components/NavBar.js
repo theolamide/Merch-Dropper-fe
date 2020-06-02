@@ -27,6 +27,8 @@ const NavBar = ({ hidden, history, location }) => {
     localStorage.removeItem("profile");
     localStorage.removeItem("token");
     localStorage.removeItem("id");
+    localStorage.removeItem("store_name");
+    localStorage.removeItem("storeID");
     logout({
       returnTo: window.location.origin,
     });
