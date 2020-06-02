@@ -32,8 +32,8 @@ const addProduct = async (history, garment, product, design) => {
       });
 
     //
-    const merchDropRes = await axiosWithEnv()
-      .post("/api/products", {
+    const merchDropRes = await axios
+      .post("https://merch-dropper.herokuapp.com/api/products", {
         ...product,
         fullSizeURL: cloudRes.data.eager[0].secure_url,
         thumbnailURL: cloudRes.data.eager[1].secure_url,

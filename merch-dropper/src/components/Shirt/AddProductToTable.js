@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-
+import axios from 'axios';
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import axios from "axios";
 import addProduct from "./AddProduct";
 import { useStyles } from "../Component-Styles/addProduct-styles.js";
 import { Dimmer, Loader, Image, Segment } from "semantic-ui-react";
@@ -50,13 +49,13 @@ const AddProductToTable = (props, history) => {
     async function getStores() {
       const { email } = JSON.parse(localStorage.getItem("profile"));
       console.log(email)
-      const res = await axiosWithEnv().get(
-        `/api/users/email/${email}`
+      const res = await axios.get(
+        `https://merch-dropper.herokuapp.com/api/users/email/${email}`
       );
       console.log(res);
       const userID = res.data.id;
-      const res2 = await axiosWithEnv().get(
-        `/api/stores/user/${userID}`
+      const res2 = await axios.get(
+        `https://merch-dropper.herokuapp.com/api/stores/user/${userID}`
       );
       console.log(res2);
       setStores(res2.data);
@@ -66,7 +65,7 @@ const AddProductToTable = (props, history) => {
       const product = {
         "productId": "canvas-unisex-t-shirt"
       }
-      axiosWithEnv().post('/api/products/price', product)
+      axios.post('https://merch-dropper.herokuapp.com/api/products/price', product)
           .then(res => {
             console.log(res, "price res")
              setCost(res.data)
