@@ -11,7 +11,7 @@ export const axiosWithAuth = () => {
   const token = localStorage.getItem("token");
   let url;
   if (process.env.REACT_APP_BASE_URL === "development") {
-    url = "https://merch-dropper.herokuapp.com";
+    url = "http://localhost:5032";
   } else {
     url = "https://merch-dropper.herokuapp.com";
   }
