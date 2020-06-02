@@ -4,33 +4,32 @@ import {useSelector, useDispatch} from "react-redux";
 import styled from 'styled-components';
 import {TextField, Button} from "@material-ui/core";
 import { useStyles } from "../Component-Styles/addProduct-styles.js";
-import {addAddress, getQuote, GET_QUOTE_FAILURE} from "../../store/actions"
+import {addAddress, getQuote, setQuote} from "../../store/actions"
+import {initialQuoteState} from "../../store/reducers/QuoteReducer"
 
 const ShippingAddress = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const classes = useStyles();
-    const [address, setAddress] = useState({});
-    const quote = useSelector(state => state.QuoteReducer.sendQuote)
-    console.log("Quote", quote)
-   
+    const [address, setAddress] = useState(initialQuoteState.sendQuote.spInfo.address) 
+    const sendQuote = useSelector(state => state.QuoteReducer.sendQuote)
+   console.log(sendQuote, "send")
+
 
     const handleChange = e => {
         setAddress({
             ...address,
-            [e.target.name]: e.target.value
-        })
-    }
+              [e.target.name]: e.target.value
+              })
+            }
+      
     const handleSubmit = async (e)  => {
       const domain_name = localStorage.getItem("domain_name")
         e.preventDefault();
-       await dispatch(addAddress(address))
-          dispatch(getQuote(quote))
-          history.push(`/${domain_name}/checkout`)
-          
-        
+        await dispatch(addAddress(address))
+          dispatch(getQuote(sendQuote))
+          history.push(`/${domain_name}/checkout`)       
     }
-
 
     return(
        <AddressPageWrapper>
