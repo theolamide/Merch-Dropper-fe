@@ -89,7 +89,7 @@ const NavBar = ({ hidden, history, location }) => {
     if (!!localStorage.getItem("profile")) {
       return (
         <>
-          <Link to={`/${domain_name}`} className="links">
+          <Link to={`/${store_name}`} className="links">
             Your Store
           </Link>
           <Link
@@ -176,44 +176,7 @@ const NavBar = ({ hidden, history, location }) => {
           <h2 className="BrandTitle">Merch Dropper</h2>
         </div>
 
-        <nav className="ButtonWrapper">
-          {!!localStorage.getItem("profile") ? (
-            
-            <>
-              <Link to={`/${store_name}`} className="links">
-                Your Store
-              </Link>
-              <Link
-                to="/dashboard"
-                className="links"
-                style={
-                  pathname === "/dashboard"
-                    ? { fontWeight: 700 }
-                    : { fontWeight: 500 }
-                }
-              >
-                Dashboard
-              </Link>
-              <span
-                className="links"
-                onClick={logoutWithRedirect}
-                style={{ marginLeft: "32px" }}
-              >
-                Logout
-              </span>
-              <CartIcon />
-            </>
-          ) : (
-            <>
-              <span className="links" onClick={customLogin}>
-                Sign in
-              </span>
-              <button className="links cta" onClick={customSignup}>
-                Get Started
-              </button>
-            </>
-          )}
-        </nav>
+        <Nav />
         {hidden ? null : <CartDropDown />}
       </div>
     </div>
