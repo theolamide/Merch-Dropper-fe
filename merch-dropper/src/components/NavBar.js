@@ -141,7 +141,7 @@ const NavBar = ({ hidden, history, location }) => {
       }
     >
       <NavbarStyles />
-      <div className="MobileWrapper">
+      <div className="MobileWrapper" data-cy="mobileWrapper">
         {sideDrawer}
         <div className="BrandWrapper" onClick={homepageRedirect}>
           <img

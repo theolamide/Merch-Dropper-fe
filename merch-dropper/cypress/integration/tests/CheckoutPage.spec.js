@@ -14,7 +14,8 @@ describe('Checkout Page', () => {
 			cy.get('.ModalContainer').should('not.exist');
 
 			//Small screen components (.MobileWrapper)
-			cy.get('.MobileWrapper').should('not.be.visible');
+			//cy.get('.MobileWrapper').should('not.be.visible');
+			cy.get('[data-cy=mobileWrapper]')//this is best practices
 			cy.get('.CartAndHamWrapper').should('not.be.visible');
 			cy.get('.Hamburger').should('not.be.visible');
 			cy.get('button.sc-AxirZ').should('not.be.visible');
@@ -87,8 +88,7 @@ describe('it clicks the Pay button', () => {
 
 	it('clicks the Pay button', () => {
 		//check if .StripeCheckout is clickable
-		cy.get('.StripeCheckout').click();
-
+		cy.contains('Pay Now').click()
 		//*** cypress shows all Modal classes to be undefined  - test code needs fixed***/
 		// Stripe form that is in the Modal is a third party element in an iframe. https://www.cypress.io/blog/2020/02/12/working-with-iframes-in-cypress/
 	});
