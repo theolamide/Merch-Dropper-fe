@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { addToCart } from "../store/actions";
 import { Container, Row, Col } from "reactstrap";
 import "../App.css";
+import { axiosWithEnv } from "../utils/axiosWithEnv";
 
 
 const ProductDisplay = ({ products, addToCart }) => {
@@ -13,7 +14,7 @@ const ProductDisplay = ({ products, addToCart }) => {
   const [shirts, setShirts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://merchdropper-production.herokuapp.com/api/products')
+    axiosWithEnv().get('/api/products')
       .then(res => {
         // console.log('res', res.data)
         setShirts(res.data);

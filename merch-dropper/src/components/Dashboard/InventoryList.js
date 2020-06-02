@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 import InventoryCard from "./InventoryCard";
-import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import { axiosWithEnv } from "../../utils/axiosWithEnv";
 import axios from "axios";
 
 // The purpose of the InventoryList component is to create a list of products that exist in the user's inventory.
 
 function InventoryList({ history }) {
+
   const [products, setProducts] = useState([]);
   const [stores, setStores] = useState([]);
 
@@ -19,35 +20,21 @@ function InventoryList({ history }) {
   useEffect(() => {
       const { email } = JSON.parse(localStorage.getItem("profile"));
 
-      axios
-        .get(
-          `https://merchdropper-production.herokuapp.com/api/users/email/${email}`
-        )
-        .then((resUser) => {
-          const userID = resUser.data.id;
-          axios
-            .get(
-              `https://merchdropper-production.herokuapp.com/api/stores/user/${userID}`
-            )
-            .then((resStore) => {
-              setStores(resStore.data);
-              const storeID = resStore.data.id;
-              axios
-                .get(
-                  `https://merchdropper-production.herokuapp.com/api/products/store/${storeID}`
-                )
-                .then((resProducts) => {
-                  setProducts(resProducts.data);
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
-            });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    
+      const resUser = await axiosWithEnv().get(
+        `/api/users/email/${email}`
+      );
+      const userID = resUser.data.id;
+      const resStore = await axiosWithEnv().get(
+        `/api/stores/user/${userID}`
+      );
+      setStores(resStore.data);
+      const storeID = resStore.data.id;
+      const resProducts = await axiosWithEnv().get(
+        `/api/products/store/${storeID}`
+      );
+      setProducts(resProducts.data);
+    }
+    getInventory();
   }, []);
 
   return (
@@ -59,9 +46,10 @@ function InventoryList({ history }) {
       )}
       {products.map((product) => (
         <InventoryCard
+          key={product.id}
           fullSizeURL={product.fullSizeURL}
           history={history}
-          shirtID={product.id}
+          shirtID={product.product_id}
         />
       ))}
     </>

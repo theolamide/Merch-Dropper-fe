@@ -1,10 +1,15 @@
-import React, { useEffect } from "react";
-import axios from "axios";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import styled from "styled-components";
+
+import React, {useEffect, useDispatch} from 'react';
+import { axiosWithEnv } from '../../utils/axiosWithEnv'
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import styled from 'styled-components';
+
+
+
 
 import StripeCheckoutButton from "../StripeButton";
+
 
 import {
   selectCartItems,
@@ -14,6 +19,8 @@ import {
   addToCart,
   removeFromCart,
   clearItemFromCart,
+  setQuote,
+  getQuote
 } from "../../store/actions/index";
 
 const CheckoutPage = ({
@@ -24,14 +31,25 @@ const CheckoutPage = ({
   removeItem,
   clearItem,
 }) => {
+  
+ 
+  const dispatch = useDispatch();
   const { domain_name } = match.params;
   useEffect(() => {
+    dispatch(setQuote({
+      spInfo:{
+        cart
+      }
+    }))
+    // if(quote && quote.quoteInfo.length > 0) 
+    // { console.log(quote)
+    //   dispatch(getQuote(quote.quoteInfo))}
     // GET request to 'stores/domain/${match.params.domain_name}'
 
-    axios
-      .get(
-        `https://merchdropper-production.herokuapp.com/api/stores/domain/${domain_name}`
-      )
+       axiosWithEnv()
+        .get(
+          `/api/stores/domain/${domain_name}`
+        )
       .then((res) => {
         if (Number(res.data.id) !== Number(localStorage.getItem("storeID"))) {
           localStorage.setItem("storeID", Number(res.data.id));
@@ -42,6 +60,10 @@ const CheckoutPage = ({
         console.log(err);
       });
   }, [match.params, domain_name]);
+
+// const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
+  // const { domain_name } = useParams();
+  console.log('checkout params', domain_name)
 
   return (
     <CheckoutPageWrapper className="checkout-page">
@@ -96,7 +118,7 @@ const CheckoutPage = ({
       <Total className="total">
         <span>Total: ${total}</span>
       </Total>
-      <StripeCheckoutButton price={total} />
+      <StripeCheckoutButton price={total} domain={domain_name} />
     </CheckoutPageWrapper>
   );
 };
@@ -105,6 +127,7 @@ const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addToCart(item)),
   removeItem: (item) => dispatch(removeFromCart(item)),
   clearItem: (item) => dispatch(clearItemFromCart(item)),
+  // setQuote: (item, id) => dispatch(setQuote(item, id))
 });
 
 const mapStateToprops = createStructuredSelector({

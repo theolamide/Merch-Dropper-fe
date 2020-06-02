@@ -18,7 +18,7 @@ import {
   SkipCreateStoreButton,
 } from "./Styled";
 
-import axios from "axios";
+import { axiosWithEnv } from "../../utils/axiosWithEnv";
 
 // This function is to provide the Material UI Stepper with the names of each step to display.
 function getSteps() {
@@ -60,6 +60,7 @@ function CreateStore({ history }) {
   };
 
   const profile = JSON.parse(localStorage.getItem("profile"));
+  console.log(profile)
 
   // The callSignUp function sends a post request to the back end to create a new store associated with the logged in user
   // The store_name is the unedited input from the user to be displayed on their dashboard and buyer-facing storefront
@@ -68,11 +69,12 @@ function CreateStore({ history }) {
     e.preventDefault();
     setIsSubmit(true);
 
-    axios
-      .post(`https://merchdropper-production.herokuapp.com/api/stores`, {
+    axiosWithEnv()
+      .post(`/api/stores`, {
         store_name: storeName,
         domain_name: domain,
         email: profile.email,
+        id: localStorage.getItem("id")
       })
       .then((res) => {
         console.log("This is res: ", res);

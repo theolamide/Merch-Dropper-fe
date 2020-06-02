@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
-import axios from "axios";
 
 import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
+import { axiosWithEnv } from "../utils/axiosWithEnv";
 
-const StripeCheckoutButton = ({ price, history }) => {
+const StripeCheckoutButton = ({ price, domain, history }) => {
+  console.log('the store', domain)
+  const devPriceStripe = 1 * 100;  // for testing
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_BMXGPoL1peDqHyy42iFEoAMg00l0M6PNex";
   //const publishableKey = 'pk_live_3zwsNFDgIC2nJd4h7F9Y5K8s00exa06IRd'; //Uncomment this line for when stripe is collecting Live payments. Make sure to also change the environment variable on the Backend to the Live key.
@@ -13,24 +15,26 @@ const StripeCheckoutButton = ({ price, history }) => {
   let config = {
     headers: {
       "Content-Type": "application/json"
-    }
+    },
   };
 
   const onToken = token => {
-    console.log(token);
-    axios
-      .post("https://localhost:5032/api/payments/create-payment-intent", {
-        //https://merchdropper-production.herokuapp.com/api/payments/
+    console.log('token at top', token); // should clear this or at least comment out post feature development
+    token.domain_name = domain;
+    axiosWithEnv()
+      .post("/api/payments/create-payment-intent", {
         amount: priceForStripe,
         token,
         config,
       })
-      .then(function () {
+      .then(res => {
+        console.log('token in success', token);
         alert("payment successful");
         history.push("/products");
       })
-      .catch((error) => {
-        console.log("payment error", error);
+      .catch(error => {
+        console.log('token in error', token);
+        console.dir("payment error", error);
         alert("There was an issue with your payment.");
       });
   };
@@ -39,8 +43,10 @@ const StripeCheckoutButton = ({ price, history }) => {
     <StripeCheckout
       label="Pay Now"
       name="MerchDropper"
-      billingAddress
-      shippingAddress
+      billingAddress={true}
+      shippingAddress={true}
+      zipCode={true}
+      currency='USD'
       image={`${MerchDropperLogo}`}
       description={`Your total is $${price}`}
       amount={priceForStripe}

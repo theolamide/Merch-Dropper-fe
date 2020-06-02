@@ -88,6 +88,7 @@ const SingleCartItem = ({ item: { thumbnailURL, price, name, quantity } }) => (
 );
 
 const CartDropdown = ({ cart, history, dispatch }) => {
+  const domain_name = localStorage.getItem("domain_name")
   
     return (
       <CartDropdownDiv className="cart-dropdown">
@@ -109,7 +110,7 @@ const CartDropdown = ({ cart, history, dispatch }) => {
         </CartItemsDiv>
         <CustomButton
           onClick={() => {
-            history.push(`${localStorage.getItem("domain_name")}/checkout`);
+            history.push(`/${domain_name}/shippingAddress`);
             dispatch(toggleCart());
           }}
         >

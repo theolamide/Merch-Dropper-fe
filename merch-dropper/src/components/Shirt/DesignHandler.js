@@ -1,6 +1,6 @@
 import React, { useState, Fragment, useEffect } from "react";
-import axios from "axios";
 import CloudinaryWidget from "../CloudinaryWidget";
+import { axiosWithEnv } from "../../utils/axiosWithEnv";
 
 const DesignHandler = ({ design, setDesign, setThumbRender }) => {
   const [designAdded, setDesignAdded] = useState(0);
@@ -8,17 +8,11 @@ const DesignHandler = ({ design, setDesign, setThumbRender }) => {
   useEffect(() => {
     (async () => {
       if (designAdded > 0) {
-        axios
-          .post(
-            "https://merchdropper-production.herokuapp.com/api/designs",
-            design
-          )
-          .then((res) => {
-            setThumbRender(res);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        const res = await axiosWithEnv().post(
+          "/api/designs",
+          design
+        );
+        setThumbRender(res);
       }
     })();
   }, [designAdded]);

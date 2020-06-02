@@ -12,10 +12,14 @@ import { useAuth0 } from "./Auth/Auth";
 // logo
 import logo from "../assets/merchdropper-logo.png";
 
+
+
 const NavBar = ({ hidden, history, location }) => {
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
+
+  const store_name = localStorage.getItem('store_name');
 
   const [state, setState] = useState({ sideDrawerOpen: false });
 
@@ -33,7 +37,7 @@ const NavBar = ({ hidden, history, location }) => {
   if (process.env.REACT_APP_BASE_URL === "development") {
     url = "http://localhost:3000/redirect";
   } else {
-    url = "https://www.merchdropper.store/redirect";
+    url = "https://merchdropper.store/redirect";
   }
 
   const customLogin = () => {
@@ -85,7 +89,7 @@ const NavBar = ({ hidden, history, location }) => {
     if (!!localStorage.getItem("profile")) {
       return (
         <>
-          <Link to={`${domain_name}`} className="links">
+          <Link to={`/${store_name}`} className="links">
             Your Store
           </Link>
           <Link
@@ -160,6 +164,7 @@ const NavBar = ({ hidden, history, location }) => {
             <div className="HamburgerLines"></div>
             <div className="HamburgerLines"></div>
             <div className="HamburgerLines"></div>
+            CLICK ME
           </button>
         </div>
         {hidden ? null : <CartDropDown />}
@@ -171,9 +176,7 @@ const NavBar = ({ hidden, history, location }) => {
           <h2 className="BrandTitle">Merch Dropper</h2>
         </div>
 
-        <nav className="ButtonWrapper">
-          <Nav />
-        </nav>
+        <Nav />
         {hidden ? null : <CartDropDown />}
       </div>
     </div>

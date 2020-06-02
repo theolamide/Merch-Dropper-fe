@@ -7,12 +7,14 @@ import LoginReducer from './LoginReducers';
 import CartReducer from './CartReducer';
 import ProductReducer from './ProductReducers';
 import SearchReducer from './SearchReducers';
+import QuoteReducer from "./QuoteReducer"
 
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['RegisterReducer', 'LoginReducer', 'CartReducer', 'ProductReducer'] //Add any new reducers to this array for perisitence to work
+    whitelist: ['RegisterReducer', 'LoginReducer', 'CartReducer', 'ProductReducer'
+  ] //Add any new reducers to this array for perisitence to work
 }
 
 const rootReducer = combineReducers({
@@ -20,7 +22,8 @@ const rootReducer = combineReducers({
     LoginReducer,
     CartReducer,
     ProductReducer,
-    SearchReducer
+    SearchReducer,
+    QuoteReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

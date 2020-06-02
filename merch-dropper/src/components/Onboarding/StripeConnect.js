@@ -18,10 +18,16 @@ const ConnectStripe = e => {
 }
 
 const SkipSetup = e => {
+    let url;
+    if (process.env.REACT_APP_BASE_URL === "development") {
+      url = "http://localhost:3000/createstore";
+    } else {
+      url = "https://merchdropper.store/createstore";
+    }
 
     e.preventDefault();
     history.push('/createstore');
-    window.location.replace('https://www.merchdropper.store/createstore');
+    window.location.replace(url);
 }
 
 
@@ -44,7 +50,7 @@ const StripeConnect = () => {
         console.log(userCode)
 
         axiosWithAuth()
-            .post('https://merchdropper-production.herokuapp.com/api/stripe/accounts', {
+            .post(`/api/stripe/accounts`, {
             user_code: userCode,
             email: profile.email,
        })

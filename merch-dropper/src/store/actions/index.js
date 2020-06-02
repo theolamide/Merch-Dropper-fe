@@ -9,7 +9,7 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 export const postUser = (credentials) => dispatch => {
     // console.log('credentials', credentials)
     dispatch({ type: REGISTER_START })
-    axios.post('https://merchdropper-production.herokuapp.com/api/auth/register', credentials)
+    axios.post('https://merch-dropper.herokuapp.com/api/auth/register', credentials)
         .then(res => {
             console.log('postUser res', res);
             dispatch({ type: REGISTER_SUCCESS, payload: res.data })
@@ -140,7 +140,7 @@ export const searchStoreName = (storeName) => dispatch => {
     let encodedURI = encodeURI(storeName)
     // console.log('search action called', encodedURI)
     dispatch({ type: SEARCH_STORE_START })
-    axios.get(`https://merchdropper-production.herokuapp.com/api/stores/storename/${encodedURI}`)
+    axios.get(`https://merch-dropper.herokuapp.com/api/stores/storename/${encodedURI}`)
         .then(res => {
             dispatch({ type: SEARCH_STORE_SUCCESS, payload: res.data })
         })
@@ -149,3 +149,49 @@ export const searchStoreName = (storeName) => dispatch => {
         })
 };
 
+export const GET_QUOTE_START = "GET_QUOTE_START";
+export const GET_QUOTE_SUCCESS = "GET_QUOTE_SUCCESS";
+export const GET_QUOTE_FAILURE = "GET_QUOTE_FAILURE";
+export const GET_STORE_ID = "GET_STORE_ID";
+
+export const getQuote = (quote) => dispatch => {
+    dispatch({type: GET_QUOTE_START});
+    console.log(quote, "in function")
+    axiosWithAuth()
+    .post('/api/quotes', quote)
+    .then(res => {
+        dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
+    })
+    .catch(err => {
+        dispatch({type: GET_QUOTE_FAILURE, payload: err})                
+    })       
+}
+
+export const ADD_ADDRESS_SUCCESS = "ADD_ADDRESS_SUCCESS";
+export const ADD_PRODUCT_QUOTE = "ADD_PRODUCT_QUOTE";
+export const SET_DESIGNID_QUOTE = "SET_DESIGNID_QUOTE"
+
+export const setQuote = (stuff) => dispatch => {
+    dispatch({type: ADD_PRODUCT_QUOTE, payload: stuff})
+    console.log(stuff, "stuff")
+    // dispatch({type: SET_DESIGNID_QUOTE, payload: designId})
+}
+
+export const addAddress = (address, quote) => dispatch => {
+    dispatch({type: ADD_ADDRESS_SUCCESS, payload: address})
+    // .then(() => {
+    //     dispatch(getQuote(quote))
+    // })
+    // .catch(err => {
+    //     console.dir(err)
+    // })
+}
+
+export const ADD_PRODUCT_STATE_START = "ADD_PRODUCT_STATE_START";
+export const ADD_PRODUCT_STATE_SUCCESS = "ADD_PRODUCT_STATE_SUCCESS";
+export const ADD_PRODUCT_STATE_FAILURE = "ADD_PRODUCT_STATE_FAILURE";
+
+export const addProdToState = (product) => dispatch => {
+    dispatch({type: ADD_PRODUCT_STATE_SUCCESS, payload: product})
+    
+}

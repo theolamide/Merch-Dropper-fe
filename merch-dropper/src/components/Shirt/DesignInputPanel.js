@@ -1,10 +1,15 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "../../App.css";
 import styled from "styled-components";
 import DesignHandler from "./DesignHandler";
 import ThumbDisplay from "./ThumbDisplay";
 import Swatch from "./Swatch";
 import { Link } from "react-router-dom";
+import {useSelector} from "react-redux";
+import axios from "axios";
+import scalableData from "./scalableData.js"
+
+
 
 const DesignInputPanel = ({
   design,
@@ -14,8 +19,10 @@ const DesignInputPanel = ({
   garment,
   setGarment,
   handleScalableMockup,
+  
   addProduct
 }) => {
+
   return (
     <Panel>
       <DesignHandler
@@ -38,7 +45,8 @@ const DesignInputPanel = ({
         >
           Preview Design
         </button>
-        <Link to="/addproduct" className="designBtn btn btn-primary">
+        
+        <Link to="/addproduct" className="designBtn btn btn-primary" >
           Save & Continue
         </Link>
       </ButtonContainer>

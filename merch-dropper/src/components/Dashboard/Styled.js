@@ -282,3 +282,18 @@ export const StorefrontName = styled.p`
     color: #1C1C2E;
 
 `;
+
+export const StripeButton = styled.button`
+  width: 25%;
+  height: 40px;
+  left: 103px;
+  top: 252px;
+  background: #4455EE;
+  color: #FFFFFF;
+  border-radius: 10px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+`;
