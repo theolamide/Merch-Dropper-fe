@@ -42,7 +42,7 @@ const addProduct = async (history, garment, product, design) => {
       .catch(err => {
         console.log("MERCHDROPRES", err);
       });
-    console.log(`${merchDropRes.data.productName} added successfully!`);
+    console.log(` added successfully!`);
   })();
   return null;
 };

@@ -8,7 +8,9 @@ const DesignHandler = ({ design, setDesign, setThumbRender }) => {
   useEffect(() => {
     (async () => {
       if (designAdded > 0) {
-        const res = await axiosWithEnv().post(
+        const res = await 
+        axiosWithEnv()
+        .post(
           "/api/designs",
           design
         );

@@ -19,12 +19,12 @@ function InventoryList({ history }) {
   // This should be a series of axiosWithAuth requests, but we ran into issues implementing axiosWithAuth in the Inventory components where the inventory would only load with plain axios calls.  
   useEffect(() => {
     async function getInventory() {
-      const { email } = JSON.parse(localStorage.getItem("profile"));
+      // const { email } = JSON.parse(localStorage.getItem("profile"));
 
-      const resUser = await axiosWithEnv().get(
-        `/api/users/email/${email}`
-      );
-      const userID = resUser.data.id;
+      // const resUser = await axiosWithEnv().get(
+      //   `/api/users/email/${email}`
+      // );
+      const userID = localStorage.getItem('id');
       const resStore = await axiosWithEnv().get(
         `/api/stores/user/${userID}`
       );
