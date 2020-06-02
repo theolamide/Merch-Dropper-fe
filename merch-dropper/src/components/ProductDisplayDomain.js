@@ -13,7 +13,8 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   const [shirts, setShirts] = useState([]);
   let storeID = 0
   const { domain_name } = useParams();
-  localStorage.setItem("domain_name", domain_name)
+  console.log(domain_name)
+  localStorage.setItem("domain_name", domain_name.trim())
   
   useEffect(() => {
     axiosWithEnv()
