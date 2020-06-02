@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
-
+import { useSelector } from 'react-redux';
 import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
 import { axiosWithEnv } from "../utils/axiosWithEnv";
 
@@ -10,8 +10,6 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
   const devPriceStripe = 1 * 100;  // for testing
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_BMXGPoL1peDqHyy42iFEoAMg00l0M6PNex";
-  const orderToken = window.localStorage.getItem('orderToken')
-  console.log('orderToken', orderToken)
   //const publishableKey = 'pk_live_3zwsNFDgIC2nJd4h7F9Y5K8s00exa06IRd'; //Uncomment this line for when stripe is collecting Live payments. Make sure to also change the environment variable on the Backend to the Live key.
 
   let config = {
@@ -19,11 +17,13 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
       "Content-Type": "application/json"
     },
   };
-
+  // grabs the orderToken to complete payment process and send to backend calculate application fee
+  const tokenSelector = useSelector(state => state.QuoteReducer.quote)
   const onToken = token => {
+    console.log('orderToken', tokenSelector.quote.orderToken)
     console.log('token at top', token); // should clear this or at least comment out post feature development
     token.domain_name = domain;
-    token.orderToken = orderToken;
+    token.orderToken = tokenSelector.quote.orderToken;
     axiosWithEnv()
       .post("/api/payments/create-payment-intent", {
         amount: priceForStripe,

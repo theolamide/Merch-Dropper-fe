@@ -78,8 +78,6 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
                 isFetching: true
             };
         case GET_QUOTE_SUCCESS:
-            const orderToken = action.payload.orderToken
-            window.localStorage.setItem('orderToken', orderToken)
             return{
                 ...state,
                 quote: action.payload,

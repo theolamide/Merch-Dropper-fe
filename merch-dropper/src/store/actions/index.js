@@ -160,8 +160,7 @@ export const getQuote = (quote) => dispatch => {
     axiosWithAuth()
     .post('/api/quotes', quote)
     .then(res => {
-        // const orderToken = res.data.orderToken;
-        // window.localStorage.setItem('orderToken', orderToken)
+        console.log('the orderToken', res.data.quote.orderToken)
         dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
     })
     .catch(err => {
