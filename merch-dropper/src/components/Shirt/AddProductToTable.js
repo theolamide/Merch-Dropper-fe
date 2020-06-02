@@ -24,7 +24,7 @@ const AddProductToTable = (props, history) => {
     productName: "",
     price: "",
     description: "",
-    storeID: 0,
+    storeID: "",
     designId: props.design.designId,
     color: data.product.color,
     size: "",
@@ -36,7 +36,7 @@ const AddProductToTable = (props, history) => {
   function openModal() {
     setIsOpen(true);
   }
-  
+  console.log(stores, "stores")
   console.log(props, "props")
   //fetch stores on mount of logged in user
   // get currently logged in user data from localstorage
@@ -52,13 +52,27 @@ const AddProductToTable = (props, history) => {
       const res = await axios.get(
         `https://merch-dropper.herokuapp.com/api/users/email/${email}`
       );
-      console.log(res);
+      console.log(res, "res1");
       const userID = res.data.id;
-      const res2 = await axios.get(
-        `https://merch-dropper.herokuapp.com/api/stores/user/${userID}`
+      console.log(userID, "id")
+      const res2 = await axiosWithEnv().get(
+        `/api/stores/user/${userID}`
       );
-      console.log(res2);
-      setStores(res2.data);
+      console.log(res2, "res");
+      setStores(res.data);
+      setProduct(
+      { 
+        productName: "",
+        price: "",
+        description: "",
+        
+        designId: props.design.designId,
+        color: data.product.color,
+        size: "",
+        product_id: data.product.id,
+        type: data.design.type,
+        storeID:res2.data.id
+      })
     }
     getStores();
     //get price of product from scalablepress
@@ -89,7 +103,7 @@ const AddProductToTable = (props, history) => {
   const handleChange = event => {
     setProduct({
       ...product,
-      storeID: stores.id,
+      size:"med",
       [event.target.name]: event.target.value
     });
   };

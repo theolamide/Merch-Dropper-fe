@@ -30,8 +30,8 @@ function InventoryList({ history }) {
       );
       setStores(resStore.data);
       const storeID = resStore.data.id;
-      const resProducts = await axios.get(
-        `https://merch-dropper.herokuapp.com/api/products/store/${storeID}`
+      const resProducts = await axiosWithEnv().get(
+        `/api/products/store/${storeID}`
       );
       setProducts(resProducts.data);
     }

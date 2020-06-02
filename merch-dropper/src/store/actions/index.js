@@ -179,7 +179,8 @@ export const setQuote = (stuff) => dispatch => {
 }
 
 export const addAddress = (address, quote) => dispatch => {
-    dispatch({type: ADD_ADDRESS_SUCCESS, payload: address})
+    dispatch({type: ADD_ADDRESS_SUCCESS, payload: address});
+    dispatch(getQuote(quote))
     // .then(() => {
     //     dispatch(getQuote(quote))
     // })

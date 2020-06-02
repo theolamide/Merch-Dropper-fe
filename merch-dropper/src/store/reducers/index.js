@@ -13,7 +13,7 @@ import QuoteReducer from "./QuoteReducer"
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['RegisterReducer', 'LoginReducer', 'CartReducer', 'ProductReducer'
+  whitelist: ['RegisterReducer', 'LoginReducer', 'CartReducer', 'ProductReducer', 'QuoteReducer'
   ] //Add any new reducers to this array for perisitence to work
 }
 

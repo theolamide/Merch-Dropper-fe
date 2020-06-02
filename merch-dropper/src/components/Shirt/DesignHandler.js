@@ -9,8 +9,10 @@ const DesignHandler = ({ design, setDesign, setThumbRender }) => {
   useEffect(() => {
     (async () => {
       if (designAdded > 0) {
-        const res = await axios.post(
-          "https://merch-dropper.herokuapp.com/api/designs",
+        const res = await 
+        axiosWithEnv()
+        .post(
+          "/api/designs",
           design
         );
         setThumbRender(res);
