@@ -1,6 +1,6 @@
 
-import React, {useEffect} from 'react';
-import { axiosWithEnv } from '../../utils/axiosWithEnv'
+import React, {useEffect, useDispatch} from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
@@ -46,9 +46,9 @@ const CheckoutPage = ({
     //   dispatch(getQuote(quote.quoteInfo))}
     // GET request to 'stores/domain/${match.params.domain_name}'
 
-       axiosWithEnv()
+       axios
         .get(
-          `/api/stores/domain/${domain_name}`
+          `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
         )
       .then((res) => {
         if (Number(res.data.id) !== Number(localStorage.getItem("storeID"))) {

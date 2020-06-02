@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {axiosWithAuth} from "../../utils/axiosWithAuth";
+// import {axiosWithAuth} from "../../utils/axiosWithAuth";
 import { StyledDiv, BigContainer } from "./Styled";
 
 import Inventory from "./Inventory";
@@ -18,8 +18,8 @@ const Dashboard = ({ products, addToCart, match, location, history }) => {
   const userID = localStorage.getItem("id")
 
   useEffect(() => {
-    axiosWithAuth()
-    .get(`/api/stores/user/${userID}`)
+    axios
+    .get(`https://merch-dropper.herokuapp.com/api/stores/user/${userID}`)
     .then((res) => {
       localStorage.setItem("store_name", res.data.store_name);
     })
