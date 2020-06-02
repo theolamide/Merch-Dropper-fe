@@ -21,7 +21,7 @@ const Dashboard = ({ products, addToCart, match, location, history }) => {
     axiosWithAuth()
     .get(`/api/stores/user/${userID}`)
     .then((res) => {
-      localStorage.setItem("store_name", res.data.store_name);
+      localStorage.setItem("store_name", res.data.domain_name);
     })
     .catch((err) => {
       console.log(err);
