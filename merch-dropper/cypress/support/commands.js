@@ -23,7 +23,6 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-<<<<<<< HEAD
 
 Cypress.Commands.add('login', (overrides = {}) => {
     Cypress.log({
@@ -45,5 +44,3 @@ Cypress.Commands.add('login', (overrides = {}) => {
     };
     cy.request(options);
   });
-=======
->>>>>>> master
