@@ -43,7 +43,7 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
           });
       });
   }, [match.params, domain_name]);
-
+// console.log(shirts, "shirts")
   return (
     <Container fluid="true" className="container-margin">
       <Row>

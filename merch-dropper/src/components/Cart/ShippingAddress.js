@@ -27,7 +27,7 @@ const ShippingAddress = () => {
       const domain_name = localStorage.getItem("domain_name")
         e.preventDefault();
         await dispatch(addAddress(address))
-          dispatch(getQuote(sendQuote))
+          await dispatch(getQuote(sendQuote))
           history.push(`/${domain_name}/checkout`)       
     }
 
