@@ -5,10 +5,6 @@ import { axiosWithEnv } from '../../utils/axiosWithEnv'
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
-
-
-
-
 import StripeCheckoutButton from "../StripeButton";
 
 

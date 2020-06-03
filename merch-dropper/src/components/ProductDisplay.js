@@ -16,8 +16,9 @@ const ProductDisplay = ({ products, addToCart }) => {
   useEffect(() => {
     axios.get('https://merch-dropper.herokuapp.com/api/products')
       .then(res => {
-        // console.log('res', res.data)
+        console.log('res', res.data)
         setShirts(res.data);
+       
       })
   }, []);
 

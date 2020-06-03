@@ -1,5 +1,6 @@
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import axios from 'axios';
+import { axiosWithEnv } from '../../utils/axiosWithEnv';
 
 // Registration Actions
 export const REGISTER_START = 'REGISTER_START';
@@ -158,7 +159,7 @@ export const getQuote = (quote) => dispatch => {
     dispatch({type: GET_QUOTE_START});
     console.log(quote, "in function")
     axiosWithAuth()
-    .post('/api/quotes', quote)
+    .post('https://merch-dropper.herokuapp.com/api/quotes', quote)
     .then(res => {
         console.log('the orderToken', res.data.quote.orderToken)
         dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
