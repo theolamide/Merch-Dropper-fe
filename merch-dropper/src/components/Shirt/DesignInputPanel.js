@@ -18,8 +18,7 @@ const DesignInputPanel = ({
   setThumbRender,
   garment,
   setGarment,
-  handleScalableMockup,
-  
+  handleScalableMockup,  
   addProduct
 }) => {
 

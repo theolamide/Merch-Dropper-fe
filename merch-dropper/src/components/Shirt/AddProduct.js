@@ -12,9 +12,9 @@ const addProduct = async (history, garment, product, design) => {
     return null;
   }
 
-  await (() => {
+  await (async () => {
     // cloudRes is the response we receive from Cloudinary after making an axios.post with the necessary
-    axios
+    const cloudRes = await axios
       .post(
         "https://api.cloudinary.com/v1_1/dze74ofbf/upload",
         {
@@ -23,17 +23,17 @@ const addProduct = async (history, garment, product, design) => {
           // tags - An array (using the SDKs) or comma-separated list (for REST API calls) of tag names to assign to the uploaded asset for later group reference.
           tags: "browser_upload",
           // file -
-          file: garment.mockUrl,
+          file: garment.mockUrl
         },
         { "X-Requested-With": "XMLHttpRequest" }
       )
       .catch(err => {
         console.log("error uploading image", err);
       });
-
+      console.log('product to our be', product)
     //
-    const merchDropRes = await axiosWithEnv()
-      .post("/api/products", {
+    const merchDropRes = await axios
+      .post("https://merch-dropper.herokuapp.com/api/products", {
         ...product,
         fullSizeURL: cloudRes.data.eager[0].secure_url,
         thumbnailURL: cloudRes.data.eager[1].secure_url,
@@ -42,8 +42,9 @@ const addProduct = async (history, garment, product, design) => {
       .catch(err => {
         console.log("MERCHDROPRES", err);
       });
+    console.log(` added successfully!`);
   })();
   return null;
 };
 
-
+export default addProduct;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
-
+import { useSelector } from 'react-redux';
 import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
 import { axiosWithEnv } from "../utils/axiosWithEnv";
 
@@ -17,10 +17,13 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
       "Content-Type": "application/json"
     },
   };
-
+  // grabs the orderToken to complete payment process and send to backend calculate application fee
+  const tokenSelector = useSelector(state => state.QuoteReducer.quote)
   const onToken = token => {
+    console.log('orderToken', tokenSelector.quote.orderToken)
     console.log('token at top', token); // should clear this or at least comment out post feature development
     token.domain_name = domain;
+    token.orderToken = tokenSelector.quote.orderToken;
     axiosWithEnv()
       .post("/api/payments/create-payment-intent", {
         amount: priceForStripe,

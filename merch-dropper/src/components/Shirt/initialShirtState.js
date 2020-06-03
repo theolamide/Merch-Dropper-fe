@@ -38,7 +38,6 @@ const initialShirtState = {
     design_name: "Future Sloth",
     design_url: "",
     thumbnail_url: "",
-    designId: "",
     storeID: 1,
     userID: 1
   }

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-
+import axios from 'axios';
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import axios from "axios";
 import addProduct from "./AddProduct";
 import { useStyles } from "../Component-Styles/addProduct-styles.js";
 import { Dimmer, Loader, Image, Segment } from "semantic-ui-react";
@@ -25,7 +24,7 @@ const AddProductToTable = (props, history) => {
     productName: "",
     price: "",
     description: "",
-    storeID: 0,
+    storeID: NaN,
     designId: props.design.designId,
     color: data.product.color,
     size: "",
@@ -37,7 +36,7 @@ const AddProductToTable = (props, history) => {
   function openModal() {
     setIsOpen(true);
   }
-  
+  console.log(stores, "stores")
   console.log(props, "props")
   //fetch stores on mount of logged in user
   // get currently logged in user data from localstorage
@@ -50,23 +49,37 @@ const AddProductToTable = (props, history) => {
     async function getStores() {
       const { email } = JSON.parse(localStorage.getItem("profile"));
       console.log(email)
-      const res = await axiosWithEnv().get(
-        `/api/users/email/${email}`
+      const res = await axios.get(
+        `https://merch-dropper.herokuapp.com/api/users/email/${email}`
       );
-      console.log(res);
+      console.log(res, "res1");
       const userID = res.data.id;
+      console.log(userID, "id")
       const res2 = await axiosWithEnv().get(
         `/api/stores/user/${userID}`
       );
-      console.log(res2);
-      setStores(res2.data);
+      console.log(res2, "res");
+      setStores(res.data);
+      setProduct(
+      { 
+        productName: "",
+        price: "",
+        description: "",
+        
+        designId: props.design.designId,
+        color: data.product.color,
+        size: "",
+        product_id: data.product.id,
+        type: data.design.type,
+        storeID:res2.data.id
+      })
     }
     getStores();
     //get price of product from scalablepress
       const product = {
         "productId": "canvas-unisex-t-shirt"
       }
-      axiosWithEnv().post('/api/products/price', product)
+      axios.post('https://merch-dropper.herokuapp.com/api/products/price', product)
           .then(res => {
             console.log(res, "price res")
              setCost(res.data)
@@ -87,11 +100,11 @@ const AddProductToTable = (props, history) => {
     }    
   }
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setProduct({
       ...product,
-      storeID: stores.id,
-      [event.target.name]: event.target.value,
+      size:"med",
+      [event.target.name]: event.target.value
     });
   };
 
@@ -150,12 +163,12 @@ const AddProductToTable = (props, history) => {
             value={product.productName}
             onChange={handleChange}
             InputProps={{
-              disableUnderline: true,
+              disableUnderline: true
             }}
             InputLabelProps={{
               classes: {
-                root: classes.labelText,
-              },
+                root: classes.labelText
+              }
             }}
           />{" "}
           <div className={classes.cost}>
@@ -166,12 +179,12 @@ const AddProductToTable = (props, history) => {
             value={product.price}
             onChange={handleChange}
             InputProps={{
-              disableUnderline: true,
+              disableUnderline: true
             }}
             InputLabelProps={{
               classes: {
-                root: classes.labelText,
-              },
+                root: classes.labelText
+              }
             }}
           />{" "}
          <span className={classes.profit}>Profit per item:<strong> ${`${calcPrice().toFixed(2)}`}</strong></span>
@@ -185,12 +198,12 @@ const AddProductToTable = (props, history) => {
             value={product.description}
             onChange={handleChange}
             InputProps={{
-              disableUnderline: true,
+              disableUnderline: true
             }}
             InputLabelProps={{
               classes: {
-                root: classes.labelText,
-              },
+                root: classes.labelText
+              }
             }}
           />{" "}
           {/* <Typography

@@ -20,12 +20,12 @@ function InventoryList({ history }) {
   useEffect(() => {
       const { email } = JSON.parse(localStorage.getItem("profile"));
 
-      const resUser = await axiosWithEnv().get(
-        `/api/users/email/${email}`
+      const resUser = await axios.get(
+        `https://merch-dropper.herokuapp.com/api/users/email/${email}`
       );
       const userID = resUser.data.id;
-      const resStore = await axiosWithEnv().get(
-        `/api/stores/user/${userID}`
+      const resStore = await axios.get(
+        `https://merch-dropper.herokuapp.com/api/stores/user/${userID}`
       );
       setStores(resStore.data);
       const storeID = resStore.data.id;
