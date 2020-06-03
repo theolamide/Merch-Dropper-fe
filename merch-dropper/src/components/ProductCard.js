@@ -28,7 +28,6 @@ const ProductCard = ({ product, addToCart }) => {
               <small className="text-muted">{product.name}</small>
             </CardText>
             <CardText>${product.price}</CardText>
-<<<<<<< HEAD
             <button
               className="btn-primary cardBtn"
               size="sm"
@@ -37,9 +36,6 @@ const ProductCard = ({ product, addToCart }) => {
                 showAdded();
               }}
             >
-=======
-            <button className="btn-primary cardBtn" size="sm" onClick={() => addToCart(product), showAdded}>
->>>>>>> f849f914b78a0526a78e28164bd44a5ac1caaf8e
               {isAdded ? "Added" : "Add to Cart"}
             </button>
           </CardBody>
