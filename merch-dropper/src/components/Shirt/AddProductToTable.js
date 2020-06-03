@@ -24,7 +24,7 @@ const AddProductToTable = (props, history) => {
     productName: "",
     price: "",
     description: "",
-    storeID: "",
+    storeID: NaN,
     designId: props.design.designId,
     color: data.product.color,
     size: "",
