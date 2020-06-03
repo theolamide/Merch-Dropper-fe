@@ -39,3 +39,5 @@ const HandleScalableMockup = async (garment, setGarment, design, setDesign, prod
 
   return null;
 };
+
+export default HandleScalableMockup;
