@@ -5,7 +5,7 @@ import {
 } from '../actions';
 
 const initialState = {
-    username: '',
+    email: '',
     isFetching: false,
     error: ''
 };
@@ -22,7 +22,7 @@ export const RegisterReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: false, 
-                username: action.payload,
+                email: action.payload,
                 error: ''
             }
         case REGISTER_FAILURE: 

@@ -34,10 +34,10 @@ function Signup({ userSignup, history }) {
       <StyledHeader>Sign up</StyledHeader>
       <StyledForm onSubmit={callSignup}>
         <StyledInput
-          name="username"
-          type="text"
-          value={signupInfo.username}
-          placeholder="username"
+          name="email"
+          type="email"
+          value={signupInfo.email}
+          placeholder="email"
           onChange={handleChange}
         />
         <StyledInput
