@@ -25,6 +25,8 @@ const NavBar = ({ hidden, history, location }) => {
     localStorage.removeItem("profile");
     localStorage.removeItem("token");
     localStorage.removeItem("id");
+    localStorage.removeItem("store_name");
+    localStorage.removeItem("storeID");
     logout({
       returnTo: window.location.origin,
     });
@@ -39,16 +41,24 @@ const NavBar = ({ hidden, history, location }) => {
   }
 
   const userOperation = (operation) => {
-    {process.env.REACT_APP_BASE_URL === "development" ? history.push(`/${operation}`) : loginWithRedirect({
-      redirect_uri: url,
-      signup: operation === "signup"
-    });}
+    {
+      process.env.REACT_APP_BASE_URL === "development"
+        ? history.push(`/${operation}`)
+        : loginWithRedirect({
+            redirect_uri: url,
+            signup: operation === "signup",
+          });
+    }
   };
 
   const customSignup = () => {
-    {process.env.REACT_APP_BASE_URL === "development" ? history.push("/login") : loginWithRedirect({
-      redirect_uri: url,
-    });}
+    {
+      process.env.REACT_APP_BASE_URL === "development"
+        ? history.push("/login")
+        : loginWithRedirect({
+            redirect_uri: url,
+          });
+    }
     loginWithRedirect({
       redirect_uri: url,
       signup: true,
@@ -87,11 +97,19 @@ const NavBar = ({ hidden, history, location }) => {
   }
 
   const Nav = () => {
-    if (!!localStorage.getItem("profile")) {
+    if (domain_name === pathname.substr(1).split("/")[0]) {
       return (
-        <nav classname="ButtonWrapper">
-          <Link to={`${domain_name}`} className="links">
-
+        <nav className="ButtonWrapper">
+          <Link to={`/${domain_name}`} className="links">
+            {domain_name}
+          </Link>
+          <CartIcon />
+        </nav>
+      );
+    } else if (!!localStorage.getItem("profile")) {
+      return (
+        <nav className="ButtonWrapper">
+          <Link to={`/${store_name}`} className="links">
             Your Store
           </Link>
           <Link
@@ -112,21 +130,11 @@ const NavBar = ({ hidden, history, location }) => {
           >
             Logout
           </span>
-          <CartIcon />
-        </nav>
-      );
-    } else if (domain_name === pathname.substr(1).split("/")[0]) {
-      return (
-        <nav classname="ButtonWrapper">
-          <Link to={`/${domain_name}`} className="links">
-            {domain_name}
-          </Link>
-          <CartIcon />
         </nav>
       );
     } else {
       return (
-        <nav classname="ButtonWrapper">
+        <nav className="ButtonWrapper">
           <span className="links" onClick={() => userOperation("login")}>
             Sign in
           </span>

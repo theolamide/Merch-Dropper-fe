@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {axiosWithAuth} from "../../utils/axiosWithAuth";
+import {axiosWithEnv} from "../../utils/axiosWithEnv";
 import { StyledDiv, BigContainer } from "./Styled";
 
 import Inventory from "./Inventory";
@@ -18,10 +18,10 @@ const Dashboard = ({ products, addToCart, match, location, history }) => {
   const userID = localStorage.getItem("id")
 
   useEffect(() => {
-    axiosWithAuth()
+    axiosWithEnv()
     .get(`/api/stores/user/${userID}`)
     .then((res) => {
-      localStorage.setItem("store_name", res.data.store_name);
+      localStorage.setItem("store_name", res.data.domain_name);
     })
     .catch((err) => {
       console.log(err);

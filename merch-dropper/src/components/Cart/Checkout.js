@@ -1,15 +1,11 @@
 
 import React, {useEffect} from 'react';
 import { axiosWithEnv } from '../../utils/axiosWithEnv'
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 
-
-
-
 import StripeCheckoutButton from "../StripeButton";
-
 
 import {
   selectCartItems,
@@ -32,20 +28,16 @@ const CheckoutPage = ({
   clearItem,
 }) => {
   
- 
+ const quote = useSelector(state => state.QuoteReducer.quote)
+ console.log(quote.quote.subtotal, "quote in checkout")
   const dispatch = useDispatch();
   const { domain_name } = match.params;
+    
+  const FunctionTotal=(a,b,c) => {
+      return a+b+c
+    }
+    const stripeTotal = FunctionTotal(total, quote.quote.tax, quote.quote.shipping)
   useEffect(() => {
-    dispatch(setQuote({
-      spInfo:{
-        cart
-      }
-    }))
-    // if(quote && quote.quoteInfo.length > 0) 
-    // { console.log(quote)
-    //   dispatch(getQuote(quote.quoteInfo))}
-    // GET request to 'stores/domain/${match.params.domain_name}'
-
        axiosWithEnv()
         .get(
           `/api/stores/domain/${domain_name}`
@@ -115,10 +107,15 @@ const CheckoutPage = ({
             </RemoveButton>
           </CheckoutItemWrapper>
         ))}
+        <SubTotal className="subtotal">
+          <span>SubTotal ${total.toFixed(2)}</span><br/>
+          <span>Tax: ${quote.quote.tax.toFixed(2)}</span><br/>
+          <span>Shipping: ${quote.quote.shipping.toFixed(2)}</span>
+        </SubTotal>
       <Total className="total">
-        <span>Total: ${total}</span>
+        <span>Total: ${stripeTotal.toFixed(2)}</span>
       </Total>
-      <StripeCheckoutButton price={total} domain={domain_name} />
+      <StripeCheckoutButton price={stripeTotal} domain={domain_name} />
     </CheckoutPageWrapper>
   );
 };
@@ -166,6 +163,12 @@ const HeaderBlock = styled.div`
     width: 8%;
   }
 `;
+
+const SubTotal = styled.div`
+margin-top: 30px;
+margin-left: auto;
+font-size: 15px;
+`
 
 const Total = styled.div`
   margin-top: 30px;

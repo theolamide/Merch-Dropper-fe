@@ -17,6 +17,7 @@ import {
   SkipCreateStoreButton,
 } from "./Styled";
 
+import axios from 'axios';
 import { axiosWithEnv } from "../../utils/axiosWithEnv";
 
 // This function is to provide the Material UI Stepper with the names of each step to display.
@@ -68,8 +69,8 @@ function CreateStore({ history }) {
     e.preventDefault();
     setIsSubmit(true);
 
-    axiosWithEnv()
-      .post(`/api/stores`, {
+    axios
+      .post(`https://merch-dropper.herokuapp.com/api/stores`, {
         store_name: storeName,
         domain_name: domain,
         email: profile.email,

@@ -5,6 +5,7 @@ import {SettingsH2, SettingsBox, StripeH3, StripeStatusTitle, StripeStatus, Sett
          AccountTitle, AccountNumber, Divider, StorefrontStatusTitle, StorefrontStatusConainer,
         StorefrontStatusDot, StorefrontStatus, StorefrontTitle, StorefrontName, StripeContainer,
         StripeStatusContainer, StripeButton, AccountContainer, StorefrontContainer, StorefrontStatusInner, StorefrontNameContainer } from './Styled';
+import { axiosWithEnv } from '../../utils/axiosWithEnv';
 
 
 
@@ -23,7 +24,7 @@ const Settings = () => {
             
 
             
-            axiosWithAuth()
+            axiosWithEnv()
             .get(`/api/stripe/${profile.email}`)
             .then((res) => {
                 console.log(res.data.user.stripe_account)
@@ -31,19 +32,19 @@ const Settings = () => {
                 if(stripe){setConnected(true)}
                 });
           
-            const res = await axiosWithAuth().get(
+            const res = await axiosWithEnv().get(
                 `/api/users/email/${profile.email}`
             );
 
             console.log(res);
 
-            const userID = res.data.id;
-            const res2 = await axiosWithAuth().get(
+            const userID =localStorage.getItem('id')
+            const res2 = await axiosWithEnv().get(
                 `/api/stores/user/${userID}`
             );
             console.log(res2);
             setStore(res2.data.store_name);
-        }
+            }
         getInfo();
       }, []);
 

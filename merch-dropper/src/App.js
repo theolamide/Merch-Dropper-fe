@@ -57,9 +57,7 @@ function App() {
               design={design}
               setDesign={setDesign}
               garment={garment}
-              setGarment={setGarment}
-              design={design}              
-              setDesign={setDesign}
+              setGarment={setGarment}            
               thumbRender={thumbRender}
               setThumbRender={setThumbRender}
               product={product}
