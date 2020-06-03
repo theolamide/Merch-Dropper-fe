@@ -18,6 +18,7 @@ export const axiosWithAuth = () => {
 
   return axios.create({
     baseURL: url,
+    // 'https://merch-dropper.herokuapp.com',
     headers: {
       Authorization: token,
       "Content-Type": "application/json",

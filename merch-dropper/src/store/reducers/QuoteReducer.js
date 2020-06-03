@@ -1,6 +1,6 @@
 import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, ADD_ADDRESS_SUCCESS, ADD_PRODUCT_QUOTE, SET_DESIGNID_QUOTE} from "../actions"
 
-const initialQuoteState =  {
+export const initialQuoteState =  {
     sendQuote:{
         quoteInfo: { 
             storeID: parseInt(localStorage.getItem('storeID')),
@@ -104,21 +104,16 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
         case ADD_PRODUCT_QUOTE:
             return{
                 ...state,
-                sendQuote: {
-                    ...state.sendQuote,
                     spInfo: {
                         ...state.sendQuote.spInfo,
-                        type: action.payload.spInfo.cart[0].type,
-                        designId: action.payload.spInfo.cart[0].designId,
+                        type: action.payload.products[0].type,
+                        designId: action.payload.products[0].designId,
                         products:[{
-                            id: action.payload.spInfo.cart[0].product_id,
-                            color: action.payload.spInfo.cart[0].color,
+                            id: action.payload.products[0].product_id,
+                            color:action.payload.products[0].color,
                             size:"med",
-                            quantity: action.payload.spInfo.cart[0].quantity
-                        }]
-                }
-               
-
+                            quantity: action.payload.products[0].quantity
+                         }]
                 }
               
             };

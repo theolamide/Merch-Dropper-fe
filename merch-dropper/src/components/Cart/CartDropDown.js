@@ -5,7 +5,8 @@ import { createStructuredSelector } from "reselect";
 import styled from "styled-components";
 import { Button } from "reactstrap";
 
-import { toggleCart } from "../../store/actions";
+import { toggleCart, setQuote } from "../../store/actions";
+import {initialQuoteState} from "../../store/reducers/QuoteReducer"
 
 const CartDropdownDiv = styled.div`
   position: absolute;
@@ -89,7 +90,7 @@ const SingleCartItem = ({ item: { thumbnailURL, price, name, quantity } }) => (
 
 const CartDropdown = ({ cart, history, dispatch }) => {
   const domain_name = localStorage.getItem("domain_name")
-  
+  const quote = initialQuoteState.sendQuote.spInfo;
     return (
       <CartDropdownDiv className="cart-dropdown">
         <CartItemsDiv className="cart-items">
@@ -112,7 +113,13 @@ const CartDropdown = ({ cart, history, dispatch }) => {
           onClick={() => {
             history.push(`/${domain_name}/shippingAddress`);
             dispatch(toggleCart());
+            console.log(cart, "cart in drop down")
+            dispatch(setQuote({...quote,
+              designId: cart[0].designId,
+              products: cart
+              }))
           }}
+          
         >
           GO TO CHECKOUT
         </CustomButton>

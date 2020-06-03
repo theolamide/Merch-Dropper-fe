@@ -160,6 +160,7 @@ export const getQuote = (quote) => dispatch => {
     axiosWithAuth()
     .post('/api/quotes', quote)
     .then(res => {
+        console.log('the orderToken', res.data.quote.orderToken)
         dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
     })
     .catch(err => {
@@ -178,7 +179,8 @@ export const setQuote = (stuff) => dispatch => {
 }
 
 export const addAddress = (address, quote) => dispatch => {
-    dispatch({type: ADD_ADDRESS_SUCCESS, payload: address})
+    dispatch({type: ADD_ADDRESS_SUCCESS, payload: address});
+    dispatch(getQuote(quote))
     // .then(() => {
     //     dispatch(getQuote(quote))
     // })
