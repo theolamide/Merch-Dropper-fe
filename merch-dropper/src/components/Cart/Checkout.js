@@ -1,6 +1,7 @@
 
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector } from "react-redux"
+import axios from 'axios';
 import { axiosWithEnv } from '../../utils/axiosWithEnv'
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -30,7 +31,7 @@ const CheckoutPage = ({
   removeItem,
   clearItem,
 }) => {
-  
+
  const quote = useSelector(state => state.QuoteReducer.quote)
  console.log(quote.quote.subtotal, "quote in checkout")
   const dispatch = useDispatch();
@@ -45,6 +46,10 @@ const CheckoutPage = ({
         .get(
           `/api/stores/domain/${domain_name}`
         )
+        // axios
+        // .get(
+        //   `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
+        // )
       .then((res) => {
         if (Number(res.data.id) !== Number(localStorage.getItem("storeID"))) {
           localStorage.setItem("storeID", Number(res.data.id));
@@ -63,6 +68,7 @@ const CheckoutPage = ({
   console.log('checkout params', domain_name)
 
   return (
+    quote ? 
     <CheckoutPageWrapper className="checkout-page">
        
       <CheckoutHeader className="checkout-header">
@@ -123,6 +129,7 @@ const CheckoutPage = ({
       </Total>
       <StripeCheckoutButton price={stripeTotal} domain={domain_name} />
     </CheckoutPageWrapper>
+    : <div>Redirecting to Checkout</div>
   );
 };
 
