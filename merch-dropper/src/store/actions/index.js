@@ -159,7 +159,7 @@ export const getQuote = (quote) => dispatch => {
     dispatch({type: GET_QUOTE_START});
     console.log(quote, "in function")
     axiosWithAuth()
-    .post('https://merch-dropper.herokuapp.com/api/quotes', quote)
+    .post('/api/quotes', quote)
     .then(res => {
         console.log('the orderToken', res.data.quote.orderToken)
         dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})

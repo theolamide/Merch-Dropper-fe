@@ -79,7 +79,7 @@ const AddProductToTable = (props, history) => {
       const product = {
         "productId": "canvas-unisex-t-shirt"
       }
-      axios.post('https://merch-dropper.herokuapp.com/api/products/price', product)
+      axiosWithEnv().post('/api/products/price', product)
           .then(res => {
             console.log(res, "price res")
              setCost(res.data)
