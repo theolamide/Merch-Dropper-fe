@@ -89,8 +89,11 @@ const SingleCartItem = ({ item: { thumbnailURL, price, name, quantity } }) => (
 );
 
 const CartDropdown = ({ cart, history, dispatch }) => {
+
   const domain_name = localStorage.getItem("domain_name")
-  const quote = initialQuoteState.sendQuote.spInfo;
+  const quote = initialQuoteState.sendQuote;
+  console.log(quote, "this is quote state")
+  console.log(cart, "cart")
     return (
       <CartDropdownDiv className="cart-dropdown">
         <CartItemsDiv className="cart-items">
@@ -111,14 +114,24 @@ const CartDropdown = ({ cart, history, dispatch }) => {
         </CartItemsDiv>
         <CustomButton
           onClick={() => {
-            history.push(`/${domain_name}/shippingAddress`);
+          
             dispatch(toggleCart());
-            console.log(cart, "cart in drop down")
-            dispatch(setQuote({...quote,
-              designId: cart[0].designId,
-              products: cart
-              }))
+            dispatch(setQuote({
+              ...quote,
+              quoteInfo:{
+                ...quote.quoteInfo,
+                storeID: cart[0].storeId
+              },
+              spInfo:{
+                ...quote.spInfo,
+              designId: cart[0].id,
+              type: cart[0].type,
+              products: 
+                cart
+            }}))
+            history.push(`/${domain_name}/shippingAddress`);
           }}
+         
           
         >
           GO TO CHECKOUT

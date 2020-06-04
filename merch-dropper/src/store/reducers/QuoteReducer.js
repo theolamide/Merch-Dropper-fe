@@ -1,10 +1,11 @@
 import {GET_QUOTE_FAILURE, GET_QUOTE_START, GET_QUOTE_SUCCESS, ADD_ADDRESS_SUCCESS, ADD_PRODUCT_QUOTE, SET_DESIGNID_QUOTE} from "../actions"
 
 export const initialQuoteState =  {
+    isReadyToMount: false,
     sendQuote:{
         quoteInfo: { 
             storeID: parseInt(localStorage.getItem('storeID')),
-            userID: parseInt(localStorage.getItem('id'))
+            // userID: parseInt(localStorage.getItem('id'))
          },
         spInfo: {
             type: "dtg",
@@ -75,13 +76,15 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
         case GET_QUOTE_START:
             return{
                 ...state,
-                isFetching: true
+                isFetching: true,
+                isReadyToMount: true
             };
         case GET_QUOTE_SUCCESS:
             return{
                 ...state,
                 quote: action.payload,
                 isFetching: false,
+                isReadyToMount: false
                 
             };
         case GET_QUOTE_FAILURE:
@@ -104,17 +107,27 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
         case ADD_PRODUCT_QUOTE:
             return{
                 ...state,
-                    spInfo: {
-                        ...state.sendQuote.spInfo,
-                        type: action.payload.products[0].type,
-                        designId: action.payload.products[0].designId,
+                sendQuote:{
+                    ...state.sendQuote,
+                    quoteInfo:{
+                        ...state.sendQuote.quoteInfo,
+                        storeID: action.payload.spInfo.products[0].storeID,
+                        userID: 1
+                    },
+                    spInfo: 
+                    {
+                    ...state.sendQuote.spInfo,                        
+                        type: action.payload.spInfo.products[0].type,
+                        designId: action.payload.spInfo.products[0].designId,
                         products:[{
-                            id: action.payload.products[0].product_id,
-                            color:action.payload.products[0].color,
+                            id: action.payload.spInfo.products[0].product_id,
+                            color:action.payload.spInfo.products[0].color,
                             size:"med",
-                            quantity: action.payload.products[0].quantity
-                         }]
+                            quantity: action.payload.spInfo.products[0].quantity
+                            }]
                 }
+                }
+                    
               
             };
         
