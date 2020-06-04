@@ -20,7 +20,7 @@ const PicDisplay = styled.div`
   }
 `;
 
-const ThumbDisplay = ({ garment, setGarment, thumbRender }) => {
+export default function ThumbDisplay({ garment, setGarment, thumbRender }) {
   const [designArray, setDesignArray] = useState();
   useEffect(() => {
     async function fetchDesigns() {
@@ -53,6 +53,4 @@ const ThumbDisplay = ({ garment, setGarment, thumbRender }) => {
       </PicDisplay>
     </Fragment>
   );
-};
-
-export default ThumbDisplay;
+}
