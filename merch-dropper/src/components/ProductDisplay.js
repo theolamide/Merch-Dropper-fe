@@ -14,7 +14,7 @@ const ProductDisplay = ({ products, addToCart }) => {
   const [shirts, setShirts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://merch-dropper.herokuapp.com/api/products')
+    axiosWithEnv().get('/api/products')
       .then(res => {
         console.log('res', res.data)
         setShirts(res.data);
