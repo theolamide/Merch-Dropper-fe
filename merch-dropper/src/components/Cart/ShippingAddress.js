@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from "react-redux";
 import styled from 'styled-components';
 import {TextField, Button} from "@material-ui/core";
 import { useStyles } from "../Component-Styles/addProduct-styles.js";
-import {addAddress, getQuote, setQuote} from "../../store/actions"
+import {addAddress, getQuote} from "../../store/actions"
 import {initialQuoteState} from "../../store/reducers/QuoteReducer"
 
 const ShippingAddress = () => {
@@ -25,8 +25,8 @@ const ShippingAddress = () => {
       const domain_name = localStorage.getItem("domain_name")
         e.preventDefault();
         await dispatch(addAddress(address))
-          await dispatch(getQuote(sendQuote))
-          history.push(`/${domain_name}/checkout`)       
+          history.push(`/${domain_name}/checkout`)
+          
     }
 
     return(
@@ -83,16 +83,7 @@ const ShippingAddress = () => {
             onChange={handleChange}
           />
           
-          {/* <TextField
-            className={classes.addressField}
-            id="outlined-basic"
-            label="Country"
-            name="country"
-            variant="outlined"
-            inputProps={{ maxLength: 5 }}
-            value={address.country}
-            onChange={handleChange}
-          /> */}
+         
           <Button onClick={handleSubmit}>Submit</Button>
           
        </AddressPageWrapper>

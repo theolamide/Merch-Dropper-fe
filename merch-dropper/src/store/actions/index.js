@@ -157,7 +157,7 @@ export const GET_STORE_ID = "GET_STORE_ID";
 
 export const getQuote = (quote) => dispatch => {
     dispatch({type: GET_QUOTE_START});
-    axiosWithAuth()
+    axiosWithEnv()
     .post('/api/quotes', quote)
     .then(res => {
         console.log('the orderToken', res.data.quote.orderToken)
