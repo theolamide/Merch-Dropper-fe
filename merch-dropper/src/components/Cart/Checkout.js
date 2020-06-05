@@ -31,7 +31,6 @@ const CheckoutPage = ({
 }) => {
 
  const quote = useSelector(state => state.QuoteReducer.quote)
- console.log(quote.quote.subtotal, "quote in checkout")
   const dispatch = useDispatch();
   const { domain_name } = match.params;
     

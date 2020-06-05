@@ -27,19 +27,7 @@ const DesignShirt = ({
   product,
   setProduct
 }) => {  
-  
-  // const [product, setProduct] = useState({
-  //     id: "",
-  //     productName: "",
-  //     color: "",
-  //     size: "",
-  //     designId: "",
-  //     type: "",
-  //     url: "",
-  //     price: null
-  // })
 
-  console.log(product,"designshirt")
 
   return (
     <Fragment>

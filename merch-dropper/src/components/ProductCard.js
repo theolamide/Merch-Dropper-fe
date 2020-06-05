@@ -3,7 +3,6 @@ import { Card, CardBody, CardTitle, CardText, CardImg, Col } from "reactstrap";
 import "../App.css";
 
 const ProductCard = ({ product, addToCart }) => {
-  // console.log("product", product);
   return (
     <Fragment>
       <Col xs="6" lg="4">

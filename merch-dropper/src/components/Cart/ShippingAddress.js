@@ -13,9 +13,7 @@ const ShippingAddress = () => {
     const classes = useStyles();
     const [address, setAddress] = useState(initialQuoteState.sendQuote.spInfo.address) 
     const sendQuote = useSelector(state => state.QuoteReducer.sendQuote)
-   console.log(sendQuote, "send")
-
-
+   
     const handleChange = e => {
         setAddress({
             ...address,

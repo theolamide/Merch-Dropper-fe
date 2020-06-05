@@ -19,7 +19,6 @@ const AddProductToTable = (props, history) => {
   const classes = useStyles();
   const [stores, setStores] = useState("");
   const data = scalableData(props.garment);
-  console.log(data, "add product")
   const [product, setProduct] = useState({
     productName: "",
     price: "",
@@ -36,8 +35,6 @@ const AddProductToTable = (props, history) => {
   function openModal() {
     setIsOpen(true);
   }
-  console.log(stores, "stores")
-  console.log(props, "props")
   //fetch stores on mount of logged in user
   // get currently logged in user data from localstorage
   //GET userID from this endpoint /api/users/email
@@ -48,13 +45,11 @@ const AddProductToTable = (props, history) => {
   useEffect(() => {
     async function getStores() {
       const { email } = JSON.parse(localStorage.getItem("profile"));
-      console.log(email)
       const res = await axios.get(
         `https://merch-dropper.herokuapp.com/api/users/email/${email}`
       );
       console.log(res, "res1");
       const userID = res.data.id;
-      console.log(userID, "id")
       const res2 = await axiosWithEnv().get(
         `/api/stores/user/${userID}`
       );
@@ -81,7 +76,6 @@ const AddProductToTable = (props, history) => {
       }
       axiosWithEnv().post('/api/products/price', product)
           .then(res => {
-            console.log(res, "price res")
              setCost(res.data)
           })
           .catch(err => {
@@ -132,8 +126,6 @@ const AddProductToTable = (props, history) => {
   // const shirtColor = props.garment.color;
   const shirtImage = props.garment.mockUrl;
  
-
-  console.log(product);
   return (
     <div className={classes.addproductContainer}>
       <Modal
