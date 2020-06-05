@@ -1,6 +1,6 @@
 context('Cypress Demo-SellerSetPrice', () => {
     it('set price scenario', () => {
-cy.visit('https://merchdropper.store/dashboard')
+cy.visit('/dashboard')
 cy.get('.letsGo').click()
 cy.get('#root > div > div.sc-fzolEj.jJAzoG > div.sc-fznWOq.cqDPIl > div.sc-fzoXWK.hnKkAN > a:nth-child(2) > img').click()
 cy.get('#root > div > div.sc-fzolEj.jJAzoG > div.sc-fznWOq.cqDPIl > div.sc-fznMAR.gSVBBi > button').click()
