@@ -3,7 +3,7 @@ describe('Landing Page has correct elements and icons showing', () => {
 
     //large screen size
     it('tests to see if correct elements are on page, and funcitioning',() => {
-        cy.visit('https://merchdropper.store/')
+        cy.visit('/')
 
         //is jumbotron visible
         cy.get('.jumbotron').should('be.visible')
@@ -41,7 +41,7 @@ describe('Landing Page has correct elements and icons showing', () => {
                     
                 it('tests to see if correct elements are on small screen, and funcitioning', () => {
 
-                    cy.visit('https://merchdropper.store/')
+                    cy.visit('/')
 
                     //is BrandTItle visible
                     cy.get('.BrandTitle').contains('Merch Dropper')

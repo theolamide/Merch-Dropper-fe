@@ -15,14 +15,14 @@ describe('https://merchdropper.store/', () => {
         cy.contains('Get Started')
     })
     it('contains a Learn more button', () => {
-        cy.visit('https://merchdropper.store/') 
+        cy.visit('/') 
         cy.contains('Learn More')
     })
 })
 
 describe('sign in button', () => {
     it('redirects to auth0 url', () => {
-        cy.visit('https://merchdropper.store/')
+        cy.visit('/')
         cy.contains('Sign in').click()
         cy.url()
             .should('include', '/login')
