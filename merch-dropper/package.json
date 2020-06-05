@@ -42,7 +42,11 @@
     "styled-components": "^5.1.0"
   },
   "scripts": {
-    "start": "env-cmd react-scripts -r @cypress/instrument-cra start",
+    "start": "npm-run-all start-dev start-mockapi",
+    "start-dev": "env-cmd react-scripts -r @cypress/instrument-cra start",
+    "start-mockapi": "json-server ...",
+    "cypress": "cypress open",
+    "dev": "start-test 3000 cypress",
     "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --watchAll",
