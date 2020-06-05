@@ -157,7 +157,6 @@ export const GET_STORE_ID = "GET_STORE_ID";
 
 export const getQuote = (quote) => dispatch => {
     dispatch({type: GET_QUOTE_START});
-    console.log(quote, "in function")
     axiosWithEnv()
     .post('/api/quotes', quote)
     .then(res => {
@@ -175,12 +174,10 @@ export const SET_DESIGNID_QUOTE = "SET_DESIGNID_QUOTE"
 
 export const setQuote = (stuff) => dispatch => {
     dispatch({type: ADD_PRODUCT_QUOTE, payload: stuff})
-    
 }
 
-export const addAddress = (address, quote) => dispatch => {
+export const addAddress = (address) => dispatch => {
     dispatch({type: ADD_ADDRESS_SUCCESS, payload: address});
-    
 }
 
 export const ADD_PRODUCT_STATE_START = "ADD_PRODUCT_STATE_START";

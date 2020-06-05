@@ -33,16 +33,12 @@ const CheckoutPage = ({
 }) => {
 
  const quote = useSelector(state => state.QuoteReducer.quote)
-//  console.log(quote.quote.subtotal, "quote in checkout")
-console.log(quote, "quote in checkout")
   const dispatch = useDispatch();
   const { domain_name } = match.params;
   const sendQuote = useSelector(state => state.QuoteReducer.sendQuote)
-  console.log(sendQuote, "in Checkout")
   const FunctionTotal=(a,b,c) => {
       return a+b+c
     }
-    // const stripeTotal = FunctionTotal(total, quote.quote.tax, quote.quote.shipping)
     
   useEffect(() => {   
        axiosWithEnv()

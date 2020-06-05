@@ -15,7 +15,7 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
   let config = {
     headers: {
       "Content-Type": "application/json"
-    },
+    }
   };
   // grabs the orderToken to complete payment process and send to backend calculate application fee
   const tokenSelector = useSelector(state => state.QuoteReducer.quote)
@@ -25,7 +25,7 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
     token.domain_name = domain;
     token.orderToken = tokenSelector.quote.orderToken;
     axiosWithEnv()
-      .post("/api/payments/create-payment-intent", {
+      .post("/api/payments", {
         amount: priceForStripe,
         token,
         config,
