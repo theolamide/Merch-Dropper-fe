@@ -12,8 +12,6 @@ const ImageUpload = ({ design, setDesign, designAdded, setDesignAdded }) => {
       defaultSource: "local"
     },
     (error, result) => {
-      console.log("error", error);
-      console.log("result", result);
       if (result.event === "success") {
         const data = result.info;
 

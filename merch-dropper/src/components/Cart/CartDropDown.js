@@ -92,8 +92,6 @@ const CartDropdown = ({ cart, history, dispatch }) => {
 
   const domain_name = localStorage.getItem("domain_name")
   const quote = initialQuoteState.sendQuote;
-  console.log(quote, "this is quote state")
-  console.log(cart, "cart")
     return (
       <CartDropdownDiv className="cart-dropdown">
         <CartItemsDiv className="cart-items">

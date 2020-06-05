@@ -157,7 +157,6 @@ export const GET_STORE_ID = "GET_STORE_ID";
 
 export const getQuote = (quote) => dispatch => {
     dispatch({type: GET_QUOTE_START});
-    console.log(quote, "in function")
     axiosWithAuth()
     .post('/api/quotes', quote)
     .then(res => {
@@ -175,19 +174,10 @@ export const SET_DESIGNID_QUOTE = "SET_DESIGNID_QUOTE"
 
 export const setQuote = (stuff) => dispatch => {
     dispatch({type: ADD_PRODUCT_QUOTE, payload: stuff})
-    console.log(stuff, "stuff")
-    // dispatch({type: SET_DESIGNID_QUOTE, payload: designId})
 }
 
-export const addAddress = (address, quote) => dispatch => {
+export const addAddress = (address) => dispatch => {
     dispatch({type: ADD_ADDRESS_SUCCESS, payload: address});
-    dispatch(getQuote(quote))
-    // .then(() => {
-    //     dispatch(getQuote(quote))
-    // })
-    // .catch(err => {
-    //     console.dir(err)
-    // })
 }
 
 export const ADD_PRODUCT_STATE_START = "ADD_PRODUCT_STATE_START";
