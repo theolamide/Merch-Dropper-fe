@@ -46,7 +46,7 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
       shippingAddress={false}
       zipCode={true}
       currency='USD'
-      image={`${MerchDropperLogo}`}
+      image={`${MerchDropperLogo}`} // might be cause of 400 stripe bug
       description={`Your total is $${price}`}
       amount={priceForStripe}
       panelLabel="Pay Now"
