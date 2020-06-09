@@ -32,7 +32,6 @@ const Settings = () => {
   const [stripe, setStripe] = useState("");
   const [connected, setConnected] = useState(false);
   const [store, setStore] = useState("");
-  let dotColor;
 
   useEffect(() => {
     async function getInfo() {
