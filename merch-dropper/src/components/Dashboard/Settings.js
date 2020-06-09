@@ -89,7 +89,7 @@ const Settings = () => {
                         <StorefrontTitle>Store Name:</StorefrontTitle>
                         { store ? <StorefrontName>{store}</StorefrontName>
                         :<Link to="/createstore"> 
-                            <Button variant='outlined' color="primary" size='medium'>Add Store Name</Button>
+                            <Button color="primary" size='medium'>Add Store Name</Button>
                             </Link>
                         }
                     </StorefrontNameContainer> 
