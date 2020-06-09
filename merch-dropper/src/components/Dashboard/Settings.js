@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import history from '../../utils/history';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import {SettingsH2, SettingsBox, StripeH3, StripeStatusTitle, StripeStatus, SettingsContainer, StorefrontH3,
          AccountTitle, AccountNumber, Divider, StorefrontStatusTitle, StorefrontStatusConainer,
         StorefrontStatusDot, StorefrontStatus, StorefrontTitle, StorefrontName, StripeContainer,
         StripeStatusContainer, StripeButton, AccountContainer, StorefrontContainer, StorefrontStatusInner, StorefrontNameContainer } from './Styled';
+        import Button from '@material-ui/core/Button';
 import { axiosWithEnv } from '../../utils/axiosWithEnv';
 
 
@@ -86,7 +88,10 @@ const Settings = () => {
                     <StorefrontNameContainer>
                         <StorefrontTitle>Store Name:</StorefrontTitle>
                         { store ? <StorefrontName>{store}</StorefrontName>
-                        : <div></div>}
+                        :<Link to="/createstore"> 
+                            <Button variant='outlined' color="primary" size='medium'>Add Store Name</Button>
+                            </Link>
+                        }
                     </StorefrontNameContainer> 
                 </StorefrontContainer>
             </SettingsBox>

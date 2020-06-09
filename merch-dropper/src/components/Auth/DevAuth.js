@@ -41,8 +41,8 @@ const DevAuth = () => {
                 localStorage.setItem("token", res.data.token);
                 axios.get(`http://localhost:5032/api/users/email/${credentials.email}`)
                 .then(res =>{
-                    console.log(res)
-                    localStorage.setItem("profile", JSON.stringify(res));
+                    console.log(res.data)
+                    localStorage.setItem("profile", JSON.stringify(res.data));
                     localStorage.setItem("id", res.data.id);
                     history.push("/dashboard")
                 })
