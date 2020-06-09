@@ -70,8 +70,8 @@ function CreateStore({ history }) {
     e.preventDefault();
     setIsSubmit(true);
 
-    axios
-      .post(`https://merch-dropper.herokuapp.com/api/stores`, {
+    axiosWithEnv()
+      .post(`/api/stores`, {
         store_name: storeName,
         domain_name: domain,
         email: profile.email,
