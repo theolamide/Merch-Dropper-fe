@@ -48,13 +48,13 @@
     "start": "npm-run-all start-dev start-mockapi",
     "start-dev": "env-cmd react-scripts -r @cypress/instrument-cra start",
     "start-mockapi": "json-server ...",
-    "cypress": "cypress open",
-    "dev": "start-test 3000 cypress",
+    "dev": "start-test 3000 cyp",
     "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --watchAll",
     "eject": "react-scripts eject",
-    "coverage": "jest --coverage --detectOpenHandles --forceExit || true",
+    "coverage": "dev || jest-coverage || true",
+    "jest-coverage": "jest --coverage --detectOpenHandles --forceExit || true",
     "cyp": "node_modules/.bin/cypress open"
   },
   "eslintConfig": {
@@ -87,6 +87,7 @@
     "start-server-and-test": "^1.11.0"
   },
   "jest": {
+    "coverageDirectory": "jest-coverage",
     "moduleNameMapper": {
       "\\.(css|less|sass|scss)$": "identity-obj-proxy",
       "\\.(svg|png)$": "<rootDir>/__mocks__/fileMock.js"
@@ -95,7 +96,8 @@
       "**/*.{js,jsx}",
       "!**/node_modules/**",
       "!**/vendor/**",
-      "!**/__tests__/**"
+      "!**/__tests__/**",
+      "!**/cypress/**"
     ],
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/jest-transformer.js",
