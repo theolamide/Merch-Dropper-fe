@@ -53,7 +53,7 @@
     "build": "react-scripts build",
     "test": "jest --watchAll",
     "eject": "react-scripts eject",
-    "coverage": "dev || jest-coverage || true",
+    "coverage": "yarn dev || yarn jest-coverage || true",
     "jest-coverage": "jest --coverage --detectOpenHandles --forceExit || true",
     "cyp": "node_modules/.bin/cypress open"
   },
