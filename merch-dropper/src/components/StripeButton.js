@@ -6,51 +6,47 @@ import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
 import { axiosWithEnv } from "../utils/axiosWithEnv";
 
 const StripeCheckoutButton = ({ price, domain, history }) => {
-  console.log('the store', domain)
-  const devPriceStripe = 1 * 100;  // for testing
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_BMXGPoL1peDqHyy42iFEoAMg00l0M6PNex";
   //const publishableKey = 'pk_live_3zwsNFDgIC2nJd4h7F9Y5K8s00exa06IRd'; //Uncomment this line for when stripe is collecting Live payments. Make sure to also change the environment variable on the Backend to the Live key.
+  // WE COULD ALSO keep the test key and make a if/else like we have done with the urls so that it stays in test mode during development
 
   let config = {
     headers: {
       "Content-Type": "application/json"
-    },
+    }
   };
   // grabs the orderToken to complete payment process and send to backend calculate application fee
   const tokenSelector = useSelector(state => state.QuoteReducer.quote)
   const onToken = token => {
-    console.log('orderToken', tokenSelector.quote.orderToken)
-    console.log('token at top', token); // should clear this or at least comment out post feature development
     token.domain_name = domain;
     token.orderToken = tokenSelector.quote.orderToken;
     axiosWithEnv()
-      .post("/api/payments/create-payment-intent", {
+      .post("/api/payments", {
         amount: priceForStripe,
         token,
         config,
       })
       .then(res => {
-        console.log('token in success', token);
         alert("payment successful");
         history.push("/products");
       })
       .catch(error => {
-        console.log('token in error', token);
         console.dir("payment error", error);
         alert("There was an issue with your payment.");
       });
   };
 
   return (
+    // add ternary here to protect buyers from clicking on button before ordertoken is ready
     <StripeCheckout
-      label="Pay Now"
+      label="Finish Checkout"
       name="MerchDropper"
       billingAddress={true}
-      shippingAddress={true}
+      shippingAddress={false}
       zipCode={true}
       currency='USD'
-      image={`${MerchDropperLogo}`}
+      image={`${MerchDropperLogo}`} // might be cause of 400 stripe bug
       description={`Your total is $${price}`}
       amount={priceForStripe}
       panelLabel="Pay Now"

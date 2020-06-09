@@ -2,7 +2,7 @@
 describe('Shipping Address page form', () => {
 
     it('tests the shipping address form', () => {
-        cy.visit('https://merchdropper.store/null/shippingAddress')
+        cy.visit('/null/shippingAddress')
   
         cy.get('.sc-oTbqq').contains('Please Enter Shipping Address')
             .should('be.visible')

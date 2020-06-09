@@ -2,7 +2,7 @@
 describe('Checkout Page', () => {
 	context('770p resolution', () => {
 		beforeEach(() => {
-			cy.visit('http://localhost:3000/null/checkout');
+			cy.visit('/null/checkout');
 
 			//run test in desktop size
 			cy.viewport(770, 740);
@@ -83,7 +83,7 @@ describe('Checkout Page', () => {
 
 describe('it clicks the Pay button', () => {
 	beforeEach(() => {
-		cy.visit('http://localhost:3000/null/checkout');
+		cy.visit('/null/checkout');
 	});
 
 	it('clicks the Pay button', () => {

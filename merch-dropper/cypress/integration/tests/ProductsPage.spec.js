@@ -7,7 +7,7 @@ describe('Product page', () => {
 		});
 
 		it('visits the product page', () => {
-			cy.visit('localhost:3000/products');
+			cy.visit('/products');
 
 			//test desktop size
 			cy.viewport(770, 740);
@@ -29,7 +29,7 @@ describe('Product page', () => {
 			cy.viewport(767, 740)
 		);
 		it('visits the product page', () => {
-			cy.visit('localhost:3000/products');
+			cy.visit('/products');
 
 			cy.get('.MobileWrapper').should('be.visible');
 			cy.get('.DesktopWrapper').should('not.be.visible');

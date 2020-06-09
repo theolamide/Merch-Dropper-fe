@@ -7,6 +7,8 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 import StripeCheckoutButton from "../StripeButton";
+import {initialQuoteState} from "../../store/reducers/QuoteReducer";
+// import {addAddress, getQuote, setQuote} from "../../store/actions"
 
 
 import {
@@ -31,15 +33,14 @@ const CheckoutPage = ({
 }) => {
 
  const quote = useSelector(state => state.QuoteReducer.quote)
- console.log(quote.quote.subtotal, "quote in checkout")
   const dispatch = useDispatch();
   const { domain_name } = match.params;
-    
+  const sendQuote = useSelector(state => state.QuoteReducer.sendQuote)
   const FunctionTotal=(a,b,c) => {
       return a+b+c
     }
-    const stripeTotal = FunctionTotal(total, quote.quote.tax, quote.quote.shipping)
-  useEffect(() => {
+    
+  useEffect(() => {   
        axiosWithEnv()
         .get(
           `/api/stores/domain/${domain_name}`
@@ -49,6 +50,7 @@ const CheckoutPage = ({
         //   `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
         // )
       .then((res) => {
+        dispatch(getQuote(sendQuote))
         if (Number(res.data.id) !== Number(localStorage.getItem("storeID"))) {
           localStorage.setItem("storeID", Number(res.data.id));
           window.location.reload();
@@ -57,15 +59,17 @@ const CheckoutPage = ({
       .catch((err) => {
         console.log(err);
       });
-  }, [match.params, domain_name]);
+      
+  }, [match.params, domain_name,]);
 
 // const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
   // const { domain_name } = useParams();
   console.log('checkout params', domain_name)
 
   return (
-    quote ? 
+    quote.quote   ? 
     <CheckoutPageWrapper className="checkout-page">
+       
       <CheckoutHeader className="checkout-header">
         <HeaderBlock className="header-block">
           <span>Product</span>
@@ -120,9 +124,9 @@ const CheckoutPage = ({
           <span>Shipping: ${quote.quote.shipping.toFixed(2)}</span>
         </SubTotal>
       <Total className="total">
-        <span>Total: ${stripeTotal.toFixed(2)}</span>
+        <span>Total: ${FunctionTotal(total, quote.quote.tax, quote.quote.shipping).toFixed(2)}</span>
       </Total>
-      <StripeCheckoutButton price={stripeTotal} domain={domain_name} />
+      <StripeCheckoutButton price={FunctionTotal(total, quote.quote.tax, quote.quote.shipping)} domain={domain_name} />
     </CheckoutPageWrapper>
     : <div>Redirecting to Checkout</div>
   );
@@ -132,7 +136,6 @@ const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addToCart(item)),
   removeItem: (item) => dispatch(removeFromCart(item)),
   clearItem: (item) => dispatch(clearItemFromCart(item)),
-  // setQuote: (item, id) => dispatch(setQuote(item, id))
 });
 
 const mapStateToprops = createStructuredSelector({

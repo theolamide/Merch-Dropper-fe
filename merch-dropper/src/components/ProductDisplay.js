@@ -10,13 +10,11 @@ import { axiosWithEnv } from "../utils/axiosWithEnv";
 
 
 const ProductDisplay = ({ products, addToCart }) => {
-  // console.log('productdisplay/products', products)
   const [shirts, setShirts] = useState([]);
 
   useEffect(() => {
-    axios.get('https://merch-dropper.herokuapp.com/api/products')
+    axiosWithEnv().get('/api/products')
       .then(res => {
-        console.log('res', res.data)
         setShirts(res.data);
        
       })
@@ -44,7 +42,6 @@ const ProductDisplay = ({ products, addToCart }) => {
 };
 
 const mapStateToProps = (state) => {
-  // console.log("state in products", state);
   return {
     cart: state.CartReducer.cart,
     products: state.ProductReducer.products

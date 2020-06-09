@@ -2,7 +2,7 @@ describe('Storefront elements', () => {
 
     //fullsize check
     it('tests to see if cart icon & logout button is visible', () => {
-        cy.visit('https://merchdropper.store/null')
+        cy.visit('/null')
 
         //is BrandTItle visible
         cy.get('.BrandTitle').contains('Merch Dropper')
@@ -32,7 +32,7 @@ describe('Storefront elements', () => {
        })
 
        it('tests to see if cart icon & logout button is visible on small screen size', () => {
-        cy.visit('https://merchdropper.store/null')
+        cy.visit('/null')
 
         //is BrandTItle visible
         cy.get('.BrandTitle').contains('Merch Dropper')
