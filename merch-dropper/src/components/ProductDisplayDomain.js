@@ -10,18 +10,20 @@ import axios from 'axios';
 import { axiosWithEnv } from "../utils/axiosWithEnv";
 
 const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
-  // console.log('productdisplay/products', products)
   const [shirts, setShirts] = useState([]);
   let storeID = 0
   const { domain_name } = useParams();
-
   localStorage.setItem("domain_name", domain_name)
   
   useEffect(() => {
-    axios
+    axiosWithEnv()
       .get(
-        `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
+        `/api/stores/domain/${domain_name}`
       )
+      // axios
+      // .get(
+      //   `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
+      // )
       .then((res) => {
         storeID = res.data.id
         localStorage.setItem("storeID", storeID);
@@ -30,12 +32,15 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
         console.log(err);
       })
       .finally(() => {
-        axios
+        axiosWithEnv()
           .get(
-            `https://merch-dropper.herokuapp.com/api/products/store/${storeID}`
+            `/api/products/store/${storeID}`
           )
+        // axios
+        // .get(
+        //   `https://merch-dropper.herokuapp.com/api/products/store/${storeID}`
+        // )
           .then((res) => {
-            console.log(res, "res");
             setShirts(res.data);
           })
           .catch((err) => {

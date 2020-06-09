@@ -28,7 +28,6 @@ const HandleScalableMockup = async (garment, setGarment, design, setDesign, prod
       // setGarment spreads in the existing garment state object and sets the URL of the mock up image (shirtImage) to mockURL, a property
       setGarment({ ...garment, mockUrl: response.data.URL });
       setDesign({...design, designId: parseUrl(response.data.URL).designId[0]});
-      console.log('design in mockup', design)
       
     } catch (err) {
       console.log("ERROR:", err.message);
