@@ -34,4 +34,6 @@ jobs:
           CI: true
         with: 
           coverageCommand: yarn --cwd "merch-dropper" coverage 
-          coverageLocations: ["merch-dropper/coverage/lcov.info:lcov", "merch-dropper/jest-coverage/lcov.info:lcov"]
+          coverageLocations: |
+        ${{github.workspace}}/merch-dropper/coverage/lcov.info:lcov
+        ${{github.workspace}}/merch-dropper/jest-coverage/lcov.info:lcov
