@@ -13,7 +13,7 @@ const Settings = () => {
 
     const [stripe,setStripe] = useState('');
     const [connected, setConnected] = useState(false)
-    const [store,setStore] = useState('');
+    const [store, setStore] = useState('');
 
     useEffect(() => {
         async function getInfo() {
@@ -85,7 +85,8 @@ const Settings = () => {
                     </StorefrontStatusConainer>
                     <StorefrontNameContainer>
                         <StorefrontTitle>Store Name:</StorefrontTitle>
-                        <StorefrontName>{store}</StorefrontName>
+                        { store ? <StorefrontName>{store}</StorefrontName>
+                        : <div></div>}
                     </StorefrontNameContainer> 
                 </StorefrontContainer>
             </SettingsBox>
