@@ -11,6 +11,7 @@ const FormDiv = styled.div`
 `;
 
 const DevAuth = () => {
+    const history = useHistory()
     const [credentials, setCredentials] = useState({
         email: '',
         password: ''
@@ -32,13 +33,20 @@ const DevAuth = () => {
         } else {
             axios.post("http://localhost:5032/api/auth/login", credentials)
             .then(res =>{
-                localStorage.setItem("token", token);
+                localStorage.setItem("token", res.data.token);
                 axios.get(`http://localhost:5032/api/users/email/${credentials.email}`)
                 .then(res =>{
                     console.log(res)
                     localStorage.setItem("profile", JSON.stringify(res));
-                    localStorage.setItem("id", id[1]);
+                    localStorage.setItem("id", res.data.id);
+                    history.push("/dashboard")
                 })
+                .catch(err =>{
+                    console.log('error in DevAuth', err)
+                })
+            })
+            .catch(err =>{
+                console.log('error in DevAuth', err)
             })
         }
 
@@ -67,4 +75,6 @@ const DevAuth = () => {
                 </FormDiv> }
         </div>
     )
-}
+};
+
+export default DevAuth;

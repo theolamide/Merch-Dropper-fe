@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router";
 // import "./App.css";
+import DevAuth from './components/Auth/DevAuth'
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import PrivateRoute from "./components/PrivateRoute";
@@ -30,6 +31,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/develop" component={DevAuth} />
         <Route exact path="/cart" component={ShoppingCart} />
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route
