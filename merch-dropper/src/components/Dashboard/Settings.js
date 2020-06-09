@@ -98,12 +98,12 @@ const Settings = () => {
             <StorefrontStatusInner>
               <StorefrontStatusDot
                 style={
-                  connected && store === ""
+                  connected && store !== ""
                     ? { backgroundColor: "#28E13B" }
                     : { backgroundColor: "red" }
                 }
               />
-              <StorefrontStatus>Online</StorefrontStatus>
+              <StorefrontStatus>{connected && store !== "" ? "Online" : "Offline"}</StorefrontStatus>
             </StorefrontStatusInner>
           </StorefrontStatusConainer>
           <StorefrontNameContainer>
