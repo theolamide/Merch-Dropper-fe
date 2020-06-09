@@ -8,6 +8,7 @@ const FormDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center
+
 `;
 
 const DevAuth = () => {
@@ -17,6 +18,10 @@ const DevAuth = () => {
         password: ''
     })
     const [newUser, setNewUser] = useState(true)
+
+    const toggleForm = e =>{
+        setNewUser(!newUser)
+    }
 
     const handleChanges = e =>{
         setCredentials({
@@ -51,26 +56,30 @@ const DevAuth = () => {
         }
 
     }
-
+    console.log(credentials)
     return (
         <div>
-            <button>Toggle Login/Register</button>
+            <button onClick={toggleForm}>Toggle Login/Register</button>
             {newUser ? 
                 <FormDiv>
                     <div>Register</div>
                     <form className='register' onSubmit={onSubmit}>
-                        <input name='email'/>
-                        <input name='password'/>
-                        <button type='submit' />
+                        <label>Email</label>
+                        <input name='email'onChange={handleChanges}/>
+                        <label>Password</label>
+                        <input name='password' onChange={handleChanges}/>
+                        <button type='submit'>Register</button>
                     </form>
                 </FormDiv>
                 :
                 <FormDiv>
                 <div>Login</div>
                 <form className='login' onSubmit={onSubmit}>
-                    <input name='email'/>
-                    <input name='password'/>
-                    <button type='submit' />
+                    <label>Email</label>
+                    <input name='email' onChange={handleChanges}/>
+                    <label>Password</label>
+                    <input name='password' onChange={handleChanges}/>
+                    <button type='submit'>Login</button>
                 </form>
                 </FormDiv> }
         </div>
