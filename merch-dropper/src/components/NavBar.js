@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 // components
@@ -22,6 +22,7 @@ const NavBar = ({ hidden, history, location }) => {
   const store_name = localStorage.getItem('store_name');
 
   const [state, setState] = useState({ sideDrawerOpen: false });
+  const [inDevelop, setInDevelop] = useState(false)
 
   const logoutWithRedirect = () => {
     localStorage.removeItem("profile");
@@ -33,6 +34,12 @@ const NavBar = ({ hidden, history, location }) => {
       returnTo: window.location.origin,
     });
   };
+
+  useEffect(()=>{
+    if (process.env.REACT_APP_BASE_URL === "development"){
+      setInDevelop(true);
+    }
+  },[])
 
   let url = "";
 
@@ -126,12 +133,22 @@ const NavBar = ({ hidden, history, location }) => {
            } else {
              return (
                <nav className="ButtonWrapper">
+                 {inDevelop ? 
+                 <>
+                  
+                 <Link className="links" to='/develop'>Sign in</Link>
+                 <button className="links cta" onClick={()=>{setInDevelop(false)}}>Prod Nav</button>
+                 </>
+                 : 
+                 <>
                  <span className="links" onClick={customLogin}>
                    Sign in
                  </span>
                  <button className="links cta" onClick={customSignup}>
                    Get Started
                  </button>
+                 </>
+                 }
                </nav>
              );
            }
