@@ -28,9 +28,16 @@ import {
   StorefrontNameContainer,
 } from "./Styled";
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import { axiosWithEnv } from "../../utils/axiosWithEnv";
+const useStyles = makeStyles({
+    root: {
+      background: '#F8F8F9', // custom style for create store button
+    }
+  });
 
 const Settings = () => {
+    const classes = useStyles()
     const [stripe, setStripe] = useState("");
     const [connected, setConnected] = useState(false);
     const [store, setStore] = useState("");
@@ -111,7 +118,9 @@ const Settings = () => {
                 <StorefrontTitle>Store Name:</StorefrontTitle>
                 { store ? <StorefrontName>{store}</StorefrontName>
                 :<Link to="/createstore"> 
-                    <Button color="primary" size='medium'>Add Store Name</Button>
+                    <Button color="primary" size="large" classes={{
+                        root: classes.root
+                    }}>Create Store</Button>
                     </Link>
                 }
             </StorefrontNameContainer> 
