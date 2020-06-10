@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { addToCart } from "../store/actions";
 import { Container, Row, Col } from "reactstrap";
 import "../App.css";
-import axios from "axios";
 import { axiosWithEnv } from "../utils/axiosWithEnv";
 
 const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
@@ -15,7 +14,6 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   let storeID = 0;
   const { domain_name } = useParams();
   localStorage.setItem("domain_name", domain_name);
-  let profile = JSON.parse(localStorage.getItem("profile"));
   
   useEffect(() => {
     axiosWithEnv()
