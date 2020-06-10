@@ -43,18 +43,15 @@ const Settings = () => {
             // let profile = {
                 // email: 'jthanson238@gmail.com'}; //for Testing on local seeded db
             
-
-      axiosWithEnv()
+        axiosWithEnv()
         .get(`/api/stripe/${profile.email}`)
         .then((res) => {
-          console.log(res.data.user.stripe_account);
-          if (res.data.user.stripe_account) {
-            setStripe(res.data.user.stripe_account);
-          }
-          if (stripe) {
-            setConnected(true);
-          }
-        });
+            console.log(res.data.user.stripe_account)
+            if(res.data.user.stripe_account){
+                setStripe(res.data.user.stripe_account)
+                setConnected(true)
+            };
+            });
 
       const res = await axiosWithEnv().get(`/api/users/email/${profile.email}`);
 
