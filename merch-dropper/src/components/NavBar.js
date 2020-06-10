@@ -86,16 +86,7 @@ const NavBar = ({ hidden, history, location }) => {
   }
 
   const Nav = () => {
-    if (domain_name === pathname.substr(1).split("/")[0]) {
-      return (
-        <nav className="ButtonWrapper">
-          <Link to={`/${domain_name}`} className="links">
-            {domain_name}
-          </Link>
-          <CartIcon />
-        </nav>
-      );
-    } else if (!!localStorage.getItem("profile")) {
+    if (!!localStorage.getItem("profile")) {
       return (
         <nav className="ButtonWrapper">
           {store_name ? (
@@ -122,6 +113,15 @@ const NavBar = ({ hidden, history, location }) => {
           >
             Logout
           </span>
+        </nav>
+      );
+    } else if (domain_name === pathname.substr(1).split("/")[0]) {
+      return (
+        <nav className="ButtonWrapper">
+          <Link to={`/${domain_name}`} className="links">
+            {domain_name}
+          </Link>
+          <CartIcon />
         </nav>
       );
     } else {
