@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "./Auth/Auth";
+import FAQ from "./FAQ"
 
 import "../App.css";
 import {
@@ -120,9 +121,10 @@ const Home = ({ history }) => {
           </Container>
         </Jumbotron>
       </div>
+      <FAQ/>
       {/* End hero image */}
       {/* Begin featured shops section */}
-      <div style={{ width: "100vw" }} className="featuredDiv">
+      {/* <div style={{ width: "100vw" }} className="featuredDiv">
         <Container
           style={{
             padding: "0 5%",
@@ -244,7 +246,7 @@ const Home = ({ history }) => {
             </Card>
           </Row>
         </div>
-      </div>
+      </div> */}
       {/* End featured shops section */}
     </div>
   );
