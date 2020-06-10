@@ -16,13 +16,13 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   const { domain_name } = useParams();
   localStorage.setItem("domain_name", domain_name);
   let profile = JSON.parse(localStorage.getItem("profile"));
-
+  
   useEffect(() => {
     axiosWithEnv()
-        .get(`/api/stripe/${profile.email}`)
+        .get(`/api/users/domain/${domain_name}`)
         .then((res) => {
-          console.log(res.data.user.stripe_account)
-          if (res.data.user.stripe_account) {
+          console.log(res.data)
+          if (res.data.stripe_account) {
             setConnected(true);
           }
         });
