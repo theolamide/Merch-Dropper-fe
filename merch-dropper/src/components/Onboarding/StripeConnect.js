@@ -12,9 +12,13 @@ const getSteps = () => {
 
 const ConnectStripe = e => {
     e.preventDefault();
-    history.push('https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write');
-    window.location.replace(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write`)
-
+    if(process.env.REACT_APP_BASE_URL === "development"){
+        history.push('https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write&redirect_uri=http://localhost:3000/stripe-setup');
+        window.location.replace(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write&redirect_uri=http://localhost:3000/stripe-setup`)
+    } else {
+        history.push('https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write');
+        window.location.replace(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write`)
+    }
 }
 
 const SkipSetup = e => {
