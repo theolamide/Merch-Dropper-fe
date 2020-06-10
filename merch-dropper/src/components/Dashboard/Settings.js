@@ -1,21 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import history from '../../utils/history';
-import { axiosWithAuth } from '../../utils/axiosWithAuth';
-import {SettingsH2, SettingsBox, StripeH3, StripeStatusTitle, StripeStatus, SettingsContainer, StorefrontH3,
-         AccountTitle, AccountNumber, Divider, StorefrontStatusTitle, StorefrontStatusConainer,
-        StorefrontStatusDot, StorefrontStatus, StorefrontTitle, StorefrontName, StripeContainer,
-        StripeStatusContainer, StripeButton, AccountContainer, StorefrontContainer, StorefrontStatusInner, StorefrontNameContainer } from './Styled';
-        import Button from '@material-ui/core/Button';
-import { axiosWithEnv } from '../../utils/axiosWithEnv';
-
-
+import history from "../../utils/history";
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import {
+  SettingsH2,
+  SettingsBox,
+  StripeH3,
+  StripeStatusTitle,
+  StripeStatus,
+  SettingsContainer,
+  StorefrontH3,
+  AccountTitle,
+  AccountNumber,
+  Divider,
+  StorefrontStatusTitle,
+  StorefrontStatusConainer,
+  StorefrontStatusDot,
+  StorefrontStatus,
+  StorefrontTitle,
+  StorefrontName,
+  StripeContainer,
+  StripeStatusContainer,
+  StripeButton,
+  AccountContainer,
+  StorefrontContainer,
+  StorefrontStatusInner,
+  StorefrontNameContainer,
+} from "./Styled";
+import Button from '@material-ui/core/Button';
+import { axiosWithEnv } from "../../utils/axiosWithEnv";
 
 const Settings = () => {
+    const [stripe, setStripe] = useState("");
+    const [connected, setConnected] = useState(false);
+    const [store, setStore] = useState("");
 
-    const [stripe,setStripe] = useState('');
-    const [connected, setConnected] = useState(false)
-    const [store, setStore] = useState('');
 
     useEffect(() => {
         async function getInfo() {
@@ -25,78 +44,84 @@ const Settings = () => {
                 // email: 'jthanson238@gmail.com'}; //for Testing on local seeded db
             
 
-            
-            axiosWithEnv()
-            .get(`/api/stripe/${profile.email}`)
-            .then((res) => {
-                console.log(res.data.user.stripe_account)
-                if(res.data.user.stripe_account){setStripe(res.data.user.stripe_account);}
-                if(stripe){setConnected(true)}
-                });
-          
-            const res = await axiosWithEnv().get(
-                `/api/users/email/${profile.email}`
-            );
+      axiosWithEnv()
+        .get(`/api/stripe/${profile.email}`)
+        .then((res) => {
+          console.log(res.data.user.stripe_account);
+          if (res.data.user.stripe_account) {
+            setStripe(res.data.user.stripe_account);
+          }
+          if (stripe) {
+            setConnected(true);
+          }
+        });
 
-            console.log(res);
+      const res = await axiosWithEnv().get(`/api/users/email/${profile.email}`);
 
-            const userID =localStorage.getItem('id')
-            const res2 = await axiosWithEnv().get(
-                `/api/stores/user/${userID}`
-            );
-            console.log(res2);
-            setStore(res2.data.store_name);
-            }
-        getInfo();
-      }, []);
+      console.log(res);
 
-    return (
-        <SettingsContainer>
-            <SettingsH2>Settings</SettingsH2>
-            <SettingsBox>
-                <StripeContainer>
-                    <StripeH3>Stripe</StripeH3>
-                    <StripeStatusContainer>
-                        <StripeStatusTitle>Status:</StripeStatusTitle>
-                        {connected ? <StripeStatus>Connected</StripeStatus>
-                        : <StripeButton>Connect to Stripe</StripeButton>}
-                        
-                    </StripeStatusContainer>
-                  
+      const userID = localStorage.getItem("id");
+      const res2 = await axiosWithEnv().get(`/api/stores/user/${userID}`);
+      console.log(res2);
+      setStore(res2.data.store_name);
+    }
+    getInfo();
+  }, []);
 
-                    <AccountContainer>
-                        <AccountTitle>Account Number:</AccountTitle>
-                        {connected ? <AccountNumber>{stripe}</AccountNumber>
-                        : <AccountNumber>No Account</AccountNumber>}
-                        
-                    </AccountContainer>
+  return (
+    <SettingsContainer>
+      <SettingsH2>Settings</SettingsH2>
+      <SettingsBox>
+        <StripeContainer>
+          <StripeH3>Stripe</StripeH3>
+          <StripeStatusContainer>
+            <StripeStatusTitle>Status:</StripeStatusTitle>
+            {connected ? (
+              <StripeStatus>Connected</StripeStatus>
+            ) : (
+              <StripeButton>Connect to Stripe</StripeButton>
+            )}
+          </StripeStatusContainer>
 
-                    
-                </StripeContainer>
+          <AccountContainer>
+            <AccountTitle>Account Number:</AccountTitle>
+            {connected ? (
+              <AccountNumber>{stripe}</AccountNumber>
+            ) : (
+              <AccountNumber>No Account</AccountNumber>
+            )}
+          </AccountContainer>
+        </StripeContainer>
 
-                <Divider/>
+        <Divider />
 
-                <StorefrontContainer>
-                    <StorefrontH3>Storefront</StorefrontH3>
-                    <StorefrontStatusConainer>
-                        <StorefrontStatusTitle>Status:</StorefrontStatusTitle>
-                        <StorefrontStatusInner>
-                            <StorefrontStatusDot/>
-                            <StorefrontStatus>Online</StorefrontStatus>
-                        </StorefrontStatusInner>
-                    </StorefrontStatusConainer>
-                    <StorefrontNameContainer>
-                        <StorefrontTitle>Store Name:</StorefrontTitle>
-                        { store ? <StorefrontName>{store}</StorefrontName>
-                        :<Link to="/createstore"> 
-                            <Button color="primary" size='medium'>Add Store Name</Button>
-                            </Link>
-                        }
-                    </StorefrontNameContainer> 
-                </StorefrontContainer>
-            </SettingsBox>
-        </SettingsContainer>
-    )
-}
+        <StorefrontContainer>
+          <StorefrontH3>Storefront</StorefrontH3>
+          <StorefrontStatusConainer>
+            <StorefrontStatusTitle>Status:</StorefrontStatusTitle>
+            <StorefrontStatusInner>
+              <StorefrontStatusDot
+                style={
+                  connected && store !== ""
+                    ? { backgroundColor: "#28E13B" }
+                    : { backgroundColor: "red" }
+                }
+              />
+              <StorefrontStatus>{connected && store !== "" ? "Online" : "Offline"}</StorefrontStatus>
+            </StorefrontStatusInner>
+          </StorefrontStatusConainer>
+            <StorefrontNameContainer>
+                <StorefrontTitle>Store Name:</StorefrontTitle>
+                { store ? <StorefrontName>{store}</StorefrontName>
+                :<Link to="/createstore"> 
+                    <Button color="primary" size='medium'>Add Store Name</Button>
+                    </Link>
+                }
+            </StorefrontNameContainer> 
+        </StorefrontContainer>
+      </SettingsBox>
+    </SettingsContainer>
+  );
+};
 
 export default Settings;

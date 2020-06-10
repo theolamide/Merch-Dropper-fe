@@ -12,14 +12,12 @@ import { useAuth0 } from "./Auth/Auth";
 // logo
 import logo from "../assets/merchdropper-logo.png";
 
-
-
 const NavBar = ({ hidden, history, location }) => {
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
 
-  const store_name = localStorage.getItem('store_name');
+  const store_name = localStorage.getItem("store_name");
 
   const [state, setState] = useState({ sideDrawerOpen: false });
   const [inDevelop, setInDevelop] = useState(false)
@@ -93,23 +91,26 @@ const NavBar = ({ hidden, history, location }) => {
       />
     );
   }
-  
+
   const Nav = () => {
     if (domain_name === pathname.substr(1).split("/")[0]) {
       return (
         <nav className="ButtonWrapper">
-                 <Link to={`/${domain_name}`} className="links">
-                   {domain_name}
-                 </Link>
-                 <CartIcon />
-               </nav>
+          <Link to={`/${domain_name}`} className="links">
+            {domain_name}
+          </Link>
+          <CartIcon />
+        </nav>
       );
     } else if (!!localStorage.getItem("profile")) {
-             return (
-               <nav className="ButtonWrapper">
-          <Link to={`/${store_name}`} className="links">
-            Your Store
-          </Link>
+      return (
+        <nav className="ButtonWrapper">
+          {store_name ? (
+            <Link to={`/${store_name}`} className="links">
+              Your Store
+            </Link>
+          ) : null}
+
           <Link
             to="/dashboard"
             className="links"
