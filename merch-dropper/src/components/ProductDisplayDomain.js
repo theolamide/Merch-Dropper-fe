@@ -11,11 +11,21 @@ import { axiosWithEnv } from "../utils/axiosWithEnv";
 
 const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   const [shirts, setShirts] = useState([]);
+  const [connected, setConnected] = useState(false)
   let storeID = 0;
   const { domain_name } = useParams();
   localStorage.setItem("domain_name", domain_name);
-  console.log(shirts);
+  let profile = JSON.parse(localStorage.getItem("profile"));
+
   useEffect(() => {
+    axiosWithEnv()
+        .get(`/api/stripe/${profile.email}`)
+        .then((res) => {
+          console.log(res.data.user.stripe_account)
+          if (res.data.user.stripe_account) {
+            setConnected(true);
+          }
+        });
     axiosWithEnv()
       .get(`/api/stores/domain/${domain_name}`)
       // axios
@@ -47,7 +57,7 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
 
   return (
     <>
-      {shirts.length !== 0 ? (
+      {shirts.length !== 0 && connected ? (
         <Container fluid="true" className="container-margin">
           <Row>
             <Col sm="7" className="flex ">
@@ -66,7 +76,7 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
           </Row>
         </Container>
       ) : (
-        <div style={{ height: "65vh", "text-align": "center" }}>
+        <div style={{ height: "65vh", textAlign: "center" }}>
           <h2>🚧 SHOP UNDER CONSTRUCTION 🚧</h2>
           <h4>Come back at launch!</h4>
         </div>
