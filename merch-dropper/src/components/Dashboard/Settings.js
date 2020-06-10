@@ -19,17 +19,19 @@ const Settings = () => {
         async function getInfo() {
       
             let profile = JSON.parse(localStorage.getItem("profile"));
-            // let profile = {
+             //let profile = {
                 // email: 'jthanson238@gmail.com'}; //for Testing on local seeded db
             
-
+console.log(profile);
             
             axiosWithEnv()
             .get(`/api/stripe/${profile.email}`)
             .then((res) => {
                 console.log(res.data.user.stripe_account)
-                if(res.data.user.stripe_account){setStripe(res.data.user.stripe_account);}
-                if(stripe){setConnected(true)}
+                if(res.data.user.stripe_account){
+                    setStripe(res.data.user.stripe_account)
+                    setConnected(true)
+                };
                 });
           
             const res = await axiosWithEnv().get(
