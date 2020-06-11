@@ -107,7 +107,7 @@ const Settings = () => {
           </AccountContainer>
         </StripeContainer>
 
-        <Divider />
+        
 
         <StorefrontContainer>
           <StorefrontH3>Storefront</StorefrontH3>
@@ -145,6 +145,7 @@ const Settings = () => {
             )}
           </StorefrontNameContainer>
         </StorefrontContainer>
+        <Divider />
       </SettingsBox>
     </SettingsContainer>
   );
