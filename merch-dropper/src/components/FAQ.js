@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '70%',
     height: "auto",
-    margin: "auto",
-    marginBottom: 50
+    margin: 50 
+    
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
@@ -27,7 +27,7 @@ const FAQ = () =>{
 
   return (
     <div className={classes.root}>
-        <h1 style={{textAlign: "center", marginBottom: 50}}>Frequently Asked Questions</h1>
+        <h1 style={{textAlign: "center", marginBottom: 50, fontSize: 34, color: "#262626"}}>Frequently Asked Questions</h1>
       <ExpansionPanel className={classes.expansion}>
       <ExpansionPanelSummary
         className={classes.panel}

@@ -160,30 +160,32 @@ table {
 .homepage {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .homeSection {
-  text-align: left;
+  text-align: right;
   padding: 10vh 0 0 0;
 }
 
 .imgPlaceholder {
   width: 18vw;
   height: 20vh;
-  /* background-color: rgb(233, 233, 233); */
+  background-color: rgb(233, 233, 233);
   border-radius: 10px;
-}
+} 
 
 .imgPlaceholderLrg {
   width: 35vw;
-  height: 66.5vh;
-  /* background-color: rgb(233, 233, 233); */
+  height: 66.5vh; 
+  background-color: rgb(233, 233, 233);
   border-radius: 10px;
-}
+} 
 
 .column {
-  width: 25vw;
+  width: 50vw;
   height: auto;
+  justify-content: ;
 }
 
 .letsGo {
@@ -228,19 +230,15 @@ table {
 }
 
 .jumboParent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   width: 100%;
+  background: white;
+ 
   /* height: 100vh; */
 }
 
-.jumboCont {
-  background-image: url("./assets/couple.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  max-width: 100vw;
-  height: auto;
-  background: white;
-}
 
 .cards {
   height: 50vh;
@@ -267,28 +265,28 @@ table {
 
   .jumboParent {
     height: 80vh;
-    margin: 0 0 5% 0;
-  }
+    margin: 0 0 5% 0; 
+  } 
 
-  /* .jumboCont {
+  .jumboCont {
     background-image: url("https://i.ibb.co/C0Tg72y/yellowgirl6.png");
     height: 100%;
     background-size: cover;
-  } */
+  }
 
   .cardCont {
     height: 400px;
-    width: 20%;
+    width: 100%;
   }
 
   .customImg {
     display: none;
   }
 
-  /* .column {
+  .column {
       width: 100%;
       margin-top: 10%;
-    } */
+    }
 
   .andMore {
     font-size: 1.75rem;
