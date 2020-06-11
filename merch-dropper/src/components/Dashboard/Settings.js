@@ -122,7 +122,7 @@ const Settings = () => {
                 }
               />
               <StorefrontStatus>
-                {connected && store !== "" ? "Online" : "Offline"}
+                {connected && store !== "" ? "Online" : "Incomplete"}
               </StorefrontStatus>
             </StorefrontStatusInner>
           </StorefrontStatusConainer>
