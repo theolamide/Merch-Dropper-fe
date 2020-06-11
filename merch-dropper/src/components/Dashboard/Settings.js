@@ -75,42 +75,8 @@ const Settings = () => {
     <SettingsContainer>
       <SettingsH2>Settings</SettingsH2>
       <SettingsBox>
-        <StripeContainer>
-          <StripeH3>Stripe</StripeH3>
-          <StripeStatusContainer>
-            <StripeStatusTitle>Status:</StripeStatusTitle>
-            {connected ? (
-              <StripeStatus>Connected</StripeStatus>
-            ) : (
-              // <StripeButton>Connect to Stripe</StripeButton>
-              <Link to="/stripe-setup">
-                <Button
-                  color="primary"
-                  size="large"
-                  classes={{
-                    root: classes.root,
-                  }}
-                >
-                  Connect to Stripe
-                </Button>
-              </Link>
-            )}
-          </StripeStatusContainer>
-
-          <AccountContainer>
-            <AccountTitle>Stripe Account:</AccountTitle>
-            {connected ? (
-              <AccountNumber>{stripe}</AccountNumber>
-            ) : (
-              <AccountNumber>No Account</AccountNumber>
-            )}
-          </AccountContainer>
-        </StripeContainer>
-
-        
-
         <StorefrontContainer>
-          <StorefrontH3>Storefront</StorefrontH3>
+          <StorefrontH3>Storefront Settings</StorefrontH3>
           <StorefrontStatusConainer>
             <StorefrontStatusTitle>Status:</StorefrontStatusTitle>
             <StorefrontStatusInner>
@@ -145,6 +111,33 @@ const Settings = () => {
             )}
           </StorefrontNameContainer>
         </StorefrontContainer>
+        <StripeContainer>
+          <AccountContainer>
+            <AccountTitle>Stripe Account:</AccountTitle>
+            {connected ? (
+              <AccountNumber>
+                {connected ? (
+                  <StripeStatus>{stripe}</StripeStatus>
+                ) : (
+                  <Link to="/stripe-setup">
+                    <Button
+                      color="primary"
+                      size="large"
+                      classes={{
+                        root: classes.root,
+                      }}
+                    >
+                      Connect to Stripe
+                    </Button>
+                  </Link>
+                )}
+              </AccountNumber>
+            ) : (
+              <AccountNumber>No Account</AccountNumber>
+            )}
+          </AccountContainer>
+        </StripeContainer>
+
         <Divider />
       </SettingsBox>
     </SettingsContainer>
