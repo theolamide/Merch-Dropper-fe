@@ -3,7 +3,10 @@ import { Stepper, Step, StepLabel } from '@material-ui/core';
 import {FormContainer, ExitButton, StripeTitle, StepContainer, StripeButton, StripeSkipButton, CreateStore, ConnectionMessage} from './Styled';
 import history from '../../utils/history';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
-import { makeAccount } from '../../utils/makeAccount'
+import { makeAccount } from '../../utils/makeAccount';
+
+const returnToDash = localStorage.getItem('fromSettings')
+console.log(returnToDash)
 
 const getSteps = () => {
 
@@ -35,13 +38,18 @@ const DevStripeConnect = e => {
     const stripeAccount = {
         stripe_account: 'test_' + account
     }
-    console.log(stripeAccount);
+    // console.log(stripeAccount);
     axiosWithAuth()
     .put(`/api/users/${id}`, stripeAccount)
     .then(res =>{
-        console.log('has been put', res)
+        // console.log('has been put', res)
+        if(returnToDash){
+            history.push("/dashboard")
+            window.location.replace("http://localhost:3000/dashboard")
+        } else {
         history.push('/createstore')
         window.location.replace("http://localhost:3000/createstore")
+        }
     })
      
 }
