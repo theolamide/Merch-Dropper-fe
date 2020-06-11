@@ -41,9 +41,6 @@ export const SettingsBox = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-
-  background: #ffffff;
-  box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.02);
   border-radius: 10px;
 `;
 
