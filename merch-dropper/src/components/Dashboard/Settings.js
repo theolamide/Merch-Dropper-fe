@@ -37,10 +37,17 @@ const useStyles = makeStyles({
 });
 
 const Settings = () => {
-  const classes = useStyles();
-  const [stripe, setStripe] = useState("");
-  const [connected, setConnected] = useState(false);
-  const [store, setStore] = useState("");
+    let connectStripeURL;
+    if (process.env.REACT_APP_BASE_URL === "development") {
+      connectStripeURL = "http://localhost:3000/stripe-setup";
+    } else {
+      connectStripeURL = "https://merchdropper.store/stripe-setup";
+    }
+    const classes = useStyles()
+    const [stripe, setStripe] = useState("");
+    const [connected, setConnected] = useState(false);
+    const [store, setStore] = useState("");
+
 
   useEffect(() => {
     async function getInfo() {
@@ -83,13 +90,17 @@ const Settings = () => {
             {connected ? (
               <StripeStatus>Connected</StripeStatus>
             ) : (
-              // <StripeButton>Connect to Stripe</StripeButton>
               <Link to="/stripe-setup">
                 <Button
                   color="primary"
                   size="large"
                   classes={{
                     root: classes.root,
+                  }}
+                  onClick={()=>{
+                    localStorage.setItem('fromSettings', true)
+                    history.push("/stripe-setup")
+                    window.location.replace(connectStripeURL)
                   }}
                 >
                   Connect to Stripe
