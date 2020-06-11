@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import {TextField, MenuItem, Button, Typography } from "@material-ui/core";
 import addProduct from "./AddProduct";
 import { useStyles } from "../Component-Styles/addProduct-styles.js";
 import { Dimmer, Loader, Image, Segment } from "semantic-ui-react";
@@ -59,8 +56,7 @@ const AddProductToTable = (props, history) => {
       { 
         productName: "",
         price: "",
-        description: "",
-        
+        description: "",        
         designId: props.design.designId,
         color: data.product.color,
         size: "",
@@ -71,28 +67,27 @@ const AddProductToTable = (props, history) => {
     }
     getStores();
     //get price of product from scalablepress
-      const product = {
-        "productId": "canvas-unisex-t-shirt"
-      }
-      axiosWithEnv().post('/api/products/price', product)
+      
+      axiosWithEnv().post('/api/products/price', {
+        type: props.garment.printStyle,
+        sides: {
+          front: 1
+        },
+          products: [{
+            id: "canvas-unisex-t-shirt",
+            color: data.product.color,
+            size: "med",
+            quantity: 1}
+          ]
+      })
           .then(res => {
              setCost(res.data)
           })
           .catch(err => {
             console.log(err)
           })
-    
-  }, [product.designId]);
-
-  //bring back value object into array to get price for the item
-  let baseCost;
-  const garmentColor = props.garment.color.toLowerCase();
-   for (let [key, value] of Object.entries(cost)) {
-    let keyLower = key.toLowerCase()
-    if(keyLower === garmentColor){            
-      baseCost = ((value.sml.price/100) * 0.029) + (value.sml.price / 100)         
-    }    
-  }
+  }, [cost.total]);
+  
 
   const handleChange = event => {
     setProduct({
@@ -102,9 +97,10 @@ const AddProductToTable = (props, history) => {
     });
   };
 
-  const calcPrice = (e, cost = baseCost) => {
+    //calculate profit per item
+  const calcPrice = (e, baseCost = cost.total) => {
     if(product.price){
-      return product.price - cost
+      return product.price - baseCost
     } else{
       return 0;
     }
