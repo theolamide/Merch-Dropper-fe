@@ -137,12 +137,12 @@ const NavBar = ({ hidden, history, location }) => {
                  {inDevelop ? 
                  <>
                   
-                 <Link className="links" to='/develop'>Dev Auth</Link>
+                 <Link className="links login" to='/develop'>Dev Auth</Link>
                  <button className="links cta" onClick={()=>{setInDevelop(false)}}>Prod Nav</button>
                  </>
                  : 
                  <>
-                 <span className="links" onClick={customLogin}>
+                 <span className="links login" onClick={customLogin}>
                    Sign in
                  </span>
                  <button className="links cta" onClick={customSignup}>
