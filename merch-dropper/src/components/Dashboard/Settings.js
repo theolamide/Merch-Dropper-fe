@@ -47,21 +47,18 @@ const Settings = () => {
         async function getInfo() {
       
             let profile = JSON.parse(localStorage.getItem("profile"));
-            // let profile = {
+             //let profile = {
                 // email: 'jthanson238@gmail.com'}; //for Testing on local seeded db
             
-
-      axiosWithEnv()
+        axiosWithEnv()
         .get(`/api/stripe/${profile.email}`)
         .then((res) => {
-          console.log(res.data.user.stripe_account);
-          if (res.data.user.stripe_account) {
-            setStripe(res.data.user.stripe_account);
-          }
-          if (stripe) {
-            setConnected(true);
-          }
-        });
+            console.log(res.data.user.stripe_account)
+            if(res.data.user.stripe_account){
+                setStripe(res.data.user.stripe_account)
+                setConnected(true)
+            };
+            });
 
       const res = await axiosWithEnv().get(`/api/users/email/${profile.email}`);
 
@@ -86,7 +83,12 @@ const Settings = () => {
             {connected ? (
               <StripeStatus>Connected</StripeStatus>
             ) : (
-              <StripeButton>Connect to Stripe</StripeButton>
+              // <StripeButton>Connect to Stripe</StripeButton>
+              <Link to="/stripe-setup"> 
+                    <Button color="primary" size="large" classes={{
+                        root: classes.root
+                    }}>Connect to Stripe</Button>
+                    </Link>
             )}
           </StripeStatusContainer>
 
