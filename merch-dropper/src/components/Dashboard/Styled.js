@@ -177,7 +177,7 @@ export const StorefrontContainer = styled.div`
 
 export const StorefrontH3 = styled.h3`
 
-    width: 110px;
+    width: 100%;
     height: 29px;
     margin-top: 3%;
   

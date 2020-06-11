@@ -92,24 +92,6 @@ const Settings = () => {
               </StorefrontStatus>
             </StorefrontStatusInner>
           </StorefrontStatusConainer>
-          <StorefrontNameContainer>
-            <StorefrontTitle>Store Name:</StorefrontTitle>
-            {store ? (
-              <StorefrontName>{store}</StorefrontName>
-            ) : (
-              <Link to="/createstore">
-                <Button
-                  color="primary"
-                  size="large"
-                  classes={{
-                    root: classes.root,
-                  }}
-                >
-                  Create Store
-                </Button>
-              </Link>
-            )}
-          </StorefrontNameContainer>
         </StorefrontContainer>
         <StripeContainer>
           <AccountContainer>
@@ -136,6 +118,24 @@ const Settings = () => {
               <AccountNumber>No Account</AccountNumber>
             )}
           </AccountContainer>
+          <StorefrontNameContainer>
+            <StorefrontTitle>Store Name:</StorefrontTitle>
+            {store ? (
+              <StorefrontName>{store}</StorefrontName>
+            ) : (
+              <Link to="/createstore">
+                <Button
+                  color="primary"
+                  size="large"
+                  classes={{
+                    root: classes.root,
+                  }}
+                >
+                  Create Store
+                </Button>
+              </Link>
+            )}
+          </StorefrontNameContainer>
         </StripeContainer>
 
         <Divider />
