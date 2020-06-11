@@ -35,12 +35,19 @@ const DevAuth = () => {
         if(newUser){
             axios.post("http://localhost:5032/api/auth/register", credentials)
             .then( res => {
-                axios.get(`http://localhost:5032/api/users/email/${credentials.email}`)
+                axios.post("http://localhost:5032/api/auth/login", credentials)
                 .then(res =>{
-                    console.log('get email res', res.data)
-                    localStorage.setItem("profile", JSON.stringify(res.data));
-                    localStorage.setItem("id", res.data.id);
-                    history.push("/stripe-setup")
+                    localStorage.setItem("token", res.data.token);
+                    axios.get(`http://localhost:5032/api/users/email/${credentials.email}`)
+                    .then(res =>{
+                        console.log('get email res', res.data)
+                        localStorage.setItem("profile", JSON.stringify(res.data));
+                        localStorage.setItem("id", res.data.id);
+                        history.push('/stripe-setup')
+                    })
+                    .catch(err =>{
+                        console.log('error in DevAuth', err)
+                    })
                 })
                 .catch(err =>{
                     console.log('error in DevAuth', err)
