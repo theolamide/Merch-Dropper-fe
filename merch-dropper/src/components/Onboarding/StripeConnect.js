@@ -102,7 +102,7 @@ const StripeConnect = () => {
             }
             {   //For the initial setup form
                 (!queryString && process.env.REACT_APP_BASE_URL === "development") &&
-                <button onClick={DevStripeConnect}>Connect 4 Develop</button>
+                <button className='dev-stripe' onClick={DevStripeConnect}>Connect 4 Develop</button>
             }
             {   (queryString &&  stripeConnected) &&
                 <ConnectionMessage>Connection was successful!</ConnectionMessage>   

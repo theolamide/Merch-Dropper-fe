@@ -91,7 +91,7 @@ const Settings = () => {
           <AccountContainer>
             <AccountTitle>Account Number:</AccountTitle>
             {connected ? (
-              <AccountNumber>{stripe}</AccountNumber>
+              <AccountNumber className='stripeacct'>{stripe}</AccountNumber>
             ) : (
               <AccountNumber>No Account</AccountNumber>
             )}
@@ -117,7 +117,7 @@ const Settings = () => {
           </StorefrontStatusConainer>
             <StorefrontNameContainer>
                 <StorefrontTitle>Store Name:</StorefrontTitle>
-                { store ? <StorefrontName>{store}</StorefrontName>
+                { store ? <StorefrontName className='storename'>{store}</StorefrontName>
                 :<Link to="/createstore"> 
                     <Button className='store-cta' color="primary" size="large" classes={{
                         root: classes.root
