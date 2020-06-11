@@ -98,7 +98,7 @@ const Settings = () => {
           </StripeStatusContainer>
 
           <AccountContainer>
-            <AccountTitle>Account Number:</AccountTitle>
+            <AccountTitle>Stripe Account:</AccountTitle>
             {connected ? (
               <AccountNumber>{stripe}</AccountNumber>
             ) : (
