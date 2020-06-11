@@ -73,10 +73,9 @@ const Settings = () => {
 
   return (
     <SettingsContainer>
-      <SettingsH2>Settings</SettingsH2>
+      <SettingsH2>Storefront Settings</SettingsH2>
       <SettingsBox>
         <StorefrontContainer>
-          <StorefrontH3>Storefront Settings</StorefrontH3>
           <StorefrontStatusConainer>
             <StorefrontStatusTitle>Status:</StorefrontStatusTitle>
             <StorefrontStatusInner>
