@@ -46,6 +46,7 @@ const DevStripeConnect = e => {
         if(returnToDash){
             history.push("/dashboard")
             window.location.replace("http://localhost:3000/dashboard")
+            localStorage.setItem('fromSettings', false)
         } else {
         history.push('/createstore')
         window.location.replace("http://localhost:3000/createstore")
