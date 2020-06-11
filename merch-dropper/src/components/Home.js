@@ -21,18 +21,25 @@ import ProductDisplay from "./ProductDisplay";
 
 const Home = ({ history }) => {
   return (
-    <div className="homepage" style={{ backgroundColor: "#F3F3F3" }}>
+    <div className="homepage" >
       {/* Begin hero image */}
       <div className="jumboParent">
         <Jumbotron className="jumboCont">
           <Container>
             <Row>
+              <Col>
+              <Media
+                  object
+                  src="https://res.cloudinary.com/dze74ofbf/image/upload/v1591910999/couple_z0vlls.jpg"
+                  style={{ height: "45vh" }}
+                />
+              </Col>
               <Col className="column" sm={{ size: "auto" }}>
                 <h1
                   className="display-3 customh1"
                   style={{
                     textAlign: "center",
-                    color: "white",
+                    color: "black",
                     fontWeight: "bold"
                   }}
                 >
@@ -42,7 +49,7 @@ const Home = ({ history }) => {
                   className="display-4 tshirth1"
                   style={{
                     textAlign: "center",
-                    color: "white",
+                    color: "black",
                     fontWeight: "bold"
                   }}
                 >
@@ -52,7 +59,7 @@ const Home = ({ history }) => {
                   className="andMore"
                   style={{
                     textAlign: "center",
-                    color: "white",
+                    color: "black",
                     fontWeight: "bold"
                   }}
                 >
@@ -63,7 +70,7 @@ const Home = ({ history }) => {
                   className="p2"
                   style={{
                     textAlign: "center",
-                    color: "white",
+                    color: "black",
                     fontWeight: "bold"
                   }}
                 >
@@ -73,7 +80,7 @@ const Home = ({ history }) => {
                   className="p2"
                   style={{
                     textAlign: "center",
-                    color: "white",
+                    color: "black",
                     margin: "5% 0"
                   }}
                 >
@@ -82,31 +89,31 @@ const Home = ({ history }) => {
                 </p>
                 <p style={{ textAlign: "center" }}>
                   <Button
-                    color="primary"
+                    style={{background: "#4455ee", fontSize: 18, fontWeight: "bold"}}
                     className="letsGo"
                     href="https://merch-dropper.auth0.com/login?state=g6Fo2SAxazdHVDVjNXBrQW83VnFQOXhEcGdNYjkyaEprQTZMMqN0aWTZIEh4ZTVFVU9jNDM0UjIzSXQ2b3J1N2ZoZmlzWVUzWGpno2NpZNkgUGIzQ3A1cHRZZ2htTlZEanVzalBtc0hQUmtKcTZSQVA&client=Pb3Cp5ptYghmNVDjusjPmsHPRkJq6RAP&protocol=oauth2&redirect_uri=https%3A%2F%2Fmerchdropper.store%2Fredirect&audience=https%3A%2F%2Fmerchdropper-production.herokuapp.com%2F&signup=true&scope=openid%20profile%20email&response_type=code&response_mode=query&nonce=MTE4ZEN5dn5wbVItR1hfdDRiSWtMSDlBMHpETEZvS3Z2VDJ4RkZtcFd%2Bcw%3D%3D&code_challenge=Zdjv1_hFiGmK_71yYOoGJV7IVG1PZ0hW1eTU9PlW2Ik&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjEuNy4wIn0%3D"
                   >
-                    Create Store!
+                    Create Store
                   </Button>
                   <br />
-                  <Button
+                  {/* <Button
                     outline
                     color="light"
                     className="learnMore"
                     onClick={() => {
                       history.push("/learnmore");
                     }}
-                  >
-                    Learn More
-                  </Button>
+                  > */}
+                    {/* Learn More
+                  </Button> */}
                 </p>
               </Col>
-              <Col
+              {/* <Col
                 className="customImg"
                 sm={{ size: "auto" }}
                 style={{ width: "25vw", height: "60vh", margin: "0 5vw" }}
-              >
-                <Media
+              > */}
+                {/* <Media
                   object
                   src="https://i.ibb.co/wQWhj2C/Group-6.png"
                   style={{ width: "15vw" }}
@@ -115,8 +122,8 @@ const Home = ({ history }) => {
                   object
                   src="https://i.ibb.co/7XQ70x1/Group-5.png"
                   style={{ width: "15vw" }}
-                />
-              </Col>
+                /> */}
+              {/* </Col> */}
             </Row>
           </Container>
         </Jumbotron>

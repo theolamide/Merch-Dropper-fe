@@ -143,10 +143,10 @@ const NavBar = ({ hidden, history, location }) => {
                  : 
                  <>
                  <span className="links" onClick={customLogin}>
-                   Sign in
+                   Login
                  </span>
                  <button className="links cta" onClick={customSignup}>
-                   Get Started
+                   Sign Up
                  </button>
                  </>
                  }
