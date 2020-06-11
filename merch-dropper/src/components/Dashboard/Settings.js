@@ -55,6 +55,7 @@ const Settings = () => {
           if (res.data.user.stripe_account) {
             setStripe(res.data.user.stripe_account);
             setConnected(true);
+            
             axiosWithEnv().put(`/api/stores/activate/${res.data.user.id}`);
           }
         });
