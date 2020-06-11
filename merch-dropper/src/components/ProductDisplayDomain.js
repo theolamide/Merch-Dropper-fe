@@ -6,16 +6,24 @@ import { connect } from "react-redux";
 import { addToCart } from "../store/actions";
 import { Container, Row, Col } from "reactstrap";
 import "../App.css";
-import axios from "axios";
 import { axiosWithEnv } from "../utils/axiosWithEnv";
 
 const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   const [shirts, setShirts] = useState([]);
+  const [connected, setConnected] = useState(false)
   let storeID = 0;
   const { domain_name } = useParams();
   localStorage.setItem("domain_name", domain_name);
-  console.log(shirts);
+  
   useEffect(() => {
+    axiosWithEnv()
+        .get(`/api/users/domain/${domain_name}`)
+        .then((res) => {
+          console.log(res.data)
+          if (res.data.stripe_account) {
+            setConnected(true);
+          }
+        });
     axiosWithEnv()
       .get(`/api/stores/domain/${domain_name}`)
       // axios
@@ -47,7 +55,7 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
 
   return (
     <>
-      {shirts.length !== 0 ? (
+      {shirts.length !== 0 && connected ? (
         <Container fluid="true" className="container-margin">
           <Row>
             <Col sm="7" className="flex ">
@@ -66,7 +74,7 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
           </Row>
         </Container>
       ) : (
-        <div style={{ height: "65vh", "text-align": "center" }}>
+        <div style={{ height: "65vh", textAlign: "center" }}>
           <h2>🚧 SHOP UNDER CONSTRUCTION 🚧</h2>
           <h4>Come back at launch!</h4>
         </div>

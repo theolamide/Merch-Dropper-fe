@@ -20,7 +20,7 @@ const NavBar = ({ hidden, history, location }) => {
   const store_name = localStorage.getItem("store_name");
 
   const [state, setState] = useState({ sideDrawerOpen: false });
-  const [inDevelop, setInDevelop] = useState(false)
+  const [inDevelop, setInDevelop] = useState(false);
 
   const logoutWithRedirect = () => {
     localStorage.removeItem("profile");
@@ -33,11 +33,11 @@ const NavBar = ({ hidden, history, location }) => {
     });
   };
 
-  useEffect(()=>{
-    if (process.env.REACT_APP_BASE_URL === "development"){
+  useEffect(() => {
+    if (process.env.REACT_APP_BASE_URL === "development") {
       setInDevelop(true);
     }
-  },[])
+  }, []);
 
   let url = "";
 
@@ -93,16 +93,7 @@ const NavBar = ({ hidden, history, location }) => {
   }
 
   const Nav = () => {
-    if (domain_name === pathname.substr(1).split("/")[0]) {
-      return (
-        <nav className="ButtonWrapper">
-          <Link to={`/${domain_name}`} className="links">
-            {domain_name}
-          </Link>
-          <CartIcon />
-        </nav>
-      );
-    } else if (!!localStorage.getItem("profile")) {
+    if (!!localStorage.getItem("profile")) {
       return (
         <nav className="ButtonWrapper">
           {store_name ? (
@@ -130,29 +121,46 @@ const NavBar = ({ hidden, history, location }) => {
             Logout
           </span>
         </nav>
-             );
-           } else {
-             return (
-               <nav className="ButtonWrapper">
-                 {inDevelop ? 
-                 <>
-                  
-                 <Link className="links login" to='/develop'>Dev Auth</Link>
-                 <button className="links cta" onClick={()=>{setInDevelop(false)}}>Prod Nav</button>
-                 </>
-                 : 
-                 <>
-                 <span className="links login" onClick={customLogin}>
-                   Sign in
-                 </span>
-                 <button className="links cta" onClick={customSignup}>
-                   Get Started
-                 </button>
-                 </>
-                 }
-               </nav>
-             );
-           }
+      );
+    } else if (domain_name === pathname.substr(1).split("/")[0]) {
+      return (
+        <nav className="ButtonWrapper">
+          <Link to={`/${domain_name}`} className="links">
+            {domain_name}
+          </Link>
+          <CartIcon />
+        </nav>
+      );
+    } else {
+      return (
+        <nav className="ButtonWrapper">
+          {inDevelop ? (
+            <>
+              <Link className="links login" to="/develop">
+                Dev Auth
+              </Link>
+              <button
+                className="links cta"
+                onClick={() => {
+                  setInDevelop(false);
+                }}
+              >
+                Prod Nav
+              </button>
+            </>
+          ) : (
+            <>
+              <span className="links login" onClick={customLogin}>
+                Sign in
+              </span>
+              <button className="links cta" onClick={customSignup}>
+                Get Started
+              </button>
+            </>
+          )}
+        </nav>
+      );
+    }
   };
 
   return (
