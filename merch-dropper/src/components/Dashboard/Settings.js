@@ -119,7 +119,7 @@ const Settings = () => {
                 <StorefrontTitle>Store Name:</StorefrontTitle>
                 { store ? <StorefrontName>{store}</StorefrontName>
                 :<Link to="/createstore"> 
-                    <Button color="primary" size="large" classes={{
+                    <Button className='store-cta' color="primary" size="large" classes={{
                         root: classes.root
                     }}>Create Store</Button>
                     </Link>
