@@ -78,7 +78,7 @@ function CreateStore({ history }) {
         id: localStorage.getItem("id")
       })
       .then((res) => {
-        console.log("This is res: ", res);
+        // console.log("This is res: ", res);
         setIsSubmit(false);
         alert("Store Created!");
         history.push("/dashboard");
