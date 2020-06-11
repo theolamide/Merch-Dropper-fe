@@ -21,7 +21,7 @@ const DesignInputPanel = ({
   handleScalableMockup,  
   addProduct
 }) => {
-
+console.log(garment.mockUrl.length, "garment")
   return (
     <Panel>
       <DesignHandler
@@ -44,10 +44,10 @@ const DesignInputPanel = ({
         >
           Preview Design
         </button>
-        
-        <Link to="/addproduct" className="designBtn btn btn-primary" >
+        {garment.mockUrl.length !== 0 ? <Link to="/addproduct" className="designBtn btn btn-primary" >
           Save & Continue
-        </Link>
+        </Link>: null}
+        
       </ButtonContainer>
     </Panel>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import history from "../../utils/history";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import {
@@ -26,18 +27,29 @@ import {
   StorefrontStatusInner,
   StorefrontNameContainer,
 } from "./Styled";
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import { axiosWithEnv } from "../../utils/axiosWithEnv";
+const useStyles = makeStyles({
+    root: {
+      background: '#F8F8F9', // custom style for create store button
+    }
+  });
 
 const Settings = () => {
-  const [stripe, setStripe] = useState("");
-  const [connected, setConnected] = useState(false);
-  const [store, setStore] = useState("");
+    const classes = useStyles()
+    const [stripe, setStripe] = useState("");
+    const [connected, setConnected] = useState(false);
+    const [store, setStore] = useState("");
 
-  useEffect(() => {
-    async function getInfo() {
-      let profile = JSON.parse(localStorage.getItem("profile"));
-      // let profile = {
-      // email: 'jthanson238@gmail.com'}; //for Testing on local seeded db
+
+    useEffect(() => {
+        async function getInfo() {
+      
+            let profile = JSON.parse(localStorage.getItem("profile"));
+            // let profile = {
+                // email: 'jthanson238@gmail.com'}; //for Testing on local seeded db
+            
 
       axiosWithEnv()
         .get(`/api/stripe/${profile.email}`)
@@ -106,10 +118,16 @@ const Settings = () => {
               <StorefrontStatus>{connected && store !== "" ? "Online" : "Offline"}</StorefrontStatus>
             </StorefrontStatusInner>
           </StorefrontStatusConainer>
-          <StorefrontNameContainer>
-            <StorefrontTitle>Store Name:</StorefrontTitle>
-            <StorefrontName>{store}</StorefrontName>
-          </StorefrontNameContainer>
+            <StorefrontNameContainer>
+                <StorefrontTitle>Store Name:</StorefrontTitle>
+                { store ? <StorefrontName>{store}</StorefrontName>
+                :<Link to="/createstore"> 
+                    <Button color="primary" size="large" classes={{
+                        root: classes.root
+                    }}>Create Store</Button>
+                    </Link>
+                }
+            </StorefrontNameContainer> 
         </StorefrontContainer>
       </SettingsBox>
     </SettingsContainer>
