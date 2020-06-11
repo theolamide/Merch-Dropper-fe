@@ -3,6 +3,7 @@ import { Stepper, Step, StepLabel } from '@material-ui/core';
 import {FormContainer, ExitButton, StripeTitle, StepContainer, StripeButton, StripeSkipButton, CreateStore, ConnectionMessage} from './Styled';
 import history from '../../utils/history';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import { makeAccount } from '../../utils/makeAccount'
 
 const getSteps = () => {
 
@@ -11,14 +12,8 @@ const getSteps = () => {
 }
 
 const ConnectStripe = e => {
-    e.preventDefault();
-    if(process.env.REACT_APP_BASE_URL === "development"){
-        history.push('https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write&redirect_uri=http://localhost:3000/stripe-setup');
-        window.location.replace(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write&redirect_uri=http://localhost:3000/stripe-setup`)
-    } else {
-        history.push('https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write');
-        window.location.replace(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write`)
-    }
+    history.push('https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write');
+    window.location.replace(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GbPkPOEwM5cWwcBy1WX8mXq7UeB0VlxB&scope=read_write`)
 }
 
 const SkipSetup = e => {
@@ -32,6 +27,23 @@ const SkipSetup = e => {
     e.preventDefault();
     history.push('/createstore');
     window.location.replace(url);
+}
+
+const DevStripeConnect = e => {
+    const id = localStorage.getItem('id')
+    let account = makeAccount(16);
+    const stripeAccount = {
+        stripe_account: 'test_' + account
+    }
+    console.log(stripeAccount);
+    axiosWithAuth()
+    .put(`/api/users/${id}`, stripeAccount)
+    .then(res =>{
+        console.log('has been put', res)
+        history.push('/createstore')
+        window.location.replace("http://localhost:3000/createstore")
+    })
+     
 }
 
 
@@ -87,6 +99,10 @@ const StripeConnect = () => {
             {   //For the initial setup form
                 (!queryString || stripeError) &&
                 <StripeSkipButton onClick={SkipSetup}>Skip for now</StripeSkipButton>
+            }
+            {   //For the initial setup form
+                (!queryString && process.env.REACT_APP_BASE_URL === "development") &&
+                <button onClick={DevStripeConnect}>Connect 4 Develop</button>
             }
             {   (queryString &&  stripeConnected) &&
                 <ConnectionMessage>Connection was successful!</ConnectionMessage>   

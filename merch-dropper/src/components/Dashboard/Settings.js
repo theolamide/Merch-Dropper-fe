@@ -57,9 +57,7 @@ const Settings = () => {
           console.log(res.data.user.stripe_account);
           if (res.data.user.stripe_account) {
             setStripe(res.data.user.stripe_account);
-          }
-          if (stripe) {
-            setConnected(true);
+            setConnected(true)
           }
         });
 
