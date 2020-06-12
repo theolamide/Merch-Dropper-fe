@@ -6,7 +6,6 @@ export const BigContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction:column;
-    background: #F8F8F9;
 `;
 
 export const StyledDiv = styled.div`
