@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 // components
 import SideDrawer from "./SideDrawer";
@@ -11,8 +11,10 @@ import { NavbarStyles } from "./Component-Styles/Navbar-styles.js";
 import { useAuth0 } from "./Auth/Auth";
 // logo
 import logo from "../assets/merchdropper-logo.png";
+import { toggleCart } from "../store/actions";
 
 const NavBar = ({ hidden, history, location }) => {
+  const dispatch = useDispatch()
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
@@ -21,6 +23,8 @@ const NavBar = ({ hidden, history, location }) => {
 
   const [state, setState] = useState({ sideDrawerOpen: false });
   const [inDevelop, setInDevelop] = useState(false);
+  // force closes cart dropdown
+
 
   const logoutWithRedirect = () => {
     localStorage.removeItem("profile");
@@ -36,6 +40,9 @@ const NavBar = ({ hidden, history, location }) => {
   useEffect(() => {
     if (process.env.REACT_APP_BASE_URL === "development") {
       setInDevelop(true);
+    }
+    if (pathname !== domain_name){
+      dispatch(toggleCart())
     }
   }, []);
 
@@ -214,4 +221,4 @@ const mapStateToProps = (state) => ({
   hidden: state.CartReducer.hidden,
 });
 
-export default withRouter(connect(mapStateToProps)(NavBar));
+export default withRouter(connect(mapStateToProps, toggleCart)(NavBar));
