@@ -121,7 +121,6 @@ const NavBar = ({ hidden, history, location }) => {
             Logout
           </span>
         </nav>
-<<<<<<< HEAD
       );
     } else if (domain_name === pathname.substr(1).split("/")[0]) {
       return (
@@ -162,31 +161,6 @@ const NavBar = ({ hidden, history, location }) => {
         </nav>
       );
     }
-=======
-             );
-           } else {
-             return (
-               <nav className="ButtonWrapper">
-                 {inDevelop ? 
-                 <>
-                  
-                 <Link className="links" to='/develop'>Dev Auth</Link>
-                 <button className="links cta" onClick={()=>{setInDevelop(false)}}>Prod Nav</button>
-                 </>
-                 : 
-                 <>
-                 <span className="links" onClick={customLogin}>
-                   Login
-                 </span>
-                 <button className="links cta" onClick={customSignup}>
-                   Sign Up
-                 </button>
-                 </>
-                 }
-               </nav>
-             );
-           }
->>>>>>> 7d88c44c459b1d8d5a864f5621844a651c04ddfc
   };
 
   return (
