@@ -37,6 +37,7 @@ const useStyles = makeStyles({
 });
 
 const Settings = () => {
+    // comment can be deleted 
     let connectStripeURL;
     if (process.env.REACT_APP_BASE_URL === "development") {
       connectStripeURL = "http://localhost:3000/stripe-setup";
