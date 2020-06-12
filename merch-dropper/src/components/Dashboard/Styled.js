@@ -206,7 +206,7 @@ export const StorefrontStatusConainer = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 2%;
-
+    margin-right: 36px;
 `;
 
 export const StorefrontStatusInner = styled.div`
