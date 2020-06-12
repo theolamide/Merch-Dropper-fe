@@ -1,13 +1,14 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import "../App.css";
+import {useStyles} from "./Component-Styles/Footer"
 import { Navbar, Nav, NavLink } from "reactstrap";
 
 const Footer = ({ location }) => {
+  const classes = useStyles();
   const { pathname } = location;
   return (
     <div
-      className="mt-5 footer"
+      className={classes.footer}
       style={
         pathname === "/stripe-setup" || pathname === "/createstore"
           ? { display: "none" }
