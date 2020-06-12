@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Stepper, Step, StepLabel } from "@material-ui/core";
 import {
   FormContainer,
@@ -12,6 +12,10 @@ import {
 } from "./Styled";
 import history from "../../utils/history";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import { makeAccount } from '../../utils/makeAccount';
+
+const returnToDash = localStorage.getItem('fromSettings')
+console.log(returnToDash)
 
 const getSteps = () => {
   return ["Create Account", "Connect Stripe", "Create Store"];
@@ -39,6 +43,29 @@ const SkipSetup = (e) => {
   history.push("/createstore");
   window.location.replace(url);
 };
+
+const DevStripeConnect = e => {
+    const id = localStorage.getItem('id')
+    let account = makeAccount(16);
+    const stripeAccount = {
+        stripe_account: 'test_' + account
+    }
+    // console.log(stripeAccount);
+    axiosWithAuth()
+    .put(`/api/users/${id}`, stripeAccount)
+    .then(res =>{
+        // console.log('has been put', res)
+        if(returnToDash){
+            history.push("/dashboard")
+            window.location.replace("http://localhost:3000/dashboard")
+            localStorage.setItem('fromSettings', false)
+        } else {
+        history.push('/createstore')
+        window.location.replace("http://localhost:3000/createstore")
+        }
+    })
+     
+}
 
 const StripeConnect = () => {
   const [queryString, setQueryString] = useState(window.location.search);
@@ -95,6 +122,10 @@ const StripeConnect = () => {
         (!queryString || stripeError) && (
           <StripeSkipButton onClick={SkipSetup}>Skip for now</StripeSkipButton>
         )
+      }
+      {   //For connecting to a faked stripe account (will not be active)
+        (!queryString && process.env.REACT_APP_BASE_URL === "development") &&
+        <button onClick={DevStripeConnect}>Connect 4 Develop</button>
       }
       {queryString && stripeConnected && (
         <ConnectionMessage>Connection was successful!</ConnectionMessage>
