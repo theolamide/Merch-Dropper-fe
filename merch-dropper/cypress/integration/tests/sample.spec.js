@@ -4,26 +4,26 @@ describe('My First Test', function () {
     })
 })
 
-describe('https://merchdropper.store/', () => {
+describe('Landing page', () => {
     
-    it('contains a Sign in button', () => {  
-        cy.visit('https://merchdropper.store/') 
-        cy.contains('Sign in')
-    })
-    it('contains a Get Started button', () => {
-        cy.visit('https://merchdropper.store/') 
-        cy.contains('Get Started')
-    })
-    it('contains a Learn more button', () => {
+    it('contains a Dev Auth button', () => {  
         cy.visit('/') 
-        cy.contains('Learn More')
+        cy.contains('Dev Auth')
+    })
+    it('contains a Prod Nav button', () => {
+        cy.visit('/') 
+        cy.contains('Prod Nav')
+    })
+    it('contains an FAQ', () => {
+        cy.visit('/') 
+        cy.contains('Frequently Asked Questions')
     })
 })
 
-describe('sign in button', () => {
-    it('redirects to auth0 url', () => {
+describe('Dev Auth', () => {
+    it('redirects to register page', () => {
         cy.visit('/')
-        cy.contains('Sign in').click()
+        cy.contains('Dev Auth').click()
         cy.url()
             .should('include', '/login')
     })
