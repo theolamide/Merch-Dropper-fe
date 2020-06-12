@@ -92,6 +92,7 @@ const Settings = () => {
             ) : (
               <Link to="/stripe-setup">
                 <Button
+                  className='stripe-cta'
                   color="primary"
                   size="large"
                   classes={{
@@ -112,7 +113,7 @@ const Settings = () => {
           <AccountContainer>
             <AccountTitle>Account Number:</AccountTitle>
             {connected ? (
-              <AccountNumber>{stripe}</AccountNumber>
+              <AccountNumber className='stripeacct'>{stripe}</AccountNumber>
             ) : (
               <AccountNumber>No Account</AccountNumber>
             )}
@@ -145,6 +146,7 @@ const Settings = () => {
             ) : (
               <Link to="/createstore">
                 <Button
+                  className="store-cta" 
                   color="primary"
                   size="large"
                   classes={{
