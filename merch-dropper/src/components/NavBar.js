@@ -41,10 +41,9 @@ const NavBar = ({ hidden, history, location }) => {
     if (process.env.REACT_APP_BASE_URL === "development") {
       setInDevelop(true);
     }
-    if (pathname !== domain_name){
-      dispatch(toggleCart())
-    }
+
   }, []);
+
 
   let url = "";
 
