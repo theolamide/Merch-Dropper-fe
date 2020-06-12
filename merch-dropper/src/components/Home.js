@@ -24,7 +24,6 @@ const Home = ({ history }) => {
   const classes = useStyles();
   return (
     <div className={classes.jumboParent} >
-          {/* <Container className={classes.container}> */}
             <Row className={classes.row}>
               <Col className={classes.column}> 
               <Media object src="https://res.cloudinary.com/dze74ofbf/image/upload/v1591910999/couple_z0vlls.jpg"
@@ -34,10 +33,10 @@ const Home = ({ history }) => {
               <Col className={classes.column} 
               // style={{ textAlign: "center", color: "rgba(0,0,0,.87)"}}
                >               
-                <h1 className="andMore" >
+                <h1 className={classes.text} >
                   Hassle free online store.
                 </h1>                
-                <h1 className="p2" >
+                <h1  >
                   You handle the designs, we'll handle the rest
                 </h1>
                

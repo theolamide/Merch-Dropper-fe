@@ -160,10 +160,10 @@ const NavBar = ({ hidden, history, location }) => {
           ) : (
             <>
               <span className="links login" onClick={customLogin}>
-                Sign in
+                Login
               </span>
               <button className="links cta" onClick={customSignup}>
-                Get Started
+                SignUp
               </button>
             </>
           )}
@@ -200,7 +200,7 @@ const NavBar = ({ hidden, history, location }) => {
             <div className="HamburgerLines"></div>
             <div className="HamburgerLines"></div>
             <div className="HamburgerLines"></div>
-            CLICK ME
+            
           </button>
         </div>
         {hidden ? null : <CartDropDown />}
