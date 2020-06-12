@@ -156,9 +156,8 @@ export const AccountNumber = styled.p`
 
 export const Divider = styled.div`
 
-    width: 927px;
+    width: 100%;
     height: 0px;
-    margin-left: 8.5%;
     border: 2px solid rgba(0, 0, 0, 0.12);
     transform: rotate(-180deg);
 
