@@ -34,11 +34,16 @@ Go to the Contributing section for important info on how to get started.
 
 <br>
 
-|                                               [Jonathan Hanson](https://github.com/jhanson8)                                               |                                               [Marlon Del Rosario](https://github.com/mpaolodr)                                               |
+|                                               [Jonathan Hanson](https://github.com/jhanson8)                                               |                                               [Marlon Del Rosario](https://github.com/mpaolodr)                                               |                                               [Zakaria Touzri](https://github.com/killinq-joke)                                               |                                               [Jen Chatier](https://github.com/JChartier001)                                               |                                               [John Nicholson](https://github.com/JWNicholson)                                               |                                               [George Davila](https://github.com/GeorgeDav9)                                               |
 | :----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: |
 |                       <img src="https://avatars2.githubusercontent.com/u/38022096?v=4" width="126" max-width="200"/>                       |                        <img src="https://avatars3.githubusercontent.com/u/53581264?v=4" width="126" max-width="200"/>                         |
 |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jhanson8)                            |                             [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/mpaolodr)                             |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jonathan-hanson-2a172b122/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/marlon-del-rosario-73495b199/) |
+<br>
+|                                               [Landon Turner](https://github.com/landoDev)                                               |
+| :----------------------------------------------------------------------------------------------------------------------------------------: |
+|                       <img src="https://avatars2.githubusercontent.com/u/38022096?v=4" width="126" max-width="200"/>                       |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/landon-turner-42539852/) |
 <br>
 
 ## Project Overview
