@@ -132,16 +132,15 @@ export const NavbarStyles = createGlobalStyle `
     }
 
     .links.cta {
-        width: 160px;
-        height: 48px;
-        background: #4455ee;
+        // width: 160px;
+        // height: 48px;
         border: 0;
         border-radius: 8px;
-        color: #fff;
+        color: royalblue;
+        background: none;
+        font-weight: bold
 
-        &:hover {
-            background: #3e32cc;
-        }
+        
     }
 
     .MediaWrapper {

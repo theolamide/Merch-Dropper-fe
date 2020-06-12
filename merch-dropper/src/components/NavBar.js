@@ -121,46 +121,29 @@ const NavBar = ({ hidden, history, location }) => {
             Logout
           </span>
         </nav>
-      );
-    } else if (domain_name === pathname.substr(1).split("/")[0]) {
-      return (
-        <nav className="ButtonWrapper">
-          <Link to={`/${domain_name}`} className="links">
-            {domain_name}
-          </Link>
-          <CartIcon />
-        </nav>
-      );
-    } else {
-      return (
-        <nav className="ButtonWrapper">
-          {inDevelop ? (
-            <>
-              <Link className="links" to="/develop">
-                Dev Auth
-              </Link>
-              <button
-                className="links cta"
-                onClick={() => {
-                  setInDevelop(false);
-                }}
-              >
-                Prod Nav
-              </button>
-            </>
-          ) : (
-            <>
-              <span className="links" onClick={customLogin}>
-                Sign in
-              </span>
-              <button className="links cta" onClick={customSignup}>
-                Get Started
-              </button>
-            </>
-          )}
-        </nav>
-      );
-    }
+             );
+           } else {
+             return (
+               <nav className="ButtonWrapper">
+                 {inDevelop ? 
+                 <>
+                  
+                 <Link className="links" to='/develop'>Dev Auth</Link>
+                 <button className="links cta" onClick={()=>{setInDevelop(false)}}>Prod Nav</button>
+                 </>
+                 : 
+                 <>
+                 <span className="links" onClick={customLogin}>
+                   Login
+                 </span>
+                 <button className="links cta" onClick={customSignup}>
+                   Sign Up
+                 </button>
+                 </>
+                 }
+               </nav>
+             );
+           }
   };
 
   return (
