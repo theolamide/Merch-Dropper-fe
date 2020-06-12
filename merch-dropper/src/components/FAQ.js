@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '70%',
     height: "auto",
-    margin: "auto",
-    marginBottom: 50
+    margin: 50 
+    
   },
   heading: {
     fontSize: theme.typography.pxToRem(18),
@@ -28,6 +28,17 @@ const FAQ = () =>{
   return (
     <div className={classes.root}>
         <h1 style={{textAlign: "center", marginBottom: 50}}>Frequently Asked Questions</h1>
+        <ExpansionPanel className={classes.expansion}>
+      <ExpansionPanelSummary
+        className={classes.panel}
+          expandIcon={<ExpandMoreIcon />}>
+          <Typography className={classes.heading}>What is Merch Dropper?</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+          It's the fastest way to set up a hassle free online storefront with your own designs! Upload designs and create products to create a drop-shipping online shop. Your store is yours, build your brand, raise money, and more.          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
       <ExpansionPanel className={classes.expansion}>
       <ExpansionPanelSummary
         className={classes.panel}
@@ -60,7 +71,7 @@ const FAQ = () =>{
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            When you create a store, you are able to chose a personalized name for your store.  You can share the address with anyone that you would like to purchase from your website.  The link will be merchdropper.store/"YourStore"
+          When you create a store you are given a personalized domain name (merchdropper.store/your_store) that will be the storefront for your designed products. Share your new url address with friends, family, and followers! Copy and paste, text and even email at your heart's content; we don't judge.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -84,7 +95,7 @@ const FAQ = () =>{
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            Profit is calculated by taking the price you are setting, subtracting the fee for the product from scalable press, and lastly taking the 2.9% fee into account from Stripe.
+          Merch Dropper handles every aspect of supply including fees, taxes and shipping. We strictly calculate the cost to cover the expenses of a given order, leaving all of the profits to you. Merch Dropper doesn't keep a dime.
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
