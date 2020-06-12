@@ -127,7 +127,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
+/* 
 .navStyle {
   box-shadow: 0 3px 0 0 rgba(236, 236, 236, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.19);
 }
@@ -148,9 +148,9 @@ table {
   margin: 0 5% 0 0;
 }
 
-.footer {
+.footer { */
   /* position: fixed; */
-  right: 0;
+  /* right: 0;
   bottom: 0;
   left: 0;
   height: 50px;
@@ -195,11 +195,11 @@ table {
 .learnMore {
   width: 10vw;
   margin: 5% 0;
-}
+} */
 
 /* Merchandise Card Classes */
 
-.flex {
+/* .flex {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -234,10 +234,10 @@ table {
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
-  background: white;
+  background: white; */
  
   /* height: 100vh; */
-}
+/* }
 
 
 .cards {
@@ -255,11 +255,11 @@ table {
 
 .featuredText {
   font-size: 2rem;
-}
+} */
 
 /* iPad portrait and landscape */
 @media only screen and (min-width: 768px) and (max-width: 1400px) {
-  .designBtn {
+  /* .designBtn {
     margin: 0 2.5% 0 0;
   }
 
@@ -306,7 +306,7 @@ table {
 
   .cards {
     height: 40vh;
-  }
+  } */
 }
 
 /* iPhone portrait and landscape */

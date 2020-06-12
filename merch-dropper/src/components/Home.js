@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth0 } from "./Auth/Auth";
 import FAQ from "./FAQ"
+import {useStyles} from "../components/Component-Styles/Home"
 
 import "../App.css";
 import {
@@ -20,15 +21,19 @@ import {
 import ProductDisplay from "./ProductDisplay";
 
 const Home = ({ history }) => {
+  const classes = useStyles();
   return (
-    <div className="jumboParent" >
-     
-          <Container>
-            <Row>
-              <Col className="column"> 
-              <Media object src="https://res.cloudinary.com/dze74ofbf/image/upload/v1591910999/couple_z0vlls.jpg"style={{ height: "40vh" }}/>
+    <div className={classes.jumboParent} >
+          {/* <Container className={classes.container}> */}
+            <Row className={classes.row}>
+              <Col className={classes.column}> 
+              <Media object src="https://res.cloudinary.com/dze74ofbf/image/upload/v1591910999/couple_z0vlls.jpg"
+              style={{ height: "40vh" }}
+              />
               </Col>
-              <Col className="column" style={{ textAlign: "center", color: "rgba(0,0,0,.87)", margin: 50}} >               
+              <Col className={classes.column} 
+              // style={{ textAlign: "center", color: "rgba(0,0,0,.87)"}}
+               >               
                 <h1 className="andMore" >
                   Hassle free online store.
                 </h1>                
@@ -45,7 +50,7 @@ const Home = ({ history }) => {
                 </p>
               </Col>
             </Row>
-          </Container>
+          {/* </Container> */}
         
       <FAQ/>     
     </div>
