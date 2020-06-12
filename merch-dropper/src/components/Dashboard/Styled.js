@@ -141,7 +141,7 @@ export const AccountTitle = styled.p`
 
 export const AccountNumber = styled.p`
 
-    width: 126px;
+    
     height: 29px;
 
     font-family: Lato;
@@ -206,18 +206,16 @@ export const StorefrontStatusConainer = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 2%;
-    margin-right: 36px;
 `;
 
 export const StorefrontStatusInner = styled.div`
 
-    display: flex; 
-    width: 10%;
+    display: flex;
 
 `;
 
 export const StorefrontStatusDot = styled.span`
-
+  margin-right: 10px;
   height: 16px;
   width: 16px;
   margin-top: 8%;
@@ -229,9 +227,7 @@ export const StorefrontStatusDot = styled.span`
 
 export const StorefrontStatus = styled.p`
 
-    width: 70px;
     height: 29px;
-    margin-left: 10%;
 
     font-family: Lato;
     font-style: normal;
@@ -268,7 +264,6 @@ export const StorefrontTitle = styled.p`
 
 export const StorefrontName = styled.p`
 
-    width: 161px;
     height: 29px;
 
     font-family: Lato;
