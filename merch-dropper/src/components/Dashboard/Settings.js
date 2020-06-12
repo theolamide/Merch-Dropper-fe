@@ -80,8 +80,7 @@ const Settings = () => {
   return (
     <SettingsContainer>
       <SettingsH2>Storefront Settings</SettingsH2>
-      <SettingsBox>
-        <StorefrontContainer>
+      
           <StorefrontStatusConainer>
             <StorefrontStatusTitle>Status:</StorefrontStatusTitle>
             <StorefrontStatusInner>
@@ -97,8 +96,6 @@ const Settings = () => {
               </StorefrontStatus>
             </StorefrontStatusInner>
           </StorefrontStatusConainer>
-        </StorefrontContainer>
-        <StripeContainer>
           <AccountContainer>
             <AccountTitle>Stripe Account:</AccountTitle>
             {connected ? (
@@ -141,10 +138,8 @@ const Settings = () => {
               </Link>
             )}
           </StorefrontNameContainer>
-        </StripeContainer>
 
         <Divider />
-      </SettingsBox>
     </SettingsContainer>
   );
 };
