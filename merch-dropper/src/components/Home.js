@@ -84,9 +84,9 @@ const Home = ({ history }) => {
                   <Button
                     color="primary"
                     className="letsGo"
-                    href="/designshirt"
+                    href="https://merch-dropper.auth0.com/login?state=g6Fo2SAxazdHVDVjNXBrQW83VnFQOXhEcGdNYjkyaEprQTZMMqN0aWTZIEh4ZTVFVU9jNDM0UjIzSXQ2b3J1N2ZoZmlzWVUzWGpno2NpZNkgUGIzQ3A1cHRZZ2htTlZEanVzalBtc0hQUmtKcTZSQVA&client=Pb3Cp5ptYghmNVDjusjPmsHPRkJq6RAP&protocol=oauth2&redirect_uri=https%3A%2F%2Fmerchdropper.store%2Fredirect&audience=https%3A%2F%2Fmerchdropper-production.herokuapp.com%2F&signup=true&scope=openid%20profile%20email&response_type=code&response_mode=query&nonce=MTE4ZEN5dn5wbVItR1hfdDRiSWtMSDlBMHpETEZvS3Z2VDJ4RkZtcFd%2Bcw%3D%3D&code_challenge=Zdjv1_hFiGmK_71yYOoGJV7IVG1PZ0hW1eTU9PlW2Ik&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjEuNy4wIn0%3D"
                   >
-                    Let's Go!
+                    Create Store!
                   </Button>
                   <br />
                   <Button

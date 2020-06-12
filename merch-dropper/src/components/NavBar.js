@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 // components
@@ -12,16 +12,15 @@ import { useAuth0 } from "./Auth/Auth";
 // logo
 import logo from "../assets/merchdropper-logo.png";
 
-
-
 const NavBar = ({ hidden, history, location }) => {
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
 
-  const store_name = localStorage.getItem('store_name');
+  const store_name = localStorage.getItem("store_name");
 
   const [state, setState] = useState({ sideDrawerOpen: false });
+  const [inDevelop, setInDevelop] = useState(false);
 
   const logoutWithRedirect = () => {
     localStorage.removeItem("profile");
@@ -33,6 +32,12 @@ const NavBar = ({ hidden, history, location }) => {
       returnTo: window.location.origin,
     });
   };
+
+  useEffect(() => {
+    if (process.env.REACT_APP_BASE_URL === "development") {
+      setInDevelop(true);
+    }
+  }, []);
 
   let url = "";
 
@@ -86,23 +91,17 @@ const NavBar = ({ hidden, history, location }) => {
       />
     );
   }
-  
+
   const Nav = () => {
-    if (domain_name === pathname.substr(1).split("/")[0]) {
+    if (!!localStorage.getItem("profile")) {
       return (
         <nav className="ButtonWrapper">
-                 <Link to={`/${domain_name}`} className="links">
-                   {domain_name}
-                 </Link>
-                 <CartIcon />
-               </nav>
-      );
-    } else if (!!localStorage.getItem("profile")) {
-             return (
-               <nav className="ButtonWrapper">
-          <Link to={`/${store_name}`} className="links">
-            Your Store
-          </Link>
+          {store_name ? (
+            <Link to={`/${store_name}`} className="links">
+              Your Store
+            </Link>
+          ) : null}
+
           <Link
             to="/dashboard"
             className="links"
@@ -122,19 +121,46 @@ const NavBar = ({ hidden, history, location }) => {
             Logout
           </span>
         </nav>
-             );
-           } else {
-             return (
-               <nav className="ButtonWrapper">
-                 <span className="links" onClick={customLogin}>
-                   Sign in
-                 </span>
-                 <button className="links cta" onClick={customSignup}>
-                   Get Started
-                 </button>
-               </nav>
-             );
-           }
+      );
+    } else if (domain_name === pathname.substr(1).split("/")[0]) {
+      return (
+        <nav className="ButtonWrapper">
+          <Link to={`/${domain_name}`} className="links">
+            {domain_name}
+          </Link>
+          <CartIcon />
+        </nav>
+      );
+    } else {
+      return (
+        <nav className="ButtonWrapper">
+          {inDevelop ? (
+            <>
+              <Link className="links" to="/develop">
+                Dev Auth
+              </Link>
+              <button
+                className="links cta"
+                onClick={() => {
+                  setInDevelop(false);
+                }}
+              >
+                Prod Nav
+              </button>
+            </>
+          ) : (
+            <>
+              <span className="links" onClick={customLogin}>
+                Sign in
+              </span>
+              <button className="links cta" onClick={customSignup}>
+                Get Started
+              </button>
+            </>
+          )}
+        </nav>
+      );
+    }
   };
 
   return (

@@ -70,15 +70,15 @@ function CreateStore({ history }) {
     e.preventDefault();
     setIsSubmit(true);
 
-    axios
-      .post(`https://merch-dropper.herokuapp.com/api/stores`, {
+    axiosWithEnv()
+      .post(`/api/stores`, {
         store_name: storeName,
         domain_name: domain,
         email: profile.email,
         id: localStorage.getItem("id")
       })
       .then((res) => {
-        console.log("This is res: ", res);
+        // console.log("This is res: ", res);
         setIsSubmit(false);
         alert("Store Created!");
         history.push("/dashboard");

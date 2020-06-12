@@ -158,7 +158,7 @@ When contributing to this repository, please first discuss the change you wish t
 
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
-To develop locally with the Merch Dropper backend, please ensure that you have a .env file with the variable `REACT_APP_BASE_URL=development`. You will need to clone the BE at [https://github.com/Lambda-School-Labs/Merch-Dropper-be], cd into the project and run `yarn run server`. 
+To develop locally with the Merch Dropper backend, please ensure that you have a .env file with the variable `REACT_APP_BASE_URL=development`. To create a new user or login locally navigate to [http://localhost:3000/develop]. You will need to clone the BE at [https://github.com/Lambda-School-Labs/Merch-Dropper-be], cd into the project and run `yarn run server`. 
 
 ## Issue/Bug Request
 

@@ -6,26 +6,32 @@ import { connect } from "react-redux";
 import { addToCart } from "../store/actions";
 import { Container, Row, Col } from "reactstrap";
 import "../App.css";
-import axios from 'axios';
 import { axiosWithEnv } from "../utils/axiosWithEnv";
 
 const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   const [shirts, setShirts] = useState([]);
-  let storeID = 0
+  const [connected, setConnected] = useState(false)
+  let storeID = 0;
   const { domain_name } = useParams();
-  localStorage.setItem("domain_name", domain_name)
+  localStorage.setItem("domain_name", domain_name);
   
   useEffect(() => {
     axiosWithEnv()
-      .get(
-        `/api/stores/domain/${domain_name}`
-      )
+        .get(`/api/users/domain/${domain_name}`)
+        .then((res) => {
+          console.log(res.data)
+          if (res.data.stripe_account) {
+            setConnected(true);
+          }
+        });
+    axiosWithEnv()
+      .get(`/api/stores/domain/${domain_name}`)
       // axios
       // .get(
       //   `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
       // )
       .then((res) => {
-        storeID = res.data.id
+        storeID = res.data.id;
         localStorage.setItem("storeID", storeID);
       })
       .catch((err) => {
@@ -33,13 +39,11 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
       })
       .finally(() => {
         axiosWithEnv()
-          .get(
-            `/api/products/store/${storeID}`
-          )
-        // axios
-        // .get(
-        //   `https://merch-dropper.herokuapp.com/api/products/store/${storeID}`
-        // )
+          .get(`/api/products/store/${storeID}`)
+          // axios
+          // .get(
+          //   `https://merch-dropper.herokuapp.com/api/products/store/${storeID}`
+          // )
           .then((res) => {
             setShirts(res.data);
           })
@@ -50,23 +54,32 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
   }, [match.params, domain_name]);
 
   return (
-    <Container fluid="true" className="container-margin">
-      <Row>
-        <Col sm="7" className="flex ">
-          {shirts.map((product, id) => (
-            <ProductCard
-              key={id}
-              url={product.thumbnailURL}
-              name={product.productName}
-              design={product.design}
-              price={product.price}
-              product={product}
-              addToCart={addToCart}
-            />
-          ))}
-        </Col>
-      </Row>
-    </Container>
+    <>
+      {shirts.length !== 0 && connected ? (
+        <Container fluid="true" className="container-margin">
+          <Row>
+            <Col sm="7" className="flex ">
+              {shirts.map((product, id) => (
+                <ProductCard
+                  key={id}
+                  url={product.thumbnailURL}
+                  name={product.productName}
+                  design={product.design}
+                  price={product.price}
+                  product={product}
+                  addToCart={addToCart}
+                />
+              ))}
+            </Col>
+          </Row>
+        </Container>
+      ) : (
+        <div style={{ height: "65vh", textAlign: "center" }}>
+          <h2>🚧 SHOP UNDER CONSTRUCTION 🚧</h2>
+          <h4>Come back at launch!</h4>
+        </div>
+      )}
+    </>
   );
 };
 
