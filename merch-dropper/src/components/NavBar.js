@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 // components
 import SideDrawer from "./SideDrawer";
@@ -12,9 +12,11 @@ import {useStyles} from "./Component-Styles/NavBar.js"
 import { useAuth0 } from "./Auth/Auth";
 // logo
 import logo from "../assets/merchdropper-logo.png";
+import { resetCart } from "../store/actions";
 
 const NavBar = ({ hidden, history, location }) => {
   const classes = useStyles();
+  const dispatch = useDispatch()
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
@@ -40,6 +42,13 @@ const NavBar = ({ hidden, history, location }) => {
       setInDevelop(true);
     }
   }, []);
+  // force closes cart dropdown if nav isn't a storefront
+  useEffect(()=>{
+    if(pathname !== domain_name){
+      dispatch(resetCart())
+    }
+  },[pathname])
+
 
   let url = "";
 
@@ -215,4 +224,4 @@ const mapStateToProps = (state) => ({
   hidden: state.CartReducer.hidden,
 });
 
-export default withRouter(connect(mapStateToProps)(NavBar));
+export default withRouter(connect(mapStateToProps, resetCart)(NavBar));
