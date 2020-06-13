@@ -6,13 +6,15 @@ import SideDrawer from "./SideDrawer";
 import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
 // styles
-import { NavbarStyles } from "./Component-Styles/Navbar-styles.js";
+// import { NavbarStyles } from "./Component-Styles/Navbar-styles.js";
+import {useStyles} from "./Component-Styles/NavBar.js"
 // auth0 client
 import { useAuth0 } from "./Auth/Auth";
 // logo
 import logo from "../assets/merchdropper-logo.png";
 
 const NavBar = ({ hidden, history, location }) => {
+  const classes = useStyles();
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
@@ -95,7 +97,7 @@ const NavBar = ({ hidden, history, location }) => {
   const Nav = () => {
     if (!!localStorage.getItem("profile")) {
       return (
-        <nav className="ButtonWrapper">
+        <nav className={classes.ButtonWrapper}>
           {store_name ? (
             <Link to={`/${store_name}`} className="links">
               Your Store
@@ -104,7 +106,7 @@ const NavBar = ({ hidden, history, location }) => {
 
           <Link
             to="/dashboard"
-            className="links"
+            className={classes.links}
             style={
               pathname === "/dashboard"
                 ? { fontWeight: 700 }
@@ -114,7 +116,7 @@ const NavBar = ({ hidden, history, location }) => {
             Dashboard
           </Link>
           <span
-            className="links"
+            className={classes.links}
             onClick={logoutWithRedirect}
             style={{ marginLeft: "32px" }}
           >
@@ -124,23 +126,22 @@ const NavBar = ({ hidden, history, location }) => {
       );
     } else if (domain_name === pathname.substr(1).split("/")[0]) {
       return (
-        <nav className="ButtonWrapper">
+        <nav className={classes.ButtonWrapper}>
           <Link to={`/${domain_name}`} className="links">
             {domain_name}
-          </Link>
-          <CartIcon />
+          </Link>          
         </nav>
       );
     } else {
       return (
-        <nav className="ButtonWrapper">
+        <nav className={classes.ButtonWrapper}>
           {inDevelop ? (
             <>
-              <Link className="links login" to="/develop">
+              <Link className={classes.links} to="/develop">
                 Dev Auth
               </Link>
               <button
-                className="links cta"
+                className={classes.links2}
                 onClick={() => {
                   setInDevelop(false);
                 }}
@@ -149,14 +150,14 @@ const NavBar = ({ hidden, history, location }) => {
               </button>
             </>
           ) : (
-            <>
-              <span className="links login" onClick={customLogin}>
+            <div className={classes.ButtonWrapper}>
+              <span className={classes.links} onClick={customLogin}>
                 Login
               </span>
-              <button className="links cta" onClick={customSignup}>
+              <button className={classes.links2} onClick={customSignup}>
                 SignUp
               </button>
-            </>
+            </div>
           )}
         </nav>
       );
@@ -171,36 +172,36 @@ const NavBar = ({ hidden, history, location }) => {
           : { display: "block" }
       }
     >
-      <NavbarStyles />
-      <div className="MobileWrapper" data-cy="mobileWrapper">
+      {/* <NavbarStyles /> */}
+      <div className={classes.MobileWrapper} >
         {sideDrawer}
-        <div className="BrandWrapper" onClick={homepageRedirect}>
+        <div className={classes.BrandWrapper} onClick={homepageRedirect}>
           <img
-            className="BrandLogo"
+            className={classes.BrandLogo}
             src={logo}
             alt="merch-dropper logo"
             onClick={homepageRedirect}
           />
 
-          <h2 className="BrandTitle">Merch Dropper</h2>
+          <h2 className={classes.BrandTitle}>Merch Dropper</h2>
         </div>
-        <div className="CartAndHamWrapper">
-          <CartIcon />
+        <div className={classes.CartAndHamWrapper}>
+        
 
-          <button className="Hamburger" onClick={drawerToggleClickHandler}>
-            <div className="HamburgerLines"></div>
-            <div className="HamburgerLines"></div>
-            <div className="HamburgerLines"></div>
+          <button className={classes.Hamburger} onClick={drawerToggleClickHandler}>
+            <div className={classes.HamburgerLines}></div>
+            <div className={classes.HamburgerLines}></div>
+            <div className={classes.HamburgerLines}></div>
             
           </button>
         </div>
         {hidden ? null : <CartDropDown />}
       </div>
 
-      <div className="DesktopWrapper">
-        <div className="BrandWrapper" onClick={homepageRedirect}>
-          <img className="BrandLogo" src={logo} alt="merch-dropper logo" />
-          <h2 className="BrandTitle">Merch Dropper</h2>
+      <div className={classes.DesktopWrapper}>
+        <div className={classes.BrandWrapper} onClick={homepageRedirect}>
+          <img className={classes.BrandLogo} src={logo} alt="merch-dropper logo" />
+          <h2 className={classes.BrandTitle}>Merch Dropper</h2>
         </div>
 
         <Nav />
