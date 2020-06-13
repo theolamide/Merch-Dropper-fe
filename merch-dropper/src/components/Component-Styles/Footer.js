@@ -5,6 +5,6 @@ export const useStyles = makeStyles((theme) => ({
     height: 50,
     marginTop: "5vh",
     width: "100%",
-    border: "1px solid red"
+   
    }
 }));
