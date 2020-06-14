@@ -19,6 +19,7 @@ export const useStyles = makeStyles((theme) => ({
     text:{
         paddingTop: 75,
         color: "rgba(0,0,0,.87)",
+        fontSize: "2rem",
     
          [theme.breakpoints.down('md')]: {
              padding: 0
