@@ -7,7 +7,7 @@ import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
 // styles
 // import { NavbarStyles } from "./Component-Styles/Navbar-styles.js";
-import {useStyles} from "./Component-Styles/NavBar.js"
+import { useStyles } from "./Component-Styles/NavBar.js";
 // auth0 client
 import { useAuth0 } from "./Auth/Auth";
 // logo
@@ -16,7 +16,7 @@ import { resetCart } from "../store/actions";
 
 const NavBar = ({ hidden, history, location }) => {
   const classes = useStyles();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
@@ -43,12 +43,11 @@ const NavBar = ({ hidden, history, location }) => {
     }
   }, []);
   // force closes cart dropdown if nav isn't a storefront
-  useEffect(()=>{
-    if(pathname !== domain_name){
-      dispatch(resetCart())
+  useEffect(() => {
+    if (pathname !== domain_name) {
+      dispatch(resetCart());
     }
-  },[pathname])
-
+  }, [pathname]);
 
   let url = "";
 
@@ -107,23 +106,28 @@ const NavBar = ({ hidden, history, location }) => {
     if (!!localStorage.getItem("profile")) {
       return (
         <nav className={classes.ButtonWrapper}>
-          {store_name ? (
-            <Link to={`/${store_name}`} className="links">
-              Your Store
+          {window.location.pathname === `/${store_name}` ? (
+            <Link
+              to="/dashboard"
+              className={classes.links}
+              style={
+                pathname === "/dashboard"
+                  ? { fontWeight: 700 }
+                  : { fontWeight: 500 }
+              }
+            >
+              Dashboard
             </Link>
-          ) : null}
+          ) : (
+            <>
+              {store_name ? (
+                <Link to={`/${store_name}`} className={classes.links}>
+                  Your Store
+                </Link>
+              ) : null}{" "}
+            </>
+          )}
 
-          <Link
-            to="/dashboard"
-            className={classes.links}
-            style={
-              pathname === "/dashboard"
-                ? { fontWeight: 700 }
-                : { fontWeight: 500 }
-            }
-          >
-            Dashboard
-          </Link>
           <span
             className={classes.links}
             onClick={logoutWithRedirect}
@@ -139,7 +143,7 @@ const NavBar = ({ hidden, history, location }) => {
           <Link to={`/${domain_name}`} className="links">
             {domain_name}
           </Link>
-          <CartIcon />          
+          <CartIcon />
         </nav>
       );
     } else {
@@ -183,7 +187,7 @@ const NavBar = ({ hidden, history, location }) => {
       }
     >
       {/* <NavbarStyles /> */}
-      <div className={classes.MobileWrapper} >
+      <div className={classes.MobileWrapper}>
         {sideDrawer}
         <div className={classes.BrandWrapper} onClick={homepageRedirect}>
           <img
@@ -196,13 +200,13 @@ const NavBar = ({ hidden, history, location }) => {
           <h2 className={classes.BrandTitle}>Merch Dropper</h2>
         </div>
         <div className={classes.CartAndHamWrapper}>
-        
-
-          <button className={classes.Hamburger} onClick={drawerToggleClickHandler}>
+          <button
+            className={classes.Hamburger}
+            onClick={drawerToggleClickHandler}
+          >
             <div className={classes.HamburgerLines}></div>
             <div className={classes.HamburgerLines}></div>
             <div className={classes.HamburgerLines}></div>
-            
           </button>
         </div>
         {hidden ? null : <CartDropDown />}
@@ -210,7 +214,11 @@ const NavBar = ({ hidden, history, location }) => {
 
       <div className={classes.DesktopWrapper}>
         <div className={classes.BrandWrapper} onClick={homepageRedirect}>
-          <img className={classes.BrandLogo} src={logo} alt="merch-dropper logo" />
+          <img
+            className={classes.BrandLogo}
+            src={logo}
+            alt="merch-dropper logo"
+          />
           <h2 className={classes.BrandTitle}>Merch Dropper</h2>
         </div>
 
