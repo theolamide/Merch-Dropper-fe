@@ -138,7 +138,8 @@ const NavBar = ({ hidden, history, location }) => {
         <nav className={classes.ButtonWrapper}>
           <Link to={`/${domain_name}`} className="links">
             {domain_name}
-          </Link>          
+          </Link>
+          <CartIcon />          
         </nav>
       );
     } else {
