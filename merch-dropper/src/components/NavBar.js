@@ -32,6 +32,7 @@ const NavBar = ({ hidden, history, location }) => {
     localStorage.removeItem("id");
     localStorage.removeItem("store_name");
     localStorage.removeItem("storeID");
+    localStorage.removeItem("fromSettings")
     logout({
       returnTo: window.location.origin,
     });
