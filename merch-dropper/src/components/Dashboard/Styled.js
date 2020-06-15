@@ -77,7 +77,7 @@ export const AccountContainer = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top:2%;
-
+    height: 53px;
 `;
 
 export const StripeH3 =  styled.div` 
@@ -203,6 +203,7 @@ export const StorefrontStatusContainer = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     margin: 11px 0;
+    height: 43px;
 `;
 
 export const StorefrontStatusInner = styled.div`
@@ -238,7 +239,7 @@ export const StorefrontNameContainer = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 2%;
-
+    height: 53px;
 `;
 
 
