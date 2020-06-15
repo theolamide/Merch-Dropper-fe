@@ -20,9 +20,8 @@ if (process.env.REACT_APP_BASE_URL === "development") {
 } else {
   url = "https://merchdropper.store/createstore";
 }
+// If user skipped stripe setup earlier grab this boolean from localStorage
 const returnToDash = localStorage.getItem("fromSettings")
-console.log(returnToDash)
-
 
 const getSteps = () => {
   return ["Create Account", "Connect Stripe", "Create Store"];
