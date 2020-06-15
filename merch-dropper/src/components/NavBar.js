@@ -147,7 +147,7 @@ const NavBar = ({ hidden, history, location }) => {
         <nav className={classes.ButtonWrapper}>
           {inDevelop ? (
             <>
-              <Link className={classes.links} to="/develop">
+              <Link data-testid="dev-auth" className={classes.links} to="/develop">
                 Dev Auth
               </Link>
               <button

@@ -1,8 +1,9 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { withRouter, Link } from "react-router-dom";
 import styled from "styled-components";
 import { NavbarStyles } from "./Component-Styles/Navbar-styles.js";
 import { Media, NavbarText } from "reactstrap";
+
 
 const RootWrapper = styled.div`
   height: 70%;
@@ -51,6 +52,12 @@ const SideDrawer = ({
   customLogin,
   history,
 }) => {
+  const [inDevelop, setInDevelop] = useState(false);
+  useEffect(() => {
+    if (process.env.REACT_APP_BASE_URL === "development") {
+      setInDevelop(true);
+    }
+  }, []);
   return (
     <RootWrapper>
       <CloseHamburger onClick={closeDrawer}>X</CloseHamburger>
@@ -76,6 +83,14 @@ const SideDrawer = ({
       ) : (
         <LinkDiv onClick={customLogin}>Log In</LinkDiv>
       )}
+
+      {inDevelop ? 
+        <Link data-testid="dev-auth" to="/develop">
+          Dev Auth
+        </Link>
+        :
+        <span></span>
+      }
 
       <div className="MediaWrapper">
         {localStorage.getItem("profile") ? (

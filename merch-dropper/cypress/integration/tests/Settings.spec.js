@@ -1,12 +1,18 @@
 describe('Settings Component (Development)', () => {
+    context('770p resolution', () => {
+		beforeEach(() => {
+			//run test in desktop size
+			cy.viewport(770, 740);
+        });
+    });
     it('reroutes to landing page with no auth token', () => {
       cy.visit("http://localhost:3000/dashboard")
       //add element checks here for landing page
-      cy.get('.BrandTitle').contains('Merch Dropper')
+      cy.get('[data-testid="title"]').should('exist')
     })
     it('renders connect to stripe cta for users not connected', () => {
         cy.visit("http://localhost:3000")
-        cy.get('.links.login').click()
+        cy.get('[data-testid="dev-auth"]').click()
         cy.get('.dev-email').type('thorodinson@avengers.com')
         cy.get('.dev-password').type('pointbreak')
         cy.get('.dev-register').click()
