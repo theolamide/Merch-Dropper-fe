@@ -197,12 +197,12 @@ export const StorefrontStatusTitle = styled.h3`
     color: #1C1C2E;
 `;
 
-export const StorefrontStatusConainer = styled.div`
+export const StorefrontStatusContainer = styled.div`
 
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 11px 3px;
+    margin: 11px 0;
 `;
 
 export const StorefrontStatusInner = styled.div`
