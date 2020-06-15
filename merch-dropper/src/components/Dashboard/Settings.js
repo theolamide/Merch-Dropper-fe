@@ -14,7 +14,7 @@ import {
   AccountNumber,
   Divider,
   StorefrontStatusTitle,
-  StorefrontStatusConainer,
+  StorefrontStatusContainer,
   StorefrontStatusDot,
   StorefrontStatus,
   StorefrontTitle,
@@ -81,7 +81,7 @@ const Settings = () => {
     <SettingsContainer>
       <SettingsH2>Storefront Settings</SettingsH2>
 
-      <StorefrontStatusConainer>
+      <StorefrontStatusContainer>
         <StorefrontStatusTitle>Status:</StorefrontStatusTitle>
         <StorefrontStatusInner>
           <StorefrontStatusDot
@@ -95,7 +95,7 @@ const Settings = () => {
             {connected && store !== "" ? "Online" : "Incomplete"}
           </StorefrontStatus>
         </StorefrontStatusInner>
-      </StorefrontStatusConainer>
+      </StorefrontStatusContainer>
       <AccountContainer>
         <AccountTitle>Stripe Account Number:</AccountTitle>
         {connected ? (
