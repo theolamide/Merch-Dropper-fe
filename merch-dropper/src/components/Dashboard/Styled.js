@@ -188,8 +188,6 @@ export const StorefrontH3 = styled.h3`
 
 export const StorefrontStatusTitle = styled.h3`
 
-    width: 72px;
-    height: 29px;
  
     font-family: Lato;
     font-style: normal;
@@ -203,7 +201,8 @@ export const StorefrontStatusConainer = styled.div`
 
     display: flex;
     justify-content: space-between;
-    margin-top: 2%;
+    align-items: flex-start;
+    margin: 11px 3px;
 `;
 
 export const StorefrontStatusInner = styled.div`

@@ -118,21 +118,12 @@ const Settings = () => {
       </AccountContainer>
       <StorefrontNameContainer>
         <StorefrontTitle>Store Name:</StorefrontTitle>
-        {store ? (
+        {!store ? (
           <StorefrontName>{store}</StorefrontName>
         ) : (
-          <Link to="/createstore">
-            <Button
-              className="store-cta"
-              color="primary"
-              size="large"
-              classes={{
-                root: classes.root,
-              }}
-            >
-              Create Store
-            </Button>
-          </Link>
+          <AccountNumber>
+            <Link to="/createstore">Create Store</Link>
+          </AccountNumber>
         )}
       </StorefrontNameContainer>
 
