@@ -27,7 +27,7 @@ const FAQ = () =>{
 
   return (
     <div className={classes.root}>
-        <h1 style={{textAlign: "center", marginBottom: 50, fontSize: "2rem"}}>Frequently Asked Questions</h1>
+        <h2 style={{textAlign: "center", marginBottom: 50, fontSize: "1.5rem"}}>Frequently Asked Questions</h2>
         <ExpansionPanel className={classes.expansion}>
       <ExpansionPanelSummary
         className={classes.panel}
