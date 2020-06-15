@@ -118,7 +118,7 @@ const Settings = () => {
       </AccountContainer>
       <StorefrontNameContainer>
         <StorefrontTitle>Store Name:</StorefrontTitle>
-        {!store ? (
+        {store ? (
           <StorefrontName>{store}</StorefrontName>
         ) : (
           <AccountNumber>
