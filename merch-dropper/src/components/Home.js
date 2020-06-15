@@ -35,8 +35,8 @@ const Home = ({ history }) => {
           <Media className={classes.image} object src="https://res.cloudinary.com/dze74ofbf/image/upload/v1591910999/couple_z0vlls.jpg"/>
         </Col>
         <Col className={classes.column} >               
-          <h1 className={classes.text} >Hassle free online store.</h1>                
-          <h1>You handle the designs, we'll handle the rest</h1>
+          <h1 className={classes.text } style={{fontSize: "2.8rem"}}  >Hassle free online store</h1>                
+          <h2 style={{ fontSize: "1.5rem"}}>You handle the designs, we'll handle the rest.</h2>
           <p style={{ textAlign: "center" }}>
             <Button style={{background: "#4455ee", fontSize: 18, fontWeight: "bold", marginTop: 50}} className="letsGo"
               onClick={customSignup}
