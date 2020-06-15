@@ -26,7 +26,6 @@ export const SettingsContainer = styled.div`
 
 export const SettingsH2 = styled.h2`
    
-    width: 108px;
     height: 36px;
     margin-bottom: 2%;
 
@@ -126,7 +125,6 @@ export const StripeStatus = styled.p`
 
 export const AccountTitle = styled.p`
 
-    width: 186px;
     height: 29px;
     left: 256px;
 
@@ -211,14 +209,13 @@ export const StorefrontStatusConainer = styled.div`
 export const StorefrontStatusInner = styled.div`
 
     display: flex;
-
+    align-items: center;
 `;
 
 export const StorefrontStatusDot = styled.span`
   margin-right: 10px;
   height: 16px;
   width: 16px;
-  margin-top: 8%;
   background-color: #28E13B;
   border-radius: 50%;
   display: inline-block;
@@ -227,13 +224,11 @@ export const StorefrontStatusDot = styled.span`
 
 export const StorefrontStatus = styled.p`
 
-    height: 29px;
 
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-    line-height: 29px;
     text-align: right;
     color: #1C1C2E;
 
