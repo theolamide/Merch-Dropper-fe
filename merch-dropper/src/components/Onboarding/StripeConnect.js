@@ -14,8 +14,15 @@ import history from "../../utils/history";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { makeAccount } from '../../utils/makeAccount';
 
-const returnToDash = localStorage.getItem('fromSettings')
+let url;
+if (process.env.REACT_APP_BASE_URL === "development") {
+  url = "http://localhost:3000/createstore";
+} else {
+  url = "https://merchdropper.store/createstore";
+}
+const returnToDash = localStorage.getItem("fromSettings")
 console.log(returnToDash)
+
 
 const getSteps = () => {
   return ["Create Account", "Connect Stripe", "Create Store"];
@@ -32,19 +39,11 @@ const ConnectStripe = (e) => {
 };
 
 const SkipSetup = (e) => {
-  const backToDash = localStorage.getItem('fromSettings')
-  console.log(backToDash)
-  let url;
-  if (process.env.REACT_APP_BASE_URL === "development") {
-    url = "http://localhost:3000/createstore";
-  } else {
-    url = "https://merchdropper.store/createstore";
-  }
-
   e.preventDefault();
-  if(backToDash){
+  if(returnToDash){
     history.push("/dashboard")
     window.location.replace("/dashboard")
+    localStorage.removeItem('fromSettings')
   } else {
     history.push("/createstore");
     window.location.replace(url);
