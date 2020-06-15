@@ -32,6 +32,8 @@ const ConnectStripe = (e) => {
 };
 
 const SkipSetup = (e) => {
+  const backToDash = localStorage.getItem('fromSettings')
+  console.log(backToDash)
   let url;
   if (process.env.REACT_APP_BASE_URL === "development") {
     url = "http://localhost:3000/createstore";
@@ -40,8 +42,13 @@ const SkipSetup = (e) => {
   }
 
   e.preventDefault();
-  history.push("/createstore");
-  window.location.replace(url);
+  if(backToDash){
+    history.push("/dashboard")
+    window.location.replace("/dashboard")
+  } else {
+    history.push("/createstore");
+    window.location.replace(url);
+  }
 };
 
 const DevStripeConnect = e => {
