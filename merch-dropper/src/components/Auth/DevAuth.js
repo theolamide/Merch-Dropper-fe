@@ -40,7 +40,7 @@ const DevAuth = () => {
                     localStorage.setItem("token", res.data.token);
                     axios.get(`http://localhost:5032/api/users/email/${credentials.email}`)
                     .then(res =>{
-                        console.log('get email res', res.data)
+                        // console.log('get email res', res.data)
                         localStorage.setItem("profile", JSON.stringify(res.data));
                         localStorage.setItem("id", res.data.id);
                         history.push('/stripe-setup')
@@ -88,10 +88,10 @@ const DevAuth = () => {
                     <div>Register</div>
                     <form className='register' onSubmit={onSubmit}>
                         <label>Email</label>
-                        <input name='email'onChange={handleChanges}/>
+                        <input className='dev-email' name='email'onChange={handleChanges}/>
                         <label>Password</label>
-                        <input name='password' onChange={handleChanges}/>
-                        <button type='submit'>Register</button>
+                        <input className='dev-password' name='password' onChange={handleChanges}/>
+                        <button className='dev-register' type='submit'>Register</button>
                     </form>
                 </FormDiv>
                 :

@@ -1,6 +1,6 @@
 {
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Auth\\Auth.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Auth\\Auth.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Auth/Auth.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Auth/Auth.js",
     "statementMap": {
       "0": {
         "start": {
@@ -966,27 +966,27 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
-      "2": 8,
-      "3": 8,
-      "4": 49,
-      "5": 8,
-      "6": 32,
-      "7": 32,
-      "8": 32,
-      "9": 32,
-      "10": 32,
-      "11": 32,
-      "12": 8,
-      "13": 8,
-      "14": 8,
-      "15": 8,
+      "2": 18,
+      "3": 18,
+      "4": 111,
+      "5": 18,
+      "6": 72,
+      "7": 72,
+      "8": 72,
+      "9": 72,
+      "10": 72,
+      "11": 72,
+      "12": 18,
+      "13": 18,
+      "14": 18,
+      "15": 18,
       "16": 0,
       "17": 0,
-      "18": 8,
-      "19": 8,
-      "20": 8,
+      "18": 18,
+      "19": 18,
+      "20": 18,
       "21": 0,
       "22": 0,
       "23": 0,
@@ -994,9 +994,9 @@
       "25": 0,
       "26": 0,
       "27": 0,
-      "28": 8,
-      "29": 8,
-      "30": 32,
+      "28": 18,
+      "29": 18,
+      "30": 72,
       "31": 0,
       "32": 0,
       "33": 0,
@@ -1004,14 +1004,14 @@
       "35": 0,
       "36": 0,
       "37": 0,
-      "38": 32,
+      "38": 72,
       "39": 0,
       "40": 0,
       "41": 0,
       "42": 0,
       "43": 0,
       "44": 0,
-      "45": 32,
+      "45": 72,
       "46": 0,
       "47": 0,
       "48": 0,
@@ -1020,10 +1020,10 @@
     },
     "f": {
       "0": 0,
-      "1": 49,
-      "2": 32,
-      "3": 8,
-      "4": 8,
+      "1": 111,
+      "2": 72,
+      "3": 18,
+      "4": 18,
       "5": 0,
       "6": 0,
       "7": 0,
@@ -1038,25 +1038,25 @@
       ],
       "1": [
         0,
-        8
+        18
       ],
       "2": [
-        8,
+        18,
         0
       ],
       "3": [
         0,
-        8
+        18
       ],
       "4": [
         0
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "040d9a12dbcdd94bc77e341f443d5e9c4d6c170e"
+    "hash": "c714b18c79813be7c6e23c16ebddaa9131a053fc"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\utils\\history.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\utils\\history.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/utils/history.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/utils/history.js",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -1064,10 +1064,10 @@
     "f": {},
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "d9f866b87b11f910f55a44a76e99ff33b9aff2aa"
+    "hash": "18d421352d54fa3f28a7b66ce2a8e2a727223523"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\utils\\axiosWithAuth.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\utils\\axiosWithAuth.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/utils/axiosWithAuth.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/utils/axiosWithAuth.js",
     "statementMap": {
       "0": {
         "start": {
@@ -1295,36 +1295,36 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 4,
-      "3": 8,
-      "4": 8,
-      "5": 0,
-      "6": 0,
-      "7": 0,
+      "0": 18,
+      "1": 15,
+      "2": 5,
+      "3": 15,
+      "4": 18,
+      "5": 2,
+      "6": 2,
+      "7": 2,
       "8": 0,
-      "9": 0
+      "9": 2
     },
     "f": {
-      "0": 8,
-      "1": 0
+      "0": 15,
+      "1": 2
     },
     "b": {
       "0": [
-        4,
-        4
+        5,
+        10
       ],
       "1": [
-        0,
+        2,
         0
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "421d9ec210d1fb368b0ab1093365b2226e7b57f4"
+    "hash": "05f7901c683742c711d07f788655446a81b9b923"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\utils\\axiosWithEnv.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\utils\\axiosWithEnv.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/utils/axiosWithEnv.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/utils/axiosWithEnv.js",
     "statementMap": {
       "0": {
         "start": {
@@ -1442,26 +1442,26 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 25,
-      "2": 25,
+      "0": 18,
+      "1": 72,
+      "2": 72,
       "3": 0,
-      "4": 25
+      "4": 72
     },
     "f": {
-      "0": 25
+      "0": 72
     },
     "b": {
       "0": [
-        25,
+        72,
         0
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "44cae974e5bc86adf4f38f0790ea4cebf204730e"
+    "hash": "6952c3115ae07fd2b20d0eb6237b8d8e20e445df"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\actions\\index.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\actions\\index.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/actions/index.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/actions/index.js",
     "statementMap": {
       "0": {
         "start": {
@@ -3370,10 +3370,10 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 8,
-      "3": 8,
+      "0": 18,
+      "1": 18,
+      "2": 18,
+      "3": 18,
       "4": 0,
       "5": 0,
       "6": 0,
@@ -3381,10 +3381,10 @@
       "8": 0,
       "9": 0,
       "10": 0,
-      "11": 8,
-      "12": 8,
-      "13": 8,
-      "14": 8,
+      "11": 18,
+      "12": 18,
+      "13": 18,
+      "14": 18,
       "15": 0,
       "16": 0,
       "17": 0,
@@ -3394,79 +3394,79 @@
       "21": 0,
       "22": 0,
       "23": 0,
-      "24": 8,
-      "25": 8,
-      "26": 8,
-      "27": 8,
+      "24": 18,
+      "25": 18,
+      "26": 18,
+      "27": 18,
       "28": 0,
       "29": 0,
       "30": 0,
       "31": 0,
       "32": 0,
-      "33": 8,
-      "34": 8,
-      "35": 8,
-      "36": 8,
+      "33": 18,
+      "34": 18,
+      "35": 18,
+      "36": 18,
       "37": 0,
       "38": 0,
       "39": 0,
       "40": 0,
       "41": 0,
-      "42": 8,
-      "43": 8,
-      "44": 8,
-      "45": 8,
+      "42": 18,
+      "43": 18,
+      "44": 18,
+      "45": 18,
       "46": 0,
       "47": 0,
       "48": 0,
       "49": 0,
       "50": 0,
-      "51": 8,
-      "52": 8,
+      "51": 18,
+      "52": 18,
       "53": 0,
-      "54": 8,
-      "55": 8,
+      "54": 18,
+      "55": 18,
       "56": 0,
-      "57": 8,
-      "58": 8,
+      "57": 18,
+      "58": 18,
       "59": 0,
-      "60": 8,
-      "61": 8,
+      "60": 18,
+      "61": 18,
       "62": 0,
-      "63": 8,
-      "64": 8,
-      "65": 8,
-      "66": 8,
+      "63": 18,
+      "64": 18,
+      "65": 18,
+      "66": 18,
       "67": 0,
       "68": 0,
       "69": 0,
       "70": 0,
       "71": 0,
       "72": 0,
-      "73": 8,
-      "74": 8,
-      "75": 8,
-      "76": 8,
-      "77": 8,
+      "73": 18,
+      "74": 18,
+      "75": 18,
+      "76": 18,
+      "77": 18,
       "78": 0,
       "79": 0,
       "80": 0,
       "81": 0,
       "82": 0,
       "83": 0,
-      "84": 8,
-      "85": 8,
-      "86": 8,
-      "87": 8,
+      "84": 18,
+      "85": 18,
+      "86": 18,
+      "87": 18,
       "88": 0,
       "89": 0,
-      "90": 8,
+      "90": 18,
       "91": 0,
       "92": 0,
-      "93": 8,
-      "94": 8,
-      "95": 8,
-      "96": 8,
+      "93": 18,
+      "94": 18,
+      "95": 18,
+      "96": 18,
       "97": 0,
       "98": 0
     },
@@ -3512,10 +3512,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "3ba521d1e1c52714e6b0260a606db5f6e69ef48a"
+    "hash": "6efc13622cc183e8b1b17a3eb31e3b2d9addc7d1"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\RegisterReducers.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\RegisterReducers.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/RegisterReducers.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/RegisterReducers.js",
     "statementMap": {
       "0": {
         "start": {
@@ -3699,33 +3699,33 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 40,
+      "0": 18,
+      "1": 18,
+      "2": 90,
       "3": 0,
       "4": 0,
       "5": 0,
-      "6": 40
+      "6": 90
     },
     "f": {
-      "0": 40
+      "0": 90
     },
     "b": {
       "0": [
-        24
+        54
       ],
       "1": [
         0,
         0,
         0,
-        40
+        90
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "f4302923d28da963cc0e1056c06af430f3eeec2b"
+    "hash": "7dd23ba17502143fd699cbbaf1908afc8dd25e82"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\LoginReducers.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\LoginReducers.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/LoginReducers.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/LoginReducers.js",
     "statementMap": {
       "0": {
         "start": {
@@ -3909,33 +3909,33 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 40,
+      "0": 18,
+      "1": 18,
+      "2": 90,
       "3": 0,
       "4": 0,
       "5": 0,
-      "6": 40
+      "6": 90
     },
     "f": {
-      "0": 40
+      "0": 90
     },
     "b": {
       "0": [
-        24
+        54
       ],
       "1": [
         0,
         0,
         0,
-        40
+        90
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "cb5e8e9ceccd1b386ede251dcc907b57ac13c91d"
+    "hash": "1f30523634c95c973a2fd59351e3d844fb2c0784"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\initialState.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\initialState.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/initialState.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/initialState.js",
     "statementMap": {
       "0": {
         "start": {
@@ -3951,15 +3951,15 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 8
+      "0": 18
     },
     "f": {},
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "c840ae51bee97bd625d5f46cc3d33e9daa30edd0"
+    "hash": "35b00eed1e165e4beba646a28b48ed63ffce442b"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\CartReducer.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\CartReducer.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/CartReducer.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/CartReducer.js",
     "statementMap": {
       "0": {
         "start": {
@@ -4659,14 +4659,14 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
       "4": 0,
       "5": 0,
       "6": 0,
-      "7": 8,
+      "7": 18,
       "8": 0,
       "9": 0,
       "10": 0,
@@ -4674,15 +4674,15 @@
       "12": 0,
       "13": 0,
       "14": 0,
-      "15": 8,
-      "16": 40,
-      "17": 40,
+      "15": 18,
+      "16": 90,
+      "17": 90,
       "18": 0,
       "19": 0,
       "20": 0,
       "21": 0,
       "22": 0,
-      "23": 40
+      "23": 90
     },
     "f": {
       "0": 0,
@@ -4692,7 +4692,7 @@
       "4": 0,
       "5": 0,
       "6": 0,
-      "7": 40,
+      "7": 90,
       "8": 0
     },
     "b": {
@@ -4713,21 +4713,21 @@
         0
       ],
       "4": [
-        24
+        54
       ],
       "5": [
         0,
         0,
         0,
         0,
-        40
+        90
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "0096bf98727bde986ff88d4e60618e740377e78e"
+    "hash": "e840b4745744764f8f705a5c7dfd69eba4df6861"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\ProductReducers.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\ProductReducers.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/ProductReducers.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/ProductReducers.js",
     "statementMap": {
       "0": {
         "start": {
@@ -5115,8 +5115,8 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 40,
+      "0": 18,
+      "1": 90,
       "2": 0,
       "3": 0,
       "4": 0,
@@ -5131,15 +5131,15 @@
       "13": 0,
       "14": 0,
       "15": 0,
-      "16": 40
+      "16": 90
     },
     "f": {
-      "0": 40,
+      "0": 90,
       "1": 0
     },
     "b": {
       "0": [
-        24
+        54
       ],
       "1": [
         0,
@@ -5153,14 +5153,14 @@
         0,
         0,
         0,
-        40
+        90
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "71bd57acb673c6be3f73a266131e9cb0b6db663e"
+    "hash": "5fb94c093cf68764a4517a5e7be079693282b92a"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\SearchReducers.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\SearchReducers.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/SearchReducers.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/SearchReducers.js",
     "statementMap": {
       "0": {
         "start": {
@@ -5344,33 +5344,33 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 40,
+      "0": 18,
+      "1": 18,
+      "2": 90,
       "3": 0,
       "4": 0,
       "5": 0,
-      "6": 40
+      "6": 90
     },
     "f": {
-      "0": 40
+      "0": 90
     },
     "b": {
       "0": [
-        24
+        54
       ],
       "1": [
         0,
         0,
         0,
-        40
+        90
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "7605795f1cb3d50b12e15d7140961ae29a247443"
+    "hash": "e2a7671fdc9452a6218e0bcc2ce9a70c44db6bf4"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\QuoteReducer.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\QuoteReducer.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/QuoteReducer.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/QuoteReducer.js",
     "statementMap": {
       "0": {
         "start": {
@@ -5594,22 +5594,22 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 40,
+      "0": 18,
+      "1": 18,
+      "2": 90,
       "3": 0,
       "4": 0,
       "5": 0,
       "6": 0,
       "7": 0,
-      "8": 40
+      "8": 90
     },
     "f": {
-      "0": 40
+      "0": 90
     },
     "b": {
       "0": [
-        24
+        54
       ],
       "1": [
         0,
@@ -5617,14 +5617,14 @@
         0,
         0,
         0,
-        40
+        90
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "31117ab442b7c61d17713f2f044e5e8b84a3303c"
+    "hash": "45aa64fa6673d3db23fd2c505c8fdb34f4a9941c"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\index.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\reducers\\index.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/index.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/reducers/index.js",
     "statementMap": {
       "0": {
         "start": {
@@ -5650,16 +5650,16 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 8
+      "0": 18,
+      "1": 18
     },
     "f": {},
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "a486f7c40d34db15c93d5295a916edac753eba8a"
+    "hash": "b992f3ca45ef7d7ba4734389d7fd136982a4aca5"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\store.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\store.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/store.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/store.js",
     "statementMap": {
       "0": {
         "start": {
@@ -5742,23 +5742,23 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 8,
-      "3": 8
+      "0": 18,
+      "1": 18,
+      "2": 18,
+      "3": 18
     },
     "f": {},
     "b": {
       "0": [
-        8,
-        8
+        18,
+        18
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "e4c47a6acdedcd65da26bfa3e12953ccd584e90b"
+    "hash": "54d6f20193d545a5916c2785c96c7125b4a40ea4"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Auth\\DevAuth.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Auth\\DevAuth.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Auth/DevAuth.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Auth/DevAuth.js",
     "statementMap": {
       "0": {
         "start": {
@@ -5904,6 +5904,882 @@
         "start": {
           "line": 40,
           "column": 20
+        },
+        "end": {
+          "line": 40,
+          "column": 66
+        }
+      },
+      "15": {
+        "start": {
+          "line": 41,
+          "column": 20
+        },
+        "end": {
+          "line": 50,
+          "column": 22
+        }
+      },
+      "16": {
+        "start": {
+          "line": 44,
+          "column": 24
+        },
+        "end": {
+          "line": 44,
+          "column": 82
+        }
+      },
+      "17": {
+        "start": {
+          "line": 45,
+          "column": 24
+        },
+        "end": {
+          "line": 45,
+          "column": 64
+        }
+      },
+      "18": {
+        "start": {
+          "line": 46,
+          "column": 24
+        },
+        "end": {
+          "line": 46,
+          "column": 53
+        }
+      },
+      "19": {
+        "start": {
+          "line": 49,
+          "column": 24
+        },
+        "end": {
+          "line": 49,
+          "column": 60
+        }
+      },
+      "20": {
+        "start": {
+          "line": 53,
+          "column": 20
+        },
+        "end": {
+          "line": 53,
+          "column": 56
+        }
+      },
+      "21": {
+        "start": {
+          "line": 58,
+          "column": 16
+        },
+        "end": {
+          "line": 58,
+          "column": 26
+        }
+      },
+      "22": {
+        "start": {
+          "line": 59,
+          "column": 16
+        },
+        "end": {
+          "line": 59,
+          "column": 34
+        }
+      },
+      "23": {
+        "start": {
+          "line": 62,
+          "column": 12
+        },
+        "end": {
+          "line": 78,
+          "column": 14
+        }
+      },
+      "24": {
+        "start": {
+          "line": 64,
+          "column": 16
+        },
+        "end": {
+          "line": 64,
+          "column": 62
+        }
+      },
+      "25": {
+        "start": {
+          "line": 65,
+          "column": 16
+        },
+        "end": {
+          "line": 74,
+          "column": 18
+        }
+      },
+      "26": {
+        "start": {
+          "line": 67,
+          "column": 20
+        },
+        "end": {
+          "line": 67,
+          "column": 58
+        }
+      },
+      "27": {
+        "start": {
+          "line": 68,
+          "column": 20
+        },
+        "end": {
+          "line": 68,
+          "column": 78
+        }
+      },
+      "28": {
+        "start": {
+          "line": 69,
+          "column": 20
+        },
+        "end": {
+          "line": 69,
+          "column": 60
+        }
+      },
+      "29": {
+        "start": {
+          "line": 70,
+          "column": 20
+        },
+        "end": {
+          "line": 70,
+          "column": 46
+        }
+      },
+      "30": {
+        "start": {
+          "line": 73,
+          "column": 20
+        },
+        "end": {
+          "line": 73,
+          "column": 56
+        }
+      },
+      "31": {
+        "start": {
+          "line": 77,
+          "column": 16
+        },
+        "end": {
+          "line": 77,
+          "column": 52
+        }
+      },
+      "32": {
+        "start": {
+          "line": 82,
+          "column": 4
+        },
+        "end": {
+          "line": 82,
+          "column": 28
+        }
+      },
+      "33": {
+        "start": {
+          "line": 83,
+          "column": 4
+        },
+        "end": {
+          "line": 109,
+          "column": 5
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 14,
+            "column": 16
+          },
+          "end": {
+            "line": 14,
+            "column": 17
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 22
+          },
+          "end": {
+            "line": 110,
+            "column": 1
+          }
+        },
+        "line": 14
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": {
+            "line": 22,
+            "column": 23
+          },
+          "end": {
+            "line": 22,
+            "column": 24
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 22,
+            "column": 27
+          },
+          "end": {
+            "line": 24,
+            "column": 5
+          }
+        },
+        "line": 22
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": {
+            "line": 26,
+            "column": 26
+          },
+          "end": {
+            "line": 26,
+            "column": 27
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 26,
+            "column": 30
+          },
+          "end": {
+            "line": 31,
+            "column": 5
+          }
+        },
+        "line": 26
+      },
+      "3": {
+        "name": "(anonymous_3)",
+        "decl": {
+          "start": {
+            "line": 33,
+            "column": 21
+          },
+          "end": {
+            "line": 33,
+            "column": 22
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 33,
+            "column": 26
+          },
+          "end": {
+            "line": 81,
+            "column": 5
+          }
+        },
+        "line": 33
+      },
+      "4": {
+        "name": "(anonymous_4)",
+        "decl": {
+          "start": {
+            "line": 37,
+            "column": 19
+          },
+          "end": {
+            "line": 37,
+            "column": 20
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 37,
+            "column": 26
+          },
+          "end": {
+            "line": 55,
+            "column": 13
+          }
+        },
+        "line": 37
+      },
+      "5": {
+        "name": "(anonymous_5)",
+        "decl": {
+          "start": {
+            "line": 39,
+            "column": 22
+          },
+          "end": {
+            "line": 39,
+            "column": 23
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 39,
+            "column": 28
+          },
+          "end": {
+            "line": 51,
+            "column": 17
+          }
+        },
+        "line": 39
+      },
+      "6": {
+        "name": "(anonymous_6)",
+        "decl": {
+          "start": {
+            "line": 42,
+            "column": 26
+          },
+          "end": {
+            "line": 42,
+            "column": 27
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 42,
+            "column": 32
+          },
+          "end": {
+            "line": 47,
+            "column": 21
+          }
+        },
+        "line": 42
+      },
+      "7": {
+        "name": "(anonymous_7)",
+        "decl": {
+          "start": {
+            "line": 48,
+            "column": 27
+          },
+          "end": {
+            "line": 48,
+            "column": 28
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 48,
+            "column": 33
+          },
+          "end": {
+            "line": 50,
+            "column": 21
+          }
+        },
+        "line": 48
+      },
+      "8": {
+        "name": "(anonymous_8)",
+        "decl": {
+          "start": {
+            "line": 52,
+            "column": 23
+          },
+          "end": {
+            "line": 52,
+            "column": 24
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 52,
+            "column": 29
+          },
+          "end": {
+            "line": 54,
+            "column": 17
+          }
+        },
+        "line": 52
+      },
+      "9": {
+        "name": "(anonymous_9)",
+        "decl": {
+          "start": {
+            "line": 57,
+            "column": 19
+          },
+          "end": {
+            "line": 57,
+            "column": 20
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 57,
+            "column": 24
+          },
+          "end": {
+            "line": 60,
+            "column": 13
+          }
+        },
+        "line": 57
+      },
+      "10": {
+        "name": "(anonymous_10)",
+        "decl": {
+          "start": {
+            "line": 63,
+            "column": 18
+          },
+          "end": {
+            "line": 63,
+            "column": 19
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 63,
+            "column": 24
+          },
+          "end": {
+            "line": 75,
+            "column": 13
+          }
+        },
+        "line": 63
+      },
+      "11": {
+        "name": "(anonymous_11)",
+        "decl": {
+          "start": {
+            "line": 66,
+            "column": 22
+          },
+          "end": {
+            "line": 66,
+            "column": 23
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 66,
+            "column": 28
+          },
+          "end": {
+            "line": 71,
+            "column": 17
+          }
+        },
+        "line": 66
+      },
+      "12": {
+        "name": "(anonymous_12)",
+        "decl": {
+          "start": {
+            "line": 72,
+            "column": 23
+          },
+          "end": {
+            "line": 72,
+            "column": 24
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 72,
+            "column": 29
+          },
+          "end": {
+            "line": 74,
+            "column": 17
+          }
+        },
+        "line": 72
+      },
+      "13": {
+        "name": "(anonymous_13)",
+        "decl": {
+          "start": {
+            "line": 76,
+            "column": 19
+          },
+          "end": {
+            "line": 76,
+            "column": 20
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 76,
+            "column": 25
+          },
+          "end": {
+            "line": 78,
+            "column": 13
+          }
+        },
+        "line": 76
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": {
+            "line": 35,
+            "column": 8
+          },
+          "end": {
+            "line": 79,
+            "column": 9
+          }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": {
+              "line": 35,
+              "column": 8
+            },
+            "end": {
+              "line": 79,
+              "column": 9
+            }
+          },
+          {
+            "start": {
+              "line": 35,
+              "column": 8
+            },
+            "end": {
+              "line": 79,
+              "column": 9
+            }
+          }
+        ],
+        "line": 35
+      },
+      "1": {
+        "loc": {
+          "start": {
+            "line": 86,
+            "column": 13
+          },
+          "end": {
+            "line": 107,
+            "column": 26
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 87,
+              "column": 16
+            },
+            "end": {
+              "line": 96,
+              "column": 26
+            }
+          },
+          {
+            "start": {
+              "line": 98,
+              "column": 16
+            },
+            "end": {
+              "line": 107,
+              "column": 26
+            }
+          }
+        ],
+        "line": 86
+      }
+    },
+    "s": {
+      "0": 18,
+      "1": 18,
+      "2": 181,
+      "3": 181,
+      "4": 181,
+      "5": 181,
+      "6": 0,
+      "7": 181,
+      "8": 176,
+      "9": 181,
+      "10": 5,
+      "11": 5,
+      "12": 5,
+      "13": 5,
+      "14": 5,
+      "15": 5,
+      "16": 5,
+      "17": 5,
+      "18": 5,
+      "19": 0,
+      "20": 0,
+      "21": 0,
+      "22": 0,
+      "23": 0,
+      "24": 0,
+      "25": 0,
+      "26": 0,
+      "27": 0,
+      "28": 0,
+      "29": 0,
+      "30": 0,
+      "31": 0,
+      "32": 181,
+      "33": 181
+    },
+    "f": {
+      "0": 181,
+      "1": 0,
+      "2": 176,
+      "3": 5,
+      "4": 5,
+      "5": 5,
+      "6": 5,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0
+    },
+    "b": {
+      "0": [
+        5,
+        0
+      ],
+      "1": [
+        181,
+        0
+      ]
+    },
+    "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
+    "hash": "11057117790d0c2a21084352ba3aaca3d99a5d45"
+  },
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Component-Styles/Navbar-styles.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Component-Styles/Navbar-styles.js",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 5,
+          "column": 28
+        },
+        "end": {
+          "line": 156,
+          "column": 1
+        }
+      }
+    },
+    "fnMap": {},
+    "branchMap": {},
+    "s": {
+      "0": 18
+    },
+    "f": {},
+    "b": {},
+    "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
+    "hash": "589721e553f5ba76f32740248c43768d8212a363"
+  },
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/SideDrawer.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/SideDrawer.js",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 7,
+          "column": 20
+        },
+        "end": {
+          "line": 19,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 21,
+          "column": 23
+        },
+        "end": {
+          "line": 37,
+          "column": 1
+        }
+      },
+      "2": {
+        "start": {
+          "line": 38,
+          "column": 16
+        },
+        "end": {
+          "line": 45,
+          "column": 1
+        }
+      },
+      "3": {
+        "start": {
+          "line": 47,
+          "column": 19
+        },
+        "end": {
+          "line": 106,
+          "column": 1
+        }
+      },
+      "4": {
+        "start": {
+          "line": 54,
+          "column": 2
+        },
+        "end": {
+          "line": 105,
+          "column": 4
+        }
+      },
+      "5": {
+        "start": {
+          "line": 60,
+          "column": 10
+        },
+        "end": {
+          "line": 60,
+          "column": 39
+        }
+      },
+      "6": {
+        "start": {
+          "line": 68,
+          "column": 10
+        },
+        "end": {
+          "line": 68,
+          "column": 36
+        }
+      },
+      "7": {
+        "start": {
+          "line": 75,
+          "column": 32
+        },
+        "end": {
+          "line": 75,
+          "column": 52
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 47,
+            "column": 19
+          },
+          "end": {
+            "line": 47,
+            "column": 20
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 53,
+            "column": 6
+          },
+          "end": {
+            "line": 106,
+            "column": 1
+          }
+        },
+        "line": 53
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": {
+            "line": 59,
+            "column": 17
+          },
+          "end": {
+            "line": 59,
+            "column": 18
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 59,
+            "column": 23
+          },
+          "end": {
+            "line": 61,
+            "column": 9
+          }
+        },
+        "line": 59
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": {
+            "line": 67,
+            "column": 17
+          },
+          "end": {
+            "line": 67,
+            "column": 18
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 67,
+            "column": 23
+          },
+          "end": {
+            "line": 69,
+            "column": 9
+          }
+        },
+        "line": 67
+      },
+      "3": {
+        "name": "(anonymous_3)",
+        "decl": {
+          "start": {
+            "line": 75,
+            "column": 26
+          },
+          "end": {
+            "line": 75,
+            "column": 27
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 75,
+            "column": 32
+          },
+          "end": {
+            "line": 75,
+            "column": 52
+          }
         },
         "end": {
           "line": 40,
@@ -6906,10 +7782,10 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 8,
-      "3": 8,
+      "0": 18,
+      "1": 18,
+      "2": 18,
+      "3": 18,
       "4": 0,
       "5": 0,
       "6": 0,
@@ -6936,10 +7812,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "f4d1e8ccfbb94e1abc6194b547ee2a879761c21d"
+    "hash": "1afe052d50a05a735c8af7139ac8d31021aa560f"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Cart\\CartIcon.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Cart\\CartIcon.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Cart/CartIcon.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Cart/CartIcon.js",
     "statementMap": {
       "0": {
         "start": {
@@ -7108,27 +7984,27 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 8,
-      "3": 8,
-      "4": 8,
-      "5": 8,
-      "6": 8,
+      "0": 18,
+      "1": 18,
+      "2": 18,
+      "3": 18,
+      "4": 18,
+      "5": 18,
+      "6": 18,
       "7": 0,
-      "8": 8
+      "8": 18
     },
     "f": {
-      "0": 8,
-      "1": 8,
+      "0": 18,
+      "1": 18,
       "2": 0
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "aa622b4f26e80d207c0e6a4c3da21512771c3695"
+    "hash": "c1c4a9e7ed52376bacaef81bd3243874fdb1d4c5"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Cart\\CartDropDown.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Cart\\CartDropDown.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Cart/CartDropDown.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Cart/CartDropDown.js",
     "statementMap": {
       "0": {
         "start": {
@@ -7550,15 +8426,15 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 8,
-      "3": 8,
-      "4": 8,
-      "5": 8,
-      "6": 8,
+      "0": 18,
+      "1": 18,
+      "2": 18,
+      "3": 18,
+      "4": 18,
+      "5": 18,
+      "6": 18,
       "7": 0,
-      "8": 8,
+      "8": 18,
       "9": 0,
       "10": 0,
       "11": 0,
@@ -7568,7 +8444,7 @@
       "15": 0,
       "16": 0,
       "17": 0,
-      "18": 8,
+      "18": 18,
       "19": 0,
       "20": 0
     },
@@ -7588,10 +8464,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "92032ce33403e3a3be40bdd78bbd5c02e41d879a"
+    "hash": "4c16aad9c1f8ae24b6c463927924ca86c7d5407f"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\NavBar.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\NavBar.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/NavBar.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/NavBar.js",
     "statementMap": {
       "0": {
         "start": {
@@ -7599,7 +8475,7 @@
           "column": 15
         },
         "end": {
-          "line": 194,
+          "line": 211,
           "column": 1
         }
       },
@@ -7949,7 +8825,7 @@
           "column": 14
         },
         "end": {
-          "line": 147,
+          "line": 164,
           "column": 3
         }
       },
@@ -7959,8 +8835,8 @@
           "column": 4
         },
         "end": {
-          "line": 146,
-          "column": 12
+          "line": 163,
+          "column": 5
         }
       },
       "37": {
@@ -7970,56 +8846,76 @@
         },
         "end": {
           "line": 124,
-          "column": 15
+          "column": 8
         }
       },
       "38": {
         "start": {
-          "line": 126,
-          "column": 13
+          "line": 125,
+          "column": 11
         },
         "end": {
-          "line": 145,
-          "column": 15
+          "line": 163,
+          "column": 5
         }
       },
       "39": {
         "start": {
-          "line": 132,
-          "column": 61
+          "line": 126,
+          "column": 6
         },
         "end": {
-          "line": 132,
-          "column": 80
+          "line": 133,
+          "column": 8
         }
       },
       "40": {
         "start": {
-          "line": 149,
-          "column": 2
+          "line": 135,
+          "column": 6
         },
         "end": {
-          "line": 193,
-          "column": 4
+          "line": 162,
+          "column": 8
         }
       },
       "41": {
         "start": {
-          "line": 196,
-          "column": 24
+          "line": 145,
+          "column": 18
         },
         "end": {
-          "line": 198,
-          "column": 2
+          "line": 145,
+          "column": 38
         }
       },
       "42": {
         "start": {
-          "line": 196,
+          "line": 166,
+          "column": 2
+        },
+        "end": {
+          "line": 210,
+          "column": 4
+        }
+      },
+      "43": {
+        "start": {
+          "line": 213,
+          "column": 24
+        },
+        "end": {
+          "line": 215,
+          "column": 2
+        }
+      },
+      "44": {
+        "start": {
+          "line": 213,
           "column": 36
         },
         "end": {
-          "line": 198,
+          "line": 215,
           "column": 1
         }
       }
@@ -8043,7 +8939,7 @@
             "column": 50
           },
           "end": {
-            "line": 194,
+            "line": 211,
             "column": 1
           }
         },
@@ -8259,7 +9155,7 @@
             "column": 20
           },
           "end": {
-            "line": 147,
+            "line": 164,
             "column": 3
           }
         },
@@ -8269,49 +9165,49 @@
         "name": "(anonymous_10)",
         "decl": {
           "start": {
-            "line": 132,
-            "column": 56
+            "line": 144,
+            "column": 25
           },
           "end": {
-            "line": 132,
-            "column": 57
+            "line": 144,
+            "column": 26
           }
         },
         "loc": {
           "start": {
-            "line": 132,
-            "column": 60
+            "line": 144,
+            "column": 31
           },
           "end": {
-            "line": 132,
-            "column": 81
+            "line": 146,
+            "column": 17
           }
         },
-        "line": 132
+        "line": 144
       },
       "11": {
         "name": "(anonymous_11)",
         "decl": {
           "start": {
-            "line": 196,
+            "line": 213,
             "column": 24
           },
           "end": {
-            "line": 196,
+            "line": 213,
             "column": 25
           }
         },
         "loc": {
           "start": {
-            "line": 196,
+            "line": 213,
             "column": 36
           },
           "end": {
-            "line": 198,
+            "line": 215,
             "column": 1
           }
         },
-        "line": 196
+        "line": 213
       }
     },
     "branchMap": {
@@ -8430,8 +9326,8 @@
             "column": 4
           },
           "end": {
-            "line": 146,
-            "column": 12
+            "line": 163,
+            "column": 5
           }
         },
         "type": "if",
@@ -8442,8 +9338,8 @@
               "column": 4
             },
             "end": {
-              "line": 146,
-              "column": 12
+              "line": 163,
+              "column": 5
             }
           },
           {
@@ -8452,8 +9348,8 @@
               "column": 4
             },
             "end": {
-              "line": 146,
-              "column": 12
+              "line": 163,
+              "column": 5
             }
           }
         ],
@@ -8534,47 +9430,83 @@
       "6": {
         "loc": {
           "start": {
-            "line": 128,
-            "column": 18
+            "line": 125,
+            "column": 11
           },
           "end": {
-            "line": 142,
-            "column": 20
+            "line": 163,
+            "column": 5
           }
         },
         "type": "cond-expr",
         "locations": [
           {
             "start": {
-              "line": 129,
-              "column": 17
+              "line": 125,
+              "column": 11
             },
             "end": {
-              "line": 133,
-              "column": 20
+              "line": 163,
+              "column": 5
             }
           },
           {
             "start": {
-              "line": 135,
-              "column": 17
+              "line": 125,
+              "column": 11
             },
             "end": {
-              "line": 142,
-              "column": 20
+              "line": 163,
+              "column": 5
             }
           }
         ],
-        "line": 128
+        "line": 125
       },
       "7": {
         "loc": {
           "start": {
-            "line": 152,
+            "line": 137,
+            "column": 11
+          },
+          "end": {
+            "line": 160,
+            "column": 11
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 138,
+              "column": 12
+            },
+            "end": {
+              "line": 150,
+              "column": 15
+            }
+          },
+          {
+            "start": {
+              "line": 152,
+              "column": 12
+            },
+            "end": {
+              "line": 159,
+              "column": 15
+            }
+          }
+        ],
+        "line": 137
+      },
+      "8": {
+        "loc": {
+          "start": {
+            "line": 169,
             "column": 8
           },
           "end": {
-            "line": 154,
+            "line": 171,
             "column": 32
           }
         },
@@ -8582,35 +9514,35 @@
         "locations": [
           {
             "start": {
-              "line": 153,
+              "line": 170,
               "column": 12
             },
             "end": {
-              "line": 153,
+              "line": 170,
               "column": 31
             }
           },
           {
             "start": {
-              "line": 154,
+              "line": 171,
               "column": 12
             },
             "end": {
-              "line": 154,
+              "line": 171,
               "column": 32
             }
           }
         ],
-        "line": 152
+        "line": 169
       },
-      "8": {
+      "9": {
         "loc": {
           "start": {
-            "line": 152,
+            "line": 169,
             "column": 8
           },
           "end": {
-            "line": 152,
+            "line": 169,
             "column": 67
           }
         },
@@ -8618,71 +9550,35 @@
         "locations": [
           {
             "start": {
-              "line": 152,
+              "line": 169,
               "column": 8
             },
             "end": {
-              "line": 152,
+              "line": 169,
               "column": 36
             }
           },
           {
             "start": {
-              "line": 152,
+              "line": 169,
               "column": 40
             },
             "end": {
-              "line": 152,
+              "line": 169,
               "column": 67
             }
           }
         ],
-        "line": 152
-      },
-      "9": {
-        "loc": {
-          "start": {
-            "line": 180,
-            "column": 9
-          },
-          "end": {
-            "line": 180,
-            "column": 41
-          }
-        },
-        "type": "cond-expr",
-        "locations": [
-          {
-            "start": {
-              "line": 180,
-              "column": 18
-            },
-            "end": {
-              "line": 180,
-              "column": 22
-            }
-          },
-          {
-            "start": {
-              "line": 180,
-              "column": 25
-            },
-            "end": {
-              "line": 180,
-              "column": 41
-            }
-          }
-        ],
-        "line": 180
+        "line": 169
       },
       "10": {
         "loc": {
           "start": {
-            "line": 190,
+            "line": 197,
             "column": 9
           },
           "end": {
-            "line": 190,
+            "line": 197,
             "column": 41
           }
         },
@@ -8690,138 +9586,180 @@
         "locations": [
           {
             "start": {
-              "line": 190,
+              "line": 197,
               "column": 18
             },
             "end": {
-              "line": 190,
+              "line": 197,
               "column": 22
             }
           },
           {
             "start": {
-              "line": 190,
+              "line": 197,
               "column": 25
             },
             "end": {
-              "line": 190,
+              "line": 197,
               "column": 41
             }
           }
         ],
-        "line": 190
+        "line": 197
+      },
+      "11": {
+        "loc": {
+          "start": {
+            "line": 207,
+            "column": 9
+          },
+          "end": {
+            "line": 207,
+            "column": 41
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 207,
+              "column": 18
+            },
+            "end": {
+              "line": 207,
+              "column": 22
+            }
+          },
+          {
+            "start": {
+              "line": 207,
+              "column": 25
+            },
+            "end": {
+              "line": 207,
+              "column": 41
+            }
+          }
+        ],
+        "line": 207
       }
     },
     "s": {
-      "0": 8,
-      "1": 49,
-      "2": 49,
-      "3": 49,
-      "4": 49,
-      "5": 49,
-      "6": 49,
-      "7": 49,
+      "0": 18,
+      "1": 111,
+      "2": 111,
+      "3": 111,
+      "4": 111,
+      "5": 111,
+      "6": 111,
+      "7": 111,
       "8": 0,
       "9": 0,
       "10": 0,
       "11": 0,
       "12": 0,
       "13": 0,
-      "14": 49,
-      "15": 8,
-      "16": 8,
-      "17": 49,
-      "18": 49,
-      "19": 49,
+      "14": 111,
+      "15": 18,
+      "16": 18,
+      "17": 111,
+      "18": 111,
+      "19": 111,
       "20": 0,
-      "21": 49,
+      "21": 111,
       "22": 0,
-      "23": 49,
+      "23": 111,
       "24": 0,
-      "25": 49,
+      "25": 111,
       "26": 0,
-      "27": 49,
+      "27": 111,
       "28": 0,
       "29": 0,
-      "30": 49,
+      "30": 111,
       "31": 0,
-      "32": 49,
-      "33": 49,
+      "32": 111,
+      "33": 111,
       "34": 0,
-      "35": 49,
-      "36": 49,
-      "37": 4,
-      "38": 45,
+      "35": 111,
+      "36": 111,
+      "37": 71,
+      "38": 40,
       "39": 0,
-      "40": 49,
-      "41": 8,
-      "42": 8
+      "40": 40,
+      "41": 0,
+      "42": 111,
+      "43": 18,
+      "44": 18
     },
     "f": {
-      "0": 49,
+      "0": 111,
       "1": 0,
-      "2": 8,
+      "2": 18,
       "3": 0,
       "4": 0,
       "5": 0,
       "6": 0,
       "7": 0,
       "8": 0,
-      "9": 49,
+      "9": 111,
       "10": 0,
-      "11": 8
+      "11": 18
     },
     "b": {
       "0": [
-        8,
+        18,
         0
       ],
       "1": [
-        49,
+        111,
         0
       ],
       "2": [
         0,
-        49
+        111
       ],
       "3": [
-        4,
-        45
+        71,
+        40
       ],
       "4": [
-        0,
-        4
+        2,
+        69
       ],
       "5": [
-        4,
-        0
+        19,
+        52
       ],
       "6": [
-        37,
-        8
+        0,
+        40
       ],
       "7": [
-        0,
-        49
+        33,
+        7
       ],
       "8": [
-        49,
-        49
+        52,
+        59
       ],
       "9": [
-        49,
-        0
+        111,
+        100
       ],
       "10": [
-        49,
+        111,
+        0
+      ],
+      "11": [
+        111,
         0
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "bfc663a2ba779ff5176798534cdb2be38cba7f8e"
+    "hash": "7e629d1be7e170d03964281978040fb3b3d256ee"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Footer.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Footer.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Footer.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Footer.js",
     "statementMap": {
       "0": {
         "start": {
@@ -8955,28 +9893,28 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 17,
-      "2": 17
+      "0": 18,
+      "1": 41,
+      "2": 41
     },
     "f": {
-      "0": 17
+      "0": 41
     },
     "b": {
       "0": [
-        0,
-        17
+        16,
+        25
       ],
       "1": [
-        17,
-        17
+        41,
+        34
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "352723ec359f7c441982abba688bf1de41ca9af8"
+    "hash": "93ba65cdfa470d2b20949fc0f535916aba3aba04"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\PrivateRoute.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\PrivateRoute.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/PrivateRoute.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/PrivateRoute.js",
     "statementMap": {
       "0": {
         "start": {
@@ -9118,27 +10056,27 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 4,
-      "2": 4,
-      "3": 4,
-      "4": 0
+      "0": 18,
+      "1": 13,
+      "2": 13,
+      "3": 11,
+      "4": 2
     },
     "f": {
-      "0": 4,
-      "1": 4
+      "0": 13,
+      "1": 13
     },
     "b": {
       "0": [
-        4,
-        0
+        11,
+        2
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "7495407c93e877a34271c4f6ffef65c45eb78710"
+    "hash": "ce115030c987822d2c7fe22e27d76262c3be695b"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\ProductCard.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\ProductCard.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/ProductCard.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/ProductCard.js",
     "statementMap": {
       "0": {
         "start": {
@@ -9308,6 +10246,54 @@
             "column": 21
           },
           "end": {
+            "line": 46,
+            "column": 1
+          }
+        },
+        "line": 10
+      },
+      "3": {
+        "name": "(anonymous_3)",
+        "decl": {
+          "start": {
+            "line": 8,
+            "column": 20
+          },
+          "end": {
+            "line": 8,
+            "column": 21
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 26
+          },
+          "end": {
+            "line": 13,
+            "column": 3
+          }
+        },
+        "line": 8
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": {
+            "line": 10,
+            "column": 15
+          },
+          "end": {
+            "line": 10,
+            "column": 16
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 21
+          },
+          "end": {
             "line": 12,
             "column": 5
           }
@@ -9378,7 +10364,7 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -9402,10 +10388,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "b9858ec996a0b7af369ee47452d127d612b40e9a"
+    "hash": "cc9100c3ae34411e982424669ae2203bbac42a78"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\ProductDisplay.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\ProductDisplay.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/ProductDisplay.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/ProductDisplay.js",
     "statementMap": {
       "0": {
         "start": {
@@ -9622,14 +10608,14 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
       "4": 0,
       "5": 0,
       "6": 0,
-      "7": 8,
+      "7": 18,
       "8": 0
     },
     "f": {
@@ -9641,10 +10627,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "4dbdfddf8f57bcd1ae991595767b320a1774dbb9"
+    "hash": "a095c931896c5e82dfc08f4918c3fa8172ef1f18"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\ProductDisplayDomain.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\ProductDisplayDomain.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/ProductDisplayDomain.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/ProductDisplayDomain.js",
     "statementMap": {
       "0": {
         "start": {
@@ -10130,7 +11116,7 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -10147,8 +11133,11 @@
       "14": 0,
       "15": 0,
       "16": 0,
-      "17": 8,
-      "18": 0
+      "17": 0,
+      "18": 0,
+      "19": 0,
+      "20": 18,
+      "21": 0
     },
     "f": {
       "0": 0,
@@ -10172,10 +11161,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "13ccb917a3762680d1e9faf4afc5920b55be08c6"
+    "hash": "4ce93e1a77a6de0183d8700306465421bd9d987b"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\StripeButton.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\StripeButton.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/StripeButton.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/StripeButton.js",
     "statementMap": {
       "0": {
         "start": {
@@ -10452,7 +11441,7 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -10477,10 +11466,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "efe5b4fbd8eaa99c4d3a2ede90cb3d69ce5de35e"
+    "hash": "dd694e4c43f568a4a824c4f3e3288434846bbfdf"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\Selectors\\cart.selectors.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\store\\Selectors\\cart.selectors.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/Selectors/cart.selectors.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/store/Selectors/cart.selectors.js",
     "statementMap": {
       "0": {
         "start": {
@@ -10819,17 +11808,17 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
-      "2": 8,
-      "3": 8,
+      "2": 18,
+      "3": 18,
       "4": 0,
-      "5": 8,
+      "5": 18,
       "6": 0,
-      "7": 8,
+      "7": 18,
       "8": 0,
       "9": 0,
-      "10": 8,
+      "10": 18,
       "11": 0,
       "12": 0,
       "13": 0
@@ -10846,10 +11835,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "65d192a38acefd6aec9fa2362319a1d19ad8aac8"
+    "hash": "61e1d767e29ab6367b392184363020b0565c5230"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Cart\\Checkout.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Cart\\Checkout.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Cart/Checkout.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Cart/Checkout.js",
     "statementMap": {
       "0": {
         "start": {
@@ -11743,7 +12732,7 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -11766,60 +12755,61 @@
       "20": 0,
       "21": 0,
       "22": 0,
-      "23": 8,
+      "23": 18,
       "24": 0,
       "25": 0,
       "26": 0,
       "27": 0,
-      "28": 8,
-      "29": 8,
-      "30": 8,
-      "31": 8,
-      "32": 8,
-      "33": 8,
-      "34": 8,
-      "35": 8,
-      "36": 8,
-      "37": 8,
-      "38": 8,
-      "39": 8,
-      "40": 8,
-      "41": 8,
-      "42": 8
+      "28": 18,
+      "29": 18,
+      "30": 18,
+      "31": 18,
+      "32": 18,
+      "33": 18,
+      "34": 18,
+      "35": 18,
+      "36": 18,
+      "37": 18,
+      "38": 18,
+      "39": 18,
+      "40": 18,
+      "41": 18,
+      "42": 18
     },
     "f": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0
+      "0": 8,
+      "1": 8
     },
-    "b": {
-      "0": [
-        0,
-        0
-      ],
-      "1": [
-        0,
-        0
-      ]
-    },
+    "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "7861a1f7d22fd4aff0a0eba78a8fe73bdb2243b7"
+    "hash": "dff1f66e7e513439dcfb4aafd45037ba9d1fcd5a"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\FAQ.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\FAQ.js",
+  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Component-Styles\\Home.js": {
+    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Component-Styles\\Home.js",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 3,
+          "column": 25
+        },
+        "end": {
+          "line": 27,
+          "column": 2
+        }
+      }
+    },
+    "fnMap": {},
+    "branchMap": {},
+    "s": {
+      "0": 8
+    },
+    "f": {},
+    "b": {},
+    "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
+    "hash": "e6d5e7da295152473599f45312039c6ac4d7bd86"
+  },
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/FAQ.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/FAQ.js",
     "statementMap": {
       "0": {
         "start": {
@@ -11847,7 +12837,7 @@
           "column": 12
         },
         "end": {
-          "line": 105,
+          "line": 94,
           "column": 1
         }
       },
@@ -11867,7 +12857,7 @@
           "column": 2
         },
         "end": {
-          "line": 104,
+          "line": 93,
           "column": 3
         }
       }
@@ -11915,7 +12905,7 @@
             "column": 17
           },
           "end": {
-            "line": 105,
+            "line": 94,
             "column": 1
           }
         },
@@ -11924,75 +12914,51 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 8,
-      "3": 8,
-      "4": 8
+      "0": 18,
+      "1": 7,
+      "2": 18,
+      "3": 7,
+      "4": 7
     },
     "f": {
-      "0": 8,
-      "1": 8
+      "0": 7,
+      "1": 7
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "dff1f66e7e513439dcfb4aafd45037ba9d1fcd5a"
+    "hash": "37565a8013d1d0436c210818eca7403dac3a6321"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Component-Styles\\Home.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Component-Styles\\Home.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Home.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Home.js",
     "statementMap": {
       "0": {
         "start": {
-          "line": 3,
-          "column": 25
-        },
-        "end": {
-          "line": 27,
-          "column": 2
-        }
-      }
-    },
-    "fnMap": {},
-    "branchMap": {},
-    "s": {
-      "0": 8
-    },
-    "f": {},
-    "b": {},
-    "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "4ada3963cc82fd899bf173dd25688bb126f338c9"
-  },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Home.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Home.js",
-    "statementMap": {
-      "0": {
-        "start": {
-          "line": 23,
+          "line": 22,
           "column": 13
         },
         "end": {
-          "line": 58,
+          "line": 253,
           "column": 1
         }
       },
       "1": {
         "start": {
-          "line": 24,
-          "column": 18
+          "line": 23,
+          "column": 2
         },
         "end": {
-          "line": 24,
-          "column": 29
+          "line": 252,
+          "column": 4
         }
       },
       "2": {
         "start": {
-          "line": 25,
-          "column": 2
+          "line": 97,
+          "column": 22
         },
         "end": {
-          "line": 57,
-          "column": 4
+          "line": 97,
+          "column": 49
         }
       }
     },
@@ -12001,42 +12967,67 @@
         "name": "(anonymous_0)",
         "decl": {
           "start": {
-            "line": 23,
+            "line": 22,
             "column": 13
           },
           "end": {
-            "line": 23,
+            "line": 22,
             "column": 14
           }
         },
         "loc": {
           "start": {
-            "line": 23,
+            "line": 22,
             "column": 30
           },
           "end": {
-            "line": 58,
+            "line": 253,
             "column": 1
           }
         },
-        "line": 23
+        "line": 22
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": {
+            "line": 96,
+            "column": 29
+          },
+          "end": {
+            "line": 96,
+            "column": 30
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 96,
+            "column": 35
+          },
+          "end": {
+            "line": 98,
+            "column": 21
+          }
+        },
+        "line": 96
       }
     },
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 8
+      "0": 18,
+      "1": 7,
+      "2": 0
     },
     "f": {
-      "0": 8
+      "0": 7,
+      "1": 0
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "f834d21ae3438034d47a3fa1217ea864f0c4061b"
+    "hash": "c1f70a37b0762e664165a307f76b0a9bd3ab4228"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Cart\\ShoppingCartItem.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Cart\\ShoppingCartItem.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Cart/ShoppingCartItem.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Cart/ShoppingCartItem.js",
     "statementMap": {
       "0": {
         "start": {
@@ -12131,7 +13122,7 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0
@@ -12142,10 +13133,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "4dc80f3b9973519343f1d2be1437fee42cb916e8"
+    "hash": "0246ed2b0dc7ab57b668c93a76b96d4d605a6e9e"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Cart\\ShoppingCart.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Cart\\ShoppingCart.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Cart/ShoppingCart.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Cart/ShoppingCart.js",
     "statementMap": {
       "0": {
         "start": {
@@ -12284,11 +13275,11 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
-      "4": 8,
+      "4": 18,
       "5": 0
     },
     "f": {
@@ -12298,10 +13289,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "41c706571d8c20f147cb25f4e28c1a34f8778d48"
+    "hash": "f84925b9a289dcb0ecb3384e90b02c66a8489247"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\MockupDisplay.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\MockupDisplay.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/MockupDisplay.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/MockupDisplay.js",
     "statementMap": {
       "0": {
         "start": {
@@ -12362,8 +13353,8 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 8,
+      "0": 18,
+      "1": 18,
       "2": 0
     },
     "f": {
@@ -12371,10 +13362,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "eb208cfeda2a4773bd2992ad32f8e5b8d19f72db"
+    "hash": "14fd967728792fdbfe21654a6253cd715e69fb84"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\TopSlider.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\TopSlider.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/TopSlider.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/TopSlider.js",
     "statementMap": {
       "0": {
         "start": {
@@ -12469,10 +13460,10 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
-      "3": 8
+      "3": 18
     },
     "f": {
       "0": 0,
@@ -12480,10 +13471,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "39b3c73a6b0777716dc85c2197060c6643382b99"
+    "hash": "7e2454cf7ca899a90874cfb33a04194a276d32c1"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\TemplateShirt.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\TemplateShirt.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/TemplateShirt.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/TemplateShirt.js",
     "statementMap": {
       "0": {
         "start": {
@@ -13035,7 +14026,7 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -13053,8 +14044,8 @@
       "15": 0,
       "16": 0,
       "17": 0,
-      "18": 8,
-      "19": 8,
+      "18": 18,
+      "19": 18,
       "20": 0,
       "21": 0,
       "22": 0,
@@ -13090,10 +14081,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "df6ac7dcf28711f7b6e34dbd3ff64a5c65a3f169"
+    "hash": "2dd3227313a9c238d75308ae98d21787c3b815ff"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\HorizontalAlign.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\HorizontalAlign.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/HorizontalAlign.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/HorizontalAlign.js",
     "statementMap": {
       "0": {
         "start": {
@@ -13198,11 +14189,11 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
-      "4": 8
+      "4": 18
     },
     "f": {
       "0": 0,
@@ -13210,10 +14201,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "f77dd92c3311b11d71f3e32de69934923bc176e5"
+    "hash": "f1bcc6090bb1e73b510fe02b3d8969b283cd2c4e"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\BottomSlider.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\BottomSlider.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/BottomSlider.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/BottomSlider.js",
     "statementMap": {
       "0": {
         "start": {
@@ -13308,8 +14299,8 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 8,
+      "0": 18,
+      "1": 18,
       "2": 0,
       "3": 0
     },
@@ -13319,10 +14310,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "00341a9dab316abe4ec835136b643ef90bf27241"
+    "hash": "951156b7e934e966f116245c20884f2ee53308ad"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\DesignPositionPanel.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\DesignPositionPanel.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/DesignPositionPanel.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/DesignPositionPanel.js",
     "statementMap": {
       "0": {
         "start": {
@@ -13373,7 +14364,7 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0
     },
     "f": {
@@ -13381,10 +14372,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "bfee884e7404b4a89a211043f248a25e21110611"
+    "hash": "cb5890befe0e38d6e085edfb41f0a03f0170717c"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\CloudinaryWidget.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\CloudinaryWidget.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/CloudinaryWidget.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/CloudinaryWidget.js",
     "statementMap": {
       "0": {
         "start": {
@@ -13590,7 +14581,7 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -13612,10 +14603,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "11133afa6fe3b88446b2771ad7e477021384eb0a"
+    "hash": "525746d9e4181ff6a098aa1462337210a245f295"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\DesignHandler.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\DesignHandler.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/DesignHandler.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/DesignHandler.js",
     "statementMap": {
       "0": {
         "start": {
@@ -13811,7 +14802,7 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -13832,10 +14823,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "20e98bfca12c0f5ac9f5da87b3a3d5b3d05d13b0"
+    "hash": "a2806c3916cadbc4658873ee1bc6a919b6041f36"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\ThumbDisplay.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\ThumbDisplay.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/ThumbDisplay.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/ThumbDisplay.js",
     "statementMap": {
       "0": {
         "start": {
@@ -14109,7 +15100,7 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -14135,10 +15126,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "1fa997983e4670975f69fc4836bea0473700d05b"
+    "hash": "d564d7c39e6e0c51133711e901920752fbc4afe1"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\Swatch.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\Swatch.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/Swatch.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/Swatch.js",
     "statementMap": {
       "0": {
         "start": {
@@ -14287,13 +15278,13 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
-      "4": 8,
-      "5": 8,
-      "6": 8
+      "4": 18,
+      "5": 18,
+      "6": 18
     },
     "f": {
       "0": 0,
@@ -14302,10 +15293,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "8cb20f61a59fccff73e14f836621c3f8ed6abc94"
+    "hash": "51f3241bd4b66d0c9f1b50cc29c50a0b95c4edbc"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\scalableData.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\scalableData.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/scalableData.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/scalableData.js",
     "statementMap": {
       "0": {
         "start": {
@@ -14366,7 +15357,7 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0
     },
@@ -14375,10 +15366,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "3148e1d75e461601f40a24103c8a977de516b259"
+    "hash": "a9add3b345357b070be275f0e6621a83fb0a2d2e"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\DesignInputPanel.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\DesignInputPanel.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/DesignInputPanel.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/DesignInputPanel.js",
     "statementMap": {
       "0": {
         "start": {
@@ -14496,11 +15487,11 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
-      "3": 8,
-      "4": 8
+      "3": 18,
+      "4": 18
     },
     "f": {
       "0": 0
@@ -14512,10 +15503,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "253fef35441f00ae7166595d38708a8e692f74bb"
+    "hash": "aaa4443e892d9be7436759212f6cf74531c3ebfc"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\parseURL.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\parseURL.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/parseURL.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/parseURL.js",
     "statementMap": {
       "0": {
         "start": {
@@ -14919,10 +15910,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "51bbbc5ea0ca316a13608107c80737e6cb538c30"
+    "hash": "fa4e342c8823f0448b18c5e675a5f6a726bfbd61"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\HandleScalableMockup.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\HandleScalableMockup.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/HandleScalableMockup.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/HandleScalableMockup.js",
     "statementMap": {
       "0": {
         "start": {
@@ -15097,7 +16088,7 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -15116,10 +16107,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "e098c73ac5151922ac9d51ce459d04933e577ea1"
+    "hash": "be9d2ab847b8af4be82fbcdc696a1ac1544742fc"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\DesignShirt.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\DesignShirt.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/DesignShirt.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/DesignShirt.js",
     "statementMap": {
       "0": {
         "start": {
@@ -15214,10 +16205,10 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
-      "3": 8
+      "3": 18
     },
     "f": {
       "0": 0,
@@ -15225,10 +16216,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "c24eb595adf40eb8220fc92e8b850edc15a3c520"
+    "hash": "fc54ddcdc4e508dcac10cea41f3e21b8a64efae5"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Dashboard\\Styled.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Dashboard\\Styled.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Dashboard/Styled.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Dashboard/Styled.js",
     "statementMap": {
       "0": {
         "start": {
@@ -15484,39 +16475,39 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 8,
-      "3": 8,
-      "4": 8,
-      "5": 8,
-      "6": 8,
-      "7": 8,
-      "8": 8,
-      "9": 8,
-      "10": 8,
-      "11": 8,
-      "12": 8,
-      "13": 8,
-      "14": 8,
-      "15": 8,
-      "16": 8,
-      "17": 8,
-      "18": 8,
-      "19": 8,
-      "20": 8,
-      "21": 8,
-      "22": 8,
-      "23": 8,
-      "24": 8
+      "0": 18,
+      "1": 18,
+      "2": 18,
+      "3": 18,
+      "4": 18,
+      "5": 18,
+      "6": 18,
+      "7": 18,
+      "8": 18,
+      "9": 18,
+      "10": 18,
+      "11": 18,
+      "12": 18,
+      "13": 18,
+      "14": 18,
+      "15": 18,
+      "16": 18,
+      "17": 18,
+      "18": 18,
+      "19": 18,
+      "20": 18,
+      "21": 18,
+      "22": 18,
+      "23": 18,
+      "24": 18
     },
     "f": {},
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "69c573004e316969f97faa9994add52f3922efd2"
+    "hash": "685308c16ccdad054650b56f4d55427cc61df572"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Dashboard\\InventoryCard.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Dashboard\\InventoryCard.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Dashboard/InventoryCard.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Dashboard/InventoryCard.js",
     "statementMap": {
       "0": {
         "start": {
@@ -15990,7 +16981,7 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -16004,11 +16995,11 @@
       "11": 0,
       "12": 0,
       "13": 0,
-      "14": 8,
-      "15": 8,
-      "16": 8,
-      "17": 8,
-      "18": 8
+      "14": 18,
+      "15": 18,
+      "16": 18,
+      "17": 18,
+      "18": 18
     },
     "f": {
       "0": 0,
@@ -16029,10 +17020,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "53b72b5166cac19d75978ec1bd13283f0da55fd7"
+    "hash": "bb3023b1aafb35409abe766465e7d6b3c6ddc421"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Dashboard\\InventoryList.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Dashboard\\InventoryList.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Dashboard/InventoryList.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Dashboard/InventoryList.js",
     "statementMap": {
       "0": {
         "start": {
@@ -16322,39 +17313,39 @@
       }
     },
     "s": {
-      "0": 10,
-      "1": 10,
-      "2": 10,
-      "3": 4,
-      "4": 4,
-      "5": 3,
-      "6": 3,
-      "7": 3,
-      "8": 3,
-      "9": 3,
-      "10": 3,
-      "11": 4,
-      "12": 10,
+      "0": 16,
+      "1": 16,
+      "2": 16,
+      "3": 11,
+      "4": 11,
+      "5": 11,
+      "6": 11,
+      "7": 4,
+      "8": 4,
+      "9": 4,
+      "10": 2,
+      "11": 11,
+      "12": 16,
       "13": 0,
-      "14": 8
+      "14": 18
     },
     "f": {
-      "0": 10,
-      "1": 4,
-      "2": 4,
+      "0": 16,
+      "1": 11,
+      "2": 11,
       "3": 0
     },
     "b": {
       "0": [
-        10,
-        10
+        16,
+        16
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "4a370f78479ea1a019824af9ced0f108709ad629"
+    "hash": "759b80abfdac89dc5128f13254a6994352409dd0"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Dashboard\\Inventory.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Dashboard\\Inventory.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Dashboard/Inventory.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Dashboard/Inventory.js",
     "statementMap": {
       "0": {
         "start": {
@@ -16499,26 +17490,26 @@
     },
     "branchMap": {},
     "s": {
-      "0": 4,
+      "0": 11,
       "1": 0,
       "2": 0,
-      "3": 4,
-      "4": 8,
-      "5": 8,
-      "6": 8,
-      "7": 8,
-      "8": 8
+      "3": 11,
+      "4": 18,
+      "5": 18,
+      "6": 18,
+      "7": 18,
+      "8": 18
     },
     "f": {
-      "0": 4,
+      "0": 11,
       "1": 0
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "612d67727046a243730d99e42069f5ae26bbd321"
+    "hash": "f8dc0060f9098366d315d3522c2ef82d46e6a014"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Dashboard\\Settings.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Dashboard\\Settings.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Dashboard/Settings.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Dashboard/Settings.js",
     "statementMap": {
       "0": {
         "start": {
@@ -16530,244 +17521,274 @@
           "column": 2
         }
       },
-      "1": {
+      "2": {
         "start": {
           "line": 39,
           "column": 17
         },
         "end": {
-          "line": 150,
+          "line": 165,
           "column": 1
         }
       },
-      "2": {
+      "7": {
         "start": {
           "line": 41,
-          "column": 2
+          "column": 4
         },
         "end": {
           "line": 45,
-          "column": 3
+          "column": 5
         }
       },
-      "3": {
+      "8": {
         "start": {
           "line": 42,
-          "column": 4
+          "column": 6
         },
         "end": {
           "line": 42,
-          "column": 60
+          "column": 62
         }
       },
-      "4": {
+      "9": {
         "start": {
           "line": 44,
-          "column": 4
+          "column": 6
         },
         "end": {
           "line": 44,
-          "column": 65
+          "column": 67
         }
       },
       "5": {
         "start": {
           "line": 46,
-          "column": 18
+          "column": 20
         },
         "end": {
           "line": 46,
-          "column": 29
+          "column": 31
         }
       },
       "6": {
         "start": {
           "line": 47,
-          "column": 30
+          "column": 32
         },
         "end": {
           "line": 47,
-          "column": 42
+          "column": 44
         }
       },
       "7": {
         "start": {
           "line": 48,
-          "column": 36
+          "column": 38
         },
         "end": {
           "line": 48,
-          "column": 51
+          "column": 53
         }
       },
       "8": {
         "start": {
           "line": 49,
-          "column": 28
+          "column": 30
         },
         "end": {
           "line": 49,
-          "column": 40
+          "column": 42
         }
       },
       "9": {
         "start": {
-          "line": 51,
+          "line": 52,
           "column": 2
         },
         "end": {
-          "line": 78,
+          "line": 80,
           "column": 9
         }
       },
       "10": {
         "start": {
-          "line": 53,
+          "line": 54,
           "column": 20
         },
         "end": {
-          "line": 53,
+          "line": 54,
           "column": 63
         }
       },
       "11": {
         "start": {
-          "line": 57,
+          "line": 58,
           "column": 6
         },
         "end": {
-          "line": 66,
+          "line": 68,
           "column": 11
         }
       },
       "12": {
         "start": {
-          "line": 60,
+          "line": 61,
           "column": 10
         },
         "end": {
-          "line": 60,
+          "line": 61,
           "column": 52
         }
       },
       "13": {
         "start": {
-          "line": 61,
+          "line": 62,
           "column": 10
         },
         "end": {
-          "line": 65,
+          "line": 67,
           "column": 11
         }
       },
       "14": {
         "start": {
-          "line": 62,
+          "line": 63,
           "column": 12
         },
         "end": {
-          "line": 62,
+          "line": 63,
           "column": 52
         }
       },
       "15": {
         "start": {
-          "line": 63,
+          "line": 64,
           "column": 12
         },
         "end": {
-          "line": 63,
+          "line": 64,
           "column": 31
         }
       },
       "16": {
         "start": {
-          "line": 64,
+          "line": 66,
           "column": 12
         },
         "end": {
-          "line": 64,
+          "line": 66,
           "column": 75
         }
       },
       "17": {
         "start": {
-          "line": 68,
+          "line": 70,
           "column": 18
         },
         "end": {
-          "line": 68,
+          "line": 70,
           "column": 79
         }
       },
       "18": {
         "start": {
-          "line": 70,
+          "line": 72,
           "column": 6
         },
         "end": {
-          "line": 70,
+          "line": 72,
           "column": 23
         }
       },
       "19": {
         "start": {
-          "line": 72,
+          "line": 74,
           "column": 21
         },
         "end": {
-          "line": 72,
+          "line": 74,
           "column": 47
         }
       },
       "20": {
         "start": {
-          "line": 73,
+          "line": 75,
           "column": 19
         },
         "end": {
-          "line": 73,
+          "line": 75,
           "column": 73
         }
       },
       "21": {
         "start": {
-          "line": 74,
+          "line": 76,
           "column": 6
         },
         "end": {
-          "line": 74,
+          "line": 76,
           "column": 24
         }
       },
       "22": {
         "start": {
-          "line": 75,
+          "line": 77,
           "column": 6
         },
         "end": {
-          "line": 75,
+          "line": 77,
           "column": 37
         }
       },
       "23": {
         "start": {
-          "line": 77,
+          "line": 79,
           "column": 4
         },
         "end": {
-          "line": 77,
+          "line": 79,
           "column": 14
         }
       },
       "24": {
         "start": {
-          "line": 80,
+          "line": 82,
           "column": 2
         },
         "end": {
-          "line": 149,
+          "line": 164,
           "column": 4
+        }
+      },
+      "25": {
+        "start": {
+          "line": 102,
+          "column": 20
+        },
+        "end": {
+          "line": 102,
+          "column": 62
+        }
+      },
+      "26": {
+        "start": {
+          "line": 103,
+          "column": 20
+        },
+        "end": {
+          "line": 103,
+          "column": 49
+        }
+      },
+      "27": {
+        "start": {
+          "line": 104,
+          "column": 20
+        },
+        "end": {
+          "line": 104,
+          "column": 61
         }
       }
     },
@@ -16790,7 +17811,7 @@
             "column": 23
           },
           "end": {
-            "line": 150,
+            "line": 165,
             "column": 1
           }
         },
@@ -16800,73 +17821,97 @@
         "name": "(anonymous_1)",
         "decl": {
           "start": {
-            "line": 51,
+            "line": 52,
             "column": 12
           },
           "end": {
-            "line": 51,
+            "line": 52,
             "column": 13
           }
         },
         "loc": {
           "start": {
-            "line": 51,
+            "line": 52,
             "column": 18
           },
           "end": {
-            "line": 78,
+            "line": 80,
             "column": 3
           }
         },
-        "line": 51
+        "line": 52
       },
       "2": {
         "name": "getInfo",
         "decl": {
           "start": {
-            "line": 52,
+            "line": 53,
             "column": 19
           },
           "end": {
-            "line": 52,
+            "line": 53,
             "column": 26
           }
         },
         "loc": {
           "start": {
-            "line": 52,
+            "line": 53,
             "column": 29
           },
           "end": {
-            "line": 76,
+            "line": 78,
             "column": 5
           }
         },
-        "line": 52
+        "line": 53
       },
       "3": {
         "name": "(anonymous_3)",
         "decl": {
           "start": {
-            "line": 59,
+            "line": 60,
             "column": 14
           },
           "end": {
-            "line": 59,
+            "line": 60,
             "column": 15
           }
         },
         "loc": {
           "start": {
-            "line": 59,
+            "line": 60,
             "column": 23
           },
           "end": {
-            "line": 66,
+            "line": 68,
             "column": 9
           }
         },
-        "line": 59
+        "line": 60
+      },
+      "4": {
+        "name": "(anonymous_4)",
+        "decl": {
+          "start": {
+            "line": 101,
+            "column": 27
+          },
+          "end": {
+            "line": 101,
+            "column": 28
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 101,
+            "column": 31
+          },
+          "end": {
+            "line": 105,
+            "column": 19
+          }
+        },
+        "line": 101
       }
     },
     "branchMap": {
@@ -16874,11 +17919,11 @@
         "loc": {
           "start": {
             "line": 41,
-            "column": 2
+            "column": 4
           },
           "end": {
             "line": 45,
-            "column": 3
+            "column": 5
           }
         },
         "type": "if",
@@ -16886,21 +17931,21 @@
           {
             "start": {
               "line": 41,
-              "column": 2
+              "column": 4
             },
             "end": {
               "line": 45,
-              "column": 3
+              "column": 5
             }
           },
           {
             "start": {
               "line": 41,
-              "column": 2
+              "column": 4
             },
             "end": {
               "line": 45,
-              "column": 3
+              "column": 5
             }
           }
         ],
@@ -16909,11 +17954,11 @@
       "1": {
         "loc": {
           "start": {
-            "line": 61,
+            "line": 62,
             "column": 10
           },
           "end": {
-            "line": 65,
+            "line": 67,
             "column": 11
           }
         },
@@ -16921,36 +17966,36 @@
         "locations": [
           {
             "start": {
-              "line": 61,
+              "line": 62,
               "column": 10
             },
             "end": {
-              "line": 65,
+              "line": 67,
               "column": 11
             }
           },
           {
             "start": {
-              "line": 61,
+              "line": 62,
               "column": 10
             },
             "end": {
-              "line": 65,
+              "line": 67,
               "column": 11
             }
           }
         ],
-        "line": 61
+        "line": 62
       },
       "2": {
         "loc": {
           "start": {
             "line": 90,
-            "column": 18
+            "column": 13
           },
           "end": {
-            "line": 92,
-            "column": 48
+            "line": 110,
+            "column": 13
           }
         },
         "type": "cond-expr",
@@ -16958,7 +18003,7 @@
           {
             "start": {
               "line": 91,
-              "column": 22
+              "column": 14
             },
             "end": {
               "line": 91,
@@ -16967,12 +18012,12 @@
           },
           {
             "start": {
-              "line": 92,
-              "column": 22
+              "line": 93,
+              "column": 14
             },
             "end": {
-              "line": 92,
-              "column": 48
+              "line": 109,
+              "column": 21
             }
           }
         ],
@@ -16981,11 +18026,83 @@
       "3": {
         "loc": {
           "start": {
-            "line": 90,
+            "line": 115,
+            "column": 13
+          },
+          "end": {
+            "line": 119,
+            "column": 13
+          }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 116,
+              "column": 14
+            },
+            "end": {
+              "line": 116,
+              "column": 76
+            }
+          },
+          {
+            "start": {
+              "line": 118,
+              "column": 14
+            },
+            "end": {
+              "line": 118,
+              "column": 55
+            }
+          }
+        ],
+        "line": 115
+      },
+      "4": {
+        "loc": {
+          "start": {
+            "line": 132,
             "column": 18
           },
           "end": {
-            "line": 90,
+            "line": 134,
+            "column": 48
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 133,
+              "column": 22
+            },
+            "end": {
+              "line": 133,
+              "column": 52
+            }
+          },
+          {
+            "start": {
+              "line": 134,
+              "column": 22
+            },
+            "end": {
+              "line": 134,
+              "column": 48
+            }
+          }
+        ],
+        "line": 132
+      },
+      "5": {
+        "loc": {
+          "start": {
+            "line": 132,
+            "column": 18
+          },
+          "end": {
+            "line": 132,
             "column": 43
           }
         },
@@ -16993,179 +18110,107 @@
         "locations": [
           {
             "start": {
-              "line": 90,
+              "line": 132,
               "column": 18
             },
             "end": {
-              "line": 90,
+              "line": 132,
               "column": 27
             }
           },
           {
             "start": {
-              "line": 90,
+              "line": 132,
               "column": 31
             },
             "end": {
-              "line": 90,
+              "line": 132,
               "column": 43
             }
           }
         ],
-        "line": 90
+        "line": 132
       },
-      "4": {
+      "6": {
         "loc": {
           "start": {
-            "line": 96,
+            "line": 138,
             "column": 17
           },
           "end": {
-            "line": 96,
-            "column": 68
+            "line": 138,
+            "column": 65
           }
         },
         "type": "cond-expr",
         "locations": [
           {
             "start": {
-              "line": 96,
+              "line": 138,
               "column": 45
             },
             "end": {
-              "line": 96,
+              "line": 138,
               "column": 53
             }
           },
           {
             "start": {
-              "line": 96,
+              "line": 138,
               "column": 56
             },
             "end": {
-              "line": 96,
-              "column": 68
+              "line": 138,
+              "column": 65
             }
           }
         ],
-        "line": 96
+        "line": 138
       },
-      "5": {
+      "7": {
         "loc": {
           "start": {
-            "line": 96,
+            "line": 138,
             "column": 17
           },
           "end": {
-            "line": 96,
+            "line": 138,
             "column": 42
           }
         },
-        "type": "binary-expr",
+        "type": "cond-expr",
         "locations": [
           {
             "start": {
-              "line": 96,
+              "line": 138,
               "column": 17
             },
             "end": {
-              "line": 96,
+              "line": 138,
               "column": 26
             }
           },
           {
             "start": {
-              "line": 96,
+              "line": 138,
               "column": 30
             },
             "end": {
-              "line": 96,
+              "line": 138,
               "column": 42
             }
           }
         ],
-        "line": 96
-      },
-      "6": {
-        "loc": {
-          "start": {
-            "line": 104,
-            "column": 13
-          },
-          "end": {
-            "line": 124,
-            "column": 13
-          }
-        },
-        "type": "cond-expr",
-        "locations": [
-          {
-            "start": {
-              "line": 105,
-              "column": 14
-            },
-            "end": {
-              "line": 121,
-              "column": 30
-            }
-          },
-          {
-            "start": {
-              "line": 123,
-              "column": 14
-            },
-            "end": {
-              "line": 123,
-              "column": 55
-            }
-          }
-        ],
-        "line": 104
-      },
-      "7": {
-        "loc": {
-          "start": {
-            "line": 106,
-            "column": 17
-          },
-          "end": {
-            "line": 120,
-            "column": 17
-          }
-        },
-        "type": "cond-expr",
-        "locations": [
-          {
-            "start": {
-              "line": 107,
-              "column": 18
-            },
-            "end": {
-              "line": 107,
-              "column": 55
-            }
-          },
-          {
-            "start": {
-              "line": 109,
-              "column": 18
-            },
-            "end": {
-              "line": 119,
-              "column": 25
-            }
-          }
-        ],
-        "line": 106
+        "line": 138
       },
       "8": {
         "loc": {
           "start": {
-            "line": 128,
+            "line": 144,
             "column": 13
           },
           "end": {
-            "line": 142,
+            "line": 159,
             "column": 13
           }
         },
@@ -17173,104 +18218,108 @@
         "locations": [
           {
             "start": {
-              "line": 129,
+              "line": 145,
               "column": 14
             },
             "end": {
-              "line": 129,
+              "line": 145,
               "column": 54
             }
           },
           {
             "start": {
-              "line": 131,
+              "line": 147,
               "column": 14
             },
             "end": {
-              "line": 141,
+              "line": 158,
               "column": 21
             }
           }
         ],
-        "line": 128
+        "line": 144
       }
     },
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 7,
-      "3": 7,
+      "0": 18,
+      "1": 18,
+      "2": 18,
+      "3": 18,
       "4": 0,
-      "5": 7,
-      "6": 7,
-      "7": 7,
-      "8": 7,
-      "9": 7,
-      "10": 4,
-      "11": 4,
-      "12": 3,
-      "13": 3,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 4,
-      "18": 3,
-      "19": 3,
-      "20": 3,
-      "21": 3,
-      "22": 3,
-      "23": 4,
-      "24": 7
+      "5": 18,
+      "6": 18,
+      "7": 18,
+      "8": 18,
+      "9": 18,
+      "10": 11,
+      "11": 11,
+      "12": 7,
+      "13": 7,
+      "14": 3,
+      "15": 3,
+      "16": 3,
+      "17": 11,
+      "18": 7,
+      "19": 7,
+      "20": 7,
+      "21": 2,
+      "22": 2,
+      "23": 11,
+      "24": 18,
+      "25": 1,
+      "26": 1,
+      "27": 1
     },
     "f": {
-      "0": 7,
-      "1": 4,
-      "2": 4,
-      "3": 3
+      "0": 18,
+      "1": 11,
+      "2": 11,
+      "3": 7,
+      "4": 1
     },
     "b": {
       "0": [
-        7,
+        18,
         0
       ],
       "1": [
-        0,
-        3
-      ],
-      "2": [
-        0,
-        7
-      ],
-      "3": [
-        7,
-        0
-      ],
-      "4": [
-        0,
-        7
-      ],
-      "5": [
-        7,
-        0
-      ],
-      "6": [
-        0,
-        7
-      ],
-      "7": [
-        0,
-        0
-      ],
-      "8": [
         3,
         4
+      ],
+      "2": [
+        4,
+        14
+      ],
+      "3": [
+        4,
+        14
+      ],
+      "4": [
+        1,
+        17
+      ],
+      "5": [
+        18,
+        4
+      ],
+      "6": [
+        1,
+        17
+      ],
+      "7": [
+        18,
+        4
+      ],
+      "8": [
+        1,
+        17
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "ff4e325014cdc4a7fb6af1bcf9b17c7e90ef9d79"
+    "hash": "cfea45ac012a99b876820f6831b059c58a7bf5d3"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Dashboard\\Dashboard.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Dashboard\\Dashboard.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Dashboard/Dashboard.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Dashboard/Dashboard.js",
     "statementMap": {
       "0": {
         "start": {
@@ -17510,34 +18559,34 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 4,
-      "2": 4,
-      "3": 4,
-      "4": 4,
-      "5": 4,
-      "6": 3,
-      "7": 3,
-      "8": 0,
-      "9": 4
+      "0": 18,
+      "1": 11,
+      "2": 11,
+      "3": 11,
+      "4": 11,
+      "5": 11,
+      "6": 2,
+      "7": 2,
+      "8": 6,
+      "9": 11
     },
     "f": {
-      "0": 4,
-      "1": 4,
-      "2": 3,
-      "3": 0
+      "0": 11,
+      "1": 11,
+      "2": 2,
+      "3": 6
     },
     "b": {
       "0": [
-        3,
+        2,
         0
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "82886d3d8f6a94f4675d0c081f041e975b53382d"
+    "hash": "a91d9c661b40cfad0069e4b5ba966cb083785c05"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\LearnMore.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\LearnMore.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/LearnMore.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/LearnMore.js",
     "statementMap": {
       "0": {
         "start": {
@@ -17792,26 +18841,26 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 8,
-      "3": 8,
-      "4": 8,
-      "5": 8,
-      "6": 8,
-      "7": 8,
-      "8": 8,
-      "9": 8,
-      "10": 8,
-      "11": 8,
-      "12": 8,
-      "13": 8,
-      "14": 8,
-      "15": 8,
-      "16": 8,
+      "0": 18,
+      "1": 18,
+      "2": 18,
+      "3": 18,
+      "4": 18,
+      "5": 18,
+      "6": 18,
+      "7": 18,
+      "8": 18,
+      "9": 18,
+      "10": 18,
+      "11": 18,
+      "12": 18,
+      "13": 18,
+      "14": 18,
+      "15": 18,
+      "16": 18,
       "17": 0,
       "18": 0,
-      "19": 8
+      "19": 18
     },
     "f": {
       "0": 0,
@@ -17819,10 +18868,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "147841cccb8760030b403572fd0de2acf17ac023"
+    "hash": "f974ca4a2f586871cf056641565bb7b9acc19030"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Onboarding\\Styled.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Onboarding\\Styled.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Onboarding/Styled.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Onboarding/Styled.js",
     "statementMap": {
       "0": {
         "start": {
@@ -18078,39 +19127,39 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 8,
-      "3": 8,
-      "4": 8,
-      "5": 8,
-      "6": 8,
-      "7": 8,
-      "8": 8,
-      "9": 8,
-      "10": 8,
-      "11": 8,
-      "12": 8,
-      "13": 8,
-      "14": 8,
-      "15": 8,
-      "16": 8,
-      "17": 8,
-      "18": 8,
-      "19": 8,
-      "20": 8,
-      "21": 8,
-      "22": 8,
-      "23": 8,
-      "24": 8
+      "0": 18,
+      "1": 18,
+      "2": 18,
+      "3": 18,
+      "4": 18,
+      "5": 18,
+      "6": 18,
+      "7": 18,
+      "8": 18,
+      "9": 18,
+      "10": 18,
+      "11": 18,
+      "12": 18,
+      "13": 18,
+      "14": 18,
+      "15": 18,
+      "16": 18,
+      "17": 18,
+      "18": 18,
+      "19": 18,
+      "20": 18,
+      "21": 18,
+      "22": 18,
+      "23": 18,
+      "24": 18
     },
     "f": {},
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "7d7c5a3838351712266d47f8893ebf0e28ca72ca"
+    "hash": "5eee3946ce28fdbc4f01bcfa074281e43920d4b3"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\utils\\makeAccount.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\utils\\makeAccount.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/utils/makeAccount.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/utils/makeAccount.js",
     "statementMap": {
       "0": {
         "start": {
@@ -18221,24 +19270,24 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0
+      "0": 18,
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 2,
+      "5": 2,
+      "6": 32,
+      "7": 2
     },
     "f": {
-      "0": 0
+      "0": 2
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "890862723ea25776ffee75248fada777126df5da"
+    "hash": "c8231e31c9120adbeca480168a98837414c7edb0"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Onboarding\\StripeConnect.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Onboarding\\StripeConnect.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Onboarding/StripeConnect.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Onboarding/StripeConnect.js",
     "statementMap": {
       "0": {
         "start": {
@@ -18922,7 +19971,7 @@
         ],
         "line": 36
       },
-      "1": {
+      "3": {
         "loc": {
           "start": {
             "line": 58,
@@ -18958,7 +20007,7 @@
         ],
         "line": 58
       },
-      "2": {
+      "4": {
         "loc": {
           "start": {
             "line": 80,
@@ -18969,7 +20018,7 @@
             "column": 3
           }
         },
-        "type": "if",
+        "type": "binary-expr",
         "locations": [
           {
             "start": {
@@ -18994,7 +20043,7 @@
         ],
         "line": 80
       },
-      "3": {
+      "5": {
         "loc": {
           "start": {
             "line": 84,
@@ -19030,7 +20079,7 @@
         ],
         "line": 84
       },
-      "4": {
+      "6": {
         "loc": {
           "start": {
             "line": 116,
@@ -19120,7 +20169,7 @@
           },
           "end": {
             "line": 128,
-            "column": 69
+            "column": 92
           }
         },
         "type": "binary-expr",
@@ -19152,7 +20201,7 @@
             },
             "end": {
               "line": 128,
-              "column": 69
+              "column": 92
             }
           }
         ],
@@ -19288,113 +20337,113 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 8,
-      "3": 0,
-      "4": 8,
+      "0": 18,
+      "1": 18,
+      "2": 18,
+      "3": 7,
+      "4": 18,
       "5": 0,
       "6": 0,
       "7": 0,
-      "8": 8,
-      "9": 0,
-      "10": 0,
+      "8": 18,
+      "9": 4,
+      "10": 4,
       "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 8,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 8,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
+      "12": 4,
+      "13": 4,
+      "14": 4,
+      "15": 18,
+      "16": 2,
+      "17": 2,
+      "18": 2,
+      "19": 2,
+      "20": 2,
+      "21": 1,
+      "22": 1,
+      "23": 1,
+      "24": 1,
+      "25": 1,
+      "26": 18,
+      "27": 7,
+      "28": 7,
+      "29": 7,
+      "30": 7,
+      "31": 7,
+      "32": 7,
+      "33": 7,
+      "34": 7,
+      "35": 7,
       "36": 0,
-      "37": 0,
+      "37": 7,
       "38": 0,
       "39": 0,
       "40": 0,
       "41": 0,
       "42": 0,
-      "43": 0,
-      "44": 0
+      "43": 7,
+      "44": 21
     },
     "f": {
-      "0": 0,
+      "0": 7,
       "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
+      "2": 4,
+      "3": 2,
+      "4": 2,
+      "5": 7,
       "6": 0,
-      "7": 0
+      "7": 21
     },
     "b": {
       "0": [
-        0,
+        4,
         0
       ],
       "1": [
-        0,
-        0
+        1,
+        1
       ],
       "2": [
         0,
-        0
+        7
       ],
       "3": [
         0,
-        0
+        7
       ],
       "4": [
-        0,
-        0
+        7,
+        7
       ],
       "5": [
+        7,
         0,
-        0,
-        0
+        7
       ],
       "6": [
-        0,
-        0,
-        0
+        7,
+        7,
+        7
       ],
       "7": [
-        0,
+        7,
         0,
         0
       ],
       "8": [
-        0,
+        7,
         0,
         0
       ],
       "9": [
-        0,
+        7,
         0
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "6d5dbbc8df8c8b67cdfc53e38a481bdcd3d3db90"
+    "hash": "9de0b95e0576fd29ee4eeb8d4f33617720b99e57"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Onboarding\\StripeCTA.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Onboarding\\StripeCTA.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Onboarding/StripeCTA.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Onboarding/StripeCTA.js",
     "statementMap": {
       "0": {
         "start": {
@@ -19445,18 +20494,18 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 0
+      "0": 18,
+      "1": 54
     },
     "f": {
-      "0": 0
+      "0": 54
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "a0bfd85b336eae8975ad4862fd831507a605d737"
+    "hash": "b985c6cc5afd24998cbed7e1650ee3d3b2d50a9b"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Onboarding\\StripeSetup.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Onboarding\\StripeSetup.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Onboarding/StripeSetup.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Onboarding/StripeSetup.js",
     "statementMap": {
       "0": {
         "start": {
@@ -19507,18 +20556,18 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 0
+      "0": 18,
+      "1": 7
     },
     "f": {
-      "0": 0
+      "0": 7
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "b07c09fdc5ccfb7590f540fcaa079445592d5320"
+    "hash": "94cf8e83ca2d1743b25182162fea1588694a27bc"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Redirect.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Redirect.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Redirect.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Redirect.js",
     "statementMap": {
       "0": {
         "start": {
@@ -19866,7 +20915,7 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -19902,10 +20951,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "f85984ee6a0877cbf731eeff5e62d15214157b74"
+    "hash": "11e672062b012bba17769dae03d4f5ad97026263"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Onboarding\\CreateStore.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Onboarding\\CreateStore.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Onboarding/CreateStore.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Onboarding/CreateStore.js",
     "statementMap": {
       "0": {
         "start": {
@@ -20563,66 +21612,66 @@
       }
     },
     "s": {
-      "0": 0,
-      "1": 8,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
+      "0": 47,
+      "1": 18,
+      "2": 9,
+      "3": 47,
+      "4": 47,
+      "5": 47,
+      "6": 47,
+      "7": 47,
+      "8": 47,
+      "9": 47,
+      "10": 32,
+      "11": 32,
+      "12": 47,
+      "13": 32,
+      "14": 32,
+      "15": 32,
+      "16": 47,
+      "17": 47,
+      "18": 47,
+      "19": 3,
+      "20": 3,
+      "21": 3,
+      "22": 3,
+      "23": 3,
+      "24": 3,
       "25": 0,
       "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 8,
-      "33": 0,
-      "34": 0
+      "27": 47,
+      "28": 6,
+      "29": 6,
+      "30": 47,
+      "31": 141,
+      "32": 18,
+      "33": 9,
+      "34": 9
     },
     "f": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
+      "0": 47,
+      "1": 9,
+      "2": 47,
+      "3": 32,
+      "4": 32,
+      "5": 3,
+      "6": 3,
       "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0
+      "8": 6,
+      "9": 141,
+      "10": 9
     },
     "b": {
       "0": [
-        0,
+        47,
         0
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "87093e110f0a72a640cdf3af205bcbff304b568b"
+    "hash": "06b4b9732429b5818d458177f192bafda3669697"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\AddProduct.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\AddProduct.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/AddProduct.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/AddProduct.js",
     "statementMap": {
       "0": {
         "start": {
@@ -20902,7 +21951,7 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -20930,10 +21979,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "f05d4dcf84abb5454e269627b2fc1c8db7f0dcf2"
+    "hash": "bb6d663a3914ec1822e242719e1773af8acc2546"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Component-Styles\\addProduct-styles.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Component-Styles\\addProduct-styles.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Component-Styles/addProduct-styles.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Component-Styles/addProduct-styles.js",
     "statementMap": {
       "0": {
         "start": {
@@ -20949,15 +21998,15 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 8
+      "0": 18
     },
     "f": {},
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "4fa60f40bfba5d6e461882e9dd71cc070e5230c1"
+    "hash": "bb3ddb32c1ae988a2fb1139ffb7067174c0f41b4"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\AddProductToTable.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\AddProductToTable.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/AddProductToTable.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/AddProductToTable.js",
     "statementMap": {
       "0": {
         "start": {
@@ -21593,8 +22642,8 @@
       }
     },
     "s": {
-      "0": 8,
-      "1": 8,
+      "0": 18,
+      "1": 18,
       "2": 0,
       "3": 0,
       "4": 0,
@@ -21650,10 +22699,10 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "8e64d4bad3c7bf281da085c6d0f0013689b7ca22"
+    "hash": "dd49e97892f3e56ebf6896bba7adc918b2384330"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\initialShirtState.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Shirt\\initialShirtState.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/initialShirtState.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Shirt/initialShirtState.js",
     "statementMap": {
       "0": {
         "start": {
@@ -21669,15 +22718,15 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 8
+      "0": 18
     },
     "f": {},
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "dfc672f880f28badde3fd584b80c747c5d2f6f96"
+    "hash": "02e13e5179905ff644ccee36a1c76a1092a04c03"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Cart\\ShippingAddress.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\components\\Cart\\ShippingAddress.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Cart/ShippingAddress.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/components/Cart/ShippingAddress.js",
     "statementMap": {
       "0": {
         "start": {
@@ -21940,7 +22989,7 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -21955,7 +23004,7 @@
       "12": 0,
       "13": 0,
       "14": 0,
-      "15": 8
+      "15": 18
     },
     "f": {
       "0": 0,
@@ -21965,10 +23014,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "ad4fbfbfc138775c7941873394db0dcf83ae604f"
+    "hash": "ea34d85ff1385baa653941921df69d261f1c779d"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\App.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\App.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/App.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/App.js",
     "statementMap": {
       "0": {
         "start": {
@@ -22185,18 +23234,18 @@
     },
     "branchMap": {},
     "s": {
-      "0": 8,
-      "1": 8,
-      "2": 8,
-      "3": 8,
-      "4": 8,
+      "0": 18,
+      "1": 18,
+      "2": 18,
+      "3": 18,
+      "4": 18,
       "5": 0,
       "6": 0,
       "7": 0,
       "8": 0
     },
     "f": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -22204,10 +23253,10 @@
     },
     "b": {},
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "cb7c65d5bc15c37d04581e7137ba2fdf51d0417b"
+    "hash": "8e356deb6571115f378b4afa7c6b229e3bd65cd4"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\serviceWorker.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\serviceWorker.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/serviceWorker.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/serviceWorker.js",
     "statementMap": {
       "0": {
         "start": {
@@ -23515,7 +24564,7 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
       "2": 0,
       "3": 0,
@@ -23550,8 +24599,8 @@
       "32": 0,
       "33": 0,
       "34": 0,
-      "35": 8,
-      "36": 8,
+      "35": 18,
+      "36": 18,
       "37": 0
     },
     "f": {
@@ -23568,12 +24617,12 @@
       "10": 0,
       "11": 0,
       "12": 0,
-      "13": 8,
+      "13": 18,
       "14": 0
     },
     "b": {
       "0": [
-        8,
+        18,
         0,
         0
       ],
@@ -23631,15 +24680,15 @@
         0
       ],
       "14": [
-        8,
+        18,
         0
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "2a26ee63974c4302dc789da3fd90b05f51f8bbcb"
+    "hash": "76d8b335008d4f7b45e4d792eddb58d98397d9b8"
   },
-  "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\index.js": {
-    "path": "C:\\Users\\zakad\\sites\\Merch-Dropper-fe\\merch-dropper\\src\\index.js",
+  "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/index.js": {
+    "path": "/Users/lturner/Lambda/Labs/Merch-Dropper-fe/merch-dropper/src/index.js",
     "statementMap": {
       "0": {
         "start": {
@@ -23783,10 +24832,10 @@
       }
     },
     "s": {
-      "0": 8,
+      "0": 18,
       "1": 0,
-      "2": 8,
-      "3": 8
+      "2": 18,
+      "3": 18
     },
     "f": {
       "0": 0
@@ -23802,6 +24851,6 @@
       ]
     },
     "_coverageSchema": "43e27e138ebf9cfc5966b082cf9a028302ed4184",
-    "hash": "53b95acc96bdd6b540978dbe6a1ab636554f26e0"
+    "hash": "ed0984045589903599a5778f923a75d914d93d4c"
   }
 }

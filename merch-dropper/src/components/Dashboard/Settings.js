@@ -80,66 +80,63 @@ const Settings = () => {
   return (
     <SettingsContainer>
       <SettingsH2>Storefront Settings</SettingsH2>
-      
-          <StorefrontStatusConainer>
-            <StorefrontStatusTitle>Status:</StorefrontStatusTitle>
-            <StorefrontStatusInner>
-              <StorefrontStatusDot
-                style={
-                  connected && store !== ""
-                    ? { backgroundColor: "#28E13B" }
-                    : { backgroundColor: "red" }
-                }
-              />
-              <StorefrontStatus>
-                {connected && store !== "" ? "Online" : "Incomplete"}
-              </StorefrontStatus>
-            </StorefrontStatusInner>
-          </StorefrontStatusConainer>
-          <AccountContainer>
-            <AccountTitle>Stripe Account:</AccountTitle>
-            {connected ? (
-              <AccountNumber>
-                {connected ? (
-                  <StripeStatus>{stripe}</StripeStatus>
-                ) : (
-                  <Link to="/stripe-setup">
-                    <Button
-                      color="primary"
-                      size="large"
-                      classes={{
-                        root: classes.root,
-                      }}
-                    >
-                      Connect to Stripe
-                    </Button>
-                  </Link>
-                )}
-              </AccountNumber>
-            ) : (
-              <AccountNumber>No Account</AccountNumber>
-            )}
-          </AccountContainer>
-          <StorefrontNameContainer>
-            <StorefrontTitle>Store Name:</StorefrontTitle>
-            {store ? (
-              <StorefrontName>{store}</StorefrontName>
-            ) : (
-              <Link to="/createstore">
-                <Button
-                  color="primary"
-                  size="large"
-                  classes={{
-                    root: classes.root,
-                  }}
-                >
-                  Create Store
-                </Button>
-              </Link>
-            )}
-          </StorefrontNameContainer>
 
-        <Divider />
+      <StorefrontStatusConainer>
+        <StorefrontStatusTitle>Status:</StorefrontStatusTitle>
+        <StorefrontStatusInner>
+          <StorefrontStatusDot
+            style={
+              connected && store !== ""
+                ? { backgroundColor: "#28E13B" }
+                : { backgroundColor: "red" }
+            }
+          />
+          <StorefrontStatus>
+            {connected && store !== "" ? "Online" : "Incomplete"}
+          </StorefrontStatus>
+        </StorefrontStatusInner>
+      </StorefrontStatusConainer>
+      <AccountContainer>
+        <AccountTitle>Stripe Account Number:</AccountTitle>
+        {connected ? (
+          <AccountNumber className="stripeaccount">{stripe}</AccountNumber>
+        ) : (
+          <AccountNumber className="stripeaccount">
+            <Link
+              className="stripe-cta"
+              onClick={() => {
+                localStorage.setItem("fromSettings", true);
+                history.push("/stripe-setup");
+                window.location.replace(connectStripeURL);
+              }}
+              to="/stripe-setup"
+            >
+              Connect Stripe
+            </Link>
+          </AccountNumber>
+        )}
+      </AccountContainer>
+      <StorefrontNameContainer>
+        <StorefrontTitle>Store Name:</StorefrontTitle>
+        {store ? (
+          <StorefrontName>{store}</StorefrontName>
+        ) : (
+          <Link to="/createstore">
+            <Button
+              className="store-cta"
+              color="primary"
+              size="large"
+              classes={{
+                root: classes.root,
+              }}
+            >
+              Create Store
+            </Button>
+          </Link>
+        )}
+      </StorefrontNameContainer>
+
+      <Divider />
     </SettingsContainer>
   );
 };

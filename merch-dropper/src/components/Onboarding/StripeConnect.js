@@ -125,7 +125,7 @@ const StripeConnect = () => {
       }
       {   //For connecting to a faked stripe account (will not be active)
         (!queryString && process.env.REACT_APP_BASE_URL === "development") &&
-        <button onClick={DevStripeConnect}>Connect 4 Develop</button>
+        <button className='dev-stripe' onClick={DevStripeConnect}>Connect 4 Develop</button>
       }
       {queryString && stripeConnected && (
         <ConnectionMessage>Connection was successful!</ConnectionMessage>

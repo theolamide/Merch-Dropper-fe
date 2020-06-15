@@ -136,7 +136,7 @@ function CreateStore({ history }) {
             </>
           )}
         </URLPreviewDiv>
-        <CreateStoreButton type="submit">Create store</CreateStoreButton>
+        <CreateStoreButton className='create-store' type="submit">Create store</CreateStoreButton>
         <SkipCreateStoreButton onClick={skipToDashboard}>
           Skip for now
         </SkipCreateStoreButton>
