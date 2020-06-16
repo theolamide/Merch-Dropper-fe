@@ -99,6 +99,9 @@ const NavBar = ({ hidden, history, location }) => {
         imgStyle={imgStyle}
         logoutWithRedirect={logoutWithRedirect}
         customLogin={customLogin}
+        customSignup={customSignup}
+        inDevelop={inDevelop}
+        history={history}
       />
     );
   }
