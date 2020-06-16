@@ -35,8 +35,7 @@ export const useStyles = makeStyles((theme) => ({
 
     BrandLogo: {
         cursor: "pointer",
-        width: 49,
-        height: 58, 
+        height: 80,
     },
 
     BrandTitle: {

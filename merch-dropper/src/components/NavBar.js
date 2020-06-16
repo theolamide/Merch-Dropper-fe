@@ -206,8 +206,6 @@ const NavBar = ({ hidden, history, location }) => {
             alt="merch-dropper logo"
             onClick={homepageRedirect}
           />
-
-          <h2 className={classes.BrandTitle}>Merch Dropper</h2>
         </div>
         <div className={classes.CartAndHamWrapper}>
           <button
@@ -229,7 +227,6 @@ const NavBar = ({ hidden, history, location }) => {
             src={logo}
             alt="merch-dropper logo"
           />
-          <h2 className={classes.BrandTitle}>Merch Dropper</h2>
         </div>
 
         <Nav />
