@@ -32,7 +32,7 @@ const NavBar = ({ hidden, history, location }) => {
     localStorage.removeItem("id");
     localStorage.removeItem("store_name");
     localStorage.removeItem("storeID");
-    localStorage.removeItem("fromSettings")
+    localStorage.removeItem("fromSettings");
     logout({
       returnTo: window.location.origin,
     });
@@ -108,17 +108,27 @@ const NavBar = ({ hidden, history, location }) => {
       return (
         <nav className={classes.ButtonWrapper}>
           {window.location.pathname === `/${store_name}` ? (
-            <Link
-              to="/dashboard"
-              className={classes.links}
-              style={
-                pathname === "/dashboard"
-                  ? { fontWeight: 700 }
-                  : { fontWeight: 500 }
-              }
-            >
-              Dashboard
-            </Link>
+            <>
+              <Link
+                to="/dashboard"
+                className={classes.links}
+                style={
+                  pathname === "/dashboard"
+                    ? { fontWeight: 700 }
+                    : { fontWeight: 500 }
+                }
+              >
+                Dashboard
+              </Link>
+              <span
+                className={classes.links}
+                onClick={logoutWithRedirect}
+                style={{ marginLeft: "32px" }}
+              >
+                Logout
+              </span>
+              <CartIcon />
+            </>
           ) : (
             <>
               {store_name ? (
@@ -126,16 +136,15 @@ const NavBar = ({ hidden, history, location }) => {
                   Your Store
                 </Link>
               ) : null}{" "}
+              <span
+                className={classes.links}
+                onClick={logoutWithRedirect}
+                style={{ marginLeft: "32px" }}
+              >
+                Logout
+              </span>
             </>
           )}
-
-          <span
-            className={classes.links}
-            onClick={logoutWithRedirect}
-            style={{ marginLeft: "32px" }}
-          >
-            Logout
-          </span>
         </nav>
       );
     } else if (domain_name === pathname.substr(1).split("/")[0]) {
