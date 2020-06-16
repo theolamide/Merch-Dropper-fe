@@ -84,7 +84,7 @@ export const QuoteReducer = (state = initialQuoteState, action) => {
                 ...state,
                 quote: action.payload,
                 isFetching: false,
-                isReadyToMount: false
+                isReadyToMount: true
                 
             };
         case GET_QUOTE_FAILURE:

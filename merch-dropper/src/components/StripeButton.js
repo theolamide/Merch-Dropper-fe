@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
 import { useSelector } from 'react-redux';
 import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
 import { axiosWithEnv } from "../utils/axiosWithEnv";
+import QuoteError from "./Modals/QuoteError";
 
 const StripeCheckoutButton = ({ price, domain, history }) => {
+  const [errorModal, setErrorModal] = useState(false)
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_BMXGPoL1peDqHyy42iFEoAMg00l0M6PNex";
   //const publishableKey = 'pk_live_3zwsNFDgIC2nJd4h7F9Y5K8s00exa06IRd'; //Uncomment this line for when stripe is collecting Live payments. Make sure to also change the environment variable on the Backend to the Live key.
@@ -16,11 +18,15 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
       "Content-Type": "application/json"
     }
   };
+
   // grabs the orderToken to complete payment process and send to backend calculate application fee
   const tokenSelector = useSelector(state => state.QuoteReducer.quote)
   const onToken = token => {
     token.domain_name = domain;
     token.orderToken = tokenSelector.quote.orderToken;
+    if(!token.orderToken){
+      setErrorModal(true)
+    }
     axiosWithEnv()
       .post("/api/payments", {
         amount: priceForStripe,
@@ -39,21 +45,23 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
   };
 
   return (
-    // add ternary here to protect buyers from clicking on button before ordertoken is ready
-    <StripeCheckout
-      label="Finish Checkout"
-      name="MerchDropper"
-      billingAddress={true}
-      shippingAddress={false}
-      zipCode={true}
-      currency='USD'
-      image={`${MerchDropperLogo}`} // might be cause of 400 stripe bug
-      description={`Your total is $${price}`}
-      amount={priceForStripe}
-      panelLabel="Pay Now"
-      token={onToken}
-      stripeKey={publishableKey}
+      <>
+        { !errorModal ? null : <QuoteError /> }
+      <StripeCheckout
+        label="Finish Checkout"
+        name="MerchDropper"
+        billingAddress={true}
+        shippingAddress={false}
+        zipCode={true}
+        currency='USD'
+        image={`${MerchDropperLogo}`} // might be cause of 400 stripe bug
+        description={`Your total is $${price}`}
+        amount={priceForStripe}
+        panelLabel="Pay Now"
+        token={onToken}
+        stripeKey={publishableKey}
     />
+    </>
   );
 };
 
