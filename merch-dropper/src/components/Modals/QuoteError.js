@@ -28,11 +28,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleModal() {
+const QuoteError = () => {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const handleOpen = () => {
     setOpen(true);
@@ -48,7 +48,7 @@ export default function SimpleModal() {
       <p id="simple-modal-description">
         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
       </p>
-      <SimpleModal />
+      {/* <SimpleModal /> */}
     </div>
   );
 
@@ -65,3 +65,5 @@ export default function SimpleModal() {
     </div>
   );
 }
+
+export default QuoteError;

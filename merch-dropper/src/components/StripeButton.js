@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
 import { useSelector } from 'react-redux';
@@ -7,7 +7,6 @@ import { axiosWithEnv } from "../utils/axiosWithEnv";
 import QuoteError from "./Modals/QuoteError";
 
 const StripeCheckoutButton = ({ price, domain, history }) => {
-  const [errorModal, setErrorModal] = useState(false)
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_BMXGPoL1peDqHyy42iFEoAMg00l0M6PNex";
   //const publishableKey = 'pk_live_3zwsNFDgIC2nJd4h7F9Y5K8s00exa06IRd'; //Uncomment this line for when stripe is collecting Live payments. Make sure to also change the environment variable on the Backend to the Live key.
@@ -21,12 +20,10 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
 
   // grabs the orderToken to complete payment process and send to backend calculate application fee
   const tokenSelector = useSelector(state => state.QuoteReducer.quote)
+  const checkError = useSelector(state => state.QuoteReducer.quote.error)
   const onToken = token => {
     token.domain_name = domain;
     token.orderToken = tokenSelector.quote.orderToken;
-    if(!token.orderToken){
-      setErrorModal(true)
-    }
     axiosWithEnv()
       .post("/api/payments", {
         amount: priceForStripe,
@@ -46,7 +43,7 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
 
   return (
       <>
-        { !errorModal ? null : <QuoteError /> }
+        { !tokenSelector.quote.orderToken ? null : <QuoteError error={checkError} /> }
       <StripeCheckout
         label="Finish Checkout"
         name="MerchDropper"
