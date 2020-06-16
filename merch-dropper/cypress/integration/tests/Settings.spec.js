@@ -2,7 +2,7 @@ describe('Settings Component (Development)', () => {
     context('770p resolution', () => {
 		beforeEach(() => {
 			//run test in desktop size
-			cy.viewport(770, 740);
+			cy.viewport(1024, 768);
         });
     });
     it('reroutes to landing page with no auth token', () => {
