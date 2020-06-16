@@ -75,6 +75,8 @@ const CustomButton = styled(Button)`
   }
 `;
 
+
+
 const SingleCartItem = ({ item: { thumbnailURL, price, name, quantity } }) => (
   <CartItemDiv className="cart-item">
     <CartItemImage src={thumbnailURL} alt="item" />

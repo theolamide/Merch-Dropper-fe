@@ -1,5 +1,5 @@
 const initialState = {
-  hidden: true,
+  hidden: false,
   cart: [],
   products: 
     {

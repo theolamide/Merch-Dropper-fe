@@ -19,14 +19,50 @@ import CreateStore from "./components/Onboarding/CreateStore";
 import AddProductToTable from "./components/Shirt/AddProductToTable.js";
 import initialShirtState from "./components/Shirt/initialShirtState";
 import ShippingAddress from "./components/Cart/ShippingAddress.js"
-import initialState from "./store/reducers/initialState"
+import initialState from "./store/reducers/initialState";
+
+import { toggleCart, resetCart } from "../src/store/actions/index";
+import CartDropDown from "./components/Cart/CartDropDown";
+
+
 
 function App() {
   const [design, setDesign] = useState(initialShirtState.designInfo);
   const [garment, setGarment] = useState(initialShirtState.garment);
   const [product, setProduct] = useState(initialState.products)
   const [thumbRender, setThumbRender] = useState();
+//set initial outsideContainer hidden state to true::comes from initialState import
+  const [outsideContainer, setOustsideContainerState] = useState(initialState.hidden);
+  console.log('InitialState.hidden ', initialState.hidden)
+
+
+
+  //Hook
+// useEffect(() => {
+//   resetCart();
+//   return () => {
+   
+//   }
+// }, [input])
   return (
+    <div className="outsideContainer"
+    onClick ={ () => {
+      
+
+      //resetCart(); 
+      
+      console.log('BEFORE Click State: ', outsideContainer)
+      const setOustsideContainerState = true;
+      console.log('On Click State: ',setOustsideContainerState)
+
+      if(CartDropDown){
+        console.log('CartDropDown Sees me')
+       
+      }
+    }}
+   
+    >
+       
     <div className="App">
       <NavBar />
       <Switch>
@@ -77,6 +113,7 @@ function App() {
       </Switch>
       <Footer />
     </div>
+    </div> 
   );
 }
 
