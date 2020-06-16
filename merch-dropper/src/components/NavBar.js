@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 // components
 import SideDrawer from "./SideDrawer";
 import CartIcon from "./Cart/CartIcon.js";
@@ -20,8 +21,7 @@ const NavBar = ({ hidden, history, location }) => {
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
-
-  const store_name = localStorage.getItem("store_name");
+  const [store_name, setStore_name] = useState();
 
   const [state, setState] = useState({ sideDrawerOpen: false });
   const [inDevelop, setInDevelop] = useState(false);
@@ -37,8 +37,23 @@ const NavBar = ({ hidden, history, location }) => {
       returnTo: window.location.origin,
     });
   };
-
+  if (localStorage.getItem("profile")) {
+    
+    const userID = JSON.parse(localStorage.getItem("profile")).id;
+    axiosWithAuth()
+      .get(`/api/stores/user/${userID}`)
+      .then((res) => {
+        if (res.status === 200) {
+          localStorage.setItem("store_name", res.data.store_name);
+          setStore_name(localStorage.getItem("store_name"));
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   useEffect(() => {
+    
     if (process.env.REACT_APP_BASE_URL === "development") {
       setInDevelop(true);
     }
