@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 // components
-import SideDrawer from "./SideDrawer";
 import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
-// styles
 import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
+import Menu from '@material-ui/core/Menu'; // menu needs the state in the nav until a smarter dev comes along that can effectively modularize(is that a word? 🤔) this.
 import MenuItem from '@material-ui/core/MenuItem';
+import MenuIcon from '@material-ui/icons/Menu'; // Icon could likely be broken down more modularly
+// styles
 import { useStyles } from "./Component-Styles/NavBar.js";
 // auth0 client
 import { useAuth0 } from "./Auth/Auth";
@@ -25,7 +25,6 @@ const NavBar = ({ hidden, history, location }) => {
 
   const store_name = localStorage.getItem("store_name");
 
-  const [state, setState] = useState({ sideDrawerOpen: false });
   const [anchorEl, setAnchorEl] = useState(null); // new mobile menu
   const [inDevelop, setInDevelop] = useState(false);
 
@@ -78,7 +77,6 @@ const NavBar = ({ hidden, history, location }) => {
     history.push("/");
   };
 
-  // new mobile menu
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -86,37 +84,6 @@ const NavBar = ({ hidden, history, location }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  let drawerToggleClickHandler = () => {
-    setState((prevState) => {
-      return { sideDrawerOpen: !prevState.sideDrawerOpen };
-    });
-  };
-
-  let closeBackDropClickHandler = () => {
-    setState({ sideDrawerOpen: false });
-  };
-
-  let sideDrawer;
-  const imgStyle = {
-    maxHeight: 45,
-    maxWidth: 45,
-    borderRadius: 10,
-  };
-
-  if (state.sideDrawerOpen) {
-    sideDrawer = (
-      <SideDrawer
-        closeDrawer={closeBackDropClickHandler}
-        imgStyle={imgStyle}
-        logoutWithRedirect={logoutWithRedirect}
-        customLogin={customLogin}
-        customSignup={customSignup}
-        inDevelop={inDevelop}
-        history={history}
-      />
-    );
-  }
 
   const Nav = () => {
     if (!!localStorage.getItem("profile")) {
@@ -204,7 +171,6 @@ const NavBar = ({ hidden, history, location }) => {
     >
       {/* <NavbarStyles /> */}
       <div className={classes.MobileWrapper}>
-        {sideDrawer}
         <div className={classes.BrandWrapper} onClick={homepageRedirect}>
           <img
             className={classes.BrandLogo}
@@ -217,7 +183,7 @@ const NavBar = ({ hidden, history, location }) => {
         </div>
         <div className={classes.CartAndHamWrapper}>
           <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-            Open Menu
+             <MenuIcon fontSize="large" />
           </Button>
             <Menu
             id="simple-menu"
@@ -246,14 +212,6 @@ const NavBar = ({ hidden, history, location }) => {
               </span>
               }
             </Menu>
-          {/* <button
-            className={classes.Hamburger}
-            onClick={drawerToggleClickHandler}
-          >
-            <div className={classes.HamburgerLines}></div>
-            <div className={classes.HamburgerLines}></div>
-            <div className={classes.HamburgerLines}></div>
-          </button> */}
         </div>
         {hidden ? null : <CartDropDown />}
       </div>
