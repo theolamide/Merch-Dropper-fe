@@ -35,7 +35,7 @@ function App() {
   const [outsideContainer, setOustsideContainerState] = useState(initialState.hidden);
   console.log('InitialState.hidden ', initialState.hidden)
 
-
+console.log('BEFORE Click State: ', outsideContainer)
 
   //Hook
 // useEffect(() => {
@@ -47,17 +47,28 @@ function App() {
   return (
     <div className="outsideContainer"
     onClick ={ () => {
-      
-
+    
+let newState = outsideContainer;
       //resetCart(); 
       
-      console.log('BEFORE Click State: ', outsideContainer)
-      const setOustsideContainerState = true;
-      console.log('On Click State: ',setOustsideContainerState)
+      console.log('BEFORE Click State: ', newState)
+     
+        //if outsideContainer=false
+        // if(outsideContainer === initialState){
+        //   newState =!outsideContainer;
+        //   console.log('On Click State: ',newState)
+        // }else{
+        //   newState = initialState;
+        //   console.log('inside the outsideContainer, newState is ', newState)
+        // }
+        //then newState will equal the opposite of initial state of outsideContainer
+      newState=false;
 
-      if(CartDropDown){
-        console.log('CartDropDown Sees me')
-       
+      if(!CartDropDown){
+        console.log('CartDropDown missing')
+      }else{
+        console.log('CartDropDown exists')
+        console.log('AFTER Click state: ', newState)
       }
     }}
    
