@@ -6,7 +6,9 @@ import SideDrawer from "./SideDrawer";
 import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
 // styles
-// import { NavbarStyles } from "./Component-Styles/Navbar-styles.js";
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import { useStyles } from "./Component-Styles/NavBar.js";
 // auth0 client
 import { useAuth0 } from "./Auth/Auth";
@@ -24,6 +26,7 @@ const NavBar = ({ hidden, history, location }) => {
   const store_name = localStorage.getItem("store_name");
 
   const [state, setState] = useState({ sideDrawerOpen: false });
+  const [anchorEl, setAnchorEl] = useState(null); // new mobile menu
   const [inDevelop, setInDevelop] = useState(false);
 
   const logoutWithRedirect = () => {
@@ -73,6 +76,15 @@ const NavBar = ({ hidden, history, location }) => {
 
   const homepageRedirect = () => {
     history.push("/");
+  };
+
+  // new mobile menu
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   let drawerToggleClickHandler = () => {
@@ -204,14 +216,44 @@ const NavBar = ({ hidden, history, location }) => {
           <h2 className={classes.BrandTitle}>Merch Dropper</h2>
         </div>
         <div className={classes.CartAndHamWrapper}>
-          <button
+          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+            Open Menu
+          </Button>
+            <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+            >
+              {localStorage.getItem("profile") ?
+              <span>
+                <MenuItem onClick={logoutWithRedirect}>Logout</MenuItem>
+                {/* <MenuItem onClick={handleClose}>My account</MenuItem> // if CRUD profiles added */}
+                <MenuItem onClick={handleClose}>Close</MenuItem>
+              </span>
+              :
+              <span>
+              <MenuItem onClick={customLogin}>Login</MenuItem>
+              <MenuItem onClick={customSignup}>SignUp</MenuItem>
+              {inDevelop ? 
+                <MenuItem onClick={handleClose}>
+                  <Link to="/develop">Dev Auth</Link>
+                </MenuItem>
+                : null
+              }
+              <MenuItem onClick={handleClose}>Close</MenuItem>
+              </span>
+              }
+            </Menu>
+          {/* <button
             className={classes.Hamburger}
             onClick={drawerToggleClickHandler}
           >
             <div className={classes.HamburgerLines}></div>
             <div className={classes.HamburgerLines}></div>
             <div className={classes.HamburgerLines}></div>
-          </button>
+          </button> */}
         </div>
         {hidden ? null : <CartDropDown />}
       </div>

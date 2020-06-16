@@ -7,7 +7,7 @@ import { NavbarStyles } from "./Component-Styles/Navbar-styles.js";
 const RootWrapper = styled.div`
   height: 70%;
   width: 60%;
-  background: #fead1c;
+  // background: #;
   position: fixed;
   top: 0;
   right: 0;
