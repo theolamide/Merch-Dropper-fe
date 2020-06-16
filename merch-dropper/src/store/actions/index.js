@@ -168,11 +168,10 @@ export const getQuote = (quote) => dispatch => {
     axiosWithEnv()
     .post('/api/quotes', quote)
     .then(res => {
-        console.log('the orderToken', res.data.quote.orderToken)
         if(res.data.quote.orderToken){
             dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
         } else {
-            dispatch({type: GET_QUOTE_FAILURE, payload: "Order Token is null"})
+            dispatch({type: GET_QUOTE_FAILURE, payload: "orderToken is null"})
         }
     })
     .catch(err => {

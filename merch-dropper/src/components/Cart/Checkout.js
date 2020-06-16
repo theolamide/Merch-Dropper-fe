@@ -58,7 +58,6 @@ const CheckoutPage = ({
       })
       .catch((err) => {
         console.log(err);
-        debugger
       });
       
   }, [match.params, domain_name,]);
