@@ -34,6 +34,7 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
       .catch(error => {
         console.dir("payment error", error);
         alert("There was an issue with your payment.");
+        history.push(`${token.domain_name}/checkout`)
       });
   };
 
