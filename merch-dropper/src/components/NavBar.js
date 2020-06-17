@@ -23,7 +23,7 @@ const NavBar = ({ hidden, history, location }) => {
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
-  const [store_name, setStore_name] = useState();
+  const [store_name, setStore_name] = useState(localStorage.getItem("store_name"));
 
   const [anchorEl, setAnchorEl] = useState(null); // new mobile menu
   const [inDevelop, setInDevelop] = useState(false);
@@ -130,7 +130,7 @@ const NavBar = ({ hidden, history, location }) => {
                 <Link to={`/${store_name}`} className={classes.links}>
                   Your Store
                 </Link>
-              ) : null}{" "}
+              ) : null}
               <span
                 className={classes.links}
                 onClick={logoutWithRedirect}
