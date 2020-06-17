@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import {useSelector} from "react-redux";
+import React, { useState } from "react";
 import { axiosWithEnv } from "../../utils/axiosWithEnv";
+import { withStyles } from '@material-ui/core/styles';
+import Switch from '@material-ui/core/Switch';
 
 // The purpose of the InventoryCard component is to render each product in a user's inventory. The InventoryList component calls the InventoryCard components using a .map method as long as the inventory array length is greater than 0.
 
@@ -24,9 +24,44 @@ const InventoryCard = (props) => {
       .catch((err) => console.log("This is err in deleteItem: ", err));
   };
 
+  const AntSwitch = withStyles((theme) => ({
+    root: {
+      width: 28,
+      height: 16,
+      padding: 0,
+      display: 'flex',
+    },
+    switchBase: {
+      padding: 2,
+      color: theme.palette.grey[500],
+      '&$checked': {
+        transform: 'translateX(12px)',
+        color: theme.palette.common.white,
+        '& + $track': {
+          opacity: 1,
+          backgroundColor: theme.palette.primary.main,
+          borderColor: theme.palette.primary.main,
+        },
+      },
+    },
+    thumb: {
+      width: 12,
+      height: 12,
+      boxShadow: 'none',
+    },
+    track: {
+      border: `1px solid ${theme.palette.grey[500]}`,
+      borderRadius: 16 / 2,
+      opacity: 1,
+      backgroundColor: theme.palette.common.white,
+    },
+    checked: {},
+  }))(Switch);
+
   // This component returns a card with an image of the shirt/model and a "Delete listing" button that only appears when the cursor hovers over the image or the space below the image where the Delete button resides.
   return (
     <div style={cardContainer}>
+      <AntSwitch />
       <img
         onMouseEnter={() => setImgIsHovered(true)}
         onMouseLeave={() => setImgIsHovered(false)}
