@@ -40,10 +40,23 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
         history.push(`${token.domain_name}/checkout`)
       });
   };
+  // I need to get the error token from state for the modal to work
+  const findError = orderToken =>{
+    if(!orderToken){
+      return (
+        <div>
+          <QuoteError />
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
 
+  const errorModal = findError(tokenSelector)
   return (
       <>
-        { !tokenSelector.quote.orderToken ? null : <QuoteError /> }
+        {errorModal}
       <StripeCheckout
         label="Finish Checkout"
         name="MerchDropper"
