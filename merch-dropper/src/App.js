@@ -19,61 +19,14 @@ import CreateStore from "./components/Onboarding/CreateStore";
 import AddProductToTable from "./components/Shirt/AddProductToTable.js";
 import initialShirtState from "./components/Shirt/initialShirtState";
 import ShippingAddress from "./components/Cart/ShippingAddress.js"
-import initialState from "./store/reducers/initialState";
-
-import { toggleCart, resetCart } from "../src/store/actions/index";
-import CartDropDown from "./components/Cart/CartDropDown";
-
-
+import initialState from "./store/reducers/initialState"
 
 function App() {
   const [design, setDesign] = useState(initialShirtState.designInfo);
   const [garment, setGarment] = useState(initialShirtState.garment);
   const [product, setProduct] = useState(initialState.products)
   const [thumbRender, setThumbRender] = useState();
-//set initial outsideContainer hidden state to true::comes from initialState import
-//   const [outsideContainer, setOustsideContainerState] = useState(initialState.hidden);
-//   console.log('InitialState.hidden ', initialState.hidden)
-
-// console.log('BEFORE Click State: ', outsideContainer)
-
-  //Hook
-// useEffect(() => {
-//   resetCart();
-//   return () => {
-   
-//   }
-// }, [input])
   return (
-    <div className="outsideContainer"
-    onClick ={ () => {
-    
-let newState = outsideContainer;
-      //resetCart(); 
-      
-      console.log('BEFORE Click State: ', newState)
-     
-        //if outsideContainer=false
-        // if(outsideContainer === initialState){
-        //   newState =!outsideContainer;
-        //   console.log('On Click State: ',newState)
-        // }else{
-        //   newState = initialState;
-        //   console.log('inside the outsideContainer, newState is ', newState)
-        // }
-        //then newState will equal the opposite of initial state of outsideContainer
-      newState=false;
-
-      if(!CartDropDown){
-        console.log('CartDropDown missing')
-      }else{
-        console.log('CartDropDown exists')
-        console.log('AFTER Click state: ', newState)
-      }
-    }}
-   
-    >
-       
     <div className="App">
       <NavBar />
       <Switch>
@@ -124,7 +77,6 @@ let newState = outsideContainer;
       </Switch>
       <Footer />
     </div>
-    </div> 
   );
 }
 

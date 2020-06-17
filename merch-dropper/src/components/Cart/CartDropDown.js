@@ -123,7 +123,8 @@ const CartDropdown = ({ cart, history, dispatch }) => {
   const domain_name = localStorage.getItem("domain_name")
   const quote = initialQuoteState.sendQuote;
     return (
-      <CartDropdownDiv ref={outsideContainer} className="cart-dropdown">
+      <div ref={outsideContainer}>
+      <CartDropdownDiv className="cart-dropdown">
         <CartItemsDiv className="cart-items">
           {cart.filter(
             (item) => item.storeID === Number(localStorage.getItem("storeID"))
@@ -165,6 +166,7 @@ const CartDropdown = ({ cart, history, dispatch }) => {
           GO TO CHECKOUT
         </CustomButton>
       </CartDropdownDiv>
+      </div>
     );
 };
 
