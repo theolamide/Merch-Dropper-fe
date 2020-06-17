@@ -36,7 +36,7 @@ function App() {
 
     <div className="App" >
       <NavBar />
-      <div classname="outterContainer" onClick={() => {dispatch(resetCart())}}>
+      <div classname="outerContainer" onClick={() => {dispatch(resetCart())}}>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/develop" component={DevAuth} />
