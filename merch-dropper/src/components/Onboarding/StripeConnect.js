@@ -55,11 +55,9 @@ const DevStripeConnect = e => {
     const stripeAccount = {
         stripe_account: 'test_' + account
     }
-    // console.log(stripeAccount);
     axiosWithAuth()
     .put(`/api/users/${id}`, stripeAccount)
     .then(res =>{
-        // console.log('has been put', res)
         if(returnToDash){
             history.push("/dashboard")
             window.location.replace("http://localhost:3000/dashboard")
@@ -80,7 +78,6 @@ const StripeConnect = () => {
   let userCode = "";
   const steps = getSteps();
   const profile = JSON.parse(localStorage.getItem("profile"));
-  console.log(profile.email);
 
   if (queryString.includes("error")) {
     stripeError = true;
@@ -88,7 +85,6 @@ const StripeConnect = () => {
 
   if (queryString.includes("code=")) {
     userCode = queryString.substring(queryString.indexOf("code=") + 5);
-    console.log(userCode);
 
     axiosWithAuth()
       .post(`/api/stripe/accounts`, {
@@ -96,7 +92,6 @@ const StripeConnect = () => {
         email: profile.email,
       })
       .then((res) => {
-        console.log(res);
       });
 
     stripeConnected = true;

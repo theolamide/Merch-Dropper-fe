@@ -51,7 +51,6 @@ const Form = styled.form`
 
 const mapStateToProps = (state) => {
     let search = state.SearchReducer
-    // console.log(search)
     return {
         storeName: search.storeName,
         isFetching: search.isFetching,

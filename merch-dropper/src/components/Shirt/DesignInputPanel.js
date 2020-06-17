@@ -21,7 +21,6 @@ const DesignInputPanel = ({
   handleScalableMockup,  
   addProduct
 }) => {
-console.log(garment.mockUrl.length, "garment")
   return (
     <Panel>
       <DesignHandler

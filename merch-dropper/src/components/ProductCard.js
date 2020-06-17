@@ -4,7 +4,6 @@ import "../App.css";
 
 const ProductCard = ({ product, addToCart }) => {
   const [isAdded, setIsAdded] = useState(false);
-  console.log("product", product);
   const showAdded = () => {
     setIsAdded(true);
     setTimeout(() => {

@@ -64,7 +64,6 @@ const CheckoutPage = ({
 
 // const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
   // const { domain_name } = useParams();
-  console.log('checkout params', domain_name)
 
   return (
     quote.quote   ? 

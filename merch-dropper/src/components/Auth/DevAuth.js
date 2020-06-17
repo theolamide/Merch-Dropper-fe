@@ -40,7 +40,6 @@ const DevAuth = () => {
                     localStorage.setItem("token", res.data.token);
                     axios.get(`http://localhost:5032/api/users/email/${credentials.email}`)
                     .then(res =>{
-                        // console.log('get email res', res.data)
                         localStorage.setItem("profile", JSON.stringify(res.data));
                         localStorage.setItem("id", res.data.id);
                         history.push('/stripe-setup')
@@ -64,7 +63,6 @@ const DevAuth = () => {
                 localStorage.setItem("token", res.data.token);
                 axios.get(`http://localhost:5032/api/users/email/${credentials.email}`)
                 .then(res =>{
-                    console.log('get email res', res.data)
                     localStorage.setItem("profile", JSON.stringify(res.data));
                     localStorage.setItem("id", res.data.id);
                     history.push("/dashboard")
@@ -79,7 +77,6 @@ const DevAuth = () => {
         }
 
     }
-    console.log(credentials)
     return (
         <div>
             <button onClick={toggleForm}>Toggle Login/Register</button>

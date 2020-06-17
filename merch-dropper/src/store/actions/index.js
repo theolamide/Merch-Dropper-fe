@@ -8,11 +8,9 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 
 export const postUser = (credentials) => dispatch => {
-    // console.log('credentials', credentials)
     dispatch({ type: REGISTER_START })
     axios.post('https://merch-dropper.herokuapp.com/api/auth/register', credentials)
         .then(res => {
-            console.log('postUser res', res);
             dispatch({ type: REGISTER_SUCCESS, payload: res.data })
         })
         .catch(err => {
@@ -27,12 +25,10 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
 export const userLogin = (loginInfo) => dispatch => {
-    console.log('loginInfo', loginInfo)
     dispatch({ type: LOGIN_START })
     axiosWithAuth()
         .post('/api/auth/login', loginInfo)
         .then(res => {
-            console.log(res)
             localStorage.setItem('token', res.data.token)
             dispatch({ type: LOGIN_SUCCESS, payload: res.data })
         })
@@ -97,7 +93,6 @@ export const removeProduct = productId => dispatch => {
 // Shopping Cart Actions - add item to shopping cart
 export const ADD_CART_PRODUCT = 'ADD_CART_PRODUCT';
 export const addToCart = product => {
-    // console.log('action called', product)
     return {
         type: ADD_CART_PRODUCT,
         payload: product
@@ -107,7 +102,6 @@ export const addToCart = product => {
 // remove one single item from shopping cart. e.g if 10 yellow shirts, remove 1 of the 10 yellow shirts.
 export const REMOVE_CART_PRODUCT = 'REMOVE_CART_PRODUCT';
 export const removeFromCart = product => {
-    // console.log('removeaction called', product)
     return {
         type: REMOVE_CART_PRODUCT,
         payload: product
@@ -147,7 +141,6 @@ export const SEARCH_STORE_FAIL = 'SEARCH_STORE_FAIL';
 
 export const searchStoreName = (storeName) => dispatch => {
     let encodedURI = encodeURI(storeName)
-    // console.log('search action called', encodedURI)
     dispatch({ type: SEARCH_STORE_START })
     axios.get(`https://merch-dropper.herokuapp.com/api/stores/storename/${encodedURI}`)
         .then(res => {
@@ -168,7 +161,6 @@ export const getQuote = (quote) => dispatch => {
     axiosWithEnv()
     .post('/api/quotes', quote)
     .then(res => {
-        console.log('the orderToken', res.data.quote.orderToken)
         dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
     })
     .catch(err => {

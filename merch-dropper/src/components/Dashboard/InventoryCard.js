@@ -12,7 +12,6 @@ const InventoryCard = (props) => {
 
   // deleteItem is an event handler that makes an axios.delete request to the back end when a user clicks on the Delete button. This should be an axiosWithAuth request, but we ran into issues implementing axiosWithAuth in the Inventory components where the inventory would only load with plain axios calls.
   const deleteItem = (e) => {
-    console.log("made it")
     e.preventDefault();
     axiosWithEnv()
       .delete(

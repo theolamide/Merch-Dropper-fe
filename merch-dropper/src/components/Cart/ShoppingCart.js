@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { removeFromCart } from '../../store/actions';
 
 const ShoppingCart = (props) => {
-     console.log('cart props', props)
     return (
         <div>
             {/* <NavBar /> */}
@@ -17,7 +16,6 @@ const ShoppingCart = (props) => {
 };
 
 const mapStateToProps = (state, props) => {
-    // console.log('state from shoppingcart', state.CartReducer.cart)
     return {
         cart: state.CartReducer.cart
     }

@@ -78,7 +78,6 @@ const ProductDisplayDomain = ({ products, addToCart, match, location }) => {
 };
 
 const mapStateToProps = (state) => {
-  // console.log("state in products", state);
   return {
     cart: state.CartReducer.cart,
     products: state.ProductReducer.products,

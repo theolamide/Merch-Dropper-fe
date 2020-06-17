@@ -57,7 +57,6 @@ const Settings = () => {
       axiosWithEnv()
         .get(`/api/stripe/${profile.email}`)
         .then((res) => {
-          console.log(res.data.user.stripe_account);
           if (res.data.user.stripe_account) {
             setStripe(res.data.user.stripe_account);
             setConnected(true);
@@ -66,12 +65,8 @@ const Settings = () => {
         });
 
       const res = await axiosWithEnv().get(`/api/users/email/${profile.email}`);
-
-      console.log(res);
-
       const userID = localStorage.getItem("id");
       const res2 = await axiosWithEnv().get(`/api/stores/user/${userID}`);
-      console.log(res2);
       setStore(res2.data.store_name);
     }
     getInfo();

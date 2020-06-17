@@ -45,12 +45,10 @@ const AddProductToTable = (props, history) => {
       const res = await axios.get(
         `https://merch-dropper.herokuapp.com/api/users/email/${email}`
       );
-      console.log(res, "res1");
       const userID = res.data.id;
       const res2 = await axiosWithEnv().get(
         `/api/stores/user/${userID}`
       );
-      console.log(res2, "res");
       setStores(res.data);
       setProduct(
       { 
@@ -117,7 +115,6 @@ const AddProductToTable = (props, history) => {
     //   props.history.push("/dashboard");
     // }, 800);
   };
-  console.log(props.garment);
   
   // const shirtColor = props.garment.color;
   const shirtImage = props.garment.mockUrl;

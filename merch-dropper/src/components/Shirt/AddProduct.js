@@ -5,8 +5,6 @@ import { axiosWithEnv } from "../../utils/axiosWithEnv";
 
 // this function allows the user to design a product
 const addProduct = async (history, garment, product, design) => {
-  console.log({ design });
-  console.log({ garment });
   if (garment.mockUrl === "") {
     alert("Please create a mockup first!");
     return null;
@@ -30,7 +28,6 @@ const addProduct = async (history, garment, product, design) => {
       .catch(err => {
         console.log("error uploading image", err);
       });
-      console.log('product to our be', product)
     //
     const merchDropRes = await axios
       .post("https://merch-dropper.herokuapp.com/api/products", {
@@ -42,7 +39,6 @@ const addProduct = async (history, garment, product, design) => {
       .catch(err => {
         console.log("MERCHDROPRES", err);
       });
-    console.log(` added successfully!`);
   })();
   return null;
 };
