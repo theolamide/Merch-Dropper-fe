@@ -78,14 +78,10 @@ const [ready, setReady] = useState(false)
       })
       .catch((err) => {
         console.log(err);
+        // add modal?
       });
       
   }, [match.params, domain_name,]);
-
-// const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
-  // const { domain_name } = useParams();
-  console.log('check error in checkout', checkError)
-
 
   return (
     quote.quote   ? 
