@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 // components
-import SideDrawer from "./SideDrawer";
 import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu'; // menu needs the state in the nav until a smarter dev comes along that can effectively modularize(is that a word? 🤔) this.
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuIcon from '@material-ui/icons/Menu'; // Icon could likely be broken down more modularly
 // styles
-// import { NavbarStyles } from "./Component-Styles/Navbar-styles.js";
 import { useStyles } from "./Component-Styles/NavBar.js";
 // auth0 client
 import { useAuth0 } from "./Auth/Auth";
@@ -20,10 +23,9 @@ const NavBar = ({ hidden, history, location }) => {
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
+  const [store_name, setStore_name] = useState();
 
-  const store_name = localStorage.getItem("store_name");
-
-  const [state, setState] = useState({ sideDrawerOpen: false });
+  const [anchorEl, setAnchorEl] = useState(null); // new mobile menu
   const [inDevelop, setInDevelop] = useState(false);
 
   const logoutWithRedirect = () => {
@@ -32,13 +34,28 @@ const NavBar = ({ hidden, history, location }) => {
     localStorage.removeItem("id");
     localStorage.removeItem("store_name");
     localStorage.removeItem("storeID");
-    localStorage.removeItem("fromSettings")
+    localStorage.removeItem("fromSettings");
     logout({
       returnTo: window.location.origin,
     });
   };
-
+  if (localStorage.getItem("profile")) {
+    
+    const userID = JSON.parse(localStorage.getItem("profile")).id;
+    axiosWithAuth()
+      .get(`/api/stores/user/${userID}`)
+      .then((res) => {
+        if (res.status === 200) {
+          localStorage.setItem("store_name", res.data.store_name);
+          setStore_name(localStorage.getItem("store_name"));
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   useEffect(() => {
+    
     if (process.env.REACT_APP_BASE_URL === "development") {
       setInDevelop(true);
     }
@@ -75,50 +92,40 @@ const NavBar = ({ hidden, history, location }) => {
     history.push("/");
   };
 
-  let drawerToggleClickHandler = () => {
-    setState((prevState) => {
-      return { sideDrawerOpen: !prevState.sideDrawerOpen };
-    });
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  let closeBackDropClickHandler = () => {
-    setState({ sideDrawerOpen: false });
+  const handleClose = () => {
+    setAnchorEl(null);
   };
-
-  let sideDrawer;
-  const imgStyle = {
-    maxHeight: 45,
-    maxWidth: 45,
-    borderRadius: 10,
-  };
-
-  if (state.sideDrawerOpen) {
-    sideDrawer = (
-      <SideDrawer
-        closeDrawer={closeBackDropClickHandler}
-        imgStyle={imgStyle}
-        logoutWithRedirect={logoutWithRedirect}
-        customLogin={customLogin}
-      />
-    );
-  }
 
   const Nav = () => {
     if (!!localStorage.getItem("profile")) {
       return (
         <nav className={classes.ButtonWrapper}>
           {window.location.pathname === `/${store_name}` ? (
-            <Link
-              to="/dashboard"
-              className={classes.links}
-              style={
-                pathname === "/dashboard"
-                  ? { fontWeight: 700 }
-                  : { fontWeight: 500 }
-              }
-            >
-              Dashboard
-            </Link>
+            <>
+              <Link
+                to="/dashboard"
+                className={classes.links}
+                style={
+                  pathname === "/dashboard"
+                    ? { fontWeight: 700 }
+                    : { fontWeight: 500 }
+                }
+              >
+                Dashboard
+              </Link>
+              <span
+                className={classes.links}
+                onClick={logoutWithRedirect}
+                style={{ marginLeft: "32px" }}
+              >
+                Logout
+              </span>
+              <CartIcon />
+            </>
           ) : (
             <>
               {store_name ? (
@@ -126,16 +133,15 @@ const NavBar = ({ hidden, history, location }) => {
                   Your Store
                 </Link>
               ) : null}{" "}
+              <span
+                className={classes.links}
+                onClick={logoutWithRedirect}
+                style={{ marginLeft: "32px" }}
+              >
+                Logout
+              </span>
             </>
           )}
-
-          <span
-            className={classes.links}
-            onClick={logoutWithRedirect}
-            style={{ marginLeft: "32px" }}
-          >
-            Logout
-          </span>
         </nav>
       );
     } else if (domain_name === pathname.substr(1).split("/")[0]) {
@@ -189,7 +195,6 @@ const NavBar = ({ hidden, history, location }) => {
     >
       {/* <NavbarStyles /> */}
       <div className={classes.MobileWrapper}>
-        {sideDrawer}
         <div className={classes.BrandWrapper} onClick={homepageRedirect}>
           <img
             className={classes.BrandLogo}
@@ -197,18 +202,38 @@ const NavBar = ({ hidden, history, location }) => {
             alt="merch-dropper logo"
             onClick={homepageRedirect}
           />
-
-          <h2 className={classes.BrandTitle}>Merch Dropper</h2>
         </div>
         <div className={classes.CartAndHamWrapper}>
-          <button
-            className={classes.Hamburger}
-            onClick={drawerToggleClickHandler}
-          >
-            <div className={classes.HamburgerLines}></div>
-            <div className={classes.HamburgerLines}></div>
-            <div className={classes.HamburgerLines}></div>
-          </button>
+          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+             <MenuIcon fontSize="large" />
+          </Button>
+            <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+            >
+              {localStorage.getItem("profile") ?
+              <span>
+                <MenuItem onClick={logoutWithRedirect}>Logout</MenuItem>
+                {/* <MenuItem onClick={handleClose}>My account</MenuItem> // if CRUD profiles added */}
+                <MenuItem onClick={handleClose}>Close</MenuItem>
+              </span>
+              :
+              <span>
+              <MenuItem onClick={customLogin}>Login</MenuItem>
+              <MenuItem onClick={customSignup}>SignUp</MenuItem>
+              {inDevelop ? 
+                <MenuItem onClick={handleClose}>
+                  <Link to="/develop">Dev Auth</Link>
+                </MenuItem>
+                : null
+              }
+              <MenuItem onClick={handleClose}>Close</MenuItem>
+              </span>
+              }
+            </Menu>
         </div>
         {hidden ? null : <CartDropDown />}
       </div>
@@ -220,7 +245,6 @@ const NavBar = ({ hidden, history, location }) => {
             src={logo}
             alt="merch-dropper logo"
           />
-          <h2 className={classes.BrandTitle}>Merch Dropper</h2>
         </div>
 
         <Nav />
