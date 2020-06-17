@@ -32,10 +32,10 @@ function App() {
   const [product, setProduct] = useState(initialState.products)
   const [thumbRender, setThumbRender] = useState();
 //set initial outsideContainer hidden state to true::comes from initialState import
-  const [outsideContainer, setOustsideContainerState] = useState(initialState.hidden);
-  console.log('InitialState.hidden ', initialState.hidden)
+//   const [outsideContainer, setOustsideContainerState] = useState(initialState.hidden);
+//   console.log('InitialState.hidden ', initialState.hidden)
 
-console.log('BEFORE Click State: ', outsideContainer)
+// console.log('BEFORE Click State: ', outsideContainer)
 
   //Hook
 // useEffect(() => {

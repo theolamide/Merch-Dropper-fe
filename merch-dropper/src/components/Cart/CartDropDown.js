@@ -1,4 +1,5 @@
-import React from "react";
+//import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
@@ -92,10 +93,37 @@ const SingleCartItem = ({ item: { thumbnailURL, price, name, quantity } }) => (
 
 const CartDropdown = ({ cart, history, dispatch }) => {
 
+  const outsideContainer =useRef();
+
+  const [open, setOpen] = useState(true);
+
+  const handleClickOutside = e => {
+    if(outsideContainer.current.contains(e.target))  {
+      //clicked inside
+      return;
+    }
+    //clicked outside
+    setOpen(true);
+  };
+
+  useEffect(() => {
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
+
+
   const domain_name = localStorage.getItem("domain_name")
   const quote = initialQuoteState.sendQuote;
     return (
-      <CartDropdownDiv className="cart-dropdown">
+      <CartDropdownDiv ref={outsideContainer} className="cart-dropdown">
         <CartItemsDiv className="cart-items">
           {cart.filter(
             (item) => item.storeID === Number(localStorage.getItem("storeID"))
