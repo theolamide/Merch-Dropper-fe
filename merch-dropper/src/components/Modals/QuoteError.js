@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom"
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
@@ -30,8 +31,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const QuoteError = props => {
+const QuoteError = ({ error }) => {
   const classes = useStyles();
+  const history = useHistory();
+  const thisStore = localStorage.getItem('domain_name')
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(true);
@@ -39,9 +42,9 @@ const QuoteError = props => {
   const readError = error => {
     let errorMessage;
     if(error === "orderToken is null"){
-      errorMessage = "There was a problem processing the order. Likely there was an issue with your shipping address, please try again. If the problem persists, please contact the Merch Dropper development team"
+      errorMessage = "There was a problem processing the order. Likely there was an issue with your shipping address, please try again. If the problem persists, contact the Merch Dropper development team"
     } else {
-      errorMessage = "Unknown error, please try again. If the problem persists, please contact the Merch Dropper development team"
+      errorMessage = "Unknown error, please try again. If the problem persists, contact the Merch Dropper development team"
     }
     return(
         <div style={modalStyle} className={classes.paper}>
@@ -49,8 +52,8 @@ const QuoteError = props => {
           <p id="simple-modal-description">
             {errorMessage}
           </p>
-          <Button>Try Again</Button>
-          <Button>Back to Store</Button>
+          <Button onClick={()=> history.push(`/${thisStore}/shippingAddress`)}>Try Again</Button>
+          <Button onClick={()=> history.push(`/${thisStore}`)}>Back to Store</Button>
         </div>
       );
   } 
@@ -63,7 +66,7 @@ const QuoteError = props => {
     setOpen(false);
   };
 
-  const body = readError(props.error)
+  const body = readError(error)
 
   return (
     <div>

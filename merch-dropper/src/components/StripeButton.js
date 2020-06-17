@@ -20,7 +20,7 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
 
   // grabs the orderToken to complete payment process and send to backend calculate application fee
   const tokenSelector = useSelector(state => state.QuoteReducer.quote)
-  const checkError = useSelector(state => state.QuoteReducer.quote.error)
+  
   const onToken = token => {
     token.domain_name = domain;
     token.orderToken = tokenSelector.quote.orderToken;
@@ -43,7 +43,7 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
 
   return (
       <>
-        { !tokenSelector.quote.orderToken ? null : <QuoteError error={checkError} /> }
+        { !tokenSelector.quote.orderToken ? null : <QuoteError /> }
       <StripeCheckout
         label="Finish Checkout"
         name="MerchDropper"
