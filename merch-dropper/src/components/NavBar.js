@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 // components
 import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
@@ -22,8 +23,7 @@ const NavBar = ({ hidden, history, location }) => {
   const { loginWithRedirect, logout } = useAuth0();
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
-
-  const store_name = localStorage.getItem("store_name");
+  const [store_name, setStore_name] = useState();
 
   const [anchorEl, setAnchorEl] = useState(null); // new mobile menu
   const [inDevelop, setInDevelop] = useState(false);
@@ -34,13 +34,28 @@ const NavBar = ({ hidden, history, location }) => {
     localStorage.removeItem("id");
     localStorage.removeItem("store_name");
     localStorage.removeItem("storeID");
-    localStorage.removeItem("fromSettings")
+    localStorage.removeItem("fromSettings");
     logout({
       returnTo: window.location.origin,
     });
   };
-
+  if (localStorage.getItem("profile")) {
+    
+    const userID = JSON.parse(localStorage.getItem("profile")).id;
+    axiosWithAuth()
+      .get(`/api/stores/user/${userID}`)
+      .then((res) => {
+        if (res.status === 200) {
+          localStorage.setItem("store_name", res.data.store_name);
+          setStore_name(localStorage.getItem("store_name"));
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   useEffect(() => {
+    
     if (process.env.REACT_APP_BASE_URL === "development") {
       setInDevelop(true);
     }
@@ -90,17 +105,27 @@ const NavBar = ({ hidden, history, location }) => {
       return (
         <nav className={classes.ButtonWrapper}>
           {window.location.pathname === `/${store_name}` ? (
-            <Link
-              to="/dashboard"
-              className={classes.links}
-              style={
-                pathname === "/dashboard"
-                  ? { fontWeight: 700 }
-                  : { fontWeight: 500 }
-              }
-            >
-              Dashboard
-            </Link>
+            <>
+              <Link
+                to="/dashboard"
+                className={classes.links}
+                style={
+                  pathname === "/dashboard"
+                    ? { fontWeight: 700 }
+                    : { fontWeight: 500 }
+                }
+              >
+                Dashboard
+              </Link>
+              <span
+                className={classes.links}
+                onClick={logoutWithRedirect}
+                style={{ marginLeft: "32px" }}
+              >
+                Logout
+              </span>
+              <CartIcon />
+            </>
           ) : (
             <>
               {store_name ? (
@@ -108,16 +133,15 @@ const NavBar = ({ hidden, history, location }) => {
                   Your Store
                 </Link>
               ) : null}{" "}
+              <span
+                className={classes.links}
+                onClick={logoutWithRedirect}
+                style={{ marginLeft: "32px" }}
+              >
+                Logout
+              </span>
             </>
           )}
-
-          <span
-            className={classes.links}
-            onClick={logoutWithRedirect}
-            style={{ marginLeft: "32px" }}
-          >
-            Logout
-          </span>
         </nav>
       );
     } else if (domain_name === pathname.substr(1).split("/")[0]) {
@@ -178,8 +202,6 @@ const NavBar = ({ hidden, history, location }) => {
             alt="merch-dropper logo"
             onClick={homepageRedirect}
           />
-
-          <h2 className={classes.BrandTitle}>Merch Dropper</h2>
         </div>
         <div className={classes.CartAndHamWrapper}>
           <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
@@ -223,7 +245,6 @@ const NavBar = ({ hidden, history, location }) => {
             src={logo}
             alt="merch-dropper logo"
           />
-          <h2 className={classes.BrandTitle}>Merch Dropper</h2>
         </div>
 
         <Nav />
