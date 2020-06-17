@@ -169,7 +169,7 @@ export const getQuote = (quote) => dispatch => {
     axiosWithEnv()
     .post('/api/quotes', quote)
     .then(res => {
-        console.log('POSTED QUOTE',res)
+        // console.log('POSTED QUOTE',res)
         if(res.data.quote.orderToken){
             dispatch({type: GET_QUOTE_SUCCESS, payload: res.data})
         } else {
