@@ -43,18 +43,6 @@ const [ready, setReady] = useState(false)
       return a+b+c
     }
   const orderToken = quote.quote.orderToken
-  // I need to get the error token from state for the modal to work
-  const findError = orderToken =>{
-    if(!orderToken){
-      return (
-        <div>
-          <QuoteError />
-        </div>
-      )
-    } else {
-      return null
-    }
-  }
     
   useEffect(() => {  
        axiosWithEnv()
@@ -78,7 +66,7 @@ const [ready, setReady] = useState(false)
       })
       .catch((err) => {
         console.log(err);
-        // add modal?
+        // future note to add modal for better errors
       });
       
   }, [match.params, domain_name,]);
@@ -86,7 +74,7 @@ const [ready, setReady] = useState(false)
   return (
     quote.quote   ? 
     <CheckoutPageWrapper className="checkout-page">
-       {!orderToken && checkError  ? findError(orderToken) : null}
+       {!orderToken && checkError  ? <QuoteError /> : null}
       <CheckoutHeader className="checkout-header">
         <HeaderBlock className="header-block">
           <span>Product</span>
