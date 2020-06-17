@@ -18,7 +18,7 @@ import {
   SkipCreateStoreButton,
 } from "./Styled";
 
-import axios from 'axios';
+import axios from "axios";
 import { axiosWithEnv } from "../../utils/axiosWithEnv";
 
 // This function is to provide the Material UI Stepper with the names of each step to display.
@@ -74,7 +74,7 @@ function CreateStore({ history }) {
         store_name: storeName,
         domain_name: domain,
         email: profile.email,
-        id: localStorage.getItem("id")
+        id: localStorage.getItem("id"),
       })
       .then((res) => {
         setIsSubmit(false);
@@ -134,7 +134,9 @@ function CreateStore({ history }) {
             </>
           )}
         </URLPreviewDiv>
-        <CreateStoreButton className='create-store' type="submit">Create store</CreateStoreButton>
+        <CreateStoreButton className="create-store" type="submit">
+          Create store
+        </CreateStoreButton>
         <SkipCreateStoreButton onClick={skipToDashboard}>
           Skip for now
         </SkipCreateStoreButton>

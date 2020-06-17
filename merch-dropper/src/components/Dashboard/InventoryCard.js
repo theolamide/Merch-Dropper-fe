@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import { axiosWithEnv } from "../../utils/axiosWithEnv";
 
 // The purpose of the InventoryCard component is to render each product in a user's inventory. The InventoryList component calls the InventoryCard components using a .map method as long as the inventory array length is greater than 0.
@@ -14,9 +14,7 @@ const InventoryCard = (props) => {
   const deleteItem = (e) => {
     e.preventDefault();
     axiosWithEnv()
-      .delete(
-        `/api/products/${props.id}`
-      )
+      .delete(`/api/products/${props.id}`)
       .then((res) => {
         window.location.reload();
       })

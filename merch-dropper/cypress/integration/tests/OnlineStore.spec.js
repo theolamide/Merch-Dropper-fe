@@ -31,18 +31,18 @@ describe("Dev Auth path", () => {
   });
   describe("dashboard", () => {
     it("contains the right nav links w/ store", () => {
-        cy.contains('Your Store')    
-        cy.contains("Dashboard").should('not.be.visible')
-        cy.contains("Logout")
-    })
-      it("contains inventory section", () => {
-          cy.contains("Inventory")
-      })
-      it("contains storefront settings w/ store & stripe status", () => {
-          cy.contains("Status:")
-          cy.contains("Online")
-          cy.contains("connect stripe").should("not.be.visible")
-          cy.contains("create store").should("not.be.visible")
-      })
-  })
+      cy.contains("Your Store");
+      cy.contains("Dashboard").should("not.be.visible");
+      cy.contains("Logout");
+    });
+    it("contains inventory section", () => {
+      cy.contains("Inventory");
+    });
+    it("contains storefront settings w/ store & stripe status", () => {
+      cy.contains("Status:");
+      cy.contains("Online");
+      cy.contains("connect stripe").should("not.be.visible");
+      cy.contains("create store").should("not.be.visible");
+    });
+  });
 });

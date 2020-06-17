@@ -3,7 +3,6 @@ import { withRouter, Link } from "react-router-dom";
 import styled from "styled-components";
 import { NavbarStyles } from "./Component-Styles/Navbar-styles.js";
 
-
 const RootWrapper = styled.div`
   height: 70%;
   width: 60%;
@@ -53,7 +52,6 @@ const SideDrawer = ({
   customSignup,
   inDevelop,
 }) => {
-
   return (
     <RootWrapper>
       <CloseHamburger onClick={closeDrawer}>X</CloseHamburger>
@@ -64,12 +62,11 @@ const SideDrawer = ({
         <>
           <LinkDiv onClick={customLogin}>Login</LinkDiv>
           <LinkDiv onClick={customSignup}>SignUp</LinkDiv>
-          {inDevelop ? 
-            <LinkDiv onClick={closeDrawer} > 
+          {inDevelop ? (
+            <LinkDiv onClick={closeDrawer}>
               <Link to="/develop">Dev Auth</Link>
-            </LinkDiv> 
-            : null 
-          }
+            </LinkDiv>
+          ) : null}
         </>
       )}
       {/* May be relevant to a future team IF you build out user profiles and give them the ability to CRUD their profile and add a picture */}

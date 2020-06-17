@@ -25,10 +25,8 @@ const DesignShirt = ({
   garment,
   thumbRender,
   product,
-  setProduct
-}) => {  
-
-
+  setProduct,
+}) => {
   return (
     <Fragment>
       <DesignShirtContainer>
@@ -41,9 +39,17 @@ const DesignShirt = ({
           setThumbRender={setThumbRender}
           garment={garment}
           setGarment={setGarment}
-          handleScalableMockup={e => HandleScalableMockup(garment, setGarment, design, setDesign, product, setProduct)}
+          handleScalableMockup={(e) =>
+            HandleScalableMockup(
+              garment,
+              setGarment,
+              design,
+              setDesign,
+              product,
+              setProduct
+            )
+          }
         />
-        
       </DesignShirtContainer>
     </Fragment>
   );

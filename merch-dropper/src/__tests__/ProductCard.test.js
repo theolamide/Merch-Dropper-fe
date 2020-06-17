@@ -10,7 +10,7 @@ const product = {
   url: "www.facebook.com",
   design: "design",
   color: "red",
-  price: "$24"
+  price: "$24",
 };
 
 const wrapper = shallow(<ProductCard product={product} />);

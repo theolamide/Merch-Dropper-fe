@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router";
 import "./App.css";
-import DevAuth from './components/Auth/DevAuth'
+import DevAuth from "./components/Auth/DevAuth";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import PrivateRoute from "./components/PrivateRoute";
@@ -18,13 +18,13 @@ import Redirect from "./components/Redirect";
 import CreateStore from "./components/Onboarding/CreateStore";
 import AddProductToTable from "./components/Shirt/AddProductToTable.js";
 import initialShirtState from "./components/Shirt/initialShirtState";
-import ShippingAddress from "./components/Cart/ShippingAddress.js"
-import initialState from "./store/reducers/initialState"
+import ShippingAddress from "./components/Cart/ShippingAddress.js";
+import initialState from "./store/reducers/initialState";
 
 function App() {
   const [design, setDesign] = useState(initialShirtState.designInfo);
   const [garment, setGarment] = useState(initialShirtState.garment);
-  const [product, setProduct] = useState(initialState.products)
+  const [product, setProduct] = useState(initialState.products);
   const [thumbRender, setThumbRender] = useState();
   return (
     <div className="App">
@@ -37,7 +37,9 @@ function App() {
         <Route
           exact
           path="/addproduct"
-          render={(props) => <AddProductToTable garment={garment} design={design}{...props} />}
+          render={(props) => (
+            <AddProductToTable garment={garment} design={design} {...props} />
+          )}
         />
         <PrivateRoute
           exact
@@ -55,7 +57,7 @@ function App() {
               design={design}
               setDesign={setDesign}
               garment={garment}
-              setGarment={setGarment}            
+              setGarment={setGarment}
               thumbRender={thumbRender}
               setThumbRender={setThumbRender}
               product={product}
@@ -64,7 +66,11 @@ function App() {
             />
           )}
         />
-        <Route exact path="/:domain_name/shippingAddress" component={ShippingAddress} />
+        <Route
+          exact
+          path="/:domain_name/shippingAddress"
+          component={ShippingAddress}
+        />
         <Route exact path="/learnmore" component={LearnMore} />
         <Route exact path="/redirect" component={Redirect} />
         <Route exact path="/stripe-setup" component={StripeSetup} />

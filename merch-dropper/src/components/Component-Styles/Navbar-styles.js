@@ -1,8 +1,6 @@
-import {
-    createGlobalStyle
-} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
-export const NavbarStyles = createGlobalStyle `
+export const NavbarStyles = createGlobalStyle`
 
 
     * {
