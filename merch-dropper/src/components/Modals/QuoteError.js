@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
+import Button from '@material-ui/core/Button';
+import { connect, useSelector } from 'react-redux';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -28,11 +30,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const QuoteError = () => {
+const QuoteError = props => {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(true);
+// can be broken out to it's own component and imported if need be
+  const readError = error => {
+    let errorMessage;
+    if(error === "orderToken is null"){
+      errorMessage = "There was a problem processing the order. Likely there was an issue with your shipping address, please try again. If the problem persists, please contact the Merch Dropper development team"
+    } else {
+      errorMessage = "Unknown error, please try again. If the problem persists, please contact the Merch Dropper development team"
+    }
+    return(
+        <div style={modalStyle} className={classes.paper}>
+          <h2 id="simple-modal-title">OOF! 😬</h2>
+          <p id="simple-modal-description">
+            {errorMessage}
+          </p>
+          <Button>Try Again</Button>
+          <Button>Back to Store</Button>
+        </div>
+      );
+  } 
 
   const handleOpen = () => {
     setOpen(true);
@@ -42,15 +63,7 @@ const QuoteError = () => {
     setOpen(false);
   };
 
-  const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Text in a modal</h2>
-      <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-      </p>
-      {/* <SimpleModal /> */}
-    </div>
-  );
+  const body = readError(props.error)
 
   return (
     <div>
@@ -66,4 +79,12 @@ const QuoteError = () => {
   );
 }
 
-export default QuoteError;
+const mapStateToProps = state => {
+  console.log(state)
+  return({
+    error: state.QuoteReducer.error
+  }
+  )
+}
+
+export default connect(mapStateToProps, {})(QuoteError);
