@@ -38,13 +38,14 @@ const addProduct = async (history, garment, product, design) => {
         fullSizeURL: cloudRes.data.eager[0].secure_url,
         thumbnailURL: cloudRes.data.eager[1].secure_url,
       })
-      .then(history.push("/dashboard"))
+      .then(history.push("/dashboard"),
+      garment.mockUrl = "")
       .catch(err => {
         console.log("MERCHDROPRES", err);
       });
     console.log(` added successfully!`);
   })();
-  return null;
+  // garment.mockUrl = "";
 };
 
 export default addProduct;
