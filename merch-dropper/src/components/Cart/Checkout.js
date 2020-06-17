@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 import StripeCheckoutButton from "../StripeButton";
+import QuoteError from "../Modals/QuoteError"
 import {initialQuoteState} from "../../store/reducers/QuoteReducer";
 // import {addAddress, getQuote, setQuote} from "../../store/actions"
 
@@ -65,11 +66,23 @@ const CheckoutPage = ({
 // const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
   // const { domain_name } = useParams();
   console.log('Quote in checkout', quote)
+    // I need to get the error token from state for the modal to work
+    const findError = orderToken =>{
+      if(!orderToken){
+        return (
+          <div>
+            <QuoteError />
+          </div>
+        )
+      } else {
+        return null
+      }
+    }
 
   return (
     quote.quote   ? 
     <CheckoutPageWrapper className="checkout-page">
-       
+       {!quote.quote.orderToken ? <QuoteError /> : null}
       <CheckoutHeader className="checkout-header">
         <HeaderBlock className="header-block">
           <span>Product</span>

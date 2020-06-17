@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom"
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -37,7 +37,14 @@ const QuoteError = ({ error }) => {
   const thisStore = localStorage.getItem('domain_name')
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = useState(getModalStyle);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  useEffect(()=> {
+    if(error){
+      setOpen(true)
+    } else {
+      setOpen(false)
+    }
+  }, [error])
 // can be broken out to it's own component and imported if need be
   const readError = error => {
     let errorMessage;
