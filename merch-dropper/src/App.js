@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Route, Switch } from "react-router";
+import { useDispatch } from "react-redux";
 import "./App.css";
 import DevAuth from './components/Auth/DevAuth'
 import NavBar from "./components/NavBar";
@@ -20,15 +21,22 @@ import AddProductToTable from "./components/Shirt/AddProductToTable.js";
 import initialShirtState from "./components/Shirt/initialShirtState";
 import ShippingAddress from "./components/Cart/ShippingAddress.js"
 import initialState from "./store/reducers/initialState"
+import { resetCart } from "../src/store/actions"
+
+
 
 function App() {
   const [design, setDesign] = useState(initialShirtState.designInfo);
   const [garment, setGarment] = useState(initialShirtState.garment);
   const [product, setProduct] = useState(initialState.products)
   const [thumbRender, setThumbRender] = useState();
+  const dispatch = useDispatch();
+
   return (
-    <div className="App">
+
+    <div className="App" >
       <NavBar />
+      <div classname="outterContainer" onClick={() => {dispatch(resetCart())}}>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/develop" component={DevAuth} />
@@ -76,8 +84,11 @@ function App() {
         <Route exact path="/:domain_name/checkout" component={CheckoutPage} />
       </Switch>
       <Footer />
+      </div>
     </div>
   );
 }
 
 export default App;
+
+
