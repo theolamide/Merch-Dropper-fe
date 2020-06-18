@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 import MerchDropperLogo from "../assets/MerchDropperLogo.JPG";
 import { axiosWithEnv } from "../utils/axiosWithEnv";
 
@@ -13,12 +13,12 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
 
   let config = {
     headers: {
-      "Content-Type": "application/json",
-    },
+      "Content-Type": "application/json"
+    }
   };
   // grabs the orderToken to complete payment process and send to backend calculate application fee
-  const tokenSelector = useSelector((state) => state.QuoteReducer.quote);
-  const onToken = (token) => {
+  const tokenSelector = useSelector(state => state.QuoteReducer.quote)
+  const onToken = token => {
     token.domain_name = domain;
     token.orderToken = tokenSelector.quote.orderToken;
     axiosWithEnv()
@@ -27,11 +27,11 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
         token,
         config,
       })
-      .then((res) => {
+      .then(res => {
         alert("payment successful");
         history.push("/products");
       })
-      .catch((error) => {
+      .catch(error => {
         console.dir("payment error", error);
         alert("There was an issue with your payment.");
       });
@@ -45,7 +45,7 @@ const StripeCheckoutButton = ({ price, domain, history }) => {
       billingAddress={true}
       shippingAddress={false}
       zipCode={true}
-      currency="USD"
+      currency='USD'
       image={`${MerchDropperLogo}`} // might be cause of 400 stripe bug
       description={`Your total is $${price}`}
       amount={priceForStripe}

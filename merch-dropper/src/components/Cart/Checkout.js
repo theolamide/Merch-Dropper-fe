@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-import { axiosWithEnv } from "../../utils/axiosWithEnv";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import styled from "styled-components";
+
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector } from "react-redux"
+import axios from 'axios';
+import { axiosWithEnv } from '../../utils/axiosWithEnv'
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import styled from 'styled-components';
 import StripeCheckoutButton from "../StripeButton";
-import { initialQuoteState } from "../../store/reducers/QuoteReducer";
+import {initialQuoteState} from "../../store/reducers/QuoteReducer";
 // import {addAddress, getQuote, setQuote} from "../../store/actions"
+
 
 import {
   selectCartItems,
@@ -18,7 +20,7 @@ import {
   removeFromCart,
   clearItemFromCart,
   setQuote,
-  getQuote,
+  getQuote
 } from "../../store/actions/index";
 
 const CheckoutPage = ({
@@ -29,23 +31,26 @@ const CheckoutPage = ({
   removeItem,
   clearItem,
 }) => {
-  const quote = useSelector((state) => state.QuoteReducer.quote);
+
+ const quote = useSelector(state => state.QuoteReducer.quote)
   const dispatch = useDispatch();
   const { domain_name } = match.params;
-  const sendQuote = useSelector((state) => state.QuoteReducer.sendQuote);
-  const FunctionTotal = (a, b, c) => {
-    return a + b + c;
-  };
-
-  useEffect(() => {
-    axiosWithEnv()
-      .get(`/api/stores/domain/${domain_name}`)
-      // axios
-      // .get(
-      //   `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
-      // )
+  const sendQuote = useSelector(state => state.QuoteReducer.sendQuote)
+  const FunctionTotal=(a,b,c) => {
+      return a+b+c
+    }
+    
+  useEffect(() => {   
+       axiosWithEnv()
+        .get(
+          `/api/stores/domain/${domain_name}`
+        )
+        // axios
+        // .get(
+        //   `https://merch-dropper.herokuapp.com/api/stores/domain/${domain_name}`
+        // )
       .then((res) => {
-        dispatch(getQuote(sendQuote));
+        dispatch(getQuote(sendQuote))
         if (Number(res.data.id) !== Number(localStorage.getItem("storeID"))) {
           localStorage.setItem("storeID", Number(res.data.id));
           window.location.reload();
@@ -54,13 +59,17 @@ const CheckoutPage = ({
       .catch((err) => {
         console.log(err);
       });
-  }, [match.params, domain_name]);
+      
+  }, [match.params, domain_name,]);
 
-  // const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
+// const CheckoutPage = ({ cart, total, addItem, removeItem, clearItem }) => {
   // const { domain_name } = useParams();
+  console.log('checkout params', domain_name)
 
-  return quote.quote ? (
+  return (
+    quote.quote   ? 
     <CheckoutPageWrapper className="checkout-page">
+       
       <CheckoutHeader className="checkout-header">
         <HeaderBlock className="header-block">
           <span>Product</span>
@@ -109,35 +118,17 @@ const CheckoutPage = ({
             </RemoveButton>
           </CheckoutItemWrapper>
         ))}
-      <SubTotal className="subtotal">
-        <span>SubTotal ${total.toFixed(2)}</span>
-        <br />
-        <span>Tax: ${quote.quote.tax.toFixed(2)}</span>
-        <br />
-        <span>
-          Shipping:{" "}
-          {cart.length <= 0 ? "$0" : `${quote.quote.shipping.toFixed(2)}`}{" "}
-        </span>
-      </SubTotal>
+        <SubTotal className="subtotal">
+          <span>SubTotal ${total.toFixed(2)}</span><br/>
+          <span>Tax: ${quote.quote.tax.toFixed(2)}</span><br/>
+          <span>Shipping: {cart.length <= 0 ? "$0" : `${quote.quote.shipping.toFixed(2)}`} </span>
+        </SubTotal>
       <Total className="total">
-        <span>
-          Total:{" "}
-          {cart.length <= 0
-            ? "$0"
-            : `${FunctionTotal(
-                total,
-                quote.quote.tax,
-                quote.quote.shipping
-              ).toFixed(2)}`}
-        </span>
+        <span>Total: {cart.length <= 0 ? "$0" :`${FunctionTotal(total, quote.quote.tax, quote.quote.shipping).toFixed(2)}`}</span>
       </Total>
-      <StripeCheckoutButton
-        price={FunctionTotal(total, quote.quote.tax, quote.quote.shipping)}
-        domain={domain_name}
-      />
+      <StripeCheckoutButton price={FunctionTotal(total, quote.quote.tax, quote.quote.shipping)} domain={domain_name} />
     </CheckoutPageWrapper>
-  ) : (
-    <div>Redirecting to Checkout</div>
+    : <div>Redirecting to Checkout</div>
   );
 };
 
@@ -185,10 +176,10 @@ const HeaderBlock = styled.div`
 `;
 
 const SubTotal = styled.div`
-  margin-top: 30px;
-  margin-left: auto;
-  font-size: 15px;
-`;
+margin-top: 30px;
+margin-left: auto;
+font-size: 15px;
+`
 
 const Total = styled.div`
   margin-top: 30px;

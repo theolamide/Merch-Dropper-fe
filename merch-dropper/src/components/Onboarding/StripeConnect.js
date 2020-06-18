@@ -12,7 +12,7 @@ import {
 } from "./Styled";
 import history from "../../utils/history";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
-import { makeAccount } from "../../utils/makeAccount";
+import { makeAccount } from '../../utils/makeAccount';
 
 let url;
 if (process.env.REACT_APP_BASE_URL === "development") {
@@ -21,7 +21,7 @@ if (process.env.REACT_APP_BASE_URL === "development") {
   url = "https://merchdropper.store/createstore";
 }
 // If user skipped stripe setup earlier grab this boolean from localStorage
-const returnToDash = localStorage.getItem("fromSettings");
+const returnToDash = localStorage.getItem("fromSettings")
 
 const getSteps = () => {
   return ["Create Account", "Connect Stripe", "Create Store"];
@@ -39,35 +39,38 @@ const ConnectStripe = (e) => {
 
 const SkipSetup = (e) => {
   e.preventDefault();
-  if (returnToDash) {
-    history.push("/dashboard");
-    window.location.replace("/dashboard");
-    localStorage.removeItem("fromSettings");
+  if(returnToDash){
+    history.push("/dashboard")
+    window.location.replace("/dashboard")
+    localStorage.removeItem('fromSettings')
   } else {
     history.push("/createstore");
     window.location.replace(url);
   }
 };
 
-const DevStripeConnect = (e) => {
-  const id = localStorage.getItem("id");
-  let account = makeAccount(16);
-  const stripeAccount = {
-    stripe_account: "test_" + account,
-  };
-  axiosWithAuth()
+const DevStripeConnect = e => {
+    const id = localStorage.getItem('id')
+    let account = makeAccount(16);
+    const stripeAccount = {
+        stripe_account: 'test_' + account
+    }
+    // console.log(stripeAccount);
+    axiosWithAuth()
     .put(`/api/users/${id}`, stripeAccount)
-    .then((res) => {
-      if (returnToDash) {
-        history.push("/dashboard");
-        window.location.replace("http://localhost:3000/dashboard");
-        localStorage.setItem("fromSettings", false);
-      } else {
-        history.push("/createstore");
-        window.location.replace("http://localhost:3000/createstore");
-      }
-    });
-};
+    .then(res =>{
+        // console.log('has been put', res)
+        if(returnToDash){
+            history.push("/dashboard")
+            window.location.replace("http://localhost:3000/dashboard")
+            localStorage.setItem('fromSettings', false)
+        } else {
+        history.push('/createstore')
+        window.location.replace("http://localhost:3000/createstore")
+        }
+    })
+     
+}
 
 const StripeConnect = () => {
   const [queryString, setQueryString] = useState(window.location.search);
@@ -77,6 +80,7 @@ const StripeConnect = () => {
   let userCode = "";
   const steps = getSteps();
   const profile = JSON.parse(localStorage.getItem("profile"));
+  console.log(profile.email);
 
   if (queryString.includes("error")) {
     stripeError = true;
@@ -84,13 +88,16 @@ const StripeConnect = () => {
 
   if (queryString.includes("code=")) {
     userCode = queryString.substring(queryString.indexOf("code=") + 5);
+    console.log(userCode);
 
     axiosWithAuth()
       .post(`/api/stripe/accounts`, {
         user_code: userCode,
         email: profile.email,
       })
-      .then((res) => {});
+      .then((res) => {
+        console.log(res);
+      });
 
     stripeConnected = true;
   }
@@ -121,13 +128,9 @@ const StripeConnect = () => {
           <StripeSkipButton onClick={SkipSetup}>Skip for now</StripeSkipButton>
         )
       }
-      {
-        //For connecting to a faked stripe account (will not be active)
-        !queryString && process.env.REACT_APP_BASE_URL === "development" && (
-          <button className="dev-stripe" onClick={DevStripeConnect}>
-            Connect 4 Develop
-          </button>
-        )
+      {   //For connecting to a faked stripe account (will not be active)
+        (!queryString && process.env.REACT_APP_BASE_URL === "development") &&
+        <button className='dev-stripe' onClick={DevStripeConnect}>Connect 4 Develop</button>
       }
       {queryString && stripeConnected && (
         <ConnectionMessage>Connection was successful!</ConnectionMessage>

@@ -77,3 +77,4 @@ it("simulates the Skip for Now button being clicked", () => {
   button.simulate("click");
   expect(skipCreate).toHaveBeenCalledTimes(1);
 });
+

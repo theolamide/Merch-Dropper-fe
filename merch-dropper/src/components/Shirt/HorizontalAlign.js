@@ -13,10 +13,9 @@ const HorizontalAlign = ({ garment, setGarment }) => {
         onChange={(e) =>
           setGarment({
             ...garment,
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value
           })
-        }
-      >
+        }>
         <option value="L">Left</option>
         <option value="LC">Center-Left</option>
         <option value="C">Center</option>

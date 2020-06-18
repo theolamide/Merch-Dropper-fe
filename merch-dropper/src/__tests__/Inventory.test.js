@@ -28,7 +28,9 @@ it("renders the Inventory List component", () => {
 it("simulates the Add new item button being clicked", () => {
   const addButton = jest.fn();
   const buttonWrapper = shallow(
-    <button onClick={addButton}>Add new item</button>
+    <button onClick={addButton}>
+      Add new item
+    </button>
   );
   const button = buttonWrapper.find("button");
   button.simulate("click");

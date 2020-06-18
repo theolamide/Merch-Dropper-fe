@@ -145,5 +145,5 @@ const colors = [
   ["Heather Sea Green", "#A5ECEE"],
   ["Heather Ice Blue", "#E0F1F5"],
   ["Rust", "#A03033"],
-  ["Heather Peach", "#F1D9C1"],
+  ["Heather Peach", "#F1D9C1"]
 ];
