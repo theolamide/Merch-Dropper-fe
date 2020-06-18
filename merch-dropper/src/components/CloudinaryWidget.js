@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import {useStyles} from "../components/Component-Styles/addProduct-styles"
+import { useStyles } from "../components/Component-Styles/addProduct-styles";
 
 const ImageUpload = ({ design, setDesign, designAdded, setDesignAdded }) => {
   const classes = useStyles();

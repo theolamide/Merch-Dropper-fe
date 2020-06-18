@@ -163,7 +163,6 @@ export const useStyles = makeStyles({
     width: "344px",
     height: "59px",
     backgroundColor: "#4556ee",
-  
 
     /* #4455EE Primary */
 
@@ -176,8 +175,8 @@ export const useStyles = makeStyles({
     textTransform: "none",
     "&:hover": {
       backgroundColor: "rgb(69, 86, 238, .87)",
-        color: "#fff"
-    }
+      color: "#fff",
+    },
   },
 
   storeSelect: {
@@ -235,9 +234,9 @@ export const useStyles = makeStyles({
   addressField: {
     margin: 5,
     width: 230,
-    height: 50
+    height: 50,
   },
-  button:{
+  button: {
     // background:"#3E32CC",
     display: "inline-block",
     fontWeight: 400,
@@ -245,16 +244,17 @@ export const useStyles = makeStyles({
     textAlign: "center",
     verticalAlign: "middle",
     cursor: "pointer",
-    backgroundColor:"#4556ee",
+    backgroundColor: "#4556ee",
     border: "1px solid transparent",
     padding: ".375rem .75rem",
     fontSize: "1rem",
     lineHeight: 1.5,
     borderRadius: ".25rem",
-    transition: "color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out",
-    "&:hover":{
-        backgroundColor: "rgb(69, 86, 238, .87)",
-        color: "#fff"
-    }
-  }
+    transition:
+      "color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out",
+    "&:hover": {
+      backgroundColor: "rgb(69, 86, 238, .87)",
+      color: "#fff",
+    },
+  },
 });
