@@ -27,18 +27,19 @@ const addProduct = async (history, garment, product, design) => {
         console.log("error uploading image", err);
       });
     //
-    const merchDropRes = await axios
-      .post("https://merch-dropper.herokuapp.com/api/products", {
+    const merchDropRes = await axiosWithEnv()
+      .post("/api/products", {
         ...product,
         fullSizeURL: cloudRes.data.eager[0].secure_url,
         thumbnailURL: cloudRes.data.eager[1].secure_url,
       })
-      .then(history.push("/dashboard"))
-      .catch((err) => {
+      .then(history.push("/dashboard"),
+      garment.mockUrl = "")
+      .catch(err => {
         console.log("MERCHDROPRES", err);
       });
   })();
-  return null;
+  // garment.mockUrl = "";
 };
 
 export default addProduct;

@@ -41,8 +41,8 @@ const AddProductToTable = (props, history) => {
   useEffect(() => {
     async function getStores() {
       const { email } = JSON.parse(localStorage.getItem("profile"));
-      const res = await axios.get(
-        `https://merch-dropper.herokuapp.com/api/users/email/${email}`
+      const res = await axiosWithEnv().get(
+        `/api/users/email/${email}`
       );
       const userID = res.data.id;
       const res2 = await axiosWithEnv().get(`/api/stores/user/${userID}`);
