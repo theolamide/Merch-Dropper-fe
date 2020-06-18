@@ -1,57 +1,62 @@
-describe("Storefront elements", () => {
-  //fullsize check
-  it("tests to see if cart icon & logout button is visible", () => {
-    cy.visit("/null");
+describe('Storefront elements', () => {
 
-    //is BrandTItle visible
-    cy.get(".BrandTitle").contains("Merch Dropper");
+    //fullsize check
+    it('tests to see if cart icon & logout button is visible', () => {
+        cy.visit('/null')
 
-    //check to see if Desktop menu container is visibl3
-    cy.get(".DesktopWrapper").should("be.visible");
+        //is BrandTItle visible
+        cy.get('.BrandTitle').contains('Merch Dropper')
 
-    //make sure mobile menu is not showing
-    cy.get(".MobileWrapper").should("not.be.visible");
+       //check to see if Desktop menu container is visibl3
+       cy.get('.DesktopWrapper').should('be.visible')
 
-    //check if store name is visible
-    cy.get("a.links").contains("null");
+        //make sure mobile menu is not showing
+        cy.get('.MobileWrapper').should('not.be.visible')
 
-    //check if shopping cart icon is visible
-    cy.get(".sc-AxhUy").should("be.visible");
+         //check if store name is visible
+         cy.get('a.links').contains('null')
 
-    //is logout button showing
-    cy.get("span.links").should("not.exist");
-  });
+        //check if shopping cart icon is visible
+        cy.get('.sc-AxhUy').should('be.visible')
+    
+        //is logout button showing
+        cy.get('span.links').should('not.exist')
+        
+    })
 
-  //check small screen functionality
-  context("760p resolution", () => {
-    beforeEach(() => {
-      //set viewport size for these tests
-      cy.viewport(767, 740);
-    });
+   //check small screen functionality
+   context('760p resolution', () => {
+       beforeEach(() => {
+            //set viewport size for these tests
+           cy.viewport(767,740)
+       })
 
-    it("tests to see if cart icon & logout button is visible on small screen size", () => {
-      cy.visit("/null");
+       it('tests to see if cart icon & logout button is visible on small screen size', () => {
+        cy.visit('/null')
 
-      //is BrandTItle visible
-      cy.get(".BrandTitle").contains("Merch Dropper");
+        //is BrandTItle visible
+        cy.get('.BrandTitle').contains('Merch Dropper')
 
-      //check to see if Desktop menu container is visible
-      cy.get(".DesktopWrapper").should("not.be.visible");
+       //check to see if Desktop menu container is visible
+       cy.get('.DesktopWrapper').should('not.be.visible')
 
-      //make sure mobile menu is not showing
-      cy.get(".MobileWrapper").should("be.visible");
+        //make sure mobile menu is not showing
+        cy.get('.MobileWrapper').should('be.visible')
 
-      //check if store name is visible
-      cy.get("a.links").contains("null");
+         //check if store name is visible
+         cy.get('a.links').contains('null')
 
-      //check if shopping cart icon is visible
-      cy.get(".sc-AxhUy").should("be.visible");
+        //check if shopping cart icon is visible
+        cy.get('.sc-AxhUy').should('be.visible')
+    
+        //is logout button showing
+        cy.get('span.links').should('not.exist')
 
-      //is logout button showing
-      cy.get("span.links").should("not.exist");
+          //is mobile dropdown menu showing
+       cy.get('.HamburgerLines').should('be.visible')
 
-      //is mobile dropdown menu showing
-      cy.get(".HamburgerLines").should("be.visible");
-    });
-  });
-}); //describe
+       })
+
+   })
+
+})//describe

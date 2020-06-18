@@ -11,7 +11,7 @@ const initialShirtState = {
     horizontalPlacement: ".5",
     designPlacement: "C",
     offSetFromTop: "2",
-    mockUrl: "",
+    mockUrl: ""
   },
   // cloudinaryInfo is more or less empty because there is a stock image
   cloudinaryInfo: {
@@ -22,7 +22,7 @@ const initialShirtState = {
     url: "",
     secureUrl: "",
     croppedUrl: "",
-    croppedThumbUrl: "",
+    croppedThumbUrl: ""
   },
 
   productInfo: {
@@ -32,15 +32,15 @@ const initialShirtState = {
     thumbnailURL: "",
     description: "Limited Edition",
     price: 62.99,
-    storeID: 1,
+    storeID: 1
   },
   designInfo: {
     design_name: "Future Sloth",
     design_url: "",
     thumbnail_url: "",
     storeID: 1,
-    userID: 1,
-  },
+    userID: 1
+  }
 };
 
 export default initialShirtState;

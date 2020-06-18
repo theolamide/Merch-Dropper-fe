@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from 'axios';
 import NavBar from "./NavBar";
 import ProductCard from "./ProductCard";
 import { connect } from "react-redux";
@@ -8,20 +8,21 @@ import { Container, Row, Col } from "reactstrap";
 import "../App.css";
 import { axiosWithEnv } from "../utils/axiosWithEnv";
 
+
 const ProductDisplay = ({ products, addToCart }) => {
   const [shirts, setShirts] = useState([]);
 
   useEffect(() => {
-    axiosWithEnv()
-      .get("/api/products")
-      .then((res) => {
+    axiosWithEnv().get('/api/products')
+      .then(res => {
         setShirts(res.data);
-      });
+       
+      })
   }, []);
 
   return (
     <Container fluid="true" className="container-margin">
-      {/*<NavBar />*/}
+       {/*<NavBar />*/}
       <Row>
         <Col sm="7" className="flex ">
           {shirts.map((product, id) => (
@@ -43,8 +44,11 @@ const ProductDisplay = ({ products, addToCart }) => {
 const mapStateToProps = (state) => {
   return {
     cart: state.CartReducer.cart,
-    products: state.ProductReducer.products,
+    products: state.ProductReducer.products
   };
 };
 
-export default connect(mapStateToProps, { addToCart })(ProductDisplay);
+export default connect(
+  mapStateToProps,
+  { addToCart }
+)(ProductDisplay);

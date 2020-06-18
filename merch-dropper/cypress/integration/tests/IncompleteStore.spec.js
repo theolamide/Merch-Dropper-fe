@@ -41,8 +41,8 @@ describe("Dev Auth path", () => {
     it("logs out correctly", () => {
       cy.contains("Logout").click();
       cy.url().should("eq", "http://localhost:3000/");
-      cy.contains("Dev Auth");
-      cy.contains("Prod Nav");
+      cy.contains("Dev Auth")
+      cy.contains("Prod Nav")
     });
   });
 });

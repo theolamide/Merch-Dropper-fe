@@ -24,7 +24,9 @@ export default function ThumbDisplay({ garment, setGarment, thumbRender }) {
   const [designArray, setDesignArray] = useState();
   useEffect(() => {
     async function fetchDesigns() {
-      let fetchedDesigns = await axiosWithEnv().get("/api/designs");
+      let fetchedDesigns = await axiosWithEnv().get(
+        "/api/designs"
+      );
       setDesignArray(fetchedDesigns.data);
     }
     fetchDesigns();

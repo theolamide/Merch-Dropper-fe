@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { TextField, MenuItem, Button, Typography } from "@material-ui/core";
+import axios from 'axios';
+import {TextField, MenuItem, Button, Typography } from "@material-ui/core";
 import addProduct from "./AddProduct";
 import { useStyles } from "../Component-Styles/addProduct-styles.js";
 import { Dimmer, Loader, Image, Segment } from "semantic-ui-react";
@@ -8,7 +8,8 @@ import "semantic-ui-css/semantic.min.css";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import { axiosWithEnv } from "../../utils/axiosWithEnv";
-import scalableData from "./scalableData";
+import scalableData from "./scalableData"
+
 
 Modal.setAppElement("#root");
 const AddProductToTable = (props, history) => {
@@ -24,9 +25,9 @@ const AddProductToTable = (props, history) => {
     color: data.product.color,
     size: "",
     product_id: data.product.id,
-    type: data.design.type,
+    type: data.design.type
   });
-  const [cost, setCost] = useState([]);
+  const [cost, setCost] = useState([])
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
     setIsOpen(true);
@@ -41,66 +42,71 @@ const AddProductToTable = (props, history) => {
   useEffect(() => {
     async function getStores() {
       const { email } = JSON.parse(localStorage.getItem("profile"));
-      const res = await axiosWithEnv().get(`/api/users/email/${email}`);
+      const res = await axiosWithEnv().get(
+        `/api/users/email/${email}`
+      );
+      console.log(res, "res1");
       const userID = res.data.id;
-      const res2 = await axiosWithEnv().get(`/api/stores/user/${userID}`);
+      const res2 = await axiosWithEnv().get(
+        `/api/stores/user/${userID}`
+      );
+      console.log(res2, "res");
       setStores(res.data);
-      setProduct({
+      setProduct(
+      { 
         productName: "",
         price: "",
-        description: "",
+        description: "",        
         designId: props.design.designId,
         color: data.product.color,
         size: "",
         product_id: data.product.id,
         type: data.design.type,
-        storeID: res2.data.id,
-      });
+        storeID:res2.data.id
+      })
     }
     getStores();
     //get price of product from scalablepress
-
-    axiosWithEnv()
-      .post("/api/products/price", {
+      
+      axiosWithEnv().post('/api/products/price', {
         type: props.garment.printStyle,
         sides: {
-          front: 1,
+          front: 1
         },
-        products: [
-          {
+          products: [{
             id: "canvas-unisex-t-shirt",
             color: data.product.color,
             size: "med",
-            quantity: 1,
-          },
-        ],
+            quantity: 1}
+          ]
       })
-      .then((res) => {
-        setCost(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+          .then(res => {
+             setCost(res.data)
+          })
+          .catch(err => {
+            console.log(err)
+          })
   }, [cost.total]);
+  
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setProduct({
       ...product,
-      size: "med",
-      [event.target.name]: event.target.value,
+      size:"med",
+      [event.target.name]: event.target.value
     });
   };
 
-  //calculate profit per item
+    //calculate profit per item
   const calcPrice = (e, baseCost = cost.total) => {
-    if (product.price) {
-      return product.price - baseCost;
-    } else {
+    if(product.price){
+      return product.price - baseCost
+    } else{
       return 0;
     }
-  };
+  }
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async event => {
     event.preventDefault();
     openModal();
     addProduct(props.history, props.garment, product, props.design);
@@ -111,10 +117,11 @@ const AddProductToTable = (props, history) => {
     //   props.history.push("/dashboard");
     // }, 800);
   };
-
+  console.log(props.garment);
+  
   // const shirtColor = props.garment.color;
   const shirtImage = props.garment.mockUrl;
-
+ 
   return (
     <div className={classes.addproductContainer}>
       <Modal
@@ -144,33 +151,31 @@ const AddProductToTable = (props, history) => {
             value={product.productName}
             onChange={handleChange}
             InputProps={{
-              disableUnderline: true,
+              disableUnderline: true
             }}
             InputLabelProps={{
               classes: {
-                root: classes.labelText,
-              },
+                root: classes.labelText
+              }
             }}
           />{" "}
           <div className={classes.cost}>
-            <TextField
-              className={classes.price}
-              label="$"
-              name="price"
-              value={product.price}
-              onChange={handleChange}
-              InputProps={{
-                disableUnderline: true,
-              }}
-              InputLabelProps={{
-                classes: {
-                  root: classes.labelText,
-                },
-              }}
-            />{" "}
-            <span className={classes.profit}>
-              Profit per item:<strong> ${`${calcPrice().toFixed(2)}`}</strong>
-            </span>
+          <TextField
+            className={classes.price}
+            label="$"
+            name="price"
+            value={product.price}
+            onChange={handleChange}
+            InputProps={{
+              disableUnderline: true
+            }}
+            InputLabelProps={{
+              classes: {
+                root: classes.labelText
+              }
+            }}
+          />{" "}
+         <span className={classes.profit}>Profit per item:<strong> ${`${calcPrice().toFixed(2)}`}</strong></span>
           </div>
           <TextField
             className={classes.desc}
@@ -181,12 +186,12 @@ const AddProductToTable = (props, history) => {
             value={product.description}
             onChange={handleChange}
             InputProps={{
-              disableUnderline: true,
+              disableUnderline: true
             }}
             InputLabelProps={{
               classes: {
-                root: classes.labelText,
-              },
+                root: classes.labelText
+              }
             }}
           />{" "}
           {/* <Typography

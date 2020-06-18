@@ -194,11 +194,11 @@ export const CreateStoreButton = styled.button`
   height: 59px;
   left: calc(50% - 344px / 2);
   top: 372px;
-  background: #4455ee;
+  background: #4455EE;
   border-radius: 10px;
   font-size: 18px;
   font-weight: bold;
-  color: #ffffff;
+  color: #FFFFFF;
 `;
 
 export const SkipCreateStoreButton = styled.button`
@@ -207,10 +207,11 @@ export const SkipCreateStoreButton = styled.button`
   height: 59px;
   left: 103px;
   top: 449px;
-  border: 3px solid #4455ee;
+  border: 3px solid #4455EE;
   box-sizing: border-box;
   border-radius: 10px;
   font-size: 18px;
+  
 `;
 
 export const StepContainer = styled.div`
@@ -248,8 +249,8 @@ export const StripeButton = styled.button`
   height: 59px;
   left: 103px;
   top: 252px;
-  background: #4455ee;
-  color: #ffffff;
+  background: #4455EE;
+  color: #FFFFFF;
   border-radius: 10px;
   font-family: Roboto;
   font-style: normal;
@@ -264,7 +265,7 @@ export const StripeSkipButton = styled.button`
   height: 59px;
   left: 103px;
   top: 329px;
-  border: 3px solid #4455ee;
+  border: 3px solid #4455EE;
   box-sizing: border-box;
   border-radius: 10px;
   background: white;
@@ -278,31 +279,37 @@ export const StripeSkipButton = styled.button`
 `;
 
 export const ConnectionMessage = styled.p`
-  position: absolute;
-  width: 190px;
-  height: 21px;
-  left: 179px;
-  top: 271px;
 
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 21px;
+    position: absolute;
+    width: 190px;
+    height: 21px;
+    left: 179px;
+    top: 271px;
 
-  /* identical to box height */
-  text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
 
-  color: #000000;
+    /* identical to box height */
+    text-align: center;
+
+    color: #000000;
+
+
+
 `;
 
 export const CreateStore = styled.button`
-  position: absolute;
-  width: 344px;
-  height: 59px;
-  left: 103px;
-  top: 329px;
-  color: #ffffff;
-  background: #4455ee;
-  border-radius: 10px;
+
+    position: absolute;
+    width: 344px;
+    height: 59px;
+    left: 103px;
+    top: 329px;
+    color: #FFFFFF;
+    background: #4455EE;
+    border-radius: 10px;
+
 `;

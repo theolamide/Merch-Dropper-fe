@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { useStyles } from "./Component-Styles/Footer";
+import {useStyles} from "./Component-Styles/Footer"
 import { Navbar, Nav, NavLink } from "reactstrap";
 
 const Footer = ({ location }) => {

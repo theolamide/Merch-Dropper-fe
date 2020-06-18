@@ -6,25 +6,25 @@ import {
   SignUpBox,
   StyledForm,
   StyledInput,
-  StyledButton,
+  StyledButton
 } from "./Styled.js";
 
 const initialLoginInfo = {
   username: "",
-  password: "",
+  password: ""
 };
 
 function Login({ userLogin, history }) {
   const [loginInfo, setLoginInfo] = useState(initialLoginInfo);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setLoginInfo({
       ...loginInfo,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
-  const callLogin = (e) => {
+  const callLogin = e => {
     e.preventDefault();
     userLogin(loginInfo, history);
   };
@@ -53,12 +53,12 @@ function Login({ userLogin, history }) {
   );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   let login = state.LoginReducer;
 
   return {
     isFetching: login.isFetching,
-    error: login.error,
+    error: login.error
   };
 };
 

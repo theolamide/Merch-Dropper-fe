@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { useStyles } from "../components/Component-Styles/addProduct-styles";
+import {useStyles} from "../components/Component-Styles/addProduct-styles"
 
 const ImageUpload = ({ design, setDesign, designAdded, setDesignAdded }) => {
   const classes = useStyles();
@@ -11,7 +11,7 @@ const ImageUpload = ({ design, setDesign, designAdded, setDesignAdded }) => {
       showAdvancedOptions: false,
       cropping: false,
       multiple: false,
-      defaultSource: "local",
+      defaultSource: "local"
     },
     (error, result) => {
       if (result.event === "success") {
@@ -21,14 +21,14 @@ const ImageUpload = ({ design, setDesign, designAdded, setDesignAdded }) => {
           ...design,
           design_name: data.original_filename,
           design_url: data.url,
-          thumbnail_url: data.thumbnail_url,
+          thumbnail_url: data.thumbnail_url
         });
         setDesignAdded(designAdded + 1);
       }
     }
   );
 
-  const showWidget = function () {
+  const showWidget = function() {
     widget.open();
   };
 

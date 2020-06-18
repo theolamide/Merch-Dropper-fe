@@ -14,6 +14,7 @@ import Settings from "./Settings";
 const Dashboard = ({ products, addToCart, match, location, history }) => {
   const [user, setUser] = useState();
   // const [shirts, setShirts] = useState([]);
+  console.log({ match, location });
   const userID = localStorage.getItem("id");
 
   useEffect(() => {
