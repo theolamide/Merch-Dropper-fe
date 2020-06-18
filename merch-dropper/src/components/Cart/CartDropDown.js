@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Button } from "reactstrap";
 
 import { toggleCart, setQuote } from "../../store/actions";
-import {initialQuoteState} from "../../store/reducers/QuoteReducer"
+import { initialQuoteState } from "../../store/reducers/QuoteReducer";
 
 const CartDropdownDiv = styled.div`
   position: absolute;
@@ -89,57 +89,53 @@ const SingleCartItem = ({ item: { thumbnailURL, price, name, quantity } }) => (
 );
 
 const CartDropdown = ({ cart, history, dispatch }) => {
-
-  const domain_name = localStorage.getItem("domain_name")
+  const domain_name = localStorage.getItem("domain_name");
   const quote = initialQuoteState.sendQuote;
-    return (
-      <CartDropdownDiv className="cart-dropdown">
-        <CartItemsDiv className="cart-items">
-          {cart.filter(
-            (item) => item.storeID === Number(localStorage.getItem("storeID"))
-          ).length ? (
-            cart
-              .filter(
-                (item) =>
-                  item.storeID === Number(localStorage.getItem("storeID"))
-              )
-              .map((cartItem) => (
-                <SingleCartItem key={cartItem.id} item={cartItem} />
-              ))
-          ) : (
-            <span className="empty-message">Your Cart is Empty</span>
-          )}
-        </CartItemsDiv>
-        <CustomButton
-          onClick={() => {
-          
-            dispatch(toggleCart());
-            dispatch(setQuote({
+  return (
+    <CartDropdownDiv className="cart-dropdown">
+      <CartItemsDiv className="cart-items">
+        {cart.filter(
+          (item) => item.storeID === Number(localStorage.getItem("storeID"))
+        ).length ? (
+          cart
+            .filter(
+              (item) => item.storeID === Number(localStorage.getItem("storeID"))
+            )
+            .map((cartItem) => (
+              <SingleCartItem key={cartItem.id} item={cartItem} />
+            ))
+        ) : (
+          <span className="empty-message">Your Cart is Empty</span>
+        )}
+      </CartItemsDiv>
+      <CustomButton
+        onClick={() => {
+          dispatch(toggleCart());
+          dispatch(
+            setQuote({
               ...quote,
-              quoteInfo:{
+              quoteInfo: {
                 ...quote.quoteInfo,
-                storeID: cart[0].storeId
+                storeID: cart[0].storeId,
               },
-              spInfo:{
+              spInfo: {
                 ...quote.spInfo,
-              designId: cart[0].id,
-              type: cart[0].type,
-              products: 
-                cart
-            }}))
-            history.push(`/${domain_name}/shippingAddress`);
-          }}
-         
-          
-        >
-          GO TO CHECKOUT
-        </CustomButton>
-      </CartDropdownDiv>
-    );
+                designId: cart[0].id,
+                type: cart[0].type,
+                products: cart,
+              },
+            })
+          );
+          history.push(`/${domain_name}/shippingAddress`);
+        }}
+      >
+        GO TO CHECKOUT
+      </CustomButton>
+    </CartDropdownDiv>
+  );
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     cart: state.CartReducer.cart,
   };

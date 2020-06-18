@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import { axiosWithEnv } from "../../utils/axiosWithEnv";
 
 // The purpose of the InventoryCard component is to render each product in a user's inventory. The InventoryList component calls the InventoryCard components using a .map method as long as the inventory array length is greater than 0.
@@ -12,12 +12,9 @@ const InventoryCard = (props) => {
 
   // deleteItem is an event handler that makes an axios.delete request to the back end when a user clicks on the Delete button. This should be an axiosWithAuth request, but we ran into issues implementing axiosWithAuth in the Inventory components where the inventory would only load with plain axios calls.
   const deleteItem = (e) => {
-    console.log("made it")
     e.preventDefault();
     axiosWithEnv()
-      .delete(
-        `/api/products/${props.id}`
-      )
+      .delete(`/api/products/${props.id}`)
       .then((res) => {
         window.location.reload();
       })

@@ -10,11 +10,11 @@ const scalableData = (garment) => {
           dimensions: { width: garment.designWidth },
           position: {
             horizontal: garment.designPlacement,
-            offset: { top: garment.offSetFromTop }
-          }
-        }
-      }
-    }
+            offset: { top: garment.offSetFromTop },
+          },
+        },
+      },
+    },
   };
 
   return data;

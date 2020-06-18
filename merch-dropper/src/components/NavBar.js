@@ -5,10 +5,10 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 // components
 import CartIcon from "./Cart/CartIcon.js";
 import CartDropDown from "./Cart/CartDropDown";
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu'; // menu needs the state in the nav until a smarter dev comes along that can effectively modularize(is that a word? 🤔) this.
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuIcon from '@material-ui/icons/Menu'; // Icon could likely be broken down more modularly
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu"; // menu needs the state in the nav until a smarter dev comes along that can effectively modularize(is that a word? 🤔) this.
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuIcon from "@material-ui/icons/Menu"; // Icon could likely be broken down more modularly
 // styles
 import { useStyles } from "./Component-Styles/NavBar.js";
 // auth0 client
@@ -40,7 +40,6 @@ const NavBar = ({ hidden, history, location }) => {
     });
   };
   if (localStorage.getItem("profile")) {
-    
     const userID = JSON.parse(localStorage.getItem("profile")).id;
     axiosWithAuth()
       .get(`/api/stores/user/${userID}`)
@@ -55,7 +54,6 @@ const NavBar = ({ hidden, history, location }) => {
       });
   }
   useEffect(() => {
-    
     if (process.env.REACT_APP_BASE_URL === "development") {
       setInDevelop(true);
     }
@@ -204,36 +202,39 @@ const NavBar = ({ hidden, history, location }) => {
           />
         </div>
         <div className={classes.CartAndHamWrapper}>
-          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-             <MenuIcon fontSize="large" />
+          <Button
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            <MenuIcon fontSize="large" />
           </Button>
-            <Menu
+          <Menu
             id="simple-menu"
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
-            >
-              {localStorage.getItem("profile") ?
+          >
+            {localStorage.getItem("profile") ? (
               <span>
                 <MenuItem onClick={logoutWithRedirect}>Logout</MenuItem>
                 {/* <MenuItem onClick={handleClose}>My account</MenuItem> // if CRUD profiles added */}
                 <MenuItem onClick={handleClose}>Close</MenuItem>
               </span>
-              :
+            ) : (
               <span>
-              <MenuItem onClick={customLogin}>Login</MenuItem>
-              <MenuItem onClick={customSignup}>SignUp</MenuItem>
-              {inDevelop ? 
-                <MenuItem onClick={handleClose}>
-                  <Link to="/develop">Dev Auth</Link>
-                </MenuItem>
-                : null
-              }
-              <MenuItem onClick={handleClose}>Close</MenuItem>
+                <MenuItem onClick={customLogin}>Login</MenuItem>
+                <MenuItem onClick={customSignup}>SignUp</MenuItem>
+                {inDevelop ? (
+                  <MenuItem onClick={handleClose}>
+                    <Link to="/develop">Dev Auth</Link>
+                  </MenuItem>
+                ) : null}
+                <MenuItem onClick={handleClose}>Close</MenuItem>
               </span>
-              }
-            </Menu>
+            )}
+          </Menu>
         </div>
         {hidden ? null : <CartDropDown />}
       </div>

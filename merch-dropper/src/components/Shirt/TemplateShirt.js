@@ -55,16 +55,16 @@ const ShirtBox = styled.div`
     overflow: hidden;
   }
 `;
-const Design = styled.div.attrs(props => ({
+const Design = styled.div.attrs((props) => ({
   top: props.offset || "90px",
   width: props.designSize || "32px",
-  left: props.horizontal || "184px"
+  left: props.horizontal || "184px",
 }))`
-  width: ${props => props.designSize};
+  width: ${(props) => props.designSize};
   // height: auto;
   position: relative;
-  left: ${props => props.horizontal};
-  top: ${props => props.offset};
+  left: ${(props) => props.horizontal};
+  top: ${(props) => props.offset};
   font-size: 16px;
   font-weight: 700;
   padding: 10px 0;
