@@ -93,37 +93,11 @@ const SingleCartItem = ({ item: { thumbnailURL, price, name, quantity } }) => (
 
 const CartDropdown = ({ cart, history, dispatch }) => {
 
-  // const outsideContainer =useRef();
-
-  // const [open, setOpen] = useState(true);
-
-  // const handleClickOutside = e => {
-  //   if(outsideContainer.current.contains(e.target))  {
-  //     //clicked inside
-  //     return;
-  //   }
-  //   //clicked outside
-  //   setOpen(true);
-  // };
-
-  // useEffect(() => {
-  //   if (open) {
-  //     document.addEventListener("mousedown", handleClickOutside);
-  //   } else {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   }
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, [open]);
-
-
-
+  
   const domain_name = localStorage.getItem("domain_name")
   const quote = initialQuoteState.sendQuote;
     return (
-     // <div ref={outsideContainer}>
+     
       <CartDropdownDiv className="cart-dropdown">
         <CartItemsDiv className="cart-items">
           {cart.filter(
@@ -166,7 +140,7 @@ const CartDropdown = ({ cart, history, dispatch }) => {
           GO TO CHECKOUT
         </CustomButton>
       </CartDropdownDiv>
-      //</div>
+    
     );
 };
 
