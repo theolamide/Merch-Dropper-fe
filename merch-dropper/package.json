@@ -47,7 +47,7 @@
   },
   "scripts": {
     "start": "npm-run-all start-dev start-mockapi",
-    "start-dev": "env-cmd react-scripts -r @cypress/instrument-cra start",
+    "start-dev": "env-cmd react-scripts -r @cypress/instrument-cra start || react-scripts -r @cypress/instrument-cra start",
     "start-mockapi": "json-server ...",
     "cypress": "cypress run || true",
     "dev": "start-test 3000 cypress || true",
