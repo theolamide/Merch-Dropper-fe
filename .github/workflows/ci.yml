@@ -35,3 +35,4 @@ jobs:
         with: 
           coverageCommand: yarn --cwd "merch-dropper" dev 
           coverageLocations: "merch-dropper/coverage/lcov.info:lcov"
+          debug: true
