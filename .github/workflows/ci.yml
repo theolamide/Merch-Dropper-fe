@@ -33,6 +33,6 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           CI: true
         with: 
-          coverageCommand: yarn --cwd "merch-dropper" dev 
+          coverageCommand: yarn --cwd "merch-dropper" cypress:coverage 
           coverageLocations: "merch-dropper/coverage/lcov.info:lcov"
           debug: true
