@@ -108,6 +108,14 @@
     ],
     "setupFiles": [
       "jest-localstorage-mock"
+    ],
+    "coverageReporters": [
+      [
+        "lcov",
+        {
+          "projectRoot": ".."
+        }
+      ]
     ]
   }
 }
