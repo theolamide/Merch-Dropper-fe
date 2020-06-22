@@ -16,7 +16,8 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           CI: true
+          REACT_APP_BASE_URL: development
         with:
           coverageCommand: yarn --cwd "merch-dropper" cypress:coverage
-          coverageLocations: "merch-dropper/coverage/lcov.info:lcov"
+          coverageLocations: "${{github.workspace}}/merch-dropper/coverage/lcov.info:lcov"
           debug: true
