@@ -6,8 +6,8 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        node: [12, 10]
+        os: ubuntu-latest
+        node: 12
     name: Test ${{ matrix.os }}/${{ matrix.node }}
     runs-on: ${{ matrix.os }}
     steps:
@@ -15,8 +15,8 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node }}
-      - run: yarn install
-      - run: yarn test
+      - run: yarn --cwd "merch-dropper" install
+      - run: yarn --cwd "merch-dropper" test
         env:
           CI: true
   coverage:
@@ -27,12 +27,12 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: "12"
-      - run: cd merch-dropper && yarn install
+      - run: yarn --cwd "merch-dropper" install
       - uses: paambaati/codeclimate-action@v2.4.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           CI: true
-        with: 
-          coverageCommand: yarn --cwd "merch-dropper" cypress:coverage 
+        with:
+          coverageCommand: yarn --cwd "merch-dropper" cypress:coverage
           coverageLocations: "merch-dropper/coverage/lcov.info:lcov"
           debug: true
