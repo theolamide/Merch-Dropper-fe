@@ -158,7 +158,7 @@ The Scalable Press API is a comprehensive REST service for viewing the product c
 
 Jest is a JavaScript Testing Framework maintained by Facebook, Inc. with a focus on simplicity.
 
-## Cypress <img src="https://www.ideematic.com/wp-content/uploads/2018/07/Cypress-tests-end-to-end.png">
+## Cypress <img src="https://cdn.auth0.com/blog/cypress-tests/logo.png">
 
 # Contributing
 
