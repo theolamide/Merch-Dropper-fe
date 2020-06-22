@@ -155,6 +155,7 @@ const NavBar = ({ hidden, history, location }) => {
     } else {
       return (
         <nav className={classes.ButtonWrapper}>
+          {/* Checks to see if you're in development mode */}
           {inDevelop ? (
             <>
               <Link className={classes.links} to="/develop">
