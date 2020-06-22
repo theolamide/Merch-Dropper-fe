@@ -56,7 +56,7 @@ function CreateStore({ history }) {
   const convertToDomain = (string) => {
     let splitString = string.split(/[^A-Za-z0-9]/);
     let joinedString = splitString.join("");
-
+    let domainString = joinedString.toLowerCase();
     setDomain(joinedString);
   };
 
