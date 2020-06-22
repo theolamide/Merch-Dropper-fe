@@ -3,22 +3,6 @@ name: build
 on: [push, pull_request]
 
 jobs:
-  test:
-    strategy:
-      matrix:
-        os: ubuntu-latest
-        node: 12
-    name: Test ${{ matrix.os }}/${{ matrix.node }}
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
-        with:
-          node-version: ${{ matrix.node }}
-      - run: yarn --cwd "merch-dropper" install
-      - run: yarn --cwd "merch-dropper" test
-        env:
-          CI: true
   coverage:
     name: Test and publish test coverage
     runs-on: ubuntu-latest
