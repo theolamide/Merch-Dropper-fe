@@ -24,7 +24,6 @@ const NavBar = ({ hidden, history, location }) => {
   const { pathname } = location;
   const domain_name = localStorage.getItem("domain_name");
   const [store_name, setStore_name] = useState();
-
   const [anchorEl, setAnchorEl] = useState(null); // new mobile menu
   const [inDevelop, setInDevelop] = useState(false);
 
@@ -193,7 +192,7 @@ const NavBar = ({ hidden, history, location }) => {
           : { display: "block" }
       }
     >
-      {/* <NavbarStyles /> */}
+      {/* Mobile NavBar */}
       <div className={classes.MobileWrapper}>
         <div className={classes.BrandWrapper} onClick={homepageRedirect}>
           <img
@@ -214,10 +213,24 @@ const NavBar = ({ hidden, history, location }) => {
             open={Boolean(anchorEl)}
             onClose={handleClose}
             >
+              {/* If your at a store domain and not logged in only render cart and close menu options */}
+            { pathname === `/${domain_name}` && !localStorage.getItem("profile") ?
+              <span> 
+                <MenuItem>Cart</MenuItem>
+                <MenuItem onClick={handleClose}>Close</MenuItem>
+              </span> 
+              :
+              <>
               {localStorage.getItem("profile") ?
               <span>
-                <MenuItem onClick={logoutWithRedirect}>Logout</MenuItem>
                 {/* <MenuItem onClick={handleClose}>My account</MenuItem> // if CRUD profiles added */}
+                { pathname === `/${domain_name}` && !store_name ?
+                <MenuItem>Cart</MenuItem>
+                : null}
+                <MenuItem>
+                  <Link to="/dashboard">Dashboard</Link>
+                </MenuItem>
+                <MenuItem onClick={logoutWithRedirect}>Logout</MenuItem>
                 <MenuItem onClick={handleClose}>Close</MenuItem>
               </span>
               :
@@ -230,9 +243,13 @@ const NavBar = ({ hidden, history, location }) => {
                 </MenuItem>
                 : null
               }
+
+
               <MenuItem onClick={handleClose}>Close</MenuItem>
               </span>
               }
+              </>
+            }
             </Menu>
         </div>
         {hidden ? null : <CartDropDown />}
