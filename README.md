@@ -160,6 +160,11 @@ Jest is a JavaScript Testing Framework maintained by Facebook, Inc. with a focus
 
 ## Cypress <img src="https://www.ideematic.com/wp-content/uploads/2018/07/Cypress-tests-end-to-end.png">
 
+Cypress is a JavaScript Testing Framework easier to use and more impactful than Jest because it shows you directly the site being changed and interacted with.
+
+To get Cypress code coverage first run "yarn dev", second run all tests in the "tests" folder.
+The coverage file will be merch-dropper/coverage/lcov.info
+
 # Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
